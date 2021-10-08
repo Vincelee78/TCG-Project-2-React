@@ -10,7 +10,7 @@ function App() {
     <React.Fragment>
     <div className="App">
       <Navbar />
-      <Tab />
+    
       <Wrapper />
 
     </div>

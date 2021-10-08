@@ -17,17 +17,17 @@ export default class Tab extends React.Component {
                         onClick={()=>{
                             this.setActive('listing')
                         }}
-                        >Listings</button>
+                        >Case Title</button>
+                </li>
+                <li className="nav-item">
+                    <button className="nav-link">Case Findings</button>
                 </li>
                 <li className="nav-item">
                     <button className={"nav-link"}
                         onClick={()=>{
                             this.setActive('addnew')
                         }}
-                    >Add New</button>
-                </li>
-                <li className="nav-item">
-                    <button className="nav-link">About Us</button>
+                    >Add New Case</button>
                 </li>               
             </ul>
             {this.renderContent()}
