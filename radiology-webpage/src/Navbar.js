@@ -5,9 +5,9 @@ export default function Navbar(props) {
     return (
         <React.Fragment>
             <div id="nav">
-                <div class="logo">
-                    <img src={logo} alt={logo} class="main-logo" />
-                    <a style={{ fontFamily: 'Stencil Std, fantasy' }}><b>We Speak Fish</b></a>
+                <div id='allLogos'>
+                    <img src={logo} alt={logo} id="logo" />
+                    <a style={{ fontFamily: 'Stencil Std, fantasy' }} id="pagename"><b>MedRadiology</b></a>
                 </div>
 
                 <nav class="navbar" id="navbar">
@@ -17,11 +17,10 @@ export default function Navbar(props) {
                     <ul class="main-nav" id="js-menu">
                         <li><a href="#js-menu" class="navlink">HOME </a></li>
                         <li><a href="#about1" class="navlink">ABOUT </a></li>
-                        <li><a href="#title1" class="navlink">WHAT'S NEW </a></li>
-                        <li><a class="navlink dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown">MENU</a></li>
-                        <li><a href="" class="navlink">CATERING</a></li>
-                        <li><a href="#locations-main" class="navlink">LOCATE US </a></li>
-                        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSePTFf-uotYvd_JqDSmQSM5USZJCr_lvAb0a75WxL5Fb0rW5Q/viewform" class="navlink" target="_blank">CAREERS </a></li>
+                        <li><a href="#title1" class="navlink">CASES </a></li>
+                        <li><a class="navlink dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown">COURSES</a></li>
+                        <li><a href="" class="navlink">INFORMATION</a></li>
+                        
                     </ul>
                 </nav>
             </div>
