@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    
+}
+
+#nav {
+    background-color: gold;
+    display: flex;
+
+}
+
+
+.logo {
+    display: inline-block;
+    color: white;
+    line-height: 2;
+    background-color: gold;
+    height: 20px;
+    display: flex;
+    font-size: 20px;
+    margin-right: auto;
+    
+
+}
+
+.logo > a {
+    text-decoration: none;
+    color: white;
+}
+
+.main-logo {
+    margin-right: 20px;
+}
+
+nav > ul {
+    margin: 0;
+    padding: 0;
+    background-color: #faa307;
+    display: inline-block
+}
+
+
+nav > ul > li {
+    display: inline-block;
+
+}
+
+
+.navlink {
+    background-color: #faa307;
+    text-decoration: none;
+    color: white;
+    padding: 20px 30px;
+    display: block;
+}
+
+
+.nav-link {
+    color: white;
+}
+
+.navlink:hover {
+
+    background: gray;
+    height: 20px;
+
+}
+
+
+
+.about-title {
+    color: gold;
+    text-align: center;
+
+}
+
+.about {
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+}
+
+.about-des {
+    display: flex;
+}
+
+.about-des > img {
+    margin-right: 20px;
+}
+
+/* Nav bar collapse icon */
+
+
+
+.nav-link {
+    text-decoration: none;
+}
+
+
+.main-nav li a:hover {
+    
+    background-color: aquamarine;
+}
+
+
+
+.active {
+    display: block;
+
+
+}
+
+
+.navbar-toggle {
+    display: none;
+}
+
+
+/* end of nav bar collapse */
