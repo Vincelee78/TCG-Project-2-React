@@ -19,7 +19,7 @@ export default function Navbar(props) {
                         <li><a href="#js-menu" class="navlink">HOME </a></li>
                         <li><a href="#about1" class="navlink">ABOUT </a></li>
                         <li><a href="#title1" class="navlink">CASES </a></li>
-                        <li><a class="navlink dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown">COURSES</a></li>
+                        <li><a class="navlink" href="#" id="navbarDropdown" data-bs-toggle="dropdown">COURSES</a></li>
                         <li><a href="" class="navlink">INFORMATION</a></li>
                         
                     </ul>
