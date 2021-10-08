@@ -24,6 +24,7 @@ export default function Navbar(props) {
                     </ul>
                 </nav>
             </div>
+            <div id="infowords"> Online Resource for radiologists, radiology trainees and students</div>
 
         </React.Fragment>
 
