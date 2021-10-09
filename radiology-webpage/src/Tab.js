@@ -6,28 +6,7 @@ import AddNew from './components/AddNew'
 
 export default class Tab extends React.Component {
   state = {
-    'active': 'listing',  // indicate which page is active
-    // 'data': [
-    //   {
-    //     '_id': 1,
-    //     'title': 'Chicken Rice',
-    //     'ingredients': [
-    //       'Chicken Broth',
-    //       'Chicken',
-    //       'Rice'
-    //     ]
-    //   },
-    //   {
-    //     '_id': 2,
-    //     'title': 'Duck Rice',
-    //     'ingredients': [
-    //       'Duck',
-    //       'Rice'
-    //     ]
-    //   }
-    // ],
-
-
+    'active': 'listing',  // indicate which page is active  
 
     'data': [
       {
@@ -36,7 +15,7 @@ export default class Tab extends React.Component {
         "DOB": "2000/07/28",
         "bodySystems": [
           "Skeletal",
-          "Cardiovascular"
+          
         ],
 
         "radiologistId": "A01",
@@ -56,8 +35,7 @@ export default class Tab extends React.Component {
 
         "modality": [
           "X-ray",
-          "MRI",
-          "CT"
+          
         ]
       },
 
@@ -140,7 +118,7 @@ export default class Tab extends React.Component {
             >Case Title</button>
           </li>
           <li className="nav-item">
-            <button className="nav-link">Case Findings</button>
+            <button className="nav-link">Case Images</button>
           </li>
           <li className="nav-item">
             <button className={"nav-link"}

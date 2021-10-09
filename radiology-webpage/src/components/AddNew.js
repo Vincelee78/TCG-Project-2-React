@@ -27,7 +27,7 @@ export default class AddNew extends React.Component {
                 />
             </div>
             <div>
-                <label className="form-label">Ingredients</label>
+                <label className="form-label">Case Presentation</label>
                 <input type="text"
                        name="ingredients"
                        value={this.state.ingredients}
