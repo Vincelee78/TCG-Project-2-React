@@ -52,7 +52,7 @@ export default class Tab extends React.Component {
         "publishedDate": "2021-10-07",
 
         "scientificReferences": "Kang E. Ribs: a spectrum of abnormalities.(2002)",
-        "caseDiscussion": "AP view of chest. Prominent central vascular markings. Clear costophrenic angles.13 pairs of ribs.",
+        "caseDiscussion": "PA view of chest. Prominent central vascular markings. Clear costophrenic angles.13 pairs of ribs.",
 
         "modality": [
           "X-ray",
