@@ -9,35 +9,35 @@ export default class Tab extends React.Component {
     'active': 'listing',  // indicate which page is active  
 
     'data': [
-      {
-        "patientId": 1,
-        "gender": "Male",
-        "DOB": "2000/07/28",
-        "bodySystems": [
-          "Skeletal",
+      // {
+      //   "patientId": 1,
+      //   "gender": "Male",
+      //   "DOB": "2000/07/28",
+      //   "bodySystems": [
+      //     "Skeletal",
           
-        ],
+      //   ],
 
-        "radiologistId": "A01",
-        "studentsTagged": [
-          "T01",
-          "T02",
-          "T03"
-        ],
+      //   "radiologistId": "A01",
+      //   "studentsTagged": [
+      //     "T01",
+      //     "T02",
+      //     "T03"
+      //   ],
 
-        "clinicalHistory": "High Blood Pressure",
-        "signsSymptomsTitle": "Distressed. Sharp pain and swelling on chest area",
-        "images": <img src='https://pubs.rsna.org/cms/10.1148/ryct.2020200280/asset/images/medium/ryct.2020200280.fig3.gif'/>,
-        "publishedDate": "2021-10-07",
+      //   "clinicalHistory": "Hypertension",
+      //   "signsSymptomsTitle": "Distressed. Sharp pain and swelling on chest area",
+      //   "images": <img src='https://prod-images-static.radiopaedia.org/images/53181279/2edb88df42cab5e5fbc18b3965e0bd_jumbo.jpeg'/>,
+      //   "publishedDate": "2021-10-07",
 
-        "scientificReferences": "Kang E. Ribs: a spectrum of abnormalities.(2002)",
-        "caseDiscussion": "PA view of chest. Prominent central vascular markings. Clear costophrenic angles.13 pairs of ribs.",
+      //   "scientificReferences": "Kang E. Ribs: a spectrum of abnormalities.(2002)",
+      //   "caseDiscussion": "PA view of chest. Prominent central vascular markings. Clear costophrenic angles.13 pairs of ribs.",
 
-        "modality": [
-          "X-ray",
+      //   "modality": [
+      //     "X-ray",
           
-        ]
-      },
+      //   ]
+      // },
 
 
       // {
@@ -118,7 +118,9 @@ export default class Tab extends React.Component {
             >Case Title</button>
           </li>
           <li className="nav-item">
-            <button className="nav-link">Case Images</button>
+            <button className={"nav-link"} onClick={() => {
+                this.setActive('caseImg')
+              }}>Case Images</button>
           </li>
           <li className="nav-item">
             <button className={"nav-link"}
@@ -139,7 +141,7 @@ export default class Tab extends React.Component {
     })
   }
 
-  afterAddNewRecipe = () => {
+  afterAddNewPatient = () => {
     this.setActive('listing')
   }
 
@@ -147,7 +149,9 @@ export default class Tab extends React.Component {
     if (this.state.active == 'listing') {
       return <Listing data={this.state.data} />
     } else if (this.state.active == 'addnew') {
-      return <AddNew onAfterAddRecipe={this.afterAddNewRecipe} />
-    }
+      return <AddNew onAfterAddPatient={this.afterAddNewPatient} />
+    } else if (this.state.active == 'caseImg') {
+      return <AddNew onAfterAddPatient={this.afterAddNewPatient} />
   }
+}
 }

@@ -144,11 +144,10 @@ nav > ul > li {
     margin-top: 150px;
     position: absolute;
     background-color: lightskyblue;
-    opacity: 0.95;
+    opacity: 0.96;
     border-radius: 20px;
     border: 2px;
     padding: 20px;
-    
     width:80%;
 }
 
@@ -199,7 +198,9 @@ nav > ul > li {
 }
 
 #caseImgUrl{
-    padding-top: 50px;
+    padding-top: 10px;
+    height: 500px;
+    width:600px
 }
 
 #contents{

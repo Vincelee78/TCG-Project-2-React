@@ -3,8 +3,8 @@ import axios from 'axios'
 
 export default class AddNew extends React.Component {
     state = {
-        'title':'',
-        'ingredients':''
+        'signsSymptomsTitle':'',
+        'studentsTagged':''
     }
 
     updateFormField = (evt) => {
@@ -13,15 +13,15 @@ export default class AddNew extends React.Component {
         })
     }
 
-    url = "https://8888-copper-tahr-20npvdcv.ws-us18.gitpod.io/"
+    url = "https://5000-rose-hoverfly-vn9gcaxf.ws-us18.gitpod.io/"
 
     render() {
         return <React.Fragment>
             <div>
                 <label className="form-label">Title</label>
                 <input type="text"
-                    name="title"
-                    value={this.state.title}
+                    name="signsSymptomsTitle"
+                    value={this.state.signsSymptomsTitle}
                     onChange={this.updateFormField}
                     className="form-control"
                 />
@@ -29,26 +29,26 @@ export default class AddNew extends React.Component {
             <div>
                 <label className="form-label">Case Presentation</label>
                 <input type="text"
-                       name="ingredients"
-                       value={this.state.ingredients}
+                       name="studentsTagged"
+                       value={this.state.studentsTagged}
                        onChange={this.updateFormField}
                        className="form-control"
                 />
             </div>
-            <button onClick={this.addRecipe}
+            <button onClick={this.addPatient}
                     className="my-3 btn btn-primary btn-sm">Add</button>
 
 
         </React.Fragment>
     }
 
-    addRecipe = async () => {
-        let recipe = await axios.post(this.url + 'recipes', {
-            title: this.state.title,
-            ingredients: this.state.ingredients.split(',')
+    addPatient = async () => {
+        let patientsData = await axios.post(this.url + 'patientsData', {
+            signsSymptomsTitle: this.state.signsSymptomsTitle,
+            studentsTagged: this.state.studentsTagged.split(',')
         })
         // in a class-based component, to access the
         // props, we use `this.props`
-        this.props.onAfterAddRecipe()
+        this.props.onAfterAddPatient()
     }
 }
