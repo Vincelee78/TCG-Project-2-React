@@ -63,24 +63,9 @@ nav > ul > li {
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-decoration: none;
     color: white;
-    padding: 30px 80px;
+    padding: 30px 60px;
 
 }
-
-
-/* .about {
-    color: white;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 18px;
-} */
-
-/* .about-des {
-    display: flex;
-}
-
-.about-des > img {
-    margin-right: 20px;
-} */
 
 
 .nav-link {
@@ -163,7 +148,7 @@ nav > ul > li {
     color: #676767;
 }
 
-/* first section */
+/* first section of wrapper*/
 
 .bg-1 {
     background-image: url("https://i0.wp.com/swdic.com/wp-content/uploads/2020/08/Brain-MRI-min.jpg?fit=1973%2C963&ssl=1");
@@ -171,7 +156,7 @@ nav > ul > li {
     justify-content: center;
 }
 
-/* 2nd section */
+/* 2nd section of wrapper*/
 
 .bg-2 {
     background-image: url('https://image.shutterstock.com/image-photo/brain-ct-scan-head-computed-260nw-1390517843.jpg');
@@ -179,7 +164,7 @@ nav > ul > li {
 
 }
 
-/* 3rd section */
+/* 3rd section of wrapper*/
 
 .bg-3 {
     background-image: url('https://www.philips.com/c-dam/b2bhc/master/Specialties/radiology/ivp-page/media-asset-IVP-radiology-workflows-700.jpg');

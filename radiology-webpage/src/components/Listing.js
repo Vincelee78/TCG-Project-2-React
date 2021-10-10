@@ -12,53 +12,6 @@ export default class Listing extends React.Component {
         loading: false
     }
 
-    // export default function Listing(props) {
-    //     return <React.Fragment>
-    //         <div className="container">
-    //             <h2 style={{ color: 'brown' }}>Featured Case</h2>
-    //             {props.data.map(r => <React.Fragment key={r.patientId}>
-    //                 <div className="card">
-    //                     <div className="card-body">
-    //                         <h3 className="card-title">
-    //                             <h5>Case presentation:</h5>
-    //                             <h6>{r.signsSymptomsTitle}</h6>
-    //                         </h3>
-    //                         <h5>Patient ID: {r.patientId}</h5>
-    //                         <h5>Gender: {r.gender}</h5>
-    //                         <h5>Date of birth: {r.DOB}</h5>
-    //                          <h5>Clinical History: {r.clinicalHistory}</h5>
-    //                         <div id='flexContainer'>
-    //                         <h5 id='caseImgUrl'>{r.images}</h5>
-    //                         <div id='contents'>
-    //                         
-    //                         <h5>Imaging Modality:</h5>
-    //                         <ul>
-    //                             {r.modality.map(i => <li key={i}>{i}</li>)}
-    //                         </ul>
-    //                         <h5>Published Date: {r.publishedDate}</h5>
-    //                         <h5>Scientific References: {r.scientificReferences}</h5>
-    //                         <h5>Case Discussion: {r.caseDiscussion}</h5>
-    //                         <h5>Radiologist ID: {r.radiologistId}</h5>
-    //                         <h5>Students Tagged IDs:</h5>
-    //                         <ul>
-    //                             {r.studentsTagged.map(i => <li key={i}>{i}</li>)}
-    //                         </ul>
-    //                         <h5>Body Systems:</h5>
-    //                         <ul>
-    //                             {r.bodySystems.map(i => <li key={i}>{i}</li>)}
-    //                         </ul>
-    //                         </div>
-    //                     </div>
-    //                   </div>
-    //                 </div>
-    //             </React.Fragment>)}
-    //         </div>
-    //     </React.Fragment>
-    // }
-
-
-
-
     async componentDidMount() {
         this.setState({
             'loading': true
@@ -70,7 +23,7 @@ export default class Listing extends React.Component {
     }
 
     fetchData = async () => {
-        let response = await axios.get(this.url + "patientsData")
+        let response = await axios.get(this.url + "patientsData1")
         this.setState({
             data: response.data
         })

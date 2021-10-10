@@ -4,6 +4,7 @@ import axios from 'axios'
 export default class AddNew extends React.Component {
     state = {
         'signsSymptomsTitle':'',
+        'patientID':'',
         'studentsTagged':''
     }
 
@@ -18,13 +19,28 @@ export default class AddNew extends React.Component {
     render() {
         return <React.Fragment>
             <div>
-                <label className="form-label">Title</label>
+                <label className="form-label">Case presentation:</label>
                 <input type="text"
                     name="signsSymptomsTitle"
                     value={this.state.signsSymptomsTitle}
                     onChange={this.updateFormField}
-                    className="form-control"
-                />
+                    className="form-control"/>
+            </div>
+            <div>
+                <label className="form-label">Patient ID</label>
+                <input type="text"
+                       name="patientID"
+                       value={this.state.patientID}
+                       onChange={this.updateFormField}
+                       className="form-control"/>
+            </div>
+            <div>
+            <label className="form-label">Title</label>
+                <input type="text"
+                    name="signsSymptomsTitle"
+                    value={this.state.signsSymptomsTitle}
+                    onChange={this.updateFormField}
+                    className="form-control"/>
             </div>
             <div>
                 <label className="form-label">Case Presentation</label>
@@ -32,13 +48,10 @@ export default class AddNew extends React.Component {
                        name="studentsTagged"
                        value={this.state.studentsTagged}
                        onChange={this.updateFormField}
-                       className="form-control"
-                />
+                       className="form-control"/>
             </div>
-            <button onClick={this.addPatient}
-                    className="my-3 btn btn-primary btn-sm">Add</button>
 
-
+            <button onClick={this.addPatient} className="my-3 btn btn-primary btn-sm">Add</button>
         </React.Fragment>
     }
 
