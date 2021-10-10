@@ -56,9 +56,9 @@ export default class Listing extends React.Component {
 
                                 <h5>Radiologist ID: {patientsData.radiologistId}</h5>
                                 <h5>Students Tagged IDs:</h5>
-                                <ul>
+                                 <ul>
                                     {patientsData.studentsTagged.map(i => <li key={i}>{i}</li>)}
-                                </ul>
+                                </ul> 
                                 <h5>Body Systems:</h5>
                                 <ul>
                                     {patientsData.bodySystems.map(i => <li key={i}>{i}</li>)}

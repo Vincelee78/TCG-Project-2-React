@@ -180,7 +180,7 @@ export default class AddNew extends React.Component {
     addPatient = async () => {
         let patientsData = await axios.post(this.url + 'patientsData', {
             signsSymptomsTitle: this.state.signsSymptomsTitle,
-            studentsTagged: this.state.studentsTagged.split(',')
+            // bodySystems: this.state.bodySystems.split(',')
         })
         // in a class-based component, to access the
         // props, we use `this.props`

@@ -18,7 +18,7 @@ export default function Navbar(props) {
                     <ul class="main-nav" id="js-menu">
                         <li><a href="#js-menu" class="navlink">ARTICLES </a></li>
                         <li><a href="#about1" class="navlink">INFORMATION ON FEATURED CASES </a></li>
-                        <li><a href="AllCases.js" class="navlink">ALL CASES </a></li>
+                        <li><a href="/AllCases" class="navlink">ALL CASES </a></li>
                         <li><a class="navlink" href="#" id="navbarDropdown" data-bs-toggle="dropdown">COURSES</a></li>
                         <li><a href="" class="navlink">ABOUT</a></li>
                         
@@ -31,3 +31,4 @@ export default function Navbar(props) {
 
     )
 }
+
