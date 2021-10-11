@@ -1,5 +1,5 @@
-import React from 'react'
-import axios from 'axios'
+import React from 'react';
+import axios from 'axios';
 export default class Listing extends React.Component {
 
     url = "https://5000-rose-hoverfly-vn9gcaxf.ws-us18.gitpod.io/"
@@ -34,31 +34,27 @@ export default class Listing extends React.Component {
             <h2 style={{ color: 'brown', marginTop: '10px' }}>Featured Cases</h2>
             {this.state.data.map(patientsData => <div className="container" key={patientsData._id}>
                 <div className="card">
-                    <div className="card-body">
+                    <div className="card-body" >
                         <h3 className="card-title">
                             <h5>Case presentation:</h5>
-                            <h6>{patientsData.signsSymptomsTitle}</h6>
+                            <p><h6>{patientsData.signsSymptomsTitle}</h6></p>
                         </h3>
-                        <h5>Patient ID: {patientsData.patientID}</h5>
-                        <h5>Gender: {patientsData.gender}</h5>
-                        <h5>Date of birth: {patientsData.dob}</h5>
+                        <p><h5>Patient ID: {patientsData.patientID}</h5></p>
+                        <p><h5>Gender: {patientsData.gender}</h5></p>
+                        <p><h5>Date of birth: {patientsData.dob}</h5></p>
                         <h5>Clinical History: </h5>
-                        <h6>{patientsData.clinicalHistory}</h6>
+                        <p><h6>{patientsData.clinicalHistory}</h6></p>
                         <div id='flexContainer'>
-                            <span><img id='caseImgUrl' src={patientsData.images} /></span>
+                            <p><img id='caseImgUrl' src={patientsData.images} /></p>
                             <div id='contents'>
 
-                                <h5>Imaging Modality: {patientsData.modality}</h5>
-                                <h5>Published Date: {patientsData.publishedDate}</h5>
+                                <p><h5>Imaging Modality: {patientsData.modality}</h5></p>
+                                <p><h5>Published Date: {patientsData.publishedDate}</h5></p>
 
                                 <h5>Case Discussion: </h5>
-                                <h6>{patientsData.caseDiscussion}</h6>
+                                <p><h6>{patientsData.caseDiscussion}</h6></p>
 
-                                <h5>Radiologist ID: {patientsData.radiologistId}</h5>
-                                <h5>Students Tagged IDs:</h5>
-                                 <ul>
-                                    {patientsData.studentsTagged.map(i => <li key={i}>{i}</li>)}
-                                </ul> 
+                                <p><h5>Radiologist ID: {patientsData.radiologistId}</h5></p>
                                 <h5>Body Systems:</h5>
                                 <ul>
                                     {patientsData.bodySystems.map(i => <li key={i}>{i}</li>)}

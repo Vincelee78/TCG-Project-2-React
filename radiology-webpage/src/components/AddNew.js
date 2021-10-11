@@ -15,6 +15,7 @@ export default class AddNew extends React.Component {
         'radiologistId': '',
         'bodySystems': [],
         'scientificReferences': ''
+         
 
 
 
@@ -27,6 +28,14 @@ export default class AddNew extends React.Component {
             [evt.target.name]: evt.target.value
         })
     }
+
+    updateStudentsField=(evt)=>{
+        this.setState({
+            [evt.target.name]: [evt.target.value]
+        })
+
+    }
+
 
     updateitems = (evt) => {
         if (this.state.bodySystems.includes(evt.target.value)) {
@@ -50,6 +59,15 @@ export default class AddNew extends React.Component {
             bodySystems: clone
           })
         }
+      }
+
+      updateStatestudentsTagged=(evt)=>{
+          let clone=this.state.studentsTagged
+          clone.push(evt.target.value);
+        
+          this.setState({
+            studentsTagged:clone
+          })
       }
 
     url = "https://5000-rose-hoverfly-vn9gcaxf.ws-us18.gitpod.io/"
