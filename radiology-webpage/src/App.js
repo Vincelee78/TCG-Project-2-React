@@ -2,20 +2,22 @@ import React from 'react';
 import './App.css';
 import Navbar from './Navbar';
 import Wrapper from './Wrapper';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import Tab from './Tab';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
+
+
+export default class App extends React.Component {
+
+  render(){
   return (
     <React.Fragment>
     <div className="App">
       <Navbar />
-    
       <Wrapper />
 
     </div>
     </React.Fragment>
   );
 }
+}
 
-export default App;

@@ -1,20 +1,21 @@
-import React from 'react'
-import axios from 'axios'
+import React from 'react';
+import axios from 'axios';
+import AllCasesContent from './AllCasesContent'
 
 export default class AddNew extends React.Component {
     state = {
         'signsSymptomsTitle': '',
-        'patientID': '',
-        'gender': '',
-        'dob': '',
-        'clinicalHistory': '',
-        'images': '',
-        'modality': '',
-        'publishedDate': '',
-        'caseDiscussion': '',
-        'radiologistId': '',
+        // 'patientID': '',
+        // 'gender': '',
+        // 'dob': '',
+        // 'clinicalHistory': '',
+        // 'images': '',
+        // 'modality': '',
+        // 'publishedDate': '',
+        // 'caseDiscussion': '',
+        // 'radiologistId': '',
         'bodySystems': [],
-        'scientificReferences': ''
+        // 'scientificReferences': ''
          
 
 
@@ -29,12 +30,6 @@ export default class AddNew extends React.Component {
         })
     }
 
-    updateStudentsField=(evt)=>{
-        this.setState({
-            [evt.target.name]: [evt.target.value]
-        })
-
-    }
 
 
     updateitems = (evt) => {
@@ -61,14 +56,7 @@ export default class AddNew extends React.Component {
         }
       }
 
-      updateStatestudentsTagged=(evt)=>{
-          let clone=this.state.studentsTagged
-          clone.push(evt.target.value);
-        
-          this.setState({
-            studentsTagged:clone
-          })
-      }
+      
 
     url = "https://5000-rose-hoverfly-vn9gcaxf.ws-us18.gitpod.io/"
 
@@ -198,7 +186,7 @@ export default class AddNew extends React.Component {
     addPatient = async () => {
         let patientsData = await axios.post(this.url + 'patientsData', {
             signsSymptomsTitle: this.state.signsSymptomsTitle,
-            // bodySystems: this.state.bodySystems.split(',')
+            bodySystems: this.state.bodySystems
         })
         // in a class-based component, to access the
         // props, we use `this.props`
