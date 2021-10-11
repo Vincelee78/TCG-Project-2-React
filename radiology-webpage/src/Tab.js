@@ -21,6 +21,7 @@ export default class Tab extends React.Component {
 
   render() {
     return <React.Fragment>
+      
       <div id='tabcss'>
         <ul className="nav nav-tabs">
           <li className="nav-item">
@@ -46,6 +47,7 @@ export default class Tab extends React.Component {
         </ul>
         {this.renderContent()}
       </div>
+      
     </React.Fragment>
   }
 

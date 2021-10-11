@@ -21,13 +21,21 @@ export default class Listing extends React.Component {
             'loading': false
         })
     }
-
+    
     fetchData = async () => {
         let response = await axios.get(this.url + "patientsData1")
-        this.setState({
+    if (response.status === 200){
+            this.setState({
             data: response.data
         })
+    } else {
+        
+     this.setState({
+             data: 'error'
+        })
+        
     }
+   }
 
     render() {
         return <React.Fragment>
@@ -45,7 +53,7 @@ export default class Listing extends React.Component {
                         <h5>Clinical History: </h5>
                         <p><h6>{patientsData.clinicalHistory}</h6></p>
                         <div id='flexContainer'>
-                            <p><img id='caseImgUrl' src={patientsData.images} /></p>
+                            <p><img className='caseImgUrl' src={patientsData.images} /></p>
                             <div id='contents'>
 
                                 <p><h5>Imaging Modality: {patientsData.modality}</h5></p>
@@ -67,7 +75,13 @@ export default class Listing extends React.Component {
                 </div>
             </div>
             )}
+            {this.state.data? <div>
+            <h1>Error: We have encountered an internal server error</h1>
+        </div> : null}
         </React.Fragment>
 
     }
 }
+
+
+
