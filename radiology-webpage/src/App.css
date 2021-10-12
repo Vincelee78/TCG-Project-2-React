@@ -113,13 +113,13 @@ nav > ul > li {
    color: rgb(0, 180, 216); */
     /* margin-left:150px; */
     /* text-align: center; */
-    margin-top: 80px;
+    margin-top: 100px;
     position: absolute;
     background-color: lightskyblue;
     opacity: 0.96;
     border-radius: 20px;
-    border: 2px;
-    padding: 5px;
+    border: 10px;
+    padding: 20px;
     margin-left:60px
     
 }
@@ -219,5 +219,24 @@ padding-bottom: 20px;
 
 /* dimensions of card title in All cases section*/
 .card-body-all-images{
-    max-width:500px
+    max-width:300px
+}
+
+/* css of icons in All cases section */
+.iconsAllCases{
+    display: inline-block;
+          padding: 2px 2px;
+          color: red;
+          border: 1px solid red;
+          font-size: 10px;
+          cursor: pointer;
+          line-height:2;
+          font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+          text-decoration: none;
+}
+
+.iconsAllCases:hover{
+    background: rgba(255, 0, 0, 0.63);
+        border:1px solid rgba(250, 0, 0, 0.753);
+        color: white;
 }
