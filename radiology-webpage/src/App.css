@@ -107,7 +107,7 @@ nav > ul > li {
 
 }
 
-#title1 {
+.title {
     /* text-decoration: none;
    font-size: 30px;
    color: rgb(0, 180, 216); */
@@ -124,8 +124,9 @@ nav > ul > li {
     
 }
 
-#tabcss{
-    margin-left:20px
+.title3{
+    
+    background-color: lightskyblue;
     
 }
 
@@ -219,7 +220,13 @@ padding-bottom: 20px;
 
 /* dimensions of card title in All cases section*/
 .card-body-all-images{
-    max-width:300px
+    width:100%
+}
+
+/* css of width of car footer */
+.card-footer{
+width: 500px !important;
+
 }
 
 /* css of icons in All cases section */
