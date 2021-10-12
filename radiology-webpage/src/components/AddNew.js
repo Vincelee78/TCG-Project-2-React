@@ -138,7 +138,7 @@ export default class AddNew extends React.Component {
             </div>
             <div>
                 <label className="form-label">Case Discussion:</label>
-                <textarea name="message" rows="10" cols="30"
+                <textarea rows="10" cols="30"
                     name="caseDiscussion"
                     value={this.state.caseDiscussion}
                     onChange={this.updateFormField}
@@ -194,7 +194,7 @@ export default class AddNew extends React.Component {
     }
 
     addPatient = async () => {
-        let patientsData = await axios.post(this.url + 'patientsData', {
+         await axios.post(this.url + 'patientsData', {
             signsSymptomsTitle: this.state.signsSymptomsTitle,
             bodySystems: this.state.bodySystems,
             patientID:this.state.patientID,

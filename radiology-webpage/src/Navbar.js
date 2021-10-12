@@ -20,11 +20,11 @@ export default function Navbar(props){
                         <i class="fa fa-bars"></i>
                     </span>
                     <ul class="main-nav" id="js-menu">
-                        <li><a href="#js-menu" class="navlink">ARTICLES </a></li>
-                        <li><a href="#about1" class="navlink">INFORMATION ON FEATURED CASES </a></li>
-                        <li><a onClick={props.setActive1} class="navlink">ALL CASES </a></li>
-                        <li><a class="navlink" href="#" id="navbarDropdown" data-bs-toggle="dropdown">COURSES</a></li>
-                        <li><a href="" class="navlink">ABOUT</a></li>
+                        <li><span class="navlink">ARTICLES </span></li>
+                        <li><span class="navlink">INFORMATION ON FEATURED CASES </span></li>
+                        <li><span onClick={props.setActive1} class="navlink">ALL CASES </span></li>
+                        <li><span class="navlink" id="navbarDropdown" data-bs-toggle="dropdown">COURSES</span></li>
+                        <li><span class="navlink">ABOUT</span></li>
                         
                     </ul>
                     

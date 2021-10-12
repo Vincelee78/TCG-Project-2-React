@@ -22,11 +22,11 @@ export default class FeaturedCaseContents extends React.Component{
 
     fetchData = async () => {
         let response = await axios.get(this.url + "featuredCase")
-        if (response.status == 200) {
+        if (response.status === 200) {
             this.setState({
                 data: response.data
             })
-        } else if (response.status != 200) {
+        } else if (response.status !== 200) {
             this.setState({
                 data: ["error"]
             })
@@ -35,9 +35,9 @@ export default class FeaturedCaseContents extends React.Component{
     }
 
     renderContent() {
-         if (this.state.active == 'addnew') {
+         if (this.state.active === 'addnew') {
             return <AddNew onAfterAddPatient={this.afterAddNewPatient} />
-        }  if (this.state.active == 'editCase') {
+        }  if (this.state.active === 'editCase') {
             return <AllCasesContent />
         }
     }
@@ -69,7 +69,7 @@ export default class FeaturedCaseContents extends React.Component{
                             <h5>Clinical History: </h5>
                             <p><h6>{patientsData.clinicalHistory}</h6></p>
                             <div id='flexContainer'>
-                                <img id='caseImgUrl' src={patientsData.images} />
+                                <img id='caseImgUrl' alt='' src={patientsData.images} />
                                 <div id='contents' style={{paddingTop:'40px'}}>
                                     <p><h5>Imaging Modality: {patientsData.modality}</h5></p>
                                     <p><h5>Published Date: {patientsData.publishedDate}</h5></p>
@@ -90,7 +90,7 @@ export default class FeaturedCaseContents extends React.Component{
                     </div>
                 </div>
                 )}
-                {this.state.data == "error" ? <div>
+                {this.state.data === "error" ? <div>
                     <h1>Error: We have encountered an internal server error</h1>
                 </div> : null}
 

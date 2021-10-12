@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import AddNew from '../components/AddNew'
 import FeaturedCaseContents from './FeaturedCaseContents';
 import SuccessAddMessage from '../components/CaseAddedSuccess';
@@ -17,11 +16,11 @@ export default class FeaturedCase extends React.Component {
 
 
     renderContent() {
-        if(this.state.active == 'featuredCaseContents'){
+        if(this.state.active === 'featuredCaseContents'){
             return <FeaturedCaseContents/> 
-        }if(this.state.active == 'successAddMessage'){
+        }if(this.state.active === 'successAddMessage'){
                 return <SuccessAddMessage/> 
-        } if (this.state.active == 'addnew') {
+        } if (this.state.active === 'addnew') {
             return <AddNew onAfterAddPatient={this.afterAddNewPatient} />
         }  
     }

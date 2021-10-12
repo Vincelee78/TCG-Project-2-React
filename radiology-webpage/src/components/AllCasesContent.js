@@ -26,7 +26,7 @@ export default class AllCasesContent extends React.Component {
                 data: response.data
             })
         }
-        else if (response.status != 200) {
+        else if (response.status !== 200) {
             this.setState({
                 data: ["error"]
             })
@@ -41,9 +41,9 @@ export default class AllCasesContent extends React.Component {
       }
 
       renderContent() {
-        if (this.state.active == 'addnew') {
+        if (this.state.active === 'addnew') {
            return <AddNew onAfterAddPatient={this.afterAddNewPatient} />
-       }  if (this.state.active == 'editCase') {
+       }  if (this.state.active === 'editCase') {
            return <AllCasesContent />
        }
    }
@@ -52,11 +52,6 @@ export default class AllCasesContent extends React.Component {
         this.setActive('AllCasesContent')
       }
     
-      setActive(nextPage) {
-        this.setState({
-            'active': nextPage
-        })
-    }
     
 
     render() {
@@ -97,16 +92,16 @@ export default class AllCasesContent extends React.Component {
                             </div>
                             <div class="card-footer" style={{ textAlign: 'center' }}>
 
-                                <a><button className='btn btn-secondary'>{patientsData.modality}</button></a>
+                                <span><button className='btn btn-secondary'>{patientsData.modality}</button></span>
                                 
-                                {patientsData.bodySystems.map(i => <h4><a class="iconsAllCases">{i}</a></h4>)}
+                                {patientsData.bodySystems.map(i => <h4><span class="iconsAllCases">{i}</span></h4>)}
                                 
                             </div>
                         </div>
                     </div>
                 </header>
                 )}
-                {this.state.data == "error" ? <div>
+                {this.state.data === "error" ? <div>
                     <h1>Error: We have encountered an internal server error</h1>
                 </div> : null}
             </div>

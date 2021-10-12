@@ -34,8 +34,8 @@ export default class App extends React.Component {
             <p class="title" id="title1"> {this.state.active !== 'AllCasesContent' && <FeaturedCase/>} </p>
             <div class='fixed-bg bg-1'>
             </div>
-            <div class="fixed-bg bg-2"><a class="title1"> </a></div>
-            <div class="fixed-bg bg-3"><a class="title2"></a></div>
+            <div class="fixed-bg bg-2"><span class="title1" > </span></div>
+            <div class="fixed-bg bg-3"><span class="title2" ></span></div>
           </div>
 
   </div>
