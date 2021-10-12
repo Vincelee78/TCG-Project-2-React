@@ -220,12 +220,12 @@ padding-bottom: 20px;
 
 /* dimensions of card title in All cases section*/
 .card-body-all-images{
-    width:100%
+    width:60%
 }
 
 /* css of width of car footer */
 .card-footer{
-width: 500px !important;
+width: 300px !important;
 
 }
 
