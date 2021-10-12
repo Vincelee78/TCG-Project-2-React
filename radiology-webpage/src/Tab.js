@@ -1,19 +1,18 @@
 import React from 'react'
-import Listing from './components/Listing'
 import AddNew from './components/AddNew'
 import AllCasesContent from './components/AllCasesContent'
+import FeaturedCase from './components/FeaturedCase'
 
 
 
 export default class Tab extends React.Component {
   state = {
-    'active': 'listing',  // indicate which page is active  
+    'active': 'featuredCase',  // indicate which page is active  
 
     'data': [
 
     ],
 
-    loading: false
   }
 
 
@@ -28,7 +27,7 @@ export default class Tab extends React.Component {
             <button className="nav-link active"
               aria-current="page"
               onClick={() => {
-                this.setActive('listing')
+                this.setActive('featuredCase')
               }}
             >Case Title</button>
           </li>
@@ -58,12 +57,12 @@ export default class Tab extends React.Component {
   }
 
   afterAddNewPatient = () => {
-    this.setActive('listing')
+    this.setActive('AllcasesContent')
   }
 
   renderContent() {
-    if (this.state.active == 'listing') {
-      return <Listing data={this.state.data} />
+    if (this.state.active == 'featuredCase') {
+      return <FeaturedCase data={this.state.data} />
     } else if (this.state.active == 'addnew') {
       return <AddNew onAfterAddPatient={this.afterAddNewPatient} />
     } else if (this.state.active == 'AllcasesContent') {

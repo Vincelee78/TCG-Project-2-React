@@ -10,7 +10,7 @@ import AllCasesContent from './components/AllCasesContent';
 
 export default class App extends React.Component {
   state = {
-    'active': 'listing',  // indicate which page is active
+    'active': 'featuredCase',  // indicate which page is active
     
   }
 
