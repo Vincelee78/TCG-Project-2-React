@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './home-logo.png';
-import AllCasesContent from './components/AllCasesContent';
+
 
 
 

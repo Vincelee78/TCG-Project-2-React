@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import AllCasesContent from './AllCasesContent'
-import AllCasesTab from './AllCasesTab';
+
 
 export default class AddNew extends React.Component {
     state = {

@@ -90,7 +90,9 @@ export default class FeaturedCaseContents extends React.Component{
                     </div>
                 </div>
                 )}
-
+                {this.state.data == "error" ? <div>
+                    <h1>Error: We have encountered an internal server error</h1>
+                </div> : null}
 
         </React.Fragment>
 }

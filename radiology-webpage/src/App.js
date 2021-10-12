@@ -1,10 +1,8 @@
 import React from 'react';
 import './App.css';
 import Navbar from './Navbar';
-import FeaturedTab from './FeaturedTab';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CarouselComponent from './components/Carousel';
-import AllCasesTab from './components/AllCasesTab';
 import AllCasesContent from './components/AllCasesContent';
 import FeaturedCase from './components/FeaturedCase';
 
