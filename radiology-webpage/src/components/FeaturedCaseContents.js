@@ -1,18 +1,15 @@
-import React from 'react';
-import axios from 'axios';
-import AddNew from '../components/AddNew'
-import AllCasesContent from '../components/AllCasesContent'
-import App from '../App';
-import FeaturedCaseContents from './FeaturedCaseContents';
-import SuccessAddMessage from '../components/CaseAddedSuccess';
+import React from "react";
+import axios from "axios";
+import AddNew from "./AddNew";
+import AllCasesContent from "./AllCasesContent";
 
-export default class FeaturedCase extends React.Component {
 
+export default class FeaturedCaseContents extends React.Component{
     url = "https://5000-rose-hoverfly-vn9gcaxf.ws-us18.gitpod.io/"
 
     state = {
         active: 'featuredCaseContents',
-
+        
         data: [
 
         ],
@@ -38,13 +35,11 @@ export default class FeaturedCase extends React.Component {
     }
 
     renderContent() {
-        if(this.state.active == 'featuredCaseContents'){
-            return <FeaturedCaseContents/> 
-        }if(this.state.active == 'successAddMessage'){
-                return <SuccessAddMessage/> 
-        } if (this.state.active == 'addnew') {
+         if (this.state.active == 'addnew') {
             return <AddNew onAfterAddPatient={this.afterAddNewPatient} />
-        }  
+        }  if (this.state.active == 'editCase') {
+            return <AllCasesContent />
+        }
     }
 
     setActive(nextPage) {
@@ -54,32 +49,13 @@ export default class FeaturedCase extends React.Component {
     }
 
     afterAddNewPatient = () => {
-        this.setActive('successAddMessage')
+        this.setActive('home')
     }
+
 
     render() {
         return <React.Fragment>
-            <div id='tabcss'>
-                <ul className="nav nav-tabs">
-                    <li className="nav-item">
-                        <button className="nav-link active"
-                            aria-current="page"
-                            onClick={() => {
-                                this.setActive('featuredCaseContents')
-                            }}
-                        >Case Title</button>
-                    </li>
-                    <li className="nav-item">
-                        <button className={"nav-link"}
-                            onClick={() => {
-                                this.setActive('addnew')
-                            }}
-                        >Add Case</button>
-                    </li>
-                </ul>
-                {this.renderContent()}
-                
-                {/* <h2 style={{ color: 'brown', marginTop: '10px' }}>Featured Case: COVID-19 positive patient</h2>
+            <h2 style={{ color: 'brown', marginTop: '10px' }}>Featured Case: COVID-19 positive patient</h2>
                 {this.state.data.map(patientsData => <div className="container" key={patientsData._id}>
                     <div className="card">
                         <div className="card-body" >
@@ -114,11 +90,8 @@ export default class FeaturedCase extends React.Component {
                     </div>
                 </div>
                 )}
-                {this.state.data == "error" ? <div>
-                    <h1>Error: We have encountered an internal server error</h1>
-                </div> : null} */}
-            </div>
-        </React.Fragment>
 
-    }
+
+        </React.Fragment>
+}
 }

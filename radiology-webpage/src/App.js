@@ -14,7 +14,7 @@ import FeaturedCase from './components/FeaturedCase';
 
 export default class App extends React.Component {
   state = {
-    'active': 'featuredCase',  // indicate which page is active
+    'active': 'featuredCaseContents',  // indicate which page is active
 
   }
 

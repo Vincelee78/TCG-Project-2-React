@@ -6,7 +6,7 @@ import AddNew from '../components/AddNew';
 
 export default class AllCasesContent extends React.Component {
     state = {
-        // 'active': 'AllCasesContent',
+        'active': 'AllCasesContent',
         'data': [
 
         ],
