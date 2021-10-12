@@ -70,7 +70,7 @@ export default class FeaturedCaseContents extends React.Component{
                             <p><h6>{patientsData.clinicalHistory}</h6></p>
                             <div id='flexContainer'>
                                 <img id='caseImgUrl' src={patientsData.images} />
-                                <div id='contents'>
+                                <div id='contents' style={{paddingTop:'40px'}}>
                                     <p><h5>Imaging Modality: {patientsData.modality}</h5></p>
                                     <p><h5>Published Date: {patientsData.publishedDate}</h5></p>
 
