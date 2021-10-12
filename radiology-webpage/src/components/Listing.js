@@ -53,9 +53,8 @@ export default class Listing extends React.Component {
                         <h5>Clinical History: </h5>
                         <p><h6>{patientsData.clinicalHistory}</h6></p>
                         <div id='flexContainer'>
-                            <p><img className='caseImgUrl' src={patientsData.images} /></p>
+                            <img id='caseImgUrl' src={patientsData.images} />
                             <div id='contents'>
-
                                 <p><h5>Imaging Modality: {patientsData.modality}</h5></p>
                                 <p><h5>Published Date: {patientsData.publishedDate}</h5></p>
 
