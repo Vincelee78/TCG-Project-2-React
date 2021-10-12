@@ -39,7 +39,7 @@ export default class Listing extends React.Component {
 
     render() {
         return <React.Fragment>
-            <h2 style={{ color: 'brown', marginTop: '10px' }}>Featured Cases</h2>
+            <h2 style={{ color: 'brown', marginTop: '10px' }}>All Cases:</h2>
             {this.state.data.map(patientsData => <div className="container" key={patientsData._id}>
                 <div className="card">
                     <div className="card-body" >

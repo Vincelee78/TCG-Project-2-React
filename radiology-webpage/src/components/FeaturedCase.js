@@ -17,14 +17,18 @@ export default class FeaturedCase extends React.Component {
     
     fetchData = async () => {
         let response = await axios.get(this.url + "featuredCase")
-    if (response.status === 200){
+    if (response.status == 200){
             this.setState({
             data: response.data
         })
-    } else {
-        
+    } else if (response.status != 200) {
+        // renderContent(){
+        //     return (<React.Fragment>
+        //         <h2>error</h2>
+        //     </React.Fragment>)
+        // }
      this.setState({
-             data: 'error'
+             data: ["error"]
         })
         
     }
@@ -67,7 +71,7 @@ export default class FeaturedCase extends React.Component {
                 </div>
             </div>
             )}
-            {this.state.data? <div>
+            {this.state.data == "error" ?  <div>
             <h1>Error: We have encountered an internal server error</h1>
         </div> : null}
         </React.Fragment>

@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Listing from './Listing';
 
 
 
@@ -29,6 +30,7 @@ export default class AllCasesContent extends React.Component {
     render() {
         return (
             <React.Fragment>
+                
                 {this.state.data.map(patientsData => <header className="containerAllCases" key={patientsData._id}>
                     <div class="card-group-all-cases">
                         <div class="card-all-cases">

@@ -1,13 +1,13 @@
 import React from 'react'
-import AddNew from './components/AddNew'
-import AllCasesContent from './components/AllCasesContent'
-import FeaturedCase from './components/FeaturedCase'
+import AddNew from '../components/AddNew'
+import AllCasesContent from '../components/AllCasesContent'
+import Listing from '../components/Listing'
 
 
 
-export default class Tab extends React.Component {
+export default class AllCasesTab extends React.Component {
   state = {
-    'active': 'featuredCase',  // indicate which page is active  
+    'active': 'AllCasesTab',  // indicate which page is active  
 
     'data': [
 
@@ -27,7 +27,7 @@ export default class Tab extends React.Component {
             <button className="nav-link active"
               aria-current="page"
               onClick={() => {
-                this.setActive('featuredCase')
+                this.setActive('AllCasesContent')
               }}
             >Case Title</button>
           </li>
@@ -45,6 +45,7 @@ export default class Tab extends React.Component {
           </li>
         </ul>
         {this.renderContent()}
+        
       </div>
       
     </React.Fragment>
@@ -57,15 +58,15 @@ export default class Tab extends React.Component {
   }
 
   afterAddNewPatient = () => {
-    this.setActive('AllcasesContent')
+    this.setActive('AllCasesTab')
   }
 
   renderContent() {
-    if (this.state.active == 'featuredCase') {
-      return <FeaturedCase data={this.state.data} />
+    if (this.state.active == 'AllCasesTab') {
+      return <Listing data={this.state.data} />
     } else if (this.state.active == 'addnew') {
       return <AddNew onAfterAddPatient={this.afterAddNewPatient} />
-    } else if (this.state.active == 'AllcasesContent') {
+    } else if (this.state.active == 'CaseImg') {
       return <AllCasesContent />
     }
   }
