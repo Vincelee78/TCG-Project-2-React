@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CarouselComponent from './components/Carousel';
 import AllCasesContent from './components/AllCasesContent';
 import FeaturedCase from './components/FeaturedCase';
+import FeaturedCaseContents from './components/FeaturedCaseContents';
 
 
 
@@ -46,11 +47,14 @@ export default class App extends React.Component {
           <div class='title3'>{this.state.active === 'AllCasesContent' ? <AllCasesContent /> : <CarouselComponent/>}</div>
 
           <div class="wrapper">
-          {this.state.active !== 'AllCasesContent' && <p class="title" id="title1"><FeaturedCase/></p>}
+            <div class='innerwrapper'>
+          {this.state.active !== 'AllCasesContent' && <p class="title" id="title1"><FeaturedCaseContents/></p>}
+          </div>
             <div class='fixed-bg bg-1'>
             </div>
             <div class="fixed-bg bg-2"><span class="title1" > </span></div>
             <div class="fixed-bg bg-3"><span class="title2" ></span></div>
+            
           </div>
 
   </div>

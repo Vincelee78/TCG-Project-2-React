@@ -1,5 +1,11 @@
 import React from "react";
 import axios from "axios";
+import Tabs from 'react-bootstrap/Tabs'
+import Tab from 'react-bootstrap/Tab'
+import AddNew from '../components/AddNew'
+import SuccessAddMessage from '../components/CaseAddedSuccess';
+import ErrorMessage from '../components/Errormessage';
+
 
 
 
@@ -7,12 +13,12 @@ export default class FeaturedCaseContents extends React.Component {
     url = "https://5000-rose-hoverfly-vn9gcaxf.ws-us18.gitpod.io/"
 
     state = {
-        active: 'featuredCaseContents',
+        active: 'featuredCase',
 
         data: [
 
         ],
-        caseBeingEdited: 0,
+        userBeingEdited: 0,
         modifiedpatientId: '',
         modifiedGender: '',
         modifieddob: '',
@@ -48,6 +54,18 @@ export default class FeaturedCaseContents extends React.Component {
 
     }
 
+    renderContent() {
+        if (this.state.active === 'errorMessage') {
+            return <ErrorMessage />
+        } if (this.state.active === 'featuredCaseContents') {
+            return <FeaturedCaseContents />
+        } if (this.state.active === 'successAddMessage') {
+            return <SuccessAddMessage />
+        } if (this.state.active === 'addnew') {
+            return <AddNew onAfterAddPatient={this.afterAddNewPatient} />
+        }
+    }
+
 
     setActive(nextPage) {
         this.setState({
@@ -55,8 +73,10 @@ export default class FeaturedCaseContents extends React.Component {
         })
     }
 
+    
+
     afterAddNewPatient = () => {
-        this.setActive('home')
+        this.setActive('successAddMessage')
     }
 
     beginEdit = (patientsData) => {
@@ -88,18 +108,18 @@ export default class FeaturedCaseContents extends React.Component {
         // modifiedUser._id is the orginal clone id
         // modifiedUser.name is the orginal clone name
         // this.state.modifiedUsername refer to begin edit(user) function, user.name
-        modifiedCase._id = this.state.caseBeingEdited;
-        modifiedCase.patientID= this.state.modifiedpatientId
+        modifiedCase._id = this.state.userBeingEdited;
+        modifiedCase.patientID = this.state.modifiedpatientId
         modifiedCase.signsSymptomsTitle = this.state.modifiedsignSymptomsTitle;
-        modifiedCase.gender=this.state.modifiedGender
-        modifiedCase.dob=this.state.modifieddob
-        modifiedCase.clinicalHistory=this.state.modifiedclinicalHistory
-        modifiedCase.modality=this.state.modifiedmodality
-        modifiedCase.caseDiscussion=this.state.modifiedcaseDiscussion
-        modifiedCase.bodySystems=this.state.modifiedbodySystem
-        modifiedCase.scientificReferences=this.state.modifiedscienticReferences
-        modifiedCase.publishedDate=this.state.modifiedpublishedDate
-        modifiedCase.images=this.state.modifiedimages
+        modifiedCase.gender = this.state.modifiedGender
+        modifiedCase.dob = this.state.modifieddob
+        modifiedCase.clinicalHistory = this.state.modifiedclinicalHistory
+        modifiedCase.modality = this.state.modifiedmodality
+        modifiedCase.caseDiscussion = this.state.modifiedcaseDiscussion
+        modifiedCase.bodySystems = this.state.modifiedbodySystem
+        modifiedCase.scientificReferences = this.state.modifiedscienticReferences
+        modifiedCase.publishedDate = this.state.modifiedpublishedDate
+        modifiedCase.images = this.state.modifiedimages
 
 
 
@@ -115,13 +135,18 @@ export default class FeaturedCaseContents extends React.Component {
         ];
 
         console.log(indexToModify);
-        console.log(cloned);
+        // console.log(cloned);
 
         // update the array with setState
         this.setState({
             data: cloned,
-            active: 'featuredCaseContents'
+            userBeingEdited: 0,
+            active:'featuredCase'
         });
+
+         axios.post(this.url + 'featuredCase', this.state.data)
+                
+         console.log(this.state.data)
     }
 
     renderEditDisplay = (a) => {
@@ -261,6 +286,7 @@ export default class FeaturedCaseContents extends React.Component {
 
     render() {
         return (
+            
 
             this.state.data.map(patientsData => {
                 if (patientsData._id === this.state.userBeingEdited) {
@@ -271,52 +297,70 @@ export default class FeaturedCaseContents extends React.Component {
                     )
                 } else {
                     return (
-
+                            
                         <React.Fragment key={patientsData._id}>
-                            {/* <div>{this.renderContent()}</div> */}
-                            <h2 style={{ color: 'brown', marginTop: '10px' }}>Featured Case: COVID-19 positive patient</h2>
-                            <div className="container" key={patientsData._id}>
-                                <div className="card">
-                                    <button onClick={() => {
-                                        this.beginEdit(patientsData);
-                                    }}> Edit Case
-                                    </button>
-                                    <div className="card-body" >
-                                        <h3 className="card-title">
-                                            <h5>Case presentation:</h5>
-                                            <p><h6>{patientsData.signsSymptomsTitle}</h6></p>
-                                        </h3>
-                                        <p><h5>Patient ID: {patientsData.patientID}</h5></p>
-                                        <p><h5>Gender: {patientsData.gender}</h5></p>
-                                        <p><h5>Date of birth: {patientsData.dob}</h5></p>
-                                        <h5>Clinical History: </h5>
-                                        <p><h6>{patientsData.clinicalHistory}</h6></p>
-                                        <div id='flexContainer'>
-                                            <img id='caseImgUrl' alt='' src={patientsData.images} />
-                                            <div id='contents' style={{ paddingTop: '40px' }}>
-                                                <p><h5>Imaging Modality: {patientsData.modality}</h5></p>
-                                                <p><h5>Published Date: {patientsData.publishedDate}</h5></p>
+                            
+                            <Tabs defaultActiveKey="case" id="uncontrolled-tab-example" className="mb-3" onSelect={(addcase) => { this.setActive('addnew')}}>
+                                <Tab eventKey="case" title="Case">
+                                    <h2 style={{ color: 'brown', marginTop: '10px' }}>Featured Case: COVID-19 positive patient</h2>
+                                    <div className="container" key={patientsData._id}>
+                                        <div className="card">
+                                            <button onClick={() => {
+                                                this.beginEdit(patientsData);
+                                            }}> Edit Case
+                                            </button>
+                                            <div className="card-body" >
+                                                <h3 className="card-title">
+                                                    <h5>Case presentation:</h5>
+                                                    <p><h6>{patientsData.signsSymptomsTitle}</h6></p>
+                                                </h3>
+                                                <p><h5>Patient ID: {patientsData.patientID}</h5></p>
+                                                <p><h5>Gender: {patientsData.gender}</h5></p>
+                                                <p><h5>Date of birth: {patientsData.dob}</h5></p>
+                                                <h5>Clinical History: </h5>
+                                                <p><h6>{patientsData.clinicalHistory}</h6></p>
+                                                <div id='flexContainer'>
+                                                    <img id='caseImgUrl' alt='' src={patientsData.images} />
+                                                    <div id='contents' style={{ paddingTop: '40px' }}>
+                                                        <p><h5>Imaging Modality: {patientsData.modality}</h5></p>
+                                                        <p><h5>Published Date: {patientsData.publishedDate}</h5></p>
 
-                                                <h5>Case Discussion: </h5>
-                                                <p><h6>{patientsData.caseDiscussion}</h6></p>
+                                                        <h5>Case Discussion: </h5>
+                                                        <p><h6>{patientsData.caseDiscussion}</h6></p>
 
-                                                <p><h5>Radiologist ID: {patientsData.radiologistId}</h5></p>
-                                                <h5>Body Systems:</h5>
-                                                <ul>
-                                                    {patientsData.bodySystems.map(i => <li key={i}>{i}</li>)}
-                                                </ul>
-                                                <h5>Scientific References: </h5>
-                                                <h6>{patientsData.scientificReferences}</h6>
+                                                        <p><h5>Radiologist ID: {patientsData.radiologistId}</h5></p>
+                                                        <h5>Body Systems:</h5>
+                                                        <ul>
+                                                            {patientsData.bodySystems.map(i => <li key={i}>{i}</li>)}
+                                                        </ul>
+                                                        <h5>Scientific References: </h5>
+                                                        <h6>{patientsData.scientificReferences}</h6>
+                                                    </div>
+                                                </div>
                                             </div>
+
                                         </div>
+
+
                                     </div>
+                                </Tab>
+                                <Tab eventKey="images" title="Case Images">
+                                    {/* if (eventKey==='images'){
+                                    this.setState({
+                                        active:'caseimages'
+                                    })
+                                } */}
+                                </Tab>
 
-                                </div>
-
-
-                            </div>
-
-                        </React.Fragment>)
+                                
+                            <Tab eventKey="addcase" title="Add Case" >
+                                    
+                             </Tab>
+                                
+                            </Tabs>
+                            {this.renderContent()}
+                        </React.Fragment >
+                        )
 
                 }
             })
