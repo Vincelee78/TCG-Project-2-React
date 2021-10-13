@@ -7,7 +7,6 @@ export default class FeaturedCaseContents extends React.Component {
     url = "https://5000-rose-hoverfly-vn9gcaxf.ws-us18.gitpod.io/"
 
     state = {
-        active: 'featuredCaseContents',
 
         data: [
 
@@ -120,7 +119,7 @@ export default class FeaturedCaseContents extends React.Component {
         // update the array with setState
         this.setState({
             data: cloned,
-            caseBeingEdited: 0
+            caseBeingEdited:0
         });
     }
 
