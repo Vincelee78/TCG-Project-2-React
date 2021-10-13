@@ -9,7 +9,7 @@ export default class FeaturedCase extends React.Component {
     url = "https://5000-rose-hoverfly-vn9gcaxf.ws-us18.gitpod.io/"
 
     state = {
-        active: 'featuredCaseContents',
+        active: 'featuredCase',
 
         data: [
 
