@@ -27,7 +27,10 @@ export default class FeaturedCase extends React.Component {
 
     fetchData = async () => {
         try {
-            let response = await axios.get(this.url + "featuredCase")
+            await axios.get(this.url + "featuredCase")
+            this.setState({
+                active: 'featuredCaseContents'
+            })
 
         } catch (e) {
             this.setState({
