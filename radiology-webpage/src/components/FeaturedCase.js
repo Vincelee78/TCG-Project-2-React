@@ -17,6 +17,10 @@ export default class FeaturedCase extends React.Component {
 
     }
 
+    // section below is only for setting the active state to 'errorMessage' and 
+    // displaying the server down error message 
+    // does not use the response data
+
     componentDidMount() {
         this.fetchData();
     }

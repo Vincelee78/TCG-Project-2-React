@@ -14,7 +14,6 @@ export default class FeaturedCaseContents extends React.Component {
         ],
         caseBeingEdited: 0,
         modifiedpatientId: '',
-        modifiedcasePresentation: '',
         modifiedGender: '',
         modifieddob: '',
         modifiedclinicalHistory: '',
@@ -64,7 +63,6 @@ export default class FeaturedCaseContents extends React.Component {
         this.setState({
             userBeingEdited: patientsData._id,
             modifiedpatientId: patientsData.patientID,
-            modifiedcasePresentation: patientsData.signsSymptomsTitle,
             modifiedGender: patientsData.gender,
             modifieddob: patientsData.dob,
             modifiedclinicalHistory: patientsData.clinicalHistory,
@@ -77,6 +75,54 @@ export default class FeaturedCaseContents extends React.Component {
             modifiedsignSymptomsTitle: patientsData.signsSymptomsTitle,
         });
     };
+
+    updateCase = () => {
+        // clone the original task
+        // let currentUser = this.state.users.filter((a) => a._id === user._id)[0];
+        // modifiedUser is the cloned original array
+        let modifiedCase = this.state.data.slice();
+        // let modifiedUser = { ...user1 };
+
+        // make changes to the clone
+        // modified task we have changed
+        // modifiedUser._id is the orginal clone id
+        // modifiedUser.name is the orginal clone name
+        // this.state.modifiedUsername refer to begin edit(user) function, user.name
+        modifiedCase._id = this.state.caseBeingEdited;
+        modifiedCase.patientID= this.state.modifiedpatientId
+        modifiedCase.signsSymptomsTitle = this.state.modifiedsignSymptomsTitle;
+        modifiedCase.gender=this.state.modifiedGender
+        modifiedCase.dob=this.state.modifieddob
+        modifiedCase.clinicalHistory=this.state.modifiedclinicalHistory
+        modifiedCase.modality=this.state.modifiedmodality
+        modifiedCase.caseDiscussion=this.state.modifiedcaseDiscussion
+        modifiedCase.bodySystems=this.state.modifiedbodySystem
+        modifiedCase.scientificReferences=this.state.modifiedscienticReferences
+        modifiedCase.publishedDate=this.state.modifiedpublishedDate
+        modifiedCase.images=this.state.modifiedimages
+
+
+
+        let indexToModify = this.state.data.findIndex(
+            (u) => u._id === modifiedCase._id
+        );
+        // clone the task array and insert the cloned task into the cloned array
+
+        let cloned = [
+            ...this.state.data.slice(0, indexToModify),
+            modifiedCase,
+            ...this.state.data.slice(indexToModify + 1)
+        ];
+
+        console.log(indexToModify);
+        console.log(cloned);
+
+        // update the array with setState
+        this.setState({
+            data: cloned,
+            caseBeingEdited: 0
+        });
+    }
 
     renderEditDisplay = (a) => {
         return (
@@ -199,11 +245,11 @@ export default class FeaturedCaseContents extends React.Component {
                             });
                         }}
                         name="modifiedscientificReferences"
-                    ></textarea> <br/>
+                    ></textarea> <br />
 
 
                     <button onClick={() => {
-                        this.updateuser(a);
+                        this.updateCase(a);
                     }}> Confirm </button>
 
                 </div>
