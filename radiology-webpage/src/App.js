@@ -22,19 +22,19 @@ export default class App extends React.Component {
     })
   }
 
-  showWrapper=()=>{
-    return(<React.Fragment>
-      <div class="wrapper">
-          {this.state.active !== 'AllCasesContent' && <p class="title" id="title1"><FeaturedCase/></p>}
-            <div class='fixed-bg bg-1'>
-            </div>
-            <div class="fixed-bg bg-2"><span class="title1" > </span></div>
-            <div class="fixed-bg bg-3"><span class="title2" ></span></div>
-          </div>
+  // showWrapper=()=>{
+  //   return(<React.Fragment>
+  //     <div class="wrapper">
+  //         {this.state.active !== 'AllCasesContent' && <p class="title" id="title1"><FeaturedCase/></p>}
+  //           <div class='fixed-bg bg-1'>
+  //           </div>
+  //           <div class="fixed-bg bg-2"><span class="title1" > </span></div>
+  //           <div class="fixed-bg bg-3"><span class="title2" ></span></div>
+  //         </div>
 
-    </React.Fragment>)
+  //   </React.Fragment>)
 
-  }
+  // }
 
 
 

@@ -2,8 +2,11 @@ import React from 'react';
 import AddNew from '../components/AddNew'
 import FeaturedCaseContents from './FeaturedCaseContents';
 import SuccessAddMessage from '../components/CaseAddedSuccess';
+import ErrorMessage from '../components/Errormessage';
+import axios from 'axios';
 
 export default class FeaturedCase extends React.Component {
+    url = "https://5000-rose-hoverfly-vn9gcaxf.ws-us18.gitpod.io/"
 
     state = {
         active: 'featuredCaseContents',
@@ -14,9 +17,27 @@ export default class FeaturedCase extends React.Component {
 
     }
 
+    componentDidMount() {
+        this.fetchData();
+    }
+
+    fetchData = async () => {
+        try {
+            let response = await axios.get(this.url + "featuredCase")
+
+        } catch (e) {
+            this.setState({
+                active: 'errorMessage'
+            })
+
+        }
+
+    }
 
     renderContent() {
-        if(this.state.active === 'featuredCaseContents'){
+        if(this.state.active === 'errorMessage'){
+            return <ErrorMessage/> 
+        }if(this.state.active === 'featuredCaseContents'){
             return <FeaturedCaseContents/> 
         }if(this.state.active === 'successAddMessage'){
                 return <SuccessAddMessage/> 

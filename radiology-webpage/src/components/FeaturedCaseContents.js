@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import AddNew from "./AddNew";
 import AllCasesContent from "./AllCasesContent";
+import ErrorMessage from "../components/Errormessage";
 
 
 export default class FeaturedCaseContents extends React.Component {
@@ -21,12 +22,11 @@ export default class FeaturedCaseContents extends React.Component {
         modifiedclinicalHistory: '',
         modifiedmodality: '',
         modifiedcaseDiscussion: '',
-        modifiedradiologistId: '',
         modifiedbodySystem: [],
         modifiedscienticReferences: '',
-        modifiedpublishedDate:'',
-        modifiedsignSymptomsTitle:'',
-        modifiedimages:'',
+        modifiedpublishedDate: '',
+        modifiedsignSymptomsTitle: '',
+        modifiedimages: '',
 
 
     }
@@ -43,28 +43,14 @@ export default class FeaturedCaseContents extends React.Component {
             })
 
         } catch (e) {
-            let renderError = e
+            this.setState({
+                active: 'errorMessage'
+            })
 
         }
 
     }
 
-
-    renderError() {
-        return (<React.Fragment>
-            <h1>Error: We have encountered an internal server error</h1>
-        </React.Fragment>)
-    }
-
-
-
-    renderContent() {
-        if (this.state.active === 'addnew') {
-            return <AddNew onAfterAddPatient={this.afterAddNewPatient} />
-        } if (this.state.active === 'editCase') {
-            return <AllCasesContent />
-        }
-    }
 
     setActive(nextPage) {
         this.setState({
@@ -82,159 +68,150 @@ export default class FeaturedCaseContents extends React.Component {
             modifiedpatientId: patientsData.patientID,
             modifiedcasePresentation: patientsData.signsSymptomsTitle,
             modifiedGender: patientsData.gender,
-            modifieddob:patientsData.dob,
-            modifiedclinicalHistory:patientsData.clinicalHistory,
+            modifieddob: patientsData.dob,
+            modifiedclinicalHistory: patientsData.clinicalHistory,
             modifiedmodality: patientsData.modality,
-            modifiedpublishedDate:patientsData.publishedDate,
-            modifiedcaseDiscussion:patientsData.modifiedcaseDiscussion,
-            modifiedbodySystem:patientsData.bodySystems,
-            modifiedscienticReferences:patientsData.scientificReferences,
-            modifiedimages: patientsData.images
+            modifiedpublishedDate: patientsData.publishedDate,
+            modifiedcaseDiscussion: patientsData.caseDiscussion,
+            modifiedbodySystem: patientsData.bodySystems,
+            modifiedscienticReferences: patientsData.scientificReferences,
+            modifiedimages: patientsData.images,
+            modifiedsignSymptomsTitle: patientsData.signsSymptomsTitle,
         });
     };
 
     renderEditDisplay = (a) => {
         return (
-            
-            <React.Fragment>    
-            <h3>Editing PatientID: {this.state.modifiedpatientId}</h3>
-            <div className="box">
-                <h6>Case Presentation:</h6>
-              <input type="text" value={this.state.modifiedsignSymptomsTitle} name="modifiedsignSymptomsTitle"
-              onChange={(evt) => {
-                  
-                this.setState({
-                    modifiedsignSymptomsTitle: evt.target.value });
-                }} /> <br/>
 
-                <h6>Gender:</h6>
-              <input
-                type="text"
-                value={this.state.modifiedGender}
-                onChange={(evt) => {
-                  this.setState({
-                    modifiedGender: evt.target.value
-                  });
-                }}
-                name="modifiedGender"
-              />
+            <React.Fragment>
+                <h3>Editing PatientID: {this.state.modifiedpatientId}</h3>
+                <div className="box">
+                    <h6>Case Presentation:</h6>
+                    <input type="text" value={this.state.modifiedsignSymptomsTitle} name="modifiedsignSymptomsTitle"
+                        onChange={(evt) => {
 
-               <h6>Date of Birth:</h6>
-              <input
-                type="text"
-                value={this.state.modifieddob}
-                onChange={(evt) => {
-                  this.setState({
-                    modifieddob: evt.target.value
-                  });
-                }}
-                name="modifieddob"
-              />
+                            this.setState({
+                                modifiedsignSymptomsTitle: evt.target.value
+                            });
+                        }} /> <br />
 
-              <h6>Clinical History:</h6>
-              <input
-                type="text"
-                value={this.state.modifiedclinicalHistory}
-                onChange={(evt) => {
-                  this.setState({
-                    modifiedclinicalHistory: evt.target.value
-                  });
-                }}
-                name="modifiedclinicalHistory"
-              />
+                    <h6>Gender:</h6>
+                    <input
+                        type="text"
+                        value={this.state.modifiedGender}
+                        onChange={(evt) => {
+                            this.setState({
+                                modifiedGender: evt.target.value
+                            });
+                        }}
+                        name="modifiedGender"
+                    />
 
-                <h6>Gender:</h6>
-                 <input
-                type="text"
-                value={this.state.modifiedGender}
-                onChange={(evt) => {
-                  this.setState({
-                    modifiedGender: evt.target.value
-                  });
-                }}
-                name="modifiedGender"
-              />
+                    <h6>Date of Birth:</h6>
+                    <input
+                        type="text"
+                        value={this.state.modifieddob}
+                        onChange={(evt) => {
+                            this.setState({
+                                modifieddob: evt.target.value
+                            });
+                        }}
+                        name="modifieddob"
+                    />
 
-                <h6>Gender:</h6>
-                 <input
-                type="text"
-                value={this.state.modifiedGender}
-                onChange={(evt) => {
-                  this.setState({
-                    modifiedGender: evt.target.value
-                  });
-                }}
-                name="modifiedGender"
-              />
+                    <h6>Clinical History:</h6>
+                    <input
+                        type="text"
+                        value={this.state.modifiedclinicalHistory}
+                        onChange={(evt) => {
+                            this.setState({
+                                modifiedclinicalHistory: evt.target.value
+                            });
+                        }}
+                        name="modifiedclinicalHistory"
+                    />
 
-                <h6>Gender:</h6>
-                 <input
-                type="text"
-                value={this.state.modifiedGender}
-                onChange={(evt) => {
-                  this.setState({
-                    modifiedGender: evt.target.value
-                  });
-                }}
-                name="modifiedGender"
-              />
+                    <h6>Images:</h6>
+                    <input
+                        type="text"
+                        value={this.state.modifiedimages}
+                        onChange={(evt) => {
+                            this.setState({
+                                modifiedimages: evt.target.value
+                            });
+                        }}
+                        name="modifiedimages"
+                    />
 
-                 <h6>Gender:</h6>
-                 <input
-                type="text"
-                value={this.state.modifiedGender}
-                onChange={(evt) => {
-                  this.setState({
-                    modifiedGender: evt.target.value
-                  });
-                }}
-                name="modifiedGender"
-              />
+                    <h6>Modality:</h6>
+                    <input
+                        type="text"
+                        value={this.state.modifiedmodality}
+                        onChange={(evt) => {
+                            this.setState({
+                                modifiedmodality: evt.target.value
+                            });
+                        }}
+                        name="modifiedmodality"
+                    />
 
-                <h6>Gender:</h6>
-                 <input
-                type="text"
-                value={this.state.modifiedGender}
-                onChange={(evt) => {
-                  this.setState({
-                    modifiedGender: evt.target.value
-                  });
-                }}
-                name="modifiedGender"
-              />
+                    <h6>Published Date:</h6>
+                    <input
+                        type="text"
+                        value={this.state.modifiedpublishedDate}
+                        onChange={(evt) => {
+                            this.setState({
+                                modifiedpublishedDate: evt.target.value
+                            });
+                        }}
+                        name="modifiedpublishedDate"
+                    />
 
-                <h6>Gender:</h6>
-                 <input
-                type="text"
-                value={this.state.modifiedGender}
-                onChange={(evt) => {
-                  this.setState({
-                    modifiedGender: evt.target.value
-                  });
-                }}
-                name="modifiedGender"
-              />
+                    <h6>Case Discussion:</h6>
+                    <input
+                        type="text"
+                        value={this.state.modifiedcaseDiscussion}
+                        onChange={(evt) => {
+                            this.setState({
+                                modifiedcaseDiscussion: evt.target.value
+                            });
+                        }}
+                        name="modifiedcaseDiscussion"
+                    />
 
-                <h6>Gender:</h6>
-                 <input
-                type="text"
-                value={this.state.modifiedGender}
-                onChange={(evt) => {
-                  this.setState({
-                    modifiedGender: evt.target.value
-                  });
-                }}
-                name="modifiedGender"
-              />
+                    <h6>Body Systems:</h6>
+                    <input
+                        type="text"
+                        value={this.state.modifiedbodySystem}
+                        onChange={(evt) => {
+                            this.setState({
+                                modifiedbodySystem: evt.target.value
+                            });
+                        }}
+                        name="modifiedbodysystem"
+                    />
 
-              <button onClick={() => {
-                  this.updateuser(a);
-                }}> Confirm </button>
-              
-            </div>
-                
+                    <h6>Scientific References:</h6>
+                    <input
+                        type="text"
+                        value={this.state.modifiedscienticReferences}
+                        onChange={(evt) => {
+                            this.setState({
+                                modifiedscienticReferences: evt.target.value
+                            });
+                        }}
+                        name="modifiedscientificReferences"
+                    />
+
+
+                    <button onClick={() => {
+                        this.updateuser(a);
+                    }}> Confirm </button>
+
+                </div>
+
             </React.Fragment>
-            
+
         );
     };
 
@@ -250,7 +227,9 @@ export default class FeaturedCaseContents extends React.Component {
                     )
                 } else {
                     return (
+
                         <React.Fragment key={patientsData._id}>
+                            {/* <div>{this.renderContent()}</div> */}
                             <h2 style={{ color: 'brown', marginTop: '10px' }}>Featured Case: COVID-19 positive patient</h2>
                             <div className="container" key={patientsData._id}>
                                 <div className="card">
@@ -294,6 +273,7 @@ export default class FeaturedCaseContents extends React.Component {
                             </div>
 
                         </React.Fragment>)
+
                 }
             })
 
