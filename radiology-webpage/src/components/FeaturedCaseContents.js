@@ -1,8 +1,6 @@
 import React from "react";
 import axios from "axios";
-import AddNew from "./AddNew";
-import AllCasesContent from "./AllCasesContent";
-import ErrorMessage from "../components/Errormessage";
+
 
 
 export default class FeaturedCaseContents extends React.Component {
@@ -85,15 +83,15 @@ export default class FeaturedCaseContents extends React.Component {
 
             <React.Fragment>
                 <h3>Editing PatientID: {this.state.modifiedpatientId}</h3>
-                <div className="box">
+                <div className="innerbox">
                     <h6>Case Presentation:</h6>
-                    <input type="text" value={this.state.modifiedsignSymptomsTitle} name="modifiedsignSymptomsTitle"
+                    <textarea rows="4" cols="40" value={this.state.modifiedsignSymptomsTitle} name="modifiedsignSymptomsTitle"
                         onChange={(evt) => {
 
                             this.setState({
                                 modifiedsignSymptomsTitle: evt.target.value
                             });
-                        }} /> <br />
+                        }} > </textarea><br />
 
                     <h6>Gender:</h6>
                     <input
@@ -120,7 +118,7 @@ export default class FeaturedCaseContents extends React.Component {
                     />
 
                     <h6>Clinical History:</h6>
-                    <input
+                    <textarea rows="4" cols="40"
                         type="text"
                         value={this.state.modifiedclinicalHistory}
                         onChange={(evt) => {
@@ -129,10 +127,10 @@ export default class FeaturedCaseContents extends React.Component {
                             });
                         }}
                         name="modifiedclinicalHistory"
-                    />
+                    ></textarea>
 
                     <h6>Images:</h6>
-                    <input
+                    <textarea rows="4" cols="40"
                         type="text"
                         value={this.state.modifiedimages}
                         onChange={(evt) => {
@@ -141,7 +139,7 @@ export default class FeaturedCaseContents extends React.Component {
                             });
                         }}
                         name="modifiedimages"
-                    />
+                    ></textarea>
 
                     <h6>Modality:</h6>
                     <input
@@ -168,7 +166,7 @@ export default class FeaturedCaseContents extends React.Component {
                     />
 
                     <h6>Case Discussion:</h6>
-                    <input
+                    <textarea rows="6" cols="40"
                         type="text"
                         value={this.state.modifiedcaseDiscussion}
                         onChange={(evt) => {
@@ -177,7 +175,7 @@ export default class FeaturedCaseContents extends React.Component {
                             });
                         }}
                         name="modifiedcaseDiscussion"
-                    />
+                    ></textarea>
 
                     <h6>Body Systems:</h6>
                     <input
@@ -192,7 +190,7 @@ export default class FeaturedCaseContents extends React.Component {
                     />
 
                     <h6>Scientific References:</h6>
-                    <input
+                    <textarea rows="6" cols="40"
                         type="text"
                         value={this.state.modifiedscienticReferences}
                         onChange={(evt) => {
@@ -201,7 +199,7 @@ export default class FeaturedCaseContents extends React.Component {
                             });
                         }}
                         name="modifiedscientificReferences"
-                    />
+                    ></textarea> <br/>
 
 
                     <button onClick={() => {
