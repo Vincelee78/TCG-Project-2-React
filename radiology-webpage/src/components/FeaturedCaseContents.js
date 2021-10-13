@@ -75,6 +75,18 @@ export default class FeaturedCaseContents extends React.Component {
 
     
 
+    handleSelect=(eventKey)=> {
+        if (eventKey === '1'){
+            this.setActive("featuredCase") 
+
+        } else if (eventKey==='2'){
+            this.setActive("images") 
+
+         } else if (eventKey==='3'){
+            this.setActive("addnew")
+         }
+        }
+
     afterAddNewPatient = () => {
         this.setActive('successAddMessage')
     }
@@ -300,8 +312,8 @@ export default class FeaturedCaseContents extends React.Component {
                             
                         <React.Fragment key={patientsData._id}>
                             
-                            <Tabs defaultActiveKey="case" id="uncontrolled-tab-example" className="mb-3" onSelect={(addcase) => { this.setActive('addnew')}}>
-                                <Tab eventKey="case" title="Case">
+                            <Tabs defaultActiveKey={1} className="mb-3" id="controlled-tab-example" onSelect={this.handleSelect()} >
+                                <Tab eventKey='1' title="Case">
                                     <h2 style={{ color: 'brown', marginTop: '10px' }}>Featured Case: COVID-19 positive patient</h2>
                                     <div className="container" key={patientsData._id}>
                                         <div className="card">
@@ -344,7 +356,7 @@ export default class FeaturedCaseContents extends React.Component {
 
                                     </div>
                                 </Tab>
-                                <Tab eventKey="images" title="Case Images">
+                                <Tab eventKey='2' title="Case Images">
                                     {/* if (eventKey==='images'){
                                     this.setState({
                                         active:'caseimages'
@@ -353,7 +365,7 @@ export default class FeaturedCaseContents extends React.Component {
                                 </Tab>
 
                                 
-                            <Tab eventKey="addcase" title="Add Case" >
+                            <Tab eventKey='3' title="Add Case" >
                                     
                              </Tab>
                                 
