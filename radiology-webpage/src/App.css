@@ -247,3 +247,11 @@ width: 300px !important;
         border:1px solid rgba(250, 0, 0, 0.753);
         color: white;
 }
+
+
+.box {
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
+  }

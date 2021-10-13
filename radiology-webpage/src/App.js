@@ -12,7 +12,7 @@ import FeaturedCase from './components/FeaturedCase';
 
 export default class App extends React.Component {
   state = {
-    'active': 'featuredCaseContents',  // indicate which page is active
+    'active': 'home',  // indicate which page is active
 
   }
 
@@ -21,6 +21,21 @@ export default class App extends React.Component {
       'active': 'AllCasesContent'
     })
   }
+
+  showWrapper=()=>{
+    return(<React.Fragment>
+      <div class="wrapper">
+          {this.state.active !== 'AllCasesContent' && <p class="title" id="title1"><FeaturedCase/></p>}
+            <div class='fixed-bg bg-1'>
+            </div>
+            <div class="fixed-bg bg-2"><span class="title1" > </span></div>
+            <div class="fixed-bg bg-3"><span class="title2" ></span></div>
+          </div>
+
+    </React.Fragment>)
+
+  }
+
 
 
   render() {
@@ -31,7 +46,7 @@ export default class App extends React.Component {
           <div class='title3'>{this.state.active === 'AllCasesContent' ? <AllCasesContent /> : <CarouselComponent/>}</div>
 
           <div class="wrapper">
-            <p class="title" id="title1"> {this.state.active !== 'AllCasesContent' && <FeaturedCase/>} </p>
+          {this.state.active !== 'AllCasesContent' && <p class="title" id="title1"><FeaturedCase/></p>}
             <div class='fixed-bg bg-1'>
             </div>
             <div class="fixed-bg bg-2"><span class="title1" > </span></div>
