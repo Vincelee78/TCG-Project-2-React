@@ -31,6 +31,7 @@ export default class FeaturedCaseContents extends React.Component {
         modifiedpublishedDate: '',
         modifiedsignSymptomsTitle: '',
         modifiedimages: '',
+        modifiedradiologistId:'',
 
 
     }
@@ -55,6 +56,8 @@ export default class FeaturedCaseContents extends React.Component {
 
     }
 
+
+
     renderContent() {
          if (this.state.active === 'featuredCaseContents') {
             return <FeaturedCaseContents />
@@ -65,6 +68,11 @@ export default class FeaturedCaseContents extends React.Component {
         }
     }
 
+        // modifiedFeaturedCase(){
+            
+        //     axios.post(this.url + 'featuredCase', this.state.data)
+        //     .then(response => this.setState({ userBeingEdited: response.data._id }));
+        // }
 
     setActive(nextPage) {
         this.setState({
@@ -113,6 +121,7 @@ export default class FeaturedCaseContents extends React.Component {
             modifiedscienticReferences: patientsData.scientificReferences,
             modifiedimages: patientsData.images,
             modifiedsignSymptomsTitle: patientsData.signsSymptomsTitle,
+            modifiedradiologistId:patientsData.radiologistId,
         });
     };
 
@@ -140,6 +149,7 @@ export default class FeaturedCaseContents extends React.Component {
         modifiedCase.scientificReferences = this.state.modifiedscienticReferences
         modifiedCase.publishedDate = this.state.modifiedpublishedDate
         modifiedCase.images = this.state.modifiedimages
+        modifiedCase.radiologistId=this.state.modifiedradiologistId
 
 
 
@@ -154,20 +164,35 @@ export default class FeaturedCaseContents extends React.Component {
             ...this.state.data.slice(indexToModify + 1)
         ];
 
-        console.log(indexToModify);
-        // console.log(cloned);
 
         // update the array with setState
         this.setState({
             data: cloned,
             userBeingEdited: 0,
-            active:'featuredCase'
+            active:'modifiedCase'
         });
 
-         axios.post(this.url + 'featuredCase', this.state.data)
-                
-         console.log(this.state.data)
+        //  axios.put(this.url + 'featuredCase/{this.state.userBeingEdited}', this.state.data)
+        //  .then(res => console.log(res.data));
+        // {this.modifiedFeaturedCase()}
+        
+        axios.post(this.url + 'featuredCase', {
+            signsSymptomsTitle: this.state.signsSymptomsTitle,
+            bodySystems: this.state.bodySystems,
+            patientID:this.state.patientID,
+            gender:this.state.gender,
+            dob: this.state.dob,
+            clinicalHistory:this.state.clinicalHistory,
+            images:this.state.images,
+            modality:this.state.modality,
+            publishedDate:this.state.publishedDate,
+            caseDiscussion:this.state.caseDiscussion,
+            radiologistId:this.state.radiologistId,
+            scientificReferences:this.state.scientificReferences
+        })
+        
     }
+
 
     renderEditDisplay = (a) => {
         return (
@@ -268,6 +293,18 @@ export default class FeaturedCaseContents extends React.Component {
                         name="modifiedcaseDiscussion"
                     ></textarea>
 
+                        <h6>Radiologist Name:</h6>
+                        <input
+                        type="text"
+                        value={this.state.modifiedradiologistId}
+                        onChange={(evt) => {
+                            this.setState({
+                                modifiedradiologistId: evt.target.value
+                            });
+                        }}
+                        name="modifiedbodysystem"
+                    />
+
                     <h6>Body Systems:</h6>
                     <input
                         type="text"
@@ -280,6 +317,7 @@ export default class FeaturedCaseContents extends React.Component {
                         name="modifiedbodysystem"
                     />
 
+                    
                     <h6>Scientific References:</h6>
                     <textarea rows="6" cols="40"
                         type="text"
@@ -348,7 +386,7 @@ export default class FeaturedCaseContents extends React.Component {
                                                         <h5>Case Discussion: </h5>
                                                         <p><h6>{patientsData.caseDiscussion}</h6></p>
 
-                                                        <p><h5>Radiologist ID: {patientsData.radiologistId}</h5></p>
+                                                        <p><h5>Radiologist Name: {patientsData.radiologistId}</h5></p>
                                                         <h5>Body Systems:</h5>
                                                         <ul>
                                                             {patientsData.bodySystems.map(i => <li key={i}>{i}</li>)}
