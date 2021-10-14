@@ -177,21 +177,27 @@ nav > ul > li {
 
 #flexContainer{
     display: flex;
+    justify-content:center;
+    
+    overflow:hidden
 }
 
 #caseImgUrl{
-    
-    padding-top: 10px;
+    flex-shrink:0;
+    -webkit-flex-shrink: 0;
+    padding-top: 20px;
     max-height: 500px !important;
     max-width: 600px !important;
     width: auto !important;
     height: auto !important
 }
 
+
+
 #contents{
+
     padding-left:30px;
-    justify-content: center;
-    align-content: center;
+    
 }
 
 /* .checkbox{
