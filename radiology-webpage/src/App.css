@@ -95,11 +95,13 @@ nav > ul > li {
     letter-spacing: 1px;
     position: relative;
     
+    
 }
 
 .innerwrapper{
     display: flex;
     justify-content: center;
+    
 }
 
 .fixed-bg {
@@ -119,7 +121,7 @@ nav > ul > li {
    color: rgb(0, 180, 216); */
     /* margin-left:150px; */
     /* text-align: center; */
-    margin-top: 100px;
+    margin-top: 50px;
     position: absolute;
     background-color: lightskyblue;
     opacity: 0.96;
@@ -262,7 +264,7 @@ width: 300px !important;
         color: white;
 }
 
-
+/* Navtab css when editing featured case  */
 .box {
     border: 1px solid black;
     padding: 20px;
@@ -270,6 +272,7 @@ width: 300px !important;
     margin: 20px;
   }
 
-  .words{
-    text-align: center;
+
+  .infoTab{
+      
   }
