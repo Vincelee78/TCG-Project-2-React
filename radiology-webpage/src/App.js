@@ -6,6 +6,7 @@ import CarouselComponent from './components/Carousel';
 import AllCasesContent from './components/AllCasesContent';
 import FeaturedCase from './components/FeaturedCase';
 import FeaturedCaseContents from './components/FeaturedCaseContents';
+import ErrorMessage from './components/Errormessage';
 
 
 
@@ -45,7 +46,7 @@ export default class App extends React.Component {
         <div className="App">
           <Navbar setActive1={this.setActive} />
           <div class='title3'>{this.state.active === 'AllCasesContent' ? <AllCasesContent /> : <CarouselComponent />}</div>
-          <p className='words'>
+          {/* <p className='words'>
               COVID-19 (coronavirus disease 2019) is a viral infectious disease caused by 
               SARS-CoV-2 and is currently a World Health Organizatiοn (WHO) declared pandemic. 
               As of October 2021, over 200 million people had been infected globally with over 
@@ -81,11 +82,12 @@ export default class App extends React.Component {
 
               Plain radiograph
               patchy or diffuse airspace opacities, whether consolidation or ground-glass opacity 10,11
-              pleural effusion is rare</p>
+              pleural effusion is rare</p> */}
           <div class="wrapper">
             <div class='innerwrapper'>
 
               {this.state.active !== 'AllCasesContent' && <p class="title" id="title1"><FeaturedCaseContents /></p>}
+              
             </div>
             <div class='fixed-bg bg-1'>
             </div>

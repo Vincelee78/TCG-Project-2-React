@@ -10,7 +10,7 @@ import ErrorMessage from '../components/Errormessage';
 
 
 export default class FeaturedCaseContents extends React.Component {
-    url = "https://5000-rose-hoverfly-vn9gcaxf.ws-us18.gitpod.io/"
+    url = "https://5000-rose-hoverfly-vn9gcaxf.ws-us17.gitpod.io/"
 
     state = {
         active: 'featuredCase',
@@ -311,7 +311,7 @@ export default class FeaturedCaseContents extends React.Component {
                     return (
                             
                         <React.Fragment key={patientsData._id}>
-                            
+                            {/* <h1>abc</h1> */}
                             <Tabs defaultActiveKey={1} className="mb-3" id="controlled-tab-example" onSelect={this.handleSelect()} >
                                 <Tab eventKey='1' title="Case">
                                     <h2 style={{ color: 'brown', marginTop: '10px' }}>Featured Case: COVID-19 positive patient</h2>
@@ -372,6 +372,7 @@ export default class FeaturedCaseContents extends React.Component {
                             </Tabs>
                             {this.renderContent()}
                         </React.Fragment >
+                        
                         )
 
                 }
