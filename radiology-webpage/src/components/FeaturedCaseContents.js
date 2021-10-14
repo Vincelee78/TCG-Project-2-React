@@ -10,10 +10,11 @@ import ErrorMessage from '../components/Errormessage';
 
 
 export default class FeaturedCaseContents extends React.Component {
-    url = "https://5000-rose-hoverfly-vn9gcaxf.ws-us17.gitpod.io/"
+    url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us17.gitpod.io/"
 
     state = {
         active: 'featuredCase',
+        key: '1',
 
         data: [
 
@@ -55,9 +56,7 @@ export default class FeaturedCaseContents extends React.Component {
     }
 
     renderContent() {
-        if (this.state.active === 'errorMessage') {
-            return <ErrorMessage />
-        } if (this.state.active === 'featuredCaseContents') {
+         if (this.state.active === 'featuredCaseContents') {
             return <FeaturedCaseContents />
         } if (this.state.active === 'successAddMessage') {
             return <SuccessAddMessage />
@@ -75,17 +74,26 @@ export default class FeaturedCaseContents extends React.Component {
 
     
 
-    handleSelect=(eventKey)=> {
-        if (eventKey === '1'){
-            this.setActive("featuredCase") 
+    handleSelect=(key)=> {
+        if (key === '1'){
+            this.setState({
+                key: key,
+                active: 'featuredCase'
+            }) 
 
-        } else if (eventKey==='2'){
-            this.setActive("images") 
+        } else if (key==='2'){
+            this.setState({
+                key: key,
+                active: 'images'
+            })  
 
-         } else if (eventKey==='3'){
-            this.setActive("addnew")
-         }
+         } else if (key==='3'){
+            this.setState({
+                key: key,
+                active: 'addnew'
+            })
         }
+    }
 
     afterAddNewPatient = () => {
         this.setActive('successAddMessage')
@@ -312,8 +320,8 @@ export default class FeaturedCaseContents extends React.Component {
                             
                         <React.Fragment key={patientsData._id}>
                             {/* <h1>abc</h1> */}
-                            <Tabs defaultActiveKey={1} className="mb-3" id="controlled-tab-example" onSelect={this.handleSelect()} >
-                                <Tab eventKey='1' title="Case">
+                            <Tabs activeKey={this.state.key} className="mb-3" id="controlled-tab-example" onSelect={(k) => this.handleSelect(k)} >
+                                <Tab eventKey='1' title="Case" >
                                     <h2 style={{ color: 'brown', marginTop: '10px' }}>Featured Case: COVID-19 positive patient</h2>
                                     <div className="container" key={patientsData._id}>
                                         <div className="card">
