@@ -48,7 +48,7 @@ export default class App extends React.Component {
 
 
 
-  setActive = () => {
+  setActiveAllCasesProp = () => {
     this.setState({
       'active': 'AllCasesContent'
     })
@@ -68,7 +68,7 @@ export default class App extends React.Component {
     return (
       <React.Fragment>
         <div className="App">
-          <Navbar setActive1={this.setActive} />
+          <Navbar setActiveAllCases={this.setActiveAllCasesProp} />
           <div class='title3'>{this.state.active === 'AllCasesContent' ? <AllCasesContent /> : <CarouselComponent />}</div>
 
           <div class="wrapper">

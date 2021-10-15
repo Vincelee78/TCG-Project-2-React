@@ -165,31 +165,33 @@ export default class FeaturedCaseContents extends React.Component {
         ];
 
 
+
+
         // update the array with setState
         this.setState({
             data: cloned,
             userBeingEdited: 0,
             active:'modifiedCase'
         });
-
-        //  axios.put(this.url + 'featuredCase/{this.state.userBeingEdited}', this.state.data)
-        //  .then(res => console.log(res.data));
+            console.log(modifiedCase)
+         let response= axios.put(this.url + 'featuredCase/' + this.state.userBeingEdited , modifiedCase);
+         res.json(response);
         // {this.modifiedFeaturedCase()}
         
-        axios.post(this.url + 'featuredCase', {
-            signsSymptomsTitle: this.state.signsSymptomsTitle,
-            bodySystems: this.state.bodySystems,
-            patientID:this.state.patientID,
-            gender:this.state.gender,
-            dob: this.state.dob,
-            clinicalHistory:this.state.clinicalHistory,
-            images:this.state.images,
-            modality:this.state.modality,
-            publishedDate:this.state.publishedDate,
-            caseDiscussion:this.state.caseDiscussion,
-            radiologistId:this.state.radiologistId,
-            scientificReferences:this.state.scientificReferences
-        })
+        // axios.post(this.url + 'featuredCase', {
+        //     signsSymptomsTitle: this.state.signsSymptomsTitle,
+        //     bodySystems: this.state.bodySystems,
+        //     patientID:this.state.patientID,
+        //     gender:this.state.gender,
+        //     dob: this.state.dob,
+        //     clinicalHistory:this.state.clinicalHistory,
+        //     images:this.state.images,
+        //     modality:this.state.modality,
+        //     publishedDate:this.state.publishedDate,
+        //     caseDiscussion:this.state.caseDiscussion,
+        //     radiologistId:this.state.radiologistId,
+        //     scientificReferences:this.state.scientificReferences
+        // })
         
     }
 
