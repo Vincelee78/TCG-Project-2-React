@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import AddNew from '../components/AddNew';
 import ErrorMessage from '../components/Errormessage';
+import Tabs from 'react-bootstrap/Tabs'
+import Tab from 'react-bootstrap/Tab'
 
 
 export default class AllCasesContent extends React.Component {
@@ -21,8 +23,8 @@ export default class AllCasesContent extends React.Component {
 
     fetchData = async () => {
         try {
-        let response = await axios.get(this.url + "patientsData1")
-        
+            let response = await axios.get(this.url + "patientsData1")
+
             this.setState({
                 data: response.data
             })
@@ -59,54 +61,54 @@ export default class AllCasesContent extends React.Component {
 
     render() {
         return <React.Fragment>
-            <div id='tabcss'>
-                <ul className="nav nav-tabs">
-                    <li className="nav-item">
-                        <button className="nav-link active"
-                            aria-current="page"
-                            onClick={() => {
-                                this.setActive('AllCasesContent')
-                            }}
-                        >Case Title</button>
-                    </li>
-                    <li className="nav-item">
-                        <button className={"nav-link"} onClick={() => {
-                            this.setActive('caseImg')
-                        }}>Case Images</button>
-                    </li>
-                    <li className="nav-item">
-                        <button className={"nav-link"}
-                            onClick={() => {
-                                this.setActive('addnew')
-                            }}
-                        >Add Case</button>
-                    </li>
-                </ul>
-                {this.renderContent()}
-                {this.state.data.map(patientsData => <header className="containerAllCases" key={patientsData._id}>
-                    <div class="card-group-all-cases">
-                        <div class="card-all-cases">
-                            <img src={patientsData.images} class="card-img-top" alt="..." />
-                            <div class="card-body-all-images">
-                                <h5>Case presentation:</h5>
-                                <h6>{patientsData.signsSymptomsTitle}</h6>
-                                <p class="card-text">Radiologist: {patientsData.radiologistId}</p>
-                                <p class="card-text">Published Date: {patientsData.publishedDate}</p>
-                            </div>
-                            <div class="card-footer" style={{ textAlign: 'center' }}>
+            <Tabs activeKey={this.state.key} className="mb-3" id="controlled-tab-example" onSelect={(k) => this.handleSelect(k)} >
+                <Tab eventKey='1' title="Case" >
+                    {this.state.data.map(patientsData => <header className="containerAllCases" key={patientsData._id}>
+                        <div class="card-group-all-cases">
+                            <div class="card-all-cases">
+                                <img src={patientsData.images} class="card-img-top" alt="..." />
+                                <div class="card-body-all-images">
+                                    <h5>Case presentation: </h5>
+                                    <h6>{patientsData.signsSymptomsTitle}</h6>
+                                    <p class="card-text">Radiologist: {patientsData.radiologistId}</p>
+                                    <p class="card-text">Published Date: {patientsData.publishedDate}</p>
+                                </div>
+                                <div class="card-footer" style={{ textAlign: 'center' }}>
 
-                                <span><button className='btn btn-secondary'>{patientsData.modality}</button></span>
+                                    <span><button className='btn btn-secondary'>{patientsData.modality}</button></span>
 
-                                {patientsData.bodySystems.map(i => <h4><span class="iconsAllCases">{i}</span></h4>)}
+                                    {patientsData.bodySystems.map(i => <h4><span class="iconsAllCases">{i}</span></h4>)}
 
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </header>
-                )}
+                    </header>
+                    )}
+
                 
-            </div>
-        </React.Fragment>
+            
+
+        
+
+                
+            </Tab >
+            <Tab eventKey='2' title="Case Images">
+                {/* if (eventKey==='images'){
+                                    this.setState({
+                                        active:'caseimages'
+                                    })
+                                } */}
+            </Tab>
+
+
+            <Tab eventKey='3' title="Add Case" >
+
+            </Tab>
+
+        </Tabs >
+            { this.renderContent() }
+                            
+                        </React.Fragment >
 
     }
 

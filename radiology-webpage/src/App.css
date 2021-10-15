@@ -128,7 +128,7 @@ nav > ul > li {
     border-radius: 20px;
     border: 10px;
     padding: 20px;
-    width:1100px
+    width:150vh
     
     
     
@@ -137,11 +137,23 @@ nav > ul > li {
 
 .title3{
     
+    margin: 0; 
+    /* position: absolute;  */
     background-color: lightskyblue;
+     opacity: 0.96; 
+    border-radius: 20px;
+    border: 10px;
+    padding: 20px;
+    width: 150vh
     
 }
 
-
+.wrapper2{
+    position: relative;
+}
+.innerwrapper{
+    background-image:url('https://filmdaily.co/wp-content/uploads/2021/06/rad-01.jpg') ;
+}
 .scroll-bg {
     background-color: #0f0f0a;
     padding: 10px 70px;
@@ -152,7 +164,6 @@ nav > ul > li {
 
 .bg-1 {
     background-image: url("https://i0.wp.com/swdic.com/wp-content/uploads/2020/08/Brain-MRI-min.jpg?fit=1973%2C963&ssl=1");
-    display: flex;
     justify-content: center;
 }
 

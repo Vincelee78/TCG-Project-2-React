@@ -108,7 +108,7 @@ export default class App extends React.Component {
 
         <div className="App">
           {/* <Navbar setActiveAllCases={this.setActiveAllCasesProp} setActiveArticles={this.setActiveArticles1} /> */}
-          <div class='title3'>
+          <div class='carouselTitle'>
             <Carousel>
               <Carousel.Item>
                 <img
@@ -149,14 +149,16 @@ export default class App extends React.Component {
 
            </div>
 
-            <div class='title3'>{this.state.active === 'AllCasesContent' ? <AllCasesContent /> : <Carousel/>} {this.state.active === 'Articles' ? <AllCasesContent /> : null}</div>
+            
 
           <div class="wrapper">
             {/* <button onClick={this.renderInfo()}>a</button>{this.renderinfo2()} */}
 
             <div class='innerwrapper'>
-              <p class="title" id="title1"><FeaturedCaseContents />{this.renderError()}</p>
-
+              {this.state.active !== 'AllCasesContent' && <p class="title" id="title1"><FeaturedCaseContents />{this.renderError()}</p>}
+              <div class='wrapper2'>
+              <div class='title3'>{this.state.active === 'AllCasesContent' ? <AllCasesContent /> : null} </div>
+            </div>
             </div>
             <div class='fixed-bg bg-1'>
             </div>
