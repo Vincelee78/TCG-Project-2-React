@@ -276,6 +276,6 @@ width: 300px !important;
   }
 
 
-  /* .infoTab{
-      
-  } */
+  .infoTab{
+      padding-bottom: 50px;
+  } 
