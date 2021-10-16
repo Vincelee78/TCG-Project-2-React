@@ -105,6 +105,13 @@ nav > ul > li {
     color: white !important;
 
 }
+
+.accordion-body > h5 {
+
+    color: white !important;
+
+}
+
 .accordion-body >ul>li {
 
     color: white !important;

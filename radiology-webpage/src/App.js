@@ -112,6 +112,7 @@ export default class App extends React.Component {
             <Accordion.Item eventKey="0">
               <Accordion.Header></Accordion.Header>
               <Accordion.Body>
+
               <div class='carouselTitle'>
               <Carousel>
               <Carousel.Item>
@@ -151,6 +152,7 @@ export default class App extends React.Component {
               </Carousel.Item>
               </Carousel>
               </div>
+              
               </Accordion.Body>
             </Accordion.Item>
           </Accordion>

@@ -495,7 +495,7 @@ export default class CarouselComponent extends React.Component {
                                     <Accordion.Header>Radiographic features</Accordion.Header>
                                     <Accordion.Body>
                                         <p>The primary findings of COVID-19 are those of an atypical or organising pneumonia. Up to 18% of cases demonstrate normal chest x-rays or CT when mild/early in the disease course. Bilateral and/or multilobar involvement is common, more often with a lower zone distribution.</p>
-                                        <h4>Plain radiograph:</h4>
+                                        <h5>Plain radiograph:</h5>
                                         <ul>
                                             <li>patchy or diffuse airspace opacities, whether consolidation or ground-glass opacity</li>
                                             <li>pleural effusion is rare </li>
