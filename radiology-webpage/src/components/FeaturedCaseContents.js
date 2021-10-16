@@ -83,6 +83,11 @@ export default class CarouselComponent extends React.Component {
         })
     }
 
+    updateanswer = (evt) => {
+        this.setState({
+            modifiedmodality: evt.target.value
+        })
+    }
 
 
     handleSelect = (key) => {
@@ -221,7 +226,7 @@ export default class CarouselComponent extends React.Component {
 
             <React.Fragment>
                 <h3>Editing PatientID: {this.state.modifiedpatientId}</h3>
-                <div className="innerbox">
+                <div className="innerbox" style={{textAlign:'left'}}>
                     <h6>Case Presentation:</h6>
                     <textarea rows="4" cols="40" value={this.state.modifiedsignSymptomsTitle} name="modifiedsignSymptomsTitle"
                         onChange={(evt) => {
@@ -280,16 +285,30 @@ export default class CarouselComponent extends React.Component {
                     ></textarea>
 
                     <h6>Modality:</h6>
-                    <input
-                        type="text"
-                        value={this.state.modifiedmodality}
-                        onChange={(evt) => {
-                            this.setState({
-                                modifiedmodality: evt.target.value
-                            });
-                        }}
-                        name="modifiedmodality"
-                    />
+                    <ul >
+                    <li>
+                        <input name="X-ray" type="radio" value={this.state.modifiedmodality} onChange={this.updateanswer} checked={this.state.modifiedmodality === 'X-ray'} /><label>X-ray</label>
+                    </li>
+                    <li>
+                        <input name="ComputedTomography" type="radio" value={this.state.modifiedmodality} onChange={this.updateanswer} checked={this.state.modifiedmodality === 'ComputedTomography'} /><label>Computed Tomography</label>
+                    </li>
+                    <li>
+                        <input name="Ultrasound" type="radio" value={this.state.modifiedmodality} onChange={this.updateanswer} checked={this.state.modifiedmodality === 'Ultrasound'} /><label>Ultrasound</label>
+                    </li>
+                    <li>
+                        <input name="MRI" type="radio" value={this.state.modifiedmodality} onChange={this.updateanswer} checked={this.state.modifiedmodality === 'MRI'} /><label>MRI</label>
+                    </li>
+                </ul>
+                    {/* <input */}
+                        {/* // type="text"
+                        // value={this.state.modifiedmodality}
+                        // onChange={(evt) => { */}
+                        {/* //     this.setState({ */}
+                        {/* //         modifiedmodality: evt.target.value
+                        //     });
+                        // }}
+                        // name="modifiedmodality" */}
+                    {/* /> */}
 
                     <h6>Published Date:</h6>
                     <input

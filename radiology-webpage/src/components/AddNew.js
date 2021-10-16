@@ -118,7 +118,7 @@ export default class AddNew extends React.Component {
                         <input name="X-ray" type="radio" value="X-ray" onChange={this.updateanswer} checked={this.state.modality === 'X-ray'} /><label>X-ray</label>
                     </li>
                     <li>
-                        <input name="CT" type="radio" value="CT" onChange={this.updateanswer} checked={this.state.modality === 'CT'} /><label>Computed Tomography</label>
+                        <input name="ComputedTomography" type="radio" value="ComputedTomography" onChange={this.updateanswer} checked={this.state.modality === 'ComputedTomography'} /><label>Computed Tomography</label>
                     </li>
                     <li>
                         <input name="Ultrasound" type="radio" value="Ultrasound" onChange={this.updateanswer} checked={this.state.modality === 'Ultrasound'} /><label>Ultrasound</label>
@@ -155,27 +155,27 @@ export default class AddNew extends React.Component {
             <div>
                 <label className="form-label">Body Systems Involved:</label>
                 <div className="form-label checkbox">
-                    <input type="checkbox" name="bodySystems" value="cardio" onChange={this.updateitems} checked={this.state.bodySystems.includes('cardio')} /><label>Cardiovascular System</label>
+                    <input type="checkbox" name="bodySystems" value="Cardiovascular" onChange={this.updateitems} checked={this.state.bodySystems.includes('Cardiovascular')} /><label>Cardiovascular System</label>
 
-                    <input type="checkbox" name="bodySystems" value="gastro" onChange={this.updateitems} checked={this.state.bodySystems.includes('gastro')} /><label>Gastrointestinal</label>
+                    <input type="checkbox" name="bodySystems" value="Gastrointestinal" onChange={this.updateitems} checked={this.state.bodySystems.includes('Gastrointestinal')} /><label>Gastrointestinal</label>
 
-                    <input type="checkbox" name="bodySystems" value="endocrine" onChange={this.updateitems} checked={this.state.bodySystems.includes('endocrine')} /><label>Endocrine</label>
+                    <input type="checkbox" name="bodySystems" value="Endocrine" onChange={this.updateitems} checked={this.state.bodySystems.includes('Endocrine')} /><label>Endocrine</label>
 
-                    <input type="checkbox" name="bodySystems" value="exocrine" onChange={this.updateitems} checked={this.state.bodySystems.includes('exocrine')} /><label>Exocrine</label>
+                    <input type="checkbox" name="bodySystems" value="Exocrine" onChange={this.updateitems} checked={this.state.bodySystems.includes('Exocrine')} /><label>Exocrine</label>
 
-                    <input type="checkbox" name="bodySystems" value="lymph" onChange={this.updateitems} checked={this.state.bodySystems.includes('lymph')} /><label>Lymphatic</label>
+                    <input type="checkbox" name="bodySystems" value="Lymphatic" onChange={this.updateitems} checked={this.state.bodySystems.includes('Lymphatic')} /><label>Lymphatic</label>
 
-                    <input type="checkbox" name="bodySystems" value="muscular" onChange={this.updateitems} checked={this.state.bodySystems.includes('muscular')} /><label>Muscular</label>
+                    <input type="checkbox" name="bodySystems" value="Muscular" onChange={this.updateitems} checked={this.state.bodySystems.includes('Muscular')} /><label>Muscular</label>
 
-                    <input type="checkbox" name="bodySystems" value="nervous" onChange={this.updateitems} checked={this.state.bodySystems.includes('nervous')} /><label>Nervous</label>
+                    <input type="checkbox" name="bodySystems" value="Nervous" onChange={this.updateitems} checked={this.state.bodySystems.includes('Nervous')} /><label>Nervous</label>
 
-                    <input type="checkbox" name="bodySystems" value="renal" onChange={this.updateitems} checked={this.state.bodySystems.includes('renal')} /><label>Renal</label>
+                    <input type="checkbox" name="bodySystems" value="Renal" onChange={this.updateitems} checked={this.state.bodySystems.includes('Renal')} /><label>Renal</label>
 
-                    <input type="checkbox" name="bodySystems" value="reproductive" onChange={this.updateitems} checked={this.state.bodySystems.includes('reproductive')} /><label>Reproductive</label>
+                    <input type="checkbox" name="bodySystems" value="Reproductive" onChange={this.updateitems} checked={this.state.bodySystems.includes('Reproductive')} /><label>Reproductive</label>
 
-                    <input type="checkbox" name="bodySystems" value="respiratory" onChange={this.updateitems} checked={this.state.bodySystems.includes('respiratory')} /><label>Respiratory</label>
+                    <input type="checkbox" name="bodySystems" value="Respiratory" onChange={this.updateitems} checked={this.state.bodySystems.includes('Respiratory')} /><label>Respiratory</label>
 
-                    <input type="checkbox" name="bodySystems" value="skeletal" onChange={this.updateitems} checked={this.state.bodySystems.includes('skeletal')} /><label>Skeletal</label>
+                    <input type="checkbox" name="bodySystems" value="Skeletal" onChange={this.updateitems} checked={this.state.bodySystems.includes('Skeletal')} /><label>Skeletal</label>
 
                 </div>
             </div>
