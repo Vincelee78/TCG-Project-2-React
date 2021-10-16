@@ -93,6 +93,22 @@ nav > ul > li {
 .accordion-body {
     background-color: rgb(1, 58, 99);
 
+    
+}
+
+.accordion-button {
+    color:wheat !important;
+}
+
+.accordion-body > p {
+
+    color: white !important;
+
+}
+.accordion-body >ul>li {
+
+    color: white !important;
+
 }
 
 .accordion-button:not(.collapsed) {
@@ -104,7 +120,8 @@ nav > ul > li {
 
 .accordion-button.collapsed {
 
-    /* background-color: rgb(1, 58, 99)!important; */
+    background-color: rgb(1, 58, 99) !important;
+    color: white !important;
     padding: 0;
     margin: 0
 }
@@ -309,5 +326,5 @@ nav > ul > li {
 
 
 .infoTab {
-    padding-bottom: 50px;
+    padding-bottom: 30px;
 }
