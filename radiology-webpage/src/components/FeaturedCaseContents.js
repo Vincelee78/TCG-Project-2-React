@@ -344,7 +344,8 @@ export default class CarouselComponent extends React.Component {
                         }}
                         name="modifiedpublishedDate"
                     />
-
+                    
+                    <br/><br/>
                     <h6>Case Discussion:</h6>
                     <textarea rows="6" cols="40"
                         type="text"
@@ -368,11 +369,11 @@ export default class CarouselComponent extends React.Component {
                         }}
                         name="modifiedbodysystem"
                     />
-
+                    
+                    <br/><br/>
                     <h6>Body Systems:</h6>
-                    <label className="form-label">Body Systems Involved:</label>
-                <div className="form-label checkbox">
-                    <input type="checkbox" name="modifiedbodysystem" value="Cardiovascular" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Cardiovascular')} /><label>Cardiovascular System</label>
+                    <div>
+                    <input type="checkbox" name="modifiedbodysystem" value="Cardiovascular" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Cardiovascular')} /><label>Cardiovascular</label>
 
                     <input type="checkbox" name="modifiedbodysystem" value="Gastrointestinal" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Gastrointestinal')} /><label>Gastrointestinal</label>
 
@@ -405,7 +406,7 @@ export default class CarouselComponent extends React.Component {
                         name="modifiedbodysystem" */}
                     {/* /> */}
                     </div>
-
+                    <br/>
 
                     <h6>Scientific References:</h6>
                     <textarea rows="6" cols="40"
