@@ -48,7 +48,7 @@ export default class App extends React.Component {
   }
 
 
-  setActiveArticles1 = () => {
+  setActiveArticles = () => {
     this.setState({
       'active': 'Articles'
     })
@@ -155,9 +155,9 @@ export default class App extends React.Component {
             {/* <button onClick={this.renderInfo()}>a</button>{this.renderinfo2()} */}
 
             <div class='innerwrapper'>
-              {this.state.active !== 'AllCasesContent' && <p class="title" id="title1"><FeaturedCaseContents />{this.renderError()}</p>}
+              {(this.state.active !== 'AllCasesContent' && this.state.active !== 'Articles') && <p class="title" id="title1"><FeaturedCaseContents />{this.renderError()}</p>}
               <div class='wrapper2'>
-              <div class='title3'>{this.state.active === 'AllCasesContent' ? <AllCasesContent /> : null} </div>
+              <div class='title3'>{this.state.active === 'AllCasesContent' ? <AllCasesContent /> : null} {this.state.active === 'Articles' ? <ErrorMessage /> : null}</div>
             </div>
             </div>
             <div class='fixed-bg bg-1'>

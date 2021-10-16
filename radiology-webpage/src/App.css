@@ -143,9 +143,13 @@ nav > ul > li {
      opacity: 0.96; 
     border-radius: 20px;
     border: 10px;
-    padding: 20px;
+    padding: 20px 10px;
     width: 150vh
     
+}
+
+.errorMessageImg{
+    width:140vh
 }
 
 .wrapper2{
