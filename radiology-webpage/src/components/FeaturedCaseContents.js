@@ -89,6 +89,29 @@ export default class CarouselComponent extends React.Component {
         })
     }
 
+    updateitems = (evt) => {
+        if (this.state.modifiedbodySystem.includes(evt.target.value)) {
+            let clone = this.state.modifiedbodySystem.slice();
+            let index = this.state.modifiedbodySystem.indexOf(evt.target.value)
+            clone.splice(index, 1);
+
+            this.setState({
+                modifiedbodySystem: clone
+            })
+
+        } else {
+
+            let clone = this.state.modifiedbodySystem.slice();
+
+
+            clone.push(evt.target.value);
+
+
+            this.setState({
+                modifiedbodySystem: clone
+            })
+        }
+    }
 
     handleSelect = (key) => {
         if (key === '1') {
@@ -347,7 +370,31 @@ export default class CarouselComponent extends React.Component {
                     />
 
                     <h6>Body Systems:</h6>
-                    <input
+                    <label className="form-label">Body Systems Involved:</label>
+                <div className="form-label checkbox">
+                    <input type="checkbox" name="modifiedbodysystem" value="Cardiovascular" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Cardiovascular')} /><label>Cardiovascular System</label>
+
+                    <input type="checkbox" name="modifiedbodysystem" value="Gastrointestinal" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Gastrointestinal')} /><label>Gastrointestinal</label>
+
+                    <input type="checkbox" name="modifiedbodysystem" value="Endocrine" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Endocrine')} /><label>Endocrine</label>
+
+                    <input type="checkbox" name="modifiedbodysystem" value="Exocrine" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Exocrine')} /><label>Exocrine</label>
+
+                    <input type="checkbox" name="modifiedbodysystem" value="Lymphatic" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Lymphatic')} /><label>Lymphatic</label>
+
+                    <input type="checkbox" name="modifiedbodysystem" value="Muscular" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Muscular')} /><label>Muscular</label>
+
+                    <input type="checkbox" name="modifiedbodysystem" value="Nervous" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Nervous')} /><label>Nervous</label>
+
+                    <input type="checkbox" name="modifiedbodysystems" value="Renal" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Renal')} /><label>Renal</label>
+
+                    <input type="checkbox" name="modifiedbodysystem" value="Reproductive" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Reproductive')} /><label>Reproductive</label>
+
+                    <input type="checkbox" name="modifiedbodysystem" value="Respiratory" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Respiratory')} /><label>Respiratory</label>
+
+                    <input type="checkbox" name="modifiedbodysystem" value="Skeletal" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Skeletal')} /><label>Skeletal</label>
+                    
+                    {/* <input
                         type="text"
                         value={this.state.modifiedbodySystem}
                         onChange={(evt) => {
@@ -355,8 +402,9 @@ export default class CarouselComponent extends React.Component {
                                 modifiedbodySystem: evt.target.value
                             });
                         }}
-                        name="modifiedbodysystem"
-                    />
+                        name="modifiedbodysystem" */}
+                    {/* /> */}
+                    </div>
 
 
                     <h6>Scientific References:</h6>
