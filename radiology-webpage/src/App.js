@@ -67,9 +67,9 @@ export default class App extends React.Component {
     })
   }
 
-  renderAllCases=()=>{
-    if (this.state.active === 'AllCasesContent') 
-    return <AllCasesContent/>
+  renderAllCases = () => {
+    if (this.state.active === 'AllCasesContent')
+      return <AllCasesContent />
   }
 
   renderError() {
@@ -102,76 +102,83 @@ export default class App extends React.Component {
             </ul>
           </nav>
 
-                {/* {this.renderAllCases()} */}
+          {/* {this.renderAllCases()} */}
         </div>
         <div id="infowords"> Online Resource for radiologists, radiology trainees and students</div>
 
         <div className="App">
           {/* <Navbar setActiveAllCases={this.setActiveAllCasesProp} setActiveArticles={this.setActiveArticles1} /> */}
-          <div class='carouselTitle'>
-            <Carousel>
+          <Accordion defaultActiveKey="0">
+            <Accordion.Item eventKey="0">
+              <Accordion.Header></Accordion.Header>
+              <Accordion.Body>
+              <div class='carouselTitle'>
+              <Carousel>
               <Carousel.Item>
-                <img
-                  className="d-block w-100"
-                  src="https://www.carestream.com/blog/wp-content/uploads/2020/01/future_of_diag_imaging_fb_1_2020_en.jpg"
-                  alt="First slide" style={{ width: '100%', height: '600px', backgroundSize: 'cover' }}
-                />
-                <Carousel.Caption>
-                  {/* <h3>First slide label</h3>
+              <img
+              className="d-block w-100"
+              src="https://www.carestream.com/blog/wp-content/uploads/2020/01/future_of_diag_imaging_fb_1_2020_en.jpg"
+              alt="First slide" style={{ width: '100%', height: '600px', backgroundSize: 'cover' }}
+              />
+              <Carousel.Caption>
+            {/* <h3>First slide label</h3>
                         <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
-                </Carousel.Caption>
+              </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
-                <img
-                  className="d-block w-100"
-                  src="https://d1hj7uubji8r0c.cloudfront.net/sites/radiology/files/styles/max_width_full/public/images/2020-02/pcir_cover_photos_hi_res_resize.jpg?itok=VHDBxu-X"
-                  alt="Second slide" style={{ width: '100%', height: '600px', backgroundSize: 'cover' }}
-                />
+              <img
+              className="d-block w-100"
+              src="https://d1hj7uubji8r0c.cloudfront.net/sites/radiology/files/styles/max_width_full/public/images/2020-02/pcir_cover_photos_hi_res_resize.jpg?itok=VHDBxu-X"
+              alt="Second slide" style={{ width: '100%', height: '600px', backgroundSize: 'cover' }}
+              />
 
-                <Carousel.Caption>
-                  {/* <h3>Second slide label</h3>
+              <Carousel.Caption>
+            {/* <h3>Second slide label</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
-                </Carousel.Caption>
+              </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
-                <img
-                  className="d-block w-100"
-                  src="https://www.elsevier.com/__data/assets/image/0012/1022133/Radiology-at-a-Crossroads_Five-converging-trends-reshaping-the-need-for-diagnostic-decision-support.JPG"
-                  alt="Third slide" style={{ width: '100%', height: '600px', backgroundSize: 'cover' }}
-                />
+              <img
+              className="d-block w-100"
+              src="https://www.elsevier.com/__data/assets/image/0012/1022133/Radiology-at-a-Crossroads_Five-converging-trends-reshaping-the-need-for-diagnostic-decision-support.JPG"
+              alt="Third slide" style={{ width: '100%', height: '600px', backgroundSize: 'cover' }}
+              />
 
-                <Carousel.Caption>
-                  {/* <h3>Third slide label</h3>
+              <Carousel.Caption>
+            {/* <h3>Third slide label</h3>
                         <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p> */}
-                </Carousel.Caption>
+              </Carousel.Caption>
               </Carousel.Item>
-            </Carousel>
+              </Carousel>
+              </div>
+              </Accordion.Body>
+            </Accordion.Item>
+          </Accordion>
+        
 
-           </div>
 
-            
 
-          <div class="wrapper">
-            {/* <button onClick={this.renderInfo()}>a</button>{this.renderinfo2()} */}
+        <div class="wrapper">
+          {/* <button onClick={this.renderInfo()}>a</button>{this.renderinfo2()} */}
 
-            <div class='innerwrapper'>
-              {(this.state.active !== 'AllCasesContent' && this.state.active !== 'Articles') && <p class="title" id="title1"><FeaturedCaseContents />{this.renderError()}</p>}
-              <div class='wrapper2'>
-              <div class='title3'>{this.state.active === 'AllCasesContent' ? <AllCasesContent /> : null} {this.state.active === 'Articles' ? <ErrorMessage /> : null}</div>
+          <div class='innerwrapper'>
+            {(this.state.active !== 'AllCasesContent' && this.state.active !== 'Articles') && <p class="title" id="title1"><FeaturedCaseContents />{this.renderError()}</p>}
+            <div class='wrapper2'>
+              {this.state.active === 'AllCasesContent' ? <div class='title3'><AllCasesContent /> </div>: null} {this.state.active === 'Articles' ? <div class='title3'> <ErrorMessage /></div> : null}
             </div>
-            </div>
-            <div class='fixed-bg bg-1'>
-            </div>
-            <div class="fixed-bg bg-2"><span class="title1" > </span></div>
-
-            <div class="fixed-bg bg-3"><span class="title2" ></span></div>
-
           </div>
+          <div class='fixed-bg bg-1'>
+          </div>
+          <div class="fixed-bg bg-2"><span class="title1" > </span></div>
+
+          <div class="fixed-bg bg-3"><span class="title2" ></span></div>
 
         </div>
 
-      </React.Fragment>
-    );
+      </div>
+
+          </React.Fragment >
+          );
   }
 }
 
