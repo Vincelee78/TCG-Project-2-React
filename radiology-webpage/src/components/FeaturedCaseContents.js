@@ -522,7 +522,7 @@ export default class CarouselComponent extends React.Component {
                                         
                                         <div className="container" key={patientsData._id}>
                                             <div className="card">
-                                                <button onClick={() => {
+                                                <button className='editButton' onClick={() => {
                                                     this.beginEdit(patientsData);
                                                 }}> Edit Case
                                                 </button>
@@ -545,7 +545,7 @@ export default class CarouselComponent extends React.Component {
                                                             <h5>Case Discussion: </h5>
                                                             <p><h6>{patientsData.caseDiscussion}</h6></p>
 
-                                                            <p><h5>Radiologist Name: {patientsData.radiologistId}</h5></p>
+                                                            <p><h5>Radiologist ID: {patientsData.radiologistId}</h5></p>
                                                             <h5>Body Systems:</h5>
                                                             <ul>
                                                                 {patientsData.bodySystems.map(i => <li key={i}>{i}</li>)}

@@ -70,8 +70,15 @@ export default class AllCasesContent extends React.Component {
                                 <div class="card-body-all-images">
                                     <h5>Case presentation: </h5>
                                     <h6>{patientsData.signsSymptomsTitle}</h6>
-                                    <p class="card-text">Radiologist: {patientsData.radiologistId}</p>
+                                    <p class="card-text">Patient ID: {patientsData.patientID}</p>
+                                    <p class="card-text">Patient's gender: {patientsData.gender}</p>
+                                    <p class="card-text">Patient's date of birth {patientsData.dob}</p>
+                                    <p class="card-text">Clinical History: {patientsData.clinicalHistory}</p>
+                                    <p class="card-text">Modality: {patientsData.modality}</p>
+                                    <p class="card-text">Case Discussion: {patientsData.caseDiscussion}</p>                            
+                                    <p class="card-text">Radiologist ID: {patientsData.radiologistId}</p>
                                     <p class="card-text">Published Date: {patientsData.publishedDate}</p>
+                                    <p class="card-text">Scientific References: {patientsData.scientificReferences}</p>
                                 </div>
                                 <div class="card-footer" style={{ textAlign: 'center' }}>
 
@@ -82,6 +89,7 @@ export default class AllCasesContent extends React.Component {
                                 </div>
                             </div>
                         </div>
+                        <hr style={{ height:'5px',size:"10", color:'red'}} />
                     </header>
                     )}
 
