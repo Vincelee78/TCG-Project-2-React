@@ -446,7 +446,7 @@ export default class CarouselComponent extends React.Component {
                 } else {
                     return (
                         <React.Fragment>
-                            <h2 style={{ color: 'brown', marginTop: '10px' }}>Featured Case: COVID-19 positive patient</h2>
+                            <p style={{ color: 'brown', marginTop: '10px',fontSize:'30px' }}>Featured Case: COVID-19 positive patient</p>
                             <Accordion defaultActiveKey="0" className='infoTab'>
                                 <Accordion.Item >
                                     <Accordion.Header eventKey="0">Information on Featured Case</Accordion.Header>
@@ -527,25 +527,25 @@ export default class CarouselComponent extends React.Component {
                                                 }}> Edit Case
                                                 </button>
                                                 <div className="card-body" >
-                                                    <h3 className="card-title">
+                                                    <h3 className="card-title"></h3>
                                                         <h5>Case presentation:</h5>
-                                                        <p><h6>{patientsData.signsSymptomsTitle}</h6></p>
-                                                    </h3>
-                                                    <p><h5>Patient ID: {patientsData.patientID}</h5></p>
-                                                    <p><h5>Gender: {patientsData.gender}</h5></p>
-                                                    <p><h5>Date of birth: {patientsData.dob}</h5></p>
+                                                        <p>{patientsData.signsSymptomsTitle}</p>
+        
+                                                    <p>Patient ID: {patientsData.patientID}</p>
+                                                    <p>Gender: {patientsData.gender}</p>
+                                                    <p>Date of birth: {patientsData.dob}</p>
                                                     <h5>Clinical History: </h5>
-                                                    <p><h6>{patientsData.clinicalHistory}</h6></p>
+                                                    <p>{patientsData.clinicalHistory}</p>
                                                     <div id='flexContainer'>
                                                         <img id='caseImgUrl' alt='' src={patientsData.images} />
                                                         <div id='contents' style={{ paddingTop: '20px' }}>
-                                                            <p><h5>Imaging Modality: {patientsData.modality}</h5></p>
-                                                            <p><h5>Published Date: {patientsData.publishedDate}</h5></p>
+                                                            <p>maging Modality: {patientsData.modality}</p>
+                                                            <p>Published Date: {patientsData.publishedDate}</p>
 
                                                             <h5>Case Discussion: </h5>
-                                                            <p><h6>{patientsData.caseDiscussion}</h6></p>
+                                                            <p>{patientsData.caseDiscussion}</p>
 
-                                                            <p><h5>Radiologist ID: {patientsData.radiologistId}</h5></p>
+                                                            <p>Radiologist ID: {patientsData.radiologistId}</p>
                                                             <h5>Body Systems:</h5>
                                                             <ul>
                                                                 {patientsData.bodySystems.map(i => <li key={i}>{i}</li>)}

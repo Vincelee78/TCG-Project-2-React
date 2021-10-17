@@ -64,27 +64,27 @@ export default class AllCasesContent extends React.Component {
             <Tabs activeKey={this.state.key} className="mb-3" id="controlled-tab-example" onSelect={(k) => this.handleSelect(k)} >
                 <Tab eventKey='1' title="Case" >
                     {this.state.data.map(patientsData => <header className="containerAllCases" key={patientsData._id}>
-                        <div class="card-group-all-cases">
-                            <div class="card-all-cases">
-                                <img src={patientsData.images} class="card-img-top" alt="..." />
-                                <div class="card-body-all-images">
+                        <div className="card-group-all-cases">
+                            <div className="card-all-cases">
+                                <img src={patientsData.images} className="card-img-top" alt="..." />
+                                <div className="card-body-all-images">
                                     <h5>Case presentation: </h5>
                                     <h6>{patientsData.signsSymptomsTitle}</h6>
-                                    <p class="card-text">Patient ID: {patientsData.patientID}</p>
-                                    <p class="card-text">Patient's gender: {patientsData.gender}</p>
-                                    <p class="card-text">Patient's date of birth {patientsData.dob}</p>
-                                    <p class="card-text">Clinical History: {patientsData.clinicalHistory}</p>
-                                    <p class="card-text">Modality: {patientsData.modality}</p>
-                                    <p class="card-text">Case Discussion: {patientsData.caseDiscussion}</p>                            
-                                    <p class="card-text">Radiologist ID: {patientsData.radiologistId}</p>
-                                    <p class="card-text">Published Date: {patientsData.publishedDate}</p>
-                                    <p class="card-text">Scientific References: {patientsData.scientificReferences}</p>
+                                    <p className="card-text">Patient ID: {patientsData.patientID}</p>
+                                    <p className="card-text">Patient's gender: {patientsData.gender}</p>
+                                    <p className="card-text">Patient's date of birth {patientsData.dob}</p>
+                                    <p className="card-text">Clinical History: {patientsData.clinicalHistory}</p>
+                                    <p className="card-text">Modality: {patientsData.modality}</p>
+                                    <p className="card-text">Case Discussion: {patientsData.caseDiscussion}</p>                            
+                                    <p className="card-text">Radiologist ID: {patientsData.radiologistId}</p>
+                                    <p className="card-text">Published Date: {patientsData.publishedDate}</p>
+                                    <p className="card-text">Scientific References: {patientsData.scientificReferences}</p>
                                 </div>
-                                <div class="card-footer" style={{ textAlign: 'center' }}>
+                                <div className="card-footer" style={{ textAlign: 'center' }}>
 
                                     <span><button className='btn btn-secondary'>{patientsData.modality}</button></span>
 
-                                    {patientsData.bodySystems.map(i => <h4><span class="iconsAllCases">{i}</span></h4>)}
+                                    {patientsData.bodySystems.map(i => <h4><span className="iconsAllCases">{i}</span></h4>)}
 
                                 </div>
                             </div>
@@ -109,7 +109,7 @@ export default class AllCasesContent extends React.Component {
             </Tab>
 
 
-            <Tab eventKey='3' title="Add Case" >
+            <Tab eventKey='3' title="Delete Case" >
 
             </Tab>
 
