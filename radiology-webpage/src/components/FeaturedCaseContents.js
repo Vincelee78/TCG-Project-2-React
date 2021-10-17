@@ -539,7 +539,7 @@ export default class CarouselComponent extends React.Component {
                                                     <div id='flexContainer'>
                                                         <img id='caseImgUrl' alt='' src={patientsData.images} />
                                                         <div id='contents' style={{ paddingTop: '20px' }}>
-                                                            <p>maging Modality: {patientsData.modality}</p>
+                                                            <p>Imaging Modality: {patientsData.modality}</p>
                                                             <p>Published Date: {patientsData.publishedDate}</p>
 
                                                             <h5>Case Discussion: </h5>

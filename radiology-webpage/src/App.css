@@ -345,3 +345,8 @@ nav > ul > li {
 .infoTab {
     padding-bottom: 30px;
 }
+
+/* featured case inner bntent css */
+.card{
+background-color: rgb(202, 233, 255)!important
+}
