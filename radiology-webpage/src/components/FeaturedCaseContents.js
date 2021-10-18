@@ -4,9 +4,8 @@ import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import AddNew from '../components/AddNew'
 import SuccessAddMessage from '../components/CaseAddedSuccess';
-import Carousel from 'react-bootstrap/Carousel'
 import Accordion from 'react-bootstrap/Accordion'
-import ErrorMessage from '../components/Errormessage';
+
 
 
 
@@ -438,7 +437,7 @@ export default class CarouselComponent extends React.Component {
         return (
 
 
-            this.state.data.map(patientsData => {
+            this.state.data.map(patientsData => { 
                 if (patientsData._id === this.state.userBeingEdited) {
                     return (
                         <React.Fragment key={patientsData._id}>
@@ -529,9 +528,9 @@ export default class CarouselComponent extends React.Component {
                                                 }}> Edit Case
                                                 </button>
                                                 <div className="card-body" >
-                                                    <h3 className="card-title"></h3>
+                                                    <div className="card-title">
                                                         <h5>Case presentation:</h5>
-                                                        <p>{patientsData.signsSymptomsTitle}</p>
+                                                        <p>{patientsData.signsSymptomsTitle}</p></div>
         
                                                     <p>Patient ID: {patientsData.patientID}</p>
                                                     <p>Gender: {patientsData.gender}</p>
@@ -550,7 +549,7 @@ export default class CarouselComponent extends React.Component {
                                                             <p>Radiologist ID: {patientsData.radiologistId}</p>
                                                             <h5>Body Systems:</h5>
                                                             <ul>
-                                                                {patientsData.bodySystems.map(i => <li key={i}>{i}</li>)}
+                                                                {patientsData.bodySystems.map(i => <li key={i._id}>{i}</li>)}
                                                             </ul>
                                                             <h5>Scientific References: </h5>
                                                             <h6>{patientsData.scientificReferences}</h6>

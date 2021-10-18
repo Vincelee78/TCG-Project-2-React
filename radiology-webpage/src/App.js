@@ -1,13 +1,11 @@
 import React from 'react';
 import './App.css';
 import logo from './home-logo.png';
-import Navbar from './Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AllCasesContent from './components/AllCasesContent';
 import FeaturedCaseContents from './components/FeaturedCaseContents';
 import ErrorMessage from './components/Errormessage';
 import axios from 'axios';
-import Info from './components/BackgroundInfo';
 import Accordion from 'react-bootstrap/Accordion'
 import Carousel from 'react-bootstrap/Carousel'
 
