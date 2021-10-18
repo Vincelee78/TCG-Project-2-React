@@ -1,272 +1,285 @@
 body {
-    margin: 0;
-    padding: 0;
-    background-color: rgb(1, 58, 99);
-
+  margin: 0;
+  padding: 0;
+  background-color: rgb(1, 58, 99);
 }
 
 #nav {
-
-    display: flex;
-    background-color: rgb(1, 58, 99);
-
+  display: flex;
+  background-color: rgb(1, 58, 99);
 }
 
 #allLogos {
-    display: flex;
-    margin-right: auto;
-    padding-top: 10px;
-    background-color: rgb(1, 58, 99);
+  display: flex;
+  padding-top: 10px;
+  background-color: rgb(1, 58, 99);
 }
 
 #logo {
-    display: inline-block;
-    background-color: rgb(1, 58, 99);
-    color: white;
-    padding-left: 50px;
-    height: 50px;
-
-
+  display: inline-block;
+  background-color: rgb(1, 58, 99);
+  color: white;
+  padding-top: 10px;
+  padding-left: 50px;
+  height: 50px;
 }
 
 #pagename {
-    display: inline;
-    color: white;
-    font-size: 30px;
-    padding-left: 35px;
-
-
+  display: inline;
+  color: white;
+  padding-top: 10px;
+  font-size: 30px;
+  padding-left: 35px;
+  margin-right: auto;
 }
 
-
-nav > ul {
-    margin: 0;
-    padding: 0;
-    background-color: rgb(1, 58, 99);
-    display: inline-block
+nav > div > div > ul {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(1, 58, 99);
+  /* display: inline-block; */
 }
 
-
-nav > ul > li {
-    display: inline-block;
-    cursor: pointer
+nav > div > div > ul > li {
+  /* display: inline-block; */
+  cursor: pointer;
 }
 
-
-.navlink {
-    background-color: rgb(44, 125, 160);
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    text-decoration: none;
-    color: white;
-    padding: 30px 110px;
-
+.container {
+  margin-right: 0 !important;
 }
 
-
-.main-nav li span:hover {
-
-    background-color: rgb(56, 54, 154)
+.navbar {
+  padding: 0 !important;
 }
 
+.navbar-nav > li > a {
+  /* display: block; */
+  background-color: rgb(44, 125, 160);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+  padding: 30px 60px !important;
+}
 
-.navbar-toggle {
+#navbarSupportedContent {
+  background-color: rgb(44, 125, 160) !important;
+}
+
+/* #navbar {
+    padding:0
+} */
+
+.navbar-nav li a:hover {
+  display: block;
+  background-color: rgb(56, 54, 154);
+}
+
+/* .navbar-toggle {
     display: none;
-}
+} */
+
+/* .navbar-toggle {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 24px;
+  }
+  
+  
+  .active {
+    display: block;
+    
+  
+  }
+  
+  .expanded {
+      max-height:1000px;
+  } */
 
 /* css of the tail bar of the Navbar */
 #infowords {
-    text-align: center;
-    padding: 10px 0;
-    font-size: 20px;
-    background-color: rgb(1, 58, 99);
-    color: white;
-
+  text-align: center;
+  padding: 10px 0;
+  font-size: 20px;
+  background-color: rgb(1, 58, 99);
+  color: white;
 }
 
 /* end of nav bar collapse */
 
 .accordion-item {
-    border: none !important;
-
+  border: none !important;
 }
 
 .accordion-body {
-    background-color: rgb(1, 58, 99);
-
-    
+  background-color: rgb(1, 58, 99);
 }
 
 .accordion-button {
-    color:wheat !important;
+  color: wheat !important;
 }
 
 .accordion-body > p {
-
-    color: white !important;
-
+  color: white !important;
 }
 
 .accordion-body > h5 {
-
-    color: white !important;
-
+  color: white !important;
 }
 
-.accordion-body >ul>li {
-
-    color: white !important;
-
+.accordion-body > ul > li {
+  color: white !important;
 }
 
 .accordion-button:not(.collapsed) {
-
-    background-color: rgb(1, 58, 99) !important;
-    padding: 0;
-    margin: 0
+  background-color: rgb(1, 58, 99) !important;
+  padding: 0;
+  margin: 0;
 }
 
 .accordion-button.collapsed {
-
-    background-color: rgb(1, 58, 99) !important;
-    color: white !important;
-    padding: 0;
-    margin: 0
+  background-color: rgb(1, 58, 99) !important;
+  color: white !important;
+  padding: 0;
+  margin: 0;
 }
 
-.carousel-control-next-icon, .carousel-control-prev-icon {
-    width:0 !important;
-    height:0 !important;
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  width: 0 !important;
+  height: 0 !important;
 }
 
 .wrapper {
-    height: 100%;
-    font-family: 'Quicksand', sans-serif;
-    line-height: 1.5;
-    word-spacing: 4px;
-    letter-spacing: 1px;
-    position: relative;
-
-
+  height: 100%;
+  font-family: "Quicksand", sans-serif;
+  line-height: 1.5;
+  word-spacing: 4px;
+  letter-spacing: 1px;
+  position: relative;
 }
-.editButton{
-    margin:5px;
-    width:100px
+.editButton {
+  margin: 5px;
+  width: 100px;
 }
-
 
 .innerwrapper {
-    display: flex;
-    justify-content: center;
-
+  display: flex;
+  justify-content: center;
 }
 
 .fixed-bg {
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    height: 600px;
-    width: 100%;
-    color: white;
-
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 600px;
+  width: 100%;
+  color: white;
 }
 
 .title {
-    /* text-decoration: none;
+  /* text-decoration: none;
    font-size: 30px;
    color: rgb(0, 180, 216); */
-    /* margin-left:150px; */
-    /* text-align: center; */
-    margin-top: 50px;
-    position: absolute;
-    background-color: lightskyblue;
-    opacity: 0.96;
-    border-radius: 20px;
-    border: 10px;
-    padding: 20px;
-    width: 150vh
+  /* margin-left:150px; */
+  /* text-align: center; */
+  margin-top: 50px;
+  position: absolute;
+  background-color: lightskyblue;
+  opacity: 0.96;
+  border-radius: 20px;
+  border: 10px;
+  padding: 20px;
+  width: 80vw;
 }
 
-
 .title3 {
-
-    margin: 0;
-    /* position: absolute;  */
-    background-color: lightskyblue;
-    opacity: 0.96;
-    border-radius: 20px;
-    border: 10px;
-    padding: 20px 10px;
-    width: 150vh
+  margin: 0;
+  /* position: absolute;  */
+  background-color: lightskyblue;
+  opacity: 0.96;
+  border-radius: 20px;
+  border: 10px;
+  padding: 20px 10px;
+  width: 150vh;
 }
 
 .errorMessageImg {
-    width: 140vh
+  width: 140vh;
 }
 
 .wrapper2 {
-    position: relative;
+  position: relative;
 }
+
 .innerwrapper {
-    background-image: url('https://filmdaily.co/wp-content/uploads/2021/06/rad-01.jpg');
+  background-image: url("https://filmdaily.co/wp-content/uploads/2021/06/rad-01.jpg");
 }
+
+.d-block {
+  width: 100% !important;
+  height: 600px !important;
+  background-size: cover !important
+}
+
 .scroll-bg {
-    background-color: #0f0f0a;
-    padding: 10px 70px;
-    color: #676767;
+  background-color: #0f0f0a;
+  padding: 10px 70px;
+  color: #676767;
 }
 
 /* first section of wrapper*/
 
 .bg-1 {
-    background-image: url("https://i0.wp.com/swdic.com/wp-content/uploads/2020/08/Brain-MRI-min.jpg?fit=1973%2C963&ssl=1");
-    justify-content: center;
+  background-image: url("https://i0.wp.com/swdic.com/wp-content/uploads/2020/08/Brain-MRI-min.jpg?fit=1973%2C963&ssl=1");
+  justify-content: center;
 }
 
 /* 2nd section of wrapper*/
 
 .bg-2 {
-    background-image: url('https://image.shutterstock.com/image-photo/brain-ct-scan-head-computed-260nw-1390517843.jpg');
-    background-size: cover;
-
+  background-image: url("https://image.shutterstock.com/image-photo/brain-ct-scan-head-computed-260nw-1390517843.jpg");
+  background-size: cover;
 }
 
 /* 3rd section of wrapper*/
 
 .bg-3 {
-    background-image: url('https://www.philips.com/c-dam/b2bhc/master/Specialties/radiology/ivp-page/media-asset-IVP-radiology-workflows-700.jpg');
+  background-image: url("https://www.philips.com/c-dam/b2bhc/master/Specialties/radiology/ivp-page/media-asset-IVP-radiology-workflows-700.jpg");
 }
 
 .form-label {
-    color: rgb(56, 54, 154)
+  color: rgb(56, 54, 154);
 }
 
 .card {
-    color: black
+  color: black;
 }
 
 #flexContainer {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 
-    overflow: hidden
+  overflow: hidden;
 }
 
 #caseImgUrl {
-    flex-shrink: 0;
-    -webkit-flex-shrink: 0;
-    padding-top: 20px;
-    max-height: 500px !important;
-    max-width: 600px !important;
-    width: auto !important;
-    height: auto !important
+  flex-shrink: 0;
+  -webkit-flex-shrink: 0;
+  padding-top: 20px;
+  height: auto !important;
+  max-width: 40vw !important;
+  background-size: "cover";
+  /* width: auto !important;
+    height: auto !important  */
 }
 
-
 #contents {
-
-    padding-left: 30px;
-
+  padding-left: 30px;
 }
 
 /* .checkbox{
@@ -275,78 +288,147 @@ nav > ul > li {
 
 /* padding between form contents in add case*/
 .card-body {
-    padding-bottom: 20px;
+  padding-bottom: 20px;
 }
 /* co */
 /* .containerAllCases{
     margin-left: 50px;
 } */
 
-
 /* padding between the navtab in all cases and the contents */
 .card-group-all-cases {
-    padding: 10px
+  padding: 10px;
 }
 /* flex the all cases cards */
 .card-all-cases {
-    display: flex;
-
+  display: flex;
 }
 
 /* image dimensions of All cases section*/
 .card-img-top {
-    align-items: center;
-    max-height: 50vh;
-    max-width: 70vh;
-    padding-right: 20px;
+  align-items: center;
+  max-height: 50vh;
+  max-width: 70vh;
+  padding-right: 20px;
 }
 
 /* dimensions of card title in All cases section*/
 .card-body-all-images {
-    width: 60%
+  width: 60%;
 }
 
 /* css of width of car footer */
 .card-footer {
-    width: 300px !important;
-
+  width: 300px !important;
 }
 
 /* css of icons in All cases section */
 .iconsAllCases {
-    display: inline-block;
-    padding: 2px;
-    color: red;
-    border: 1px solid red;
-    font-size: 10px;
-    cursor: pointer;
-    line-height: 2;
-    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-    text-decoration: none;
+  display: inline-block;
+  padding: 2px;
+  color: red;
+  border: 1px solid red;
+  font-size: 10px;
+  cursor: pointer;
+  line-height: 2;
+  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+  text-decoration: none;
 }
 
 .iconsAllCases:hover {
-    background: rgba(255, 0, 0, 0.63);
-    border: 1px solid rgba(250, 0, 0, 0.753);
-    color: white;
+  background: rgba(255, 0, 0, 0.63);
+  border: 1px solid rgba(250, 0, 0, 0.753);
+  color: white;
 }
 
 /* Navtab css when editing featured case  */
 .box {
-    border: 1px solid black;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px;
-    width: 1000px;
-    text-align: center;
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px;
+  width: 1000px;
+  text-align: center;
 }
-
 
 .infoTab {
-    padding-bottom: 30px;
+  padding-bottom: 30px;
 }
 
-/* featured case inner bntent css */
-.card{
-background-color: rgb(202, 233, 255)!important
+/* featured case inner content css */
+.card {
+  background-color: rgb(202, 233, 255) !important;
+}
+
+/* ipad */
+/* 768 to 375 */
+@media screen and (max-width: 768px) {
+  #caseImgUrl {
+    flex-shrink: 100;
+    -webkit-flex-shrink: 0;
+    padding-top: 20px;
+    height: auto !important;
+    max-width: 100vw !important;
+    background-size: "cover";
+  }
+
+  .card-img-top {
+    max-width:100vw !important;
+    height: auto !important;
+  }
+
+  .card-all-cases {
+      flex-direction: column;
+      /* justify-content: center; */
+      align-items: center;
+  }
+
+  .card-group-all-cases{
+      text-align:center;
+  }
+  .navbar-nav > li > a {
+    /* display: block; */
+    background-color: rgb(44, 125, 160);
+    font-family: Georgia, "Times New Roman", Times, serif;
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    padding: 30px 0px !important;
+  }
+
+  .title {
+    margin-top: 50px;
+    position: absolute;
+    background-color: lightskyblue;
+    opacity: 0.96;
+    border-radius: 20px;
+    border: 10px;
+    padding: 10px;
+    width: 100vw;
+  }
+
+.title3{
+    width:100vw;
+}
+
+  #pagename {
+    font-size: 20px;
+    padding-left: 5px;
+  }
+
+  #logo {
+    margin: 0;
+    padding: 10px 10px;
+  }
+
+  #flexContainer {
+    flex-direction: column;
+  }
+
+  .d-block {
+    width: 100% !important;
+    height: auto !important;
+    background-size: cover !important;
+    background-position: center !important;
+  }
 }

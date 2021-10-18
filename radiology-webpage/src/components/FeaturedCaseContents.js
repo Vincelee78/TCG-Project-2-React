@@ -155,13 +155,13 @@ export default class CarouselComponent extends React.Component {
         });
     };
 
-    async updateCase()  {
+    async updateCase() {
         // clone the original task
         // let currentUser = this.state.users.filter((a) => a._id === user._id)[0];
         // modifiedUser is the cloned original array
         let modifiedCase = this.state.data.slice();
         modifiedCase._id = this.state.userBeingEdited;
-        await axios.put(this.url + 'featuredCase/' + modifiedCase._id , {
+        await axios.put(this.url + 'featuredCase/' + modifiedCase._id, {
             // let modifiedUser = { ...user1 };
 
             // make changes to the clone
@@ -185,8 +185,8 @@ export default class CarouselComponent extends React.Component {
 
         })
 
-        let response= await axios.get( this.url+ 'featuredCase/'+ modifiedCase._id)
-        let modifiedCases=response.data
+        let response = await axios.get(this.url + 'featuredCase/' + modifiedCase._id)
+        let modifiedCases = response.data
 
         let indexToModify = this.state.data.findIndex(
             (u) => u._id === modifiedCase._id
@@ -250,7 +250,7 @@ export default class CarouselComponent extends React.Component {
 
             <React.Fragment>
                 <h3>Editing PatientID: {this.state.modifiedpatientId}</h3>
-                <div className="innerbox" style={{textAlign:'left'}}>
+                <div className="innerbox" style={{ textAlign: 'left' }}>
                     <h6>Case Presentation:</h6>
                     <textarea rows="4" cols="40" value={this.state.modifiedsignSymptomsTitle} name="modifiedsignSymptomsTitle"
                         onChange={(evt) => {
@@ -310,25 +310,25 @@ export default class CarouselComponent extends React.Component {
 
                     <h6>Modality:</h6>
                     <ul >
-                    <li>
-                        <input name="X-ray" type="radio" value={this.state.modifiedmodality} onChange={this.updateanswer} checked={this.state.modifiedmodality === 'X-ray'} /><label>X-ray</label>
-                    </li>
-                    <li>
-                        <input name="ComputedTomography" type="radio" value={this.state.modifiedmodality} onChange={this.updateanswer} checked={this.state.modifiedmodality === 'ComputedTomography'} /><label>Computed Tomography</label>
-                    </li>
-                    <li>
-                        <input name="Ultrasound" type="radio" value={this.state.modifiedmodality} onChange={this.updateanswer} checked={this.state.modifiedmodality === 'Ultrasound'} /><label>Ultrasound</label>
-                    </li>
-                    <li>
-                        <input name="MRI" type="radio" value={this.state.modifiedmodality} onChange={this.updateanswer} checked={this.state.modifiedmodality === 'MRI'} /><label>MRI</label>
-                    </li>
-                </ul>
+                        <li>
+                            <input name="X-ray" type="radio" value={this.state.modifiedmodality} onChange={this.updateanswer} checked={this.state.modifiedmodality === 'X-ray'} /><label>X-ray</label>
+                        </li>
+                        <li>
+                            <input name="ComputedTomography" type="radio" value={this.state.modifiedmodality} onChange={this.updateanswer} checked={this.state.modifiedmodality === 'ComputedTomography'} /><label>Computed Tomography</label>
+                        </li>
+                        <li>
+                            <input name="Ultrasound" type="radio" value={this.state.modifiedmodality} onChange={this.updateanswer} checked={this.state.modifiedmodality === 'Ultrasound'} /><label>Ultrasound</label>
+                        </li>
+                        <li>
+                            <input name="MRI" type="radio" value={this.state.modifiedmodality} onChange={this.updateanswer} checked={this.state.modifiedmodality === 'MRI'} /><label>MRI</label>
+                        </li>
+                    </ul>
                     {/* <input */}
-                        {/* // type="text"
+                    {/* // type="text"
                         // value={this.state.modifiedmodality}
                         // onChange={(evt) => { */}
-                        {/* //     this.setState({ */}
-                        {/* //         modifiedmodality: evt.target.value
+                    {/* //     this.setState({ */}
+                    {/* //         modifiedmodality: evt.target.value
                         //     });
                         // }}
                         // name="modifiedmodality" */}
@@ -345,8 +345,8 @@ export default class CarouselComponent extends React.Component {
                         }}
                         name="modifiedpublishedDate"
                     />
-                    
-                    <br/><br/>
+
+                    <br /><br />
                     <h6>Case Discussion:</h6>
                     <textarea rows="6" cols="40"
                         type="text"
@@ -370,33 +370,33 @@ export default class CarouselComponent extends React.Component {
                         }}
                         name="modifiedbodysystem"
                     />
-                    
-                    <br/><br/>
+
+                    <br /><br />
                     <h6>Body Systems:</h6>
                     <div>
-                    <input type="checkbox" name="modifiedbodysystem" value="Cardiovascular" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Cardiovascular')} /><label>Cardiovascular</label>
+                        <input type="checkbox" name="modifiedbodysystem" value="Cardiovascular" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Cardiovascular')} /><label>Cardiovascular</label>
 
-                    <input type="checkbox" name="modifiedbodysystem" value="Gastrointestinal" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Gastrointestinal')} /><label>Gastrointestinal</label>
+                        <input type="checkbox" name="modifiedbodysystem" value="Gastrointestinal" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Gastrointestinal')} /><label>Gastrointestinal</label>
 
-                    <input type="checkbox" name="modifiedbodysystem" value="Endocrine" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Endocrine')} /><label>Endocrine</label>
+                        <input type="checkbox" name="modifiedbodysystem" value="Endocrine" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Endocrine')} /><label>Endocrine</label>
 
-                    <input type="checkbox" name="modifiedbodysystem" value="Exocrine" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Exocrine')} /><label>Exocrine</label>
+                        <input type="checkbox" name="modifiedbodysystem" value="Exocrine" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Exocrine')} /><label>Exocrine</label>
 
-                    <input type="checkbox" name="modifiedbodysystem" value="Lymphatic" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Lymphatic')} /><label>Lymphatic</label>
+                        <input type="checkbox" name="modifiedbodysystem" value="Lymphatic" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Lymphatic')} /><label>Lymphatic</label>
 
-                    <input type="checkbox" name="modifiedbodysystem" value="Muscular" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Muscular')} /><label>Muscular</label>
+                        <input type="checkbox" name="modifiedbodysystem" value="Muscular" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Muscular')} /><label>Muscular</label>
 
-                    <input type="checkbox" name="modifiedbodysystem" value="Nervous" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Nervous')} /><label>Nervous</label>
+                        <input type="checkbox" name="modifiedbodysystem" value="Nervous" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Nervous')} /><label>Nervous</label>
 
-                    <input type="checkbox" name="modifiedbodysystems" value="Renal" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Renal')} /><label>Renal</label>
+                        <input type="checkbox" name="modifiedbodysystems" value="Renal" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Renal')} /><label>Renal</label>
 
-                    <input type="checkbox" name="modifiedbodysystem" value="Reproductive" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Reproductive')} /><label>Reproductive</label>
+                        <input type="checkbox" name="modifiedbodysystem" value="Reproductive" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Reproductive')} /><label>Reproductive</label>
 
-                    <input type="checkbox" name="modifiedbodysystem" value="Respiratory" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Respiratory')} /><label>Respiratory</label>
+                        <input type="checkbox" name="modifiedbodysystem" value="Respiratory" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Respiratory')} /><label>Respiratory</label>
 
-                    <input type="checkbox" name="modifiedbodysystem" value="Skeletal" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Skeletal')} /><label>Skeletal</label>
-                    
-                    {/* <input
+                        <input type="checkbox" name="modifiedbodysystem" value="Skeletal" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Skeletal')} /><label>Skeletal</label>
+
+                        {/* <input
                         type="text"
                         value={this.state.modifiedbodySystem}
                         onChange={(evt) => {
@@ -405,9 +405,9 @@ export default class CarouselComponent extends React.Component {
                             });
                         }}
                         name="modifiedbodysystem" */}
-                    {/* /> */}
+                        {/* /> */}
                     </div>
-                    <br/>
+                    <br />
 
                     <h6>Scientific References:</h6>
                     <textarea rows="6" cols="40"
@@ -437,7 +437,7 @@ export default class CarouselComponent extends React.Component {
         return (
 
 
-            this.state.data.map(patientsData => { 
+            this.state.data.map(patientsData => {
                 if (patientsData._id === this.state.userBeingEdited) {
                     return (
                         <React.Fragment key={patientsData._id}>
@@ -447,7 +447,7 @@ export default class CarouselComponent extends React.Component {
                 } else {
                     return (
                         <React.Fragment>
-                            <p style={{ color: 'brown', marginTop: '10px', fontSize:'30px' }}>Featured Case: COVID-19 positive patient</p>
+                            <p style={{ color: 'brown', marginTop: '10px', fontSize: '30px' }}>Featured Case: COVID-19 positive patient</p>
                             <Accordion defaultActiveKey="0" className='infoTab'>
                                 <Accordion.Item >
                                     <Accordion.Header eventKey="0">Information on Featured Case</Accordion.Header>
@@ -520,8 +520,8 @@ export default class CarouselComponent extends React.Component {
                                 {/* <h1>abc</h1> */}
                                 <Tabs activeKey={this.state.key} className="mb-3" id="controlled-tab-example" onSelect={(k) => this.handleSelect(k)} >
                                     <Tab eventKey='1' title="Case" >
-                                        
-                                        <div className="container" key={patientsData._id}>
+
+                                        <div className="container fluid" key={patientsData._id}>
                                             <div className="card">
                                                 <button className='editButton' onClick={() => {
                                                     this.beginEdit(patientsData);
@@ -531,7 +531,7 @@ export default class CarouselComponent extends React.Component {
                                                     <div className="card-title">
                                                         <h5>Case presentation:</h5>
                                                         <p>{patientsData.signsSymptomsTitle}</p></div>
-        
+
                                                     <p>Patient ID: {patientsData.patientID}</p>
                                                     <p>Gender: {patientsData.gender}</p>
                                                     <p>Date of birth: {patientsData.dob}</p>

@@ -26,6 +26,7 @@ export default class App extends React.Component {
 
   componentDidMount() {
     this.fetchData();
+    const script = document.createElement("script"); script.async = true; script.src = "https://some-scripturl.js";
   }
 
   fetchData = async () => {
@@ -71,16 +72,47 @@ export default class App extends React.Component {
   }
 
 
+
   render() {
     return (
       <React.Fragment>
         <div id="nav">
-          <div id='allLogos'>
+          
             <img src={logo} alt={logo} id="logo" />
-            <a style={{ fontFamily: 'Stencil Std, fantasy', textDecoration: 'none' }} id="pagename" href='App.js'><b>MedRadiology</b></a>
-          </div>
+            <a style={{ fontFamily: 'Stencil Std, fantasy', textDecoration: 'none' }} id="pagename" href='App.js'>MedRadiology</a>
+          
 
-          <nav className="navbar" id="navbar">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="row d-flex flex-row">
+              
+              <button class="navbar-toggler d-flex justify-content-end d-sm-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 main-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#" onClick={this.setActiveReports}>REPORTS</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" onClick={this.setActiveAllCases}>ALL CASES</a>
+                  </li>
+              
+                  <li class="nav-item">
+                    <a class="nav-link ">COURSES</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" onClick={this.setActiveAbout}>ABOUT</a>
+                  </li>
+                </ul>
+                {/* <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form> */}
+              </div>
+            </div>
+          </nav>
+
+          {/* <nav className="navbar" id="navbar">
             <span className="navbar-toggle" id="js-navbar-toggle">
               <i className="fa fa-bars"></i>
             </span>
@@ -91,7 +123,7 @@ export default class App extends React.Component {
               <li><span onClick={this.setActiveAbout} className="navlink">ABOUT</span></li>
 
             </ul>
-          </nav>
+          </nav> */}
 
           {/* {this.renderAllCases()} */}
         </div>
@@ -104,71 +136,79 @@ export default class App extends React.Component {
               <Accordion.Header></Accordion.Header>
               <Accordion.Body>
 
-              <div className='carouselTitle'>
-              <Carousel fade>
-              <Carousel.Item interval={3000}>
-              <img
-              className="d-block w-100"
-              src="https://www.carestream.com/blog/wp-content/uploads/2020/01/future_of_diag_imaging_fb_1_2020_en.jpg"
-              alt="First slide" style={{ width: '100%', height: '600px', backgroundSize: 'cover' }}
-              />
-              <Carousel.Caption>
-          
-              </Carousel.Caption>
-              </Carousel.Item>
-              <Carousel.Item interval={3000}>
-              <img
-              className="d-block w-100"
-              src="https://d1hj7uubji8r0c.cloudfront.net/sites/radiology/files/styles/max_width_full/public/images/2020-02/pcir_cover_photos_hi_res_resize.jpg?itok=VHDBxu-X"
-              alt="Second slide" style={{ width: '100%', height: '600px', backgroundSize: 'cover' }}
-              />
+                <div className='carouselTitle'>
+                  <Carousel fade>
+                    <Carousel.Item interval={3000}>
+                      <img
+                        className="d-block w-100"
+                        src="https://www.carestream.com/blog/wp-content/uploads/2020/01/future_of_diag_imaging_fb_1_2020_en.jpg"
+                        alt="First slide" 
+                      />
+                      <Carousel.Caption>
 
-              <Carousel.Caption>
-            
-              </Carousel.Caption>
-              </Carousel.Item>
-              <Carousel.Item interval={3000}>
-              <img
-              className="d-block w-100"
-              src="https://www.elsevier.com/__data/assets/image/0012/1022133/Radiology-at-a-Crossroads_Five-converging-trends-reshaping-the-need-for-diagnostic-decision-support.JPG"
-              alt="Third slide" style={{ width: '100%', height: '600px', backgroundSize: 'cover' }}
-              />
+                      </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item interval={3000}>
+                      <img
+                        className="d-block w-100"
+                        src="https://d1hj7uubji8r0c.cloudfront.net/sites/radiology/files/styles/max_width_full/public/images/2020-02/pcir_cover_photos_hi_res_resize.jpg?itok=VHDBxu-X"
+                        alt="Second slide" 
+                      />
 
-              <Carousel.Caption>
-            
-              </Carousel.Caption>
-              </Carousel.Item>
-              </Carousel>
-              </div>
-              
+                      <Carousel.Caption>
+
+                      </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item interval={3000}>
+                      <img
+                        className="d-block w-100"
+                        src="https://www.elsevier.com/__data/assets/image/0012/1022133/Radiology-at-a-Crossroads_Five-converging-trends-reshaping-the-need-for-diagnostic-decision-support.JPG"
+                        alt="Third slide" 
+                      />
+
+                      <Carousel.Caption>
+
+                      </Carousel.Caption>
+                    </Carousel.Item>
+                  </Carousel>
+                </div>
+
               </Accordion.Body>
             </Accordion.Item>
           </Accordion>
-        
 
 
 
-        <div className="wrapper">
-          {/* <button onClick={this.renderInfo()}>a</button>{this.renderinfo2()} */}
 
-          <div className='innerwrapper'>
-            {(this.state.active !== 'AllCasesContent' && this.state.active !== 'Articles') && <p className="title" id="title1"><FeaturedCaseContents />{this.renderError()}</p>}
-            <div className='wrapper2'>
-              {this.state.active === 'AllCasesContent' ? <div className='title3'><AllCasesContent /> </div>: null} {this.state.active === 'Articles' ? <div className='title3'> <ErrorMessage /></div> : null}
+          <div className="wrapper">
+            {/* <button onClick={this.renderInfo()}>a</button>{this.renderinfo2()} */}
+
+            <div className='innerwrapper'>
+              {(this.state.active !== 'AllCasesContent' && this.state.active !== 'Articles') && <p className="title" id="title1"><FeaturedCaseContents />{this.renderError()}</p>}
+              <div className='wrapper2'>
+                {this.state.active === 'AllCasesContent' ? <div className='title3'><AllCasesContent /> </div> : null} {this.state.active === 'Articles' ? <div className='title3'> <ErrorMessage /></div> : null}
+              </div>
             </div>
-          </div>
-          <div className='fixed-bg bg-1'>
-          </div>
-          <div className="fixed-bg bg-2"><span className="title1" > </span></div>
+            <div className='fixed-bg bg-1'>
+            </div>
+            <div className="fixed-bg bg-2"><span className="title1" > </span></div>
 
-          <div className="fixed-bg bg-3"><span className="title2" ></span></div>
+            <div className="fixed-bg bg-3"><span className="title2" ></span></div>
 
+          </div>
+          {/* {<script>let mainNav = document.getElementById("js-menu");
+      let navBar = document.getElementById("navbar");
+      let navBarToggle = document.querySelector("#js-navbar-toggle");
+
+      navBarToggle.addEventListener('click', function() {
+      mainNav.classList.toggle("active"),
+      navBar.classList.toggle("expanded")
+})</script>
+} */}
         </div>
 
-      </div>
-
-          </React.Fragment >
-          );
+      </React.Fragment >
+    );
   }
 }
 
