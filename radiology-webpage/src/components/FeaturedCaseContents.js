@@ -156,13 +156,13 @@ export default class CarouselComponent extends React.Component {
         });
     };
 
-    updateCase = () => {
+    async updateCase()  {
         // clone the original task
         // let currentUser = this.state.users.filter((a) => a._id === user._id)[0];
         // modifiedUser is the cloned original array
-        let mo = this.state.data.slice();
+        let modifiedCase = this.state.data.slice();
         modifiedCase._id = this.state.userBeingEdited;
-        let modifiedcaseclone = {
+        await axios.put(this.url + 'featuredCase/' + modifiedCase._id , {
             // let modifiedUser = { ...user1 };
 
             // make changes to the clone
@@ -170,7 +170,7 @@ export default class CarouselComponent extends React.Component {
             // modifiedUser._id is the orginal clone id
             // modifiedUser.name is the orginal clone name
             // this.state.modifiedUsername refer to begin edit(user) function, user.name
-            _id: this.state.userBeingEdited,
+            // _id: this.state.userBeingEdited,
             patientID: this.state.modifiedpatientId,
             signsSymptomsTitle: this.state.modifiedsignSymptomsTitle,
             gender: this.state.modifiedGender,
@@ -184,8 +184,10 @@ export default class CarouselComponent extends React.Component {
             images: this.state.modifiedimages,
             radiologistId: this.state.modifiedradiologistId
 
-        }
+        })
 
+        let response= await axios.get( this.url+ 'featuredCase/'+ modifiedCase._id)
+        let modifiedCases=response.data
 
         let indexToModify = this.state.data.findIndex(
             (u) => u._id === modifiedCase._id
@@ -194,7 +196,7 @@ export default class CarouselComponent extends React.Component {
 
         let cloned = [
             ...this.state.data.slice(0, indexToModify),
-            modifiedcaseclone,
+            modifiedCases,
             ...this.state.data.slice(indexToModify + 1)
         ];
 
@@ -214,7 +216,7 @@ export default class CarouselComponent extends React.Component {
         //     console.log(res.config.data)
 
         this.setState({
-            data: [modifiedcaseclone],
+            data: cloned,
             userBeingEdited: 0,
             active: 'featuredCase'
         })

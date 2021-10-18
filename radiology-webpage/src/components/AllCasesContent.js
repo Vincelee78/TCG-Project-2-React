@@ -58,20 +58,26 @@ export default class AllCasesContent extends React.Component {
     }
 
 
-    deleteTask =()=> {
-        let modifiedCase=this.state.data.slice();
-        // 1. find the index of the task
-        let data_index = this.state.data.findIndex((c) => c.id === modifiedCase._id);
-    
+    deleteCase = async (caseId)=> {
+        console.log(this.state.data)
+        console.log('Id', caseId)
+       await axios.delete(this.url + "patientsData1/" + caseId)
+    //    console.log(response)
+        // let modifiedCase= [...this.state.data]
+       // 1. find the index of the task
+        let data_index = this.state.data.findIndex((c) => c._id === caseId);
+        console.log(data_index)
         // 2. make a copy of the array, but skip over the task that we want to delete
-        let clone = [
-          ...this.state.tasks.slice(0, data_index),
-          ...this.state.tasks.slice(data_index + 1)
+        let modifiedCase = [
+          ...this.state.data.slice(0, data_index),
+          ...this.state.data.slice(data_index + 1)
         ];
-    
+        
+        
         this.setState({
-          data: clone
-        });
+            data: modifiedCase
+          });
+        //   console.log(modifiedCase)
       };
     
 
@@ -84,7 +90,7 @@ export default class AllCasesContent extends React.Component {
                             <div className="card-all-cases">
                                 <button
                                     onClick={() => {
-                                        this.deleteCase(c.id);
+                                        this.deleteCase(patientsData._id);
                                     }}
                                 >Delete</button>
                                 <img src={patientsData.images} className="card-img-top" alt="..." />
