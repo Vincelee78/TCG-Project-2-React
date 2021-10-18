@@ -58,6 +58,22 @@ export default class AllCasesContent extends React.Component {
     }
 
 
+    deleteTask =()=> {
+        let modifiedCase=this.state.data.slice();
+        // 1. find the index of the task
+        let data_index = this.state.data.findIndex((c) => c.id === modifiedCase._id);
+    
+        // 2. make a copy of the array, but skip over the task that we want to delete
+        let clone = [
+          ...this.state.tasks.slice(0, data_index),
+          ...this.state.tasks.slice(data_index + 1)
+        ];
+    
+        this.setState({
+          data: clone
+        });
+      };
+    
 
     render() {
         return <React.Fragment>
@@ -66,6 +82,11 @@ export default class AllCasesContent extends React.Component {
                     {this.state.data.map(patientsData => <header className="containerAllCases" key={patientsData._id}>
                         <div className="card-group-all-cases">
                             <div className="card-all-cases">
+                                <button
+                                    onClick={() => {
+                                        this.deleteCase(c.id);
+                                    }}
+                                >Delete</button>
                                 <img src={patientsData.images} className="card-img-top" alt="..." />
                                 <div className="card-body-all-images">
                                     <h5>Case presentation: </h5>
@@ -75,7 +96,7 @@ export default class AllCasesContent extends React.Component {
                                     <p className="card-text">Patient's date of birth {patientsData.dob}</p>
                                     <p className="card-text">Clinical History: {patientsData.clinicalHistory}</p>
                                     <p className="card-text">Modality: {patientsData.modality}</p>
-                                    <p className="card-text">Case Discussion: {patientsData.caseDiscussion}</p>                            
+                                    <p className="card-text">Case Discussion: {patientsData.caseDiscussion}</p>
                                     <p className="card-text">Radiologist ID: {patientsData.radiologistId}</p>
                                     <p className="card-text">Published Date: {patientsData.publishedDate}</p>
                                     <p className="card-text">Scientific References: {patientsData.scientificReferences}</p>
@@ -89,34 +110,34 @@ export default class AllCasesContent extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <hr style={{ height:'5px',size:"10", color:'red'}} />
+                        <hr style={{ height: '5px', size: "10", color: 'red' }} />
                     </header>
                     )}
 
-                
-            
 
-        
 
-                
-            </Tab >
-            <Tab eventKey='2' title="Case Images">
-                {/* if (eventKey==='images'){
+
+
+
+
+                </Tab >
+                <Tab eventKey='2' title="Case Images">
+                    {/* if (eventKey==='images'){
                                     this.setState({
                                         active:'caseimages'
                                     })
                                 } */}
-            </Tab>
+                </Tab>
 
 
-            <Tab eventKey='3' title="Delete Case" >
+                <Tab eventKey='3' title="Delete Case" >
 
-            </Tab>
+                </Tab>
 
-        </Tabs >
-            { this.renderContent() }
-                            
-                        </React.Fragment >
+            </Tabs >
+            {this.renderContent()}
+
+        </React.Fragment >
 
     }
 

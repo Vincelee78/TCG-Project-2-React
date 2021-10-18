@@ -160,7 +160,7 @@ export default class CarouselComponent extends React.Component {
         // clone the original task
         // let currentUser = this.state.users.filter((a) => a._id === user._id)[0];
         // modifiedUser is the cloned original array
-        let modifiedCase = this.state.data.slice();
+        let mo = this.state.data.slice();
         modifiedCase._id = this.state.userBeingEdited;
         let modifiedcaseclone = {
             // let modifiedUser = { ...user1 };
@@ -446,7 +446,7 @@ export default class CarouselComponent extends React.Component {
                 } else {
                     return (
                         <React.Fragment>
-                            <p style={{ color: 'brown', marginTop: '10px',fontSize:'30px' }}>Featured Case: COVID-19 positive patient</p>
+                            <p style={{ color: 'brown', marginTop: '10px', fontSize:'30px' }}>Featured Case: COVID-19 positive patient</p>
                             <Accordion defaultActiveKey="0" className='infoTab'>
                                 <Accordion.Item >
                                     <Accordion.Header eventKey="0">Information on Featured Case</Accordion.Header>
