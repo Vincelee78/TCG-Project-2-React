@@ -65,6 +65,7 @@ nav > div > div > ul > li {
 
 #navbarSupportedContent {
   background-color: rgb(44, 125, 160) !important;
+  /* padding:0 !important */
 }
 
 /* #navbar {
@@ -74,6 +75,7 @@ nav > div > div > ul > li {
 .navbar-nav li a:hover {
   display: block;
   background-color: rgb(56, 54, 154);
+  /* padding:0 5px !important */
 }
 
 /* .navbar-toggle {
@@ -164,6 +166,12 @@ nav > div > div > ul > li {
 .editButton {
   margin: 5px;
   width: 100px;
+}
+
+.deletebtn{
+  margin: 10px;
+  height: 30px;
+  width:100px
 }
 
 .innerwrapper {
@@ -339,6 +347,7 @@ nav > div > div > ul > li {
   background: rgba(255, 0, 0, 0.63);
   border: 1px solid rgba(250, 0, 0, 0.753);
   color: white;
+  
 }
 
 /* Navtab css when editing featured case  */
@@ -387,13 +396,16 @@ nav > div > div > ul > li {
       text-align:center;
   }
   .navbar-nav > li > a {
-    /* display: block; */
+    
     background-color: rgb(44, 125, 160);
     font-family: Georgia, "Times New Roman", Times, serif;
     text-decoration: none;
     cursor: pointer;
     color: white;
-    padding: 30px 0px !important;
+    padding: 30px 10px !important;
+  }
+  #navbarSupportedContent {
+    padding:0% !important
   }
 
   .title {
@@ -430,5 +442,10 @@ nav > div > div > ul > li {
     height: auto !important;
     background-size: cover !important;
     background-position: center !important;
+  }
+
+  nav-link{
+    padding:0 !important;
+    text-align: center !important
   }
 }
