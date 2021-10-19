@@ -395,15 +395,17 @@ export default class AllCasesContent extends React.Component {
                     {/* {this.state.data.map(patientsData => <header className="containerAllCases" key={patientsData._id}> */}
                         <div className="card-group-all-cases">
                             <div className="card-all-cases">
+                                <div className='buttons'>
                                 <button className='deletebtn'
                                     onClick={() => {
                                         this.deleteCase(patientsData._id);
                                     }}
-                                >Delete</button>
-                                <button className='editButton' onClick={() => {
+                                >Delete</button><br/>
+                                <button className='editButtonAllCases' onClick={() => {
                                                     this.beginEdit(patientsData);
-                                                }}> Edit Case
+                                                }}> Edit
                                                 </button>
+                                                </div>
                                 <img src={patientsData.images} className="card-img-top" alt="..." />
                                 <div className="card-body-all-images">
                                     <h5>Case presentation: </h5>
