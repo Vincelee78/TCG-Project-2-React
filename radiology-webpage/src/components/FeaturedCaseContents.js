@@ -5,6 +5,7 @@ import Tab from 'react-bootstrap/Tab'
 import AddNew from '../components/AddNew'
 import SuccessAddMessage from '../components/CaseAddedSuccess';
 import Accordion from 'react-bootstrap/Accordion'
+import AddReport from "../components/AddReport";
 
 
 
@@ -61,15 +62,15 @@ export default class CarouselComponent extends React.Component {
 
 
     renderContent() {
-        //  if (this.state.active === 'featuredCaseContents') {
-        //     return <FeaturedCaseContents />
+
         if (this.state.active === 'successAddMessage') {
             return <SuccessAddMessage />
         } if (this.state.active === 'addnew') {
             return <AddNew onAfterAddPatient={this.afterAddNewPatient} />
+        } if (this.state.active === 'addReport') {
+            return <AddReport onAfterAddReport={this.afterAddNewReport} />
         }
     }
-
     // modifiedFeaturedCase(){
 
     //     axios.post(this.url + 'featuredCase', this.state.data)
@@ -122,7 +123,7 @@ export default class CarouselComponent extends React.Component {
         } else if (key === '2') {
             this.setState({
                 key: key,
-                active: 'images'
+                active: 'addReport'
             })
 
         } else if (key === '3') {
@@ -134,6 +135,10 @@ export default class CarouselComponent extends React.Component {
     }
 
     afterAddNewPatient = () => {
+        this.setActive('successAddMessage')
+    }
+
+    afterAddNewReport = () => {
         this.setActive('successAddMessage')
     }
 
@@ -562,12 +567,8 @@ export default class CarouselComponent extends React.Component {
 
                                         </div>
                                     </Tab>
-                                    <Tab eventKey='2' title="Case Images">
-                                        {/* if (eventKey==='images'){
-                                    this.setState({
-                                        active:'caseimages'
-                                    })
-                                } */}
+                                    <Tab eventKey='2' title="Create New Report">
+                                        
                                     </Tab>
 
 
