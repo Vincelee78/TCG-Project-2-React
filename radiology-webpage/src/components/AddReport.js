@@ -4,6 +4,7 @@ import axios from 'axios';
 
 export default class AddReport extends React.Component {
     state = {
+        'reportId':'',
         'reportTitle': '',
         'reportContent': '',
         'reportReferences': '',
