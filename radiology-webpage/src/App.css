@@ -163,19 +163,16 @@ nav > div > div > ul > li {
   letter-spacing: 1px;
   position: relative;
 }
-.editButton {
-  margin: 5px;
-  width: 100px;
-}
+
 .editButtonAllCases{
-  margin: 10px;
-  height: 30px;
+  margin: 20px;
+  /* height: 30px; */
   width:80px
 }
 
 .deletebtn{
-  margin: 10px;
-  height: 30px;
+  margin: 20px;
+  /* height: 30px; */
   width:80px
 }
 

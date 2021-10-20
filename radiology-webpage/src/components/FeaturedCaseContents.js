@@ -528,10 +528,7 @@ export default class CarouselComponent extends React.Component {
 
                                         <div className="container fluid" key={patientsData._id}>
                                             <div className="card">
-                                                <button className='editButton' onClick={() => {
-                                                    this.beginEdit(patientsData);
-                                                }}> Edit Case
-                                                </button>
+                                            
                                                 <div className="card-body" >
                                                     <div className="card-title">
                                                         <h5>Case presentation:</h5>
@@ -561,9 +558,12 @@ export default class CarouselComponent extends React.Component {
                                                         </div>
                                                     </div>
                                                 </div>
-
+                                                
                                             </div>
-
+                                            <button className='my-3 btn btn-success' onClick={() => {
+                                                    this.beginEdit(patientsData);
+                                                }}> Edit Case
+                                                </button>
 
                                         </div>
                                     </Tab>

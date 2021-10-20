@@ -83,7 +83,7 @@ render() {
             </div>
 
 
-            <button onClick={this.addReport} className="my-3 btn btn-success btn-sm">Create Report</button>
+            <button onClick={this.addReport} className="my-3 btn btn-primary btn-sm">Create Report</button>
         </React.Fragment>
     }
 

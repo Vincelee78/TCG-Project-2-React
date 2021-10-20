@@ -396,12 +396,12 @@ export default class AllCasesContent extends React.Component {
                         <div className="card-group-all-cases">
                             <div className="card-all-cases">
                                 <div className='buttons'>
-                                <button className='deletebtn'
+                                <button className='deletebtn btn btn-danger'
                                     onClick={() => {
                                         this.deleteCase(patientsData._id);
                                     }}
                                 >Delete</button><br/>
-                                <button className='editButtonAllCases' onClick={() => {
+                                <button className='editButtonAllCases btn btn-success' onClick={() => {
                                                     this.beginEdit(patientsData);
                                                 }}> Edit
                                                 </button>
