@@ -13,7 +13,7 @@ export default class Report extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div class="container-lg my-4">
+                <div class="container-lg">
                     <div class="p-5 mb-4 bg-dark text-white rounded-3">
                         <h1>Introduction to Reports</h1>
                         <p class="lead">Reports are a collaborative effort to provide a single canonical page on all topics relevant to the practice of radiology. As such, articles are written and edited by countless contributing members over a period of time. A group of dedicated editors oversee accuracy, consulting with expert advisers, and constantly reviewing additions.<a href="https://www.tutorialrepublic.com" target="_blank" class="text-white">tutorialrepublic.com</a> </p>
@@ -30,7 +30,7 @@ export default class Report extends React.Component {
                     <p>4D printing is an emerging technology that can be conceptualized as 3D printing that produces objects that change over time or under certain conditions.</p>
                     </div>
                     <h3 style={{color:'darkblue'}}>Practical Points</h3>
-                    <ul>
+                    <ul style={{margin:'0'}}>
                     <li>segmentation of organs and/or regions of interest are usually done automatically or semi-automatically via computer algorithm</li>
                     <li>segmentation can be altered or even done entirely manually</li>
                     <li>prints can include water-soluble material which can be washed away</li>

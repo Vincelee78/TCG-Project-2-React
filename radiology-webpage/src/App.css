@@ -461,3 +461,14 @@ flex-direction: column;
     text-align: center !important
   }
 }
+/* css for background colour of reports section */
+.title4{
+  background-color: rgb(202, 233, 255);
+  padding-top: 20px;
+}
+
+/* css for background colour of reports section */
+.container-lg{
+  background-color: rgb(202, 233, 255);
+  
+}

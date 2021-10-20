@@ -106,7 +106,7 @@ export default class App extends React.Component {
                     <a class="nav-link ">COURSES</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#" onClick={this.setActiveAbout}>ABOUT</a>
+                    <a class="nav-link" href="#" onClick={this.setActiveQuiz}>QUIZ</a>
                   </li>
                 </ul>
                 {/* <form class="d-flex">
