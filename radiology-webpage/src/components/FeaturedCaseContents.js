@@ -466,9 +466,9 @@ export default class CarouselComponent extends React.Component {
                     return (
                         <React.Fragment>
                             <p style={{ color: 'brown', marginTop: '10px', fontSize: '30px' }}>Featured Case: COVID-19 positive patient</p>
-                            <Accordion defaultActiveKey="0" className='infoTab'>
-                                <Accordion.Item >
-                                    <Accordion.Header eventKey="0">Information on Featured Case</Accordion.Header>
+                            <Accordion defaultActiveKey="0" className='infoTab' flush>
+                                <Accordion.Item eventKey="0">
+                                    <Accordion.Header>Information on Featured Case</Accordion.Header>
                                     <Accordion.Body>
                                         <p><strong>COVID-19 (coronavirus disease 2019)</strong> is a viral infectious disease caused by
                                             <strong> SARS-CoV-2</strong> and is currently a World Health Organizatiοn (WHO) declared pandemic.
