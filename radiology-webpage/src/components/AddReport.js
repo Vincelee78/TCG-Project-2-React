@@ -93,7 +93,7 @@ export default class AddReport extends React.Component {
                 <div className="form-label checkbox">
                     <p><input type="checkbox" name="reportTags" value={this.getDate()} onChange={this.updateitems} checked={this.state.reportTags.includes(this.getDate())} /><label>&nbsp;Published Date(Current Date)</label></p>
 
-                    <p><input type="checkbox" name="reportTags" value="includesReferences" onChange={this.updateitems} checked={this.state.reportTags.includes('includesReferences')} /><label>&nbsp;Entered References</label></p>
+                    <p><input type="checkbox" name="reportTags" value="includesReferences" onChange={this.updateitems} checked={this.state.reportTags.includes('includesReferences')} /><label>&nbsp;I have included References</label></p>
 
                 </div>
             </div>
