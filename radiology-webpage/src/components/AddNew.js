@@ -57,7 +57,12 @@ export default class AddNew extends React.Component {
         }
     }
 
-
+    getDate() {
+        let date = new Date()
+        date = String(date)
+        date = date.slice(4, 15)
+        return date
+    }
 
     url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us18.gitpod.io/"
 
@@ -129,7 +134,7 @@ export default class AddNew extends React.Component {
                 <label className="form-label">Published Date:</label>
                 <input type="text"
                     name="publishedDate"
-                    value={this.state.publishedDate}
+                    value={this.getDate()}
                     onChange={this.updateFormField}
                     className="form-control" />
             </div>

@@ -45,6 +45,12 @@ export default class AddReport extends React.Component {
         }
     }
 
+    getDate() {
+        let date = new Date()
+        date = String(date)
+        date = date.slice(4, 15)
+        return date
+    }
 
     render() {
         return <React.Fragment>
@@ -75,9 +81,9 @@ export default class AddReport extends React.Component {
             <div>
                 <label className="form-label">Tags:</label>
                 <div className="form-label checkbox">
-                    {/* <p><input type="checkbox" name="reportTags" value="1" onChange={this.updateitems} checked={this.state.reportTags.includes('1')} /><label>&nbsp;Tag 1</label></p> */}
+                    <p><input type="checkbox" name="reportTags" value={this.getDate()} onChange={this.updateitems} checked={this.state.reportTags.includes(this.getDate())} /><label>&nbsp;Published Date(Current Date)</label></p>
 
-                    {/* <p><input type="checkbox" name="reportTags" value="2" onChange={this.updateitems} checked={this.state.reportTags.includes('2')} /><label>&nbsp;Tag 2</label></p> */}
+                    <p><input type="checkbox" name="reportTags" value="includesreferences" onChange={this.updateitems} checked={this.state.reportTags.includes('includesreferences')} /><label>&nbsp;Entered References</label></p>
 
                 </div>
             </div>
