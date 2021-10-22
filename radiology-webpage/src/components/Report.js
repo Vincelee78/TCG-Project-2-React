@@ -64,7 +64,7 @@ export default class Report extends React.Component {
                         <h3 style={{ color: 'wheat' }}>{reportData.reportTitle}</h3>
                         <p>{reportData.reportContent}</p>
                         <h3 style={{ color: 'wheat' }}>References: </h3><p> {reportData.reportReferences}</p>
-                        {/* <h3 style={{ color: 'wheat' }}>Tags: </h3>{reportData.reportTags.map(i => <h6><li className="reportTags">{i}</li></h6>)} */}
+                        <h3 style={{ color: 'wheat' }}>Tags: </h3>{reportData.reportTags.map(i => <h6><li className="reportTags">{i}</li></h6>)}
                         
                         <div className='buttonsReports'>
                         <button className='deleteReport btn btn-danger my-3'
@@ -114,7 +114,7 @@ export default class Report extends React.Component {
                 <div class="container-lg">
                     <div class="p-5 mb-4 bg-dark text-white rounded-3">
                         <h1>Introduction to Reports</h1>
-                        <p class="lead">Reports are a collaborative effort to provide a single canonical page on all topics relevant to the practice of radiology. As such, reports are written and edited by contributing members over a period of time. A group of editors oversee accuracy, consulting with expert advisers, and constantly reviewing additions. </p>
+                        <p class="lead">Reports are a collaborative effort to provide a single canonical page on all topics relevant to the practice of radiology. As such, reports are written by contributing members over a period of time. A group of editors oversee accuracy, consulting with expert advisers, and constantly reviewing additions. </p>
 
                     </div>
                     {this.renderContent()}

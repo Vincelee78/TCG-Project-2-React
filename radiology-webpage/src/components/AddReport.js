@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export default class AddReport extends React.Component {
     state = {
-        'reportId':'',
+        'reportId': '',
         'reportTitle': '',
         'reportContent': '',
         'reportReferences': '',
@@ -13,40 +13,40 @@ export default class AddReport extends React.Component {
     }
 
     url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us18.gitpod.io/"
-    
-    
+
+
     updateFormField = (evt) => {
         this.setState({
             [evt.target.name]: evt.target.value
         })
     }
-    
+
     updateitems = (evt) => {
-        if (this.state.bodySystems.includes(evt.target.value)) {
-            let clone = this.state.bodySystems.slice();
-            let index = this.state.bodySystems.indexOf(evt.target.value)
+        if (this.state.reportTags.includes(evt.target.value)) {
+            let clone = this.state.reportTags.slice();
+            let index = this.state.reportTags.indexOf(evt.target.value)
             clone.splice(index, 1);
 
             this.setState({
-                bodySystems: clone
+                reportTags: clone
             })
 
         } else {
 
-            let clone = this.state.bodySystems.slice();
+            let clone = this.state.reportTags.slice();
 
 
             clone.push(evt.target.value);
 
 
             this.setState({
-                bodySystems: clone
+                reportTags: clone
             })
         }
     }
 
 
-render() {
+    render() {
         return <React.Fragment>
             <div>
                 <label className="form-label">Title:</label>
@@ -73,13 +73,13 @@ render() {
                     className="form-control" />
             </div>
             <div>
-            <label className="form-label">Tags:</label>
-            <div className="form-label checkbox">                
-            <input type="checkbox" name="reportTags"
-                    value={this.state.reportTags}
-                    onChange={this.updateitems}
-                    />
-            </div>
+                <label className="form-label">Tags:</label>
+                <div className="form-label checkbox">
+                    {/* <p><input type="checkbox" name="reportTags" value="1" onChange={this.updateitems} checked={this.state.reportTags.includes('1')} /><label>&nbsp;Tag 1</label></p> */}
+
+                    {/* <p><input type="checkbox" name="reportTags" value="2" onChange={this.updateitems} checked={this.state.reportTags.includes('2')} /><label>&nbsp;Tag 2</label></p> */}
+
+                </div>
             </div>
 
 
@@ -89,14 +89,14 @@ render() {
 
     addReport = async () => {
         await axios.post(this.url + 'report', {
-           signsSymptomsTitle: this.state.signsSymptomsTitle,
-           bodySystems: this.state.bodySystems,
-           patientID:this.state.patientID,
-           gender:this.state.gender,
-       })
-       
-       this.props.onAfterAddReport()
-   }
+            signsSymptomsTitle: this.state.signsSymptomsTitle,
+            bodySystems: this.state.bodySystems,
+            patientID: this.state.patientID,
+            gender: this.state.gender,
+        })
+
+        this.props.onAfterAddReport()
+    }
 
 }
 
