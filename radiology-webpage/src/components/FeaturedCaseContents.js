@@ -4,8 +4,12 @@ import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import AddNew from '../components/AddNew'
 import SuccessAddMessage from '../components/CaseAddedSuccess';
-import Accordion from 'react-bootstrap/Accordion'
+import Accordion from 'react-bootstrap/Accordion';
 import AddReport from "../components/AddReport";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
+
 
 
 
@@ -18,6 +22,7 @@ export default class CarouselComponent extends React.Component {
     state = {
         'active': 'featuredCase',
         key: '1',
+        open: false,
 
         data: [
 
@@ -39,8 +44,13 @@ export default class CarouselComponent extends React.Component {
 
     }
 
+    renderTooltip = () => (
+        <Tooltip >Favourite this case</Tooltip>
+    );
+
     componentDidMount() {
         this.fetchData();
+
     }
 
     fetchData = async () => {
@@ -71,11 +81,7 @@ export default class CarouselComponent extends React.Component {
             return <AddReport onAfterAddReport={this.afterAddNewReport} />
         }
     }
-    // modifiedFeaturedCase(){
 
-    //     axios.post(this.url + 'featuredCase', this.state.data)
-    //     .then(response => this.setState({ userBeingEdited: response.data._id }));
-    // }
 
     setActive(nextPage) {
         this.setState({
@@ -529,18 +535,48 @@ export default class CarouselComponent extends React.Component {
                             </Accordion>
 
                             <React.Fragment key={patientsData._id}>
-                                {/* <h1>abc</h1> */}
+
                                 <Tabs activeKey={this.state.key} className="mb-3" id="controlled-tab-example" onSelect={(k) => this.handleSelect(k)} >
-                                    <Tab eventKey='1' title="Case" >
+                                    <Tab eventKey='1' title="Featured Case" >
+
+
 
                                         <div className="container fluid" key={patientsData._id}>
                                             <div className="card">
-
                                                 <div className="card-body" >
                                                     <div className="card-title">
+                                                        <div className='reviewFlex'>
                                                         <h5 style={{ color: 'rgb(0, 175, 185)' }}>Case presentation:</h5>
-                                                        <p>{patientsData.signsSymptomsTitle}</p></div>
+                                                        <OverlayTrigger className='reviews' placement="top" overlay={this.renderTooltip()}>
 
+                                                            <span className='rating'>
+
+                                                                <input type='radio' value='5' name='rating' id='rating-5' />
+                                                                <label for='rating-5' title='5 stars'>
+                                                                    <i class="fas fa-heart"></i>
+                                                                </label>
+                                                                <input type='radio' value='4' name='rating' id='rating-4' />
+                                                                <label for='rating-4' title='4 stars'>
+                                                                    <i class="fas fa-heart"></i>
+                                                                </label>
+                                                                <input type='radio' value='3' name='rating' id='rating-3' />
+                                                                <label for='rating-3' title='3 stars'>
+                                                                    <i class="fas fa-heart"></i>
+                                                                </label>
+                                                                <input type='radio' value='2' name='rating' id='rating-2' />
+                                                                <label for='rating-2' title='2 stars'>
+                                                                    <i class="fas fa-heart"></i>
+                                                                </label>
+                                                                <input type='radio' value='1' name='rating' id='rating-1' />
+                                                                <label for='rating-1' title='1 stars'>
+                                                                    <i class="fas fa-heart"></i>
+                                                                </label>
+
+                                                            </span>
+                                                        </OverlayTrigger>
+                                                        </div>
+
+                                                        <p>{patientsData.signsSymptomsTitle}</p></div>
                                                     <h5 style={{ color: 'rgb(0, 175, 185)' }}>Patient ID:</h5> <p>{patientsData.patientID}</p>
                                                     <h5 style={{ color: 'rgb(0, 175, 185)' }}>Gender: </h5> <p>{patientsData.gender}</p>
                                                     <h5 style={{ color: 'rgb(0, 175, 185)' }}>Date of birth:</h5> <p>{patientsData.dob}</p>

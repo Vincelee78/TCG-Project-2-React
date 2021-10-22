@@ -1,14 +1,16 @@
 import React from 'react';
 import axios from 'axios';
-import AddNew from '../components/AddNew';
 import ErrorMessage from '../components/Errormessage';
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 
 
 export default class AllCasesContent extends React.Component {
     state = {
         'active': 'AllCasesContent',
+        key: '1',
         'data': [
 
         ],
@@ -29,6 +31,9 @@ export default class AllCasesContent extends React.Component {
 
     url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us18.gitpod.io/"
 
+    renderTooltip = () => (
+        <Tooltip >Favourite this case</Tooltip>
+    );
 
     componentDidMount() {
         this.fetchData();
@@ -87,44 +92,55 @@ export default class AllCasesContent extends React.Component {
     }
 
 
-    // renderContent() {
-    //     if (this.state.active === 'errorMessage') {
-    //         return <ErrorMessage />
-    //     } if (this.state.active === 'addnew') {
-    //         return <AddNew onAfterAddPatient={this.afterAddNewPatient} />
-    //     } if (this.state.active === 'editCase') {
-    //         return <AllCasesContent />
-    //     }
-    // }
+    handleSelect = (key) => {
+        if (key === '1') {
+            this.setState({
+                key: key,
+                active: 'AllCasesContent'
+            })
+
+        } else if (key === '2') {
+            this.setState({
+                key: key,
+                active: 'AllCasesContent'
+            })
+
+        } else if (key === '3') {
+            this.setState({
+                key: key,
+                active: '#'
+            })
+        }
+    }
 
     afterAddNewPatient = () => {
         this.setActive('AllCasesContent')
     }
 
 
-    deleteCase = async (caseId)=> {
+    deleteCase = async (caseId) => {
         console.log(this.state.data)
         console.log('Id', caseId)
-       await axios.delete(this.url + "patientsData1/" + caseId)
-    //    console.log(response)
+        await axios.delete(this.url + "patientsData1/" + caseId)
+        //    console.log(response)
         // let modifiedCase= [...this.state.data]
-       // 1. find the index of the task
+        // 1. find the index of the task
         let data_index = this.state.data.findIndex((c) => c._id === caseId);
         console.log(data_index)
         // 2. make a copy of the array, but skip over the task that we want to delete
         let modifiedCase = [
-          ...this.state.data.slice(0, data_index),
-          ...this.state.data.slice(data_index + 1)
+            ...this.state.data.slice(0, data_index),
+            ...this.state.data.slice(data_index + 1)
         ];
-        
-        
+
+
         this.setState({
             data: modifiedCase
-          });
+        });
         //   console.log(modifiedCase)
-      };
-    
-      beginEdit = (patientsData) => {
+    };
+
+    beginEdit = (patientsData) => {
         this.setState({
             userBeingEdited: patientsData._id,
             modifiedpatientId: patientsData.patientID,
@@ -149,7 +165,7 @@ export default class AllCasesContent extends React.Component {
         let modifiedCase = this.state.data.slice();
         modifiedCase._id = this.state.userBeingEdited;
         await axios.put(this.url + 'patientsData1/' + modifiedCase._id, {
-            
+
 
             // make changes to the clone
             patientID: this.state.modifiedpatientId,
@@ -189,7 +205,7 @@ export default class AllCasesContent extends React.Component {
 
     }
 
-      renderEditDisplay = (a) => {
+    renderEditDisplay = (a) => {
         return (
 
             <React.Fragment>
@@ -267,16 +283,7 @@ export default class AllCasesContent extends React.Component {
                             <input name="MRI" type="radio" value={this.state.modifiedmodality} onChange={this.updateanswer} checked={this.state.modifiedmodality === 'MRI'} /><label>MRI</label>
                         </li>
                     </ul>
-                    {/* <input */}
-                    {/* // type="text"
-                        // value={this.state.modifiedmodality}
-                        // onChange={(evt) => { */}
-                    {/* //     this.setState({ */}
-                    {/* //         modifiedmodality: evt.target.value
-                        //     });
-                        // }}
-                        // name="modifiedmodality" */}
-                    {/* /> */}
+
 
                     <h6>Published Date:</h6>
                     <input
@@ -340,16 +347,7 @@ export default class AllCasesContent extends React.Component {
 
                         <input type="checkbox" name="modifiedbodysystem" value="Skeletal" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Skeletal')} /><label>Skeletal</label>
 
-                        {/* <input
-                        type="text"
-                        value={this.state.modifiedbodySystem}
-                        onChange={(evt) => {
-                            this.setState({
-                                modifiedbodySystem: evt.target.value
-                            });
-                        }}
-                        name="modifiedbodysystem" */}
-                        {/* /> */}
+
                     </div>
                     <br />
 
@@ -389,77 +387,102 @@ export default class AllCasesContent extends React.Component {
                         </React.Fragment>
                     )
                 } else {
-        return <React.Fragment>
-            <Tabs activeKey={this.state.key} className="mb-3" id="controlled-tab-example" onSelect={(k) => this.handleSelect(k)} >
-                <Tab eventKey='1' title="Case" >
-                    {/* {this.state.data.map(patientsData => <header className="containerAllCases" key={patientsData._id}> */}
-                        <div className="card-group-all-cases">
-                            <div className="card-all-cases">
-                                <div className='buttonsAllCases'>
-                                <button className='deletebtn btn btn-danger'
-                                    onClick={() => {
-                                        this.deleteCase(patientsData._id);
-                                    }}
-                                >Delete</button><br/>
-                                <button className='editButtonAllCases btn btn-success' onClick={() => {
-                                                    this.beginEdit(patientsData);
-                                                }}> Edit
-                                                </button>
-                                                </div>
-                                <img src={patientsData.images} className="card-img-top" alt="..." />
-                                <div className="card-body-all-images">
-                                    <h5>Case presentation: </h5>
-                                    <h6>{patientsData.signsSymptomsTitle}</h6>
-                                    <p className="card-text">Patient ID: {patientsData.patientID}</p>
-                                    <p className="card-text">Patient's gender: {patientsData.gender}</p>
-                                    <p className="card-text">Patient's date of birth {patientsData.dob}</p>
-                                    <p className="card-text">Clinical History: {patientsData.clinicalHistory}</p>
-                                    <p className="card-text">Modality: {patientsData.modality}</p>
-                                    <p className="card-text">Case Discussion: {patientsData.caseDiscussion}</p>
-                                    <p className="card-text">Radiologist ID: {patientsData.radiologistId}</p>
-                                    <p className="card-text">Published Date: {patientsData.publishedDate}</p>
-                                    <p className="card-text">Scientific References: {patientsData.scientificReferences}</p>
+                    return <React.Fragment>
+                        <Tabs activeKey={this.state.key} className="mb-3" id="controlled-tab-example" onSelect={(k) => this.handleSelect(k)} >
+                            <Tab eventKey='1' title="All Cases" >
+
+
+                                <div className="card-group-all-cases">
+                                    <div className="card-all-cases">
+                                        <div className='buttonsAllCases'>
+                                            <button className='deletebtn btn btn-danger'
+                                                onClick={() => {
+                                                    this.deleteCase(patientsData._id);
+                                                }}
+                                            >Delete</button><br />
+                                            <button className='editButtonAllCases btn btn-success' onClick={() => {
+                                                this.beginEdit(patientsData);
+                                            }}> Edit
+                                            </button>
+
+                                        </div>
+                                        
+                                        <div className='displayReviews'>
+                                        <img src={patientsData.images} className="card-img-top" alt="..." />
+
+                                        <OverlayTrigger className='reviewsAllCasesBtn' placement="bottom" overlay={this.renderTooltip()}>
+
+                                                <p className='rating' >
+
+                                                    <input type='radio' value='5' name='rating' id='rating-5' />
+                                                    <label for='rating-5' title='5 stars'>
+                                                        <i class="fas fa-heart"></i>
+                                                    </label>
+                                                    <input type='radio' value='4' name='rating' id='rating-4' />
+                                                    <label for='rating-4' title='4 stars'>
+                                                        <i class="fas fa-heart"></i>
+                                                    </label>
+                                                    <input type='radio' value='3' name='rating' id='rating-3' />
+                                                    <label for='rating-3' title='3 stars'>
+                                                        <i class="fas fa-heart"></i>
+                                                    </label>
+                                                    <input type='radio' value='2' name='rating' id='rating-2' />
+                                                    <label for='rating-2' title='2 stars'>
+                                                        <i class="fas fa-heart"></i>
+                                                    </label>
+                                                    <input type='radio' value='1' name='rating' id='rating-1' />
+                                                    <label for='rating-1' title='1 stars'>
+                                                        <i class="fas fa-heart"></i>
+                                                    </label>
+
+                                                </p>
+                                            </OverlayTrigger>
+                                            </div>
+                                        <div className="card-body-all-images">
+                                            <h5 style={{ color: 'rgb(56, 54, 154)' }}>Case presentation: </h5>
+                                            <h6>{patientsData.signsSymptomsTitle}</h6>
+                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Patient ID:</h5>{patientsData.patientID}</p>
+                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Patient's gender:</h5> {patientsData.gender}</p>
+                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Patient's date of birth</h5> {patientsData.dob}</p>
+                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Clinical History:</h5> {patientsData.clinicalHistory}</p>
+                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Modality: </h5>{patientsData.modality}</p>
+                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Case Discussion:</h5> {patientsData.caseDiscussion}</p>
+                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist ID:</h5> {patientsData.radiologistId}</p>
+                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Published Date:</h5> {patientsData.publishedDate}</p>
+                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Scientific References:</h5> {patientsData.scientificReferences}</p>
+                                        </div>
+                                        <div className="card-footer" style={{ textAlign: 'center' }}>
+
+                                            <span><button className='btn btn-secondary'>{patientsData.modality}</button></span>
+
+                                            {patientsData.bodySystems.map(i => <h5><span className="iconsAllCases">{i}</span></h5>)}
+
+        
+                                            
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="card-footer" style={{ textAlign: 'center' }}>
+                                <hr style={{ height: '5px', size: "10", color: 'red' }} />
+                                {/* </header> */}
+                                {/* )} */}
 
-                                    <span><button className='btn btn-secondary'>{patientsData.modality}</button></span>
+                            </Tab >
+                            <Tab eventKey='2' title="">
 
-                                    {patientsData.bodySystems.map(i => <h4><span className="iconsAllCases">{i}</span></h4>)}
-
-                                </div>
-                            </div>
-                        </div>
-                        <hr style={{ height: '5px', size: "10", color: 'red' }} />
-                    {/* </header> */}
-                    {/* )} */}
+                            </Tab>
 
 
+                            <Tab eventKey='3' title="" >
 
+                            </Tab>
 
+                        </Tabs >
+                        {/* {this.renderContent()} */}
 
+                    </React.Fragment >
 
-
-                </Tab >
-                <Tab eventKey='2' title="Case Images">
-                    {/* if (eventKey==='images'){
-                                    this.setState({
-                                        active:'caseimages'
-                                    })
-                                } */}
-                </Tab>
-
-
-                <Tab eventKey='3' title="Edit Case" >
-
-                </Tab>
-
-            </Tabs >
-            {/* {this.renderContent()} */}
-
-        </React.Fragment >
-
+                }
+            })
+        )
     }
-     })
-)
-}
 }

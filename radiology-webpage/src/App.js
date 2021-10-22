@@ -65,7 +65,7 @@ export default class App extends React.Component {
     if (this.state.active === 'AllCasesContent'){
       return <AllCasesContent />
 
-  }else if (this.state.active === 'Reports'){
+  }if (this.state.active === 'Reports'){
       return <Report />
   }
 }
@@ -90,7 +90,7 @@ export default class App extends React.Component {
           <nav class="navbar navbar-expand-lg navbar-light">
             <div class="row d-flex flex-row">
               
-              <button class="navbar-toggler d-flex justify-content-end d-sm-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <button class="navbar-toggler d-flex justify-content-end p-4 ml-auto d-sm-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
