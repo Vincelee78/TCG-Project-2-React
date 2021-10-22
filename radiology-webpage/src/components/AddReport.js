@@ -8,7 +8,7 @@ export default class AddReport extends React.Component {
         'reportTitle': '',
         'reportContent': '',
         'reportReferences': '',
-        'reportTags': '',
+        'reportTags': [],
 
     }
 
@@ -30,6 +30,7 @@ export default class AddReport extends React.Component {
             this.setState({
                 reportTags: clone
             })
+            console.log(clone)
 
         } else {
 
@@ -55,6 +56,14 @@ export default class AddReport extends React.Component {
     render() {
         return <React.Fragment>
             <div>
+                <label className="form-label">Report ID:</label>
+                <input type="text"
+                    name="reportId"
+                    value={this.state.reportId}
+                    onChange={this.updateFormField}
+                    className="form-control" />
+            </div>
+            <div>
                 <label className="form-label">Title:</label>
                 <input type="text"
                     name="reportTitle"
@@ -78,12 +87,13 @@ export default class AddReport extends React.Component {
                     onChange={this.updateFormField}
                     className="form-control" />
             </div>
+
             <div>
                 <label className="form-label">Tags:</label>
                 <div className="form-label checkbox">
                     <p><input type="checkbox" name="reportTags" value={this.getDate()} onChange={this.updateitems} checked={this.state.reportTags.includes(this.getDate())} /><label>&nbsp;Published Date(Current Date)</label></p>
 
-                    <p><input type="checkbox" name="reportTags" value="includesreferences" onChange={this.updateitems} checked={this.state.reportTags.includes('includesreferences')} /><label>&nbsp;Entered References</label></p>
+                    <p><input type="checkbox" name="reportTags" value="includesReferences" onChange={this.updateitems} checked={this.state.reportTags.includes('includesReferences')} /><label>&nbsp;Entered References</label></p>
 
                 </div>
             </div>
@@ -94,11 +104,13 @@ export default class AddReport extends React.Component {
     }
 
     addReport = async () => {
-        await axios.post(this.url + 'report', {
-            signsSymptomsTitle: this.state.signsSymptomsTitle,
-            bodySystems: this.state.bodySystems,
-            patientID: this.state.patientID,
-            gender: this.state.gender,
+        await axios.post(this.url + 'report1', {
+            reportId: this.state.reportId,
+            reportTitle: this.state.reportTitle,
+            reportContent: this.state.reportContent,
+            reportReferences: this.state.reportReferences,
+            reportTags:this.state.reportTags,
+
         })
 
         this.props.onAfterAddReport()
