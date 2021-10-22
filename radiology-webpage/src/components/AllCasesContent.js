@@ -27,7 +27,7 @@ export default class AllCasesContent extends React.Component {
         modifiedradiologistId: '',
     }
 
-    url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us17.gitpod.io/"
+    url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us18.gitpod.io/"
 
 
     componentDidMount() {
@@ -395,7 +395,7 @@ export default class AllCasesContent extends React.Component {
                     {/* {this.state.data.map(patientsData => <header className="containerAllCases" key={patientsData._id}> */}
                         <div className="card-group-all-cases">
                             <div className="card-all-cases">
-                                <div className='buttons'>
+                                <div className='buttonsAllCases'>
                                 <button className='deletebtn btn btn-danger'
                                     onClick={() => {
                                         this.deleteCase(patientsData._id);

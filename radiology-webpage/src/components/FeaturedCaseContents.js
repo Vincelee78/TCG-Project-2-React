@@ -13,7 +13,7 @@ import AddReport from "../components/AddReport";
 
 export default class CarouselComponent extends React.Component {
 
-    url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us17.gitpod.io/"
+    url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us18.gitpod.io/"
 
     state = {
         'active': 'featuredCase',
@@ -111,6 +111,13 @@ export default class CarouselComponent extends React.Component {
                 modifiedbodySystem: clone
             })
         }
+    }
+
+    getDate() {
+        let date = new Date()
+        date = String(date)
+        date = date.slice(4, 15)
+        return date
     }
 
     handleSelect = (key) => {
@@ -528,47 +535,47 @@ export default class CarouselComponent extends React.Component {
 
                                         <div className="container fluid" key={patientsData._id}>
                                             <div className="card">
-                                            
+
                                                 <div className="card-body" >
                                                     <div className="card-title">
-                                                        <h5>Case presentation:</h5>
+                                                        <h5 style={{ color: 'rgb(0, 175, 185)' }}>Case presentation:</h5>
                                                         <p>{patientsData.signsSymptomsTitle}</p></div>
 
-                                                    <p>Patient ID: {patientsData.patientID}</p>
-                                                    <p>Gender: {patientsData.gender}</p>
-                                                    <p>Date of birth: {patientsData.dob}</p>
-                                                    <h5>Clinical History: </h5>
+                                                    <h5 style={{ color: 'rgb(0, 175, 185)' }}>Patient ID:</h5> <p>{patientsData.patientID}</p>
+                                                    <h5 style={{ color: 'rgb(0, 175, 185)' }}>Gender: </h5> <p>{patientsData.gender}</p>
+                                                    <h5 style={{ color: 'rgb(0, 175, 185)' }}>Date of birth:</h5> <p>{patientsData.dob}</p>
+                                                    <h5 style={{ color: 'rgb(0, 175, 185)' }}>Clinical History: </h5>
                                                     <p>{patientsData.clinicalHistory}</p>
                                                     <div id='flexContainer'>
                                                         <img id='caseImgUrl' alt='' src={patientsData.images} />
                                                         <div id='contents' style={{ paddingTop: '20px' }}>
-                                                            <p>Imaging Modality: {patientsData.modality}</p>
-                                                            <p>Published Date: {patientsData.publishedDate}</p>
+                                                            <h5 style={{ color: 'rgb(0, 175, 185)' }}>Imaging Modality:</h5> <p>{patientsData.modality}</p>
+                                                            <h5 style={{ color: 'rgb(0, 175, 185)' }}>Published Date:</h5> <p>{this.getDate()}</p>
 
-                                                            <h5>Case Discussion: </h5>
+                                                            <h5 style={{ color: 'rgb(0, 175, 185)' }}>Case Discussion: </h5>
                                                             <p>{patientsData.caseDiscussion}</p>
 
-                                                            <p>Radiologist ID: {patientsData.radiologistId}</p>
-                                                            <h5>Body Systems:</h5>
+                                                            <h5 style={{ color: 'rgb(0, 175, 185)' }}>Radiologist ID: </h5><p>{patientsData.radiologistId}</p>
+                                                            <h5 style={{ color: 'rgb(0, 175, 185)' }}>Body Systems:</h5>
                                                             <ul>
                                                                 {patientsData.bodySystems.map(i => <li key={i._id}>{i}</li>)}
                                                             </ul>
-                                                            <h5>Scientific References: </h5>
+                                                            <h5 style={{ color: 'rgb(0, 175, 185)' }}>Scientific References: </h5>
                                                             <h6>{patientsData.scientificReferences}</h6>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
+
                                             </div>
                                             <button className='my-3 btn btn-success' onClick={() => {
-                                                    this.beginEdit(patientsData);
-                                                }}> Edit Case
-                                                </button>
+                                                this.beginEdit(patientsData);
+                                            }}> Edit Case
+                                            </button>
 
                                         </div>
                                     </Tab>
                                     <Tab eventKey='2' title="Create New Report">
-                                        
+
                                     </Tab>
 
 

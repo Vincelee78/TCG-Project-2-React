@@ -171,17 +171,20 @@ nav > div > div > ul > li {
 }
 
 .deletebtn{
-  margin: 20px;
-  /* height: 30px; */
   width:80px
 }
 
-/* css of delete and edit buttons div of allc ases content */
-.buttons{
-display:flex;
-flex-direction: column;
+.deleteReport{
+  margin: 0 !important
 }
 
+
+/* css of delete and edit buttons div of all cases content */
+.buttonsAllCases{
+  display:flex;
+  flex-direction: column;
+  
+  }
 
 .innerwrapper {
   display: flex;

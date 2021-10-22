@@ -11,7 +11,7 @@ export default class Report extends React.Component {
         ],
 
     }
-    url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us17.gitpod.io/"
+    url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us18.gitpod.io/"
 
     componentDidMount() {
         this.fetchData();
@@ -33,23 +33,52 @@ export default class Report extends React.Component {
 
     }
 
+    deleteReport = async (reportId)=> {
+        
+       await axios.delete(this.url + "report/" + reportId)
+    //    console.log(response)
+        // let modifiedCase= [...this.state.data]
+       // 1. find the index of the task
+        let data_index = this.state.data.findIndex((c) => c._id === reportId);
+        // console.log(data_index)
+        // 2. make a copy of the array, but skip over the task that we want to delete
+        let modifiedReport = [
+          ...this.state.data.slice(0, data_index),
+          ...this.state.data.slice(data_index + 1)
+        ];
+        
+        
+        this.setState({
+            data: modifiedReport
+          });
+        //   console.log(modifiedCase)
+      };
+
     renderContent = () => {
-        return(
+        return (
             this.state.data.map(reportData => {
-                return(
-            <React.Fragment>
-                    <div class='p-5 mb-4 bg-dark text-white rounded-3'>
+                return (
+                    <React.Fragment>
+                        <div class='p-5 mb-4 bg-dark text-white rounded-3'>
                         <h2 style={{ color: 'smoke' }}>Report: {reportData.reportId}</h2>
                         <h3 style={{ color: 'wheat' }}>{reportData.reportTitle}</h3>
                         <p>{reportData.reportContent}</p>
-                        <h3 style={{ color: 'wheat' }}>References:</h3><p> {reportData.reportReferences}</p>
-                        <h3 style={{ color: 'wheat' }}>Tags:</h3>{reportData.reportTags.map(i => <h6><li className="reportTags">{i}</li></h6>)}
-    
-    
-                            
-                            
-                            
-                            {/* <strong>3D printing</strong>, a term often used synonymously with additive manufacturing, is a process of creating objects from three-dimensional digital information. In most cases, 3D printing is, in fact, additive manufacturing, a process in which objects are built by adding material layer by layer. This process has several advantages over traditional manufacturing methods such as injection moulding or subtractive manufacturing relevant to medicine and surgery including the possibility of making uniquely customised objects for patients, rapidly prototyping objects, and often easier creation of complex and/or hollow objects.</p>
+                        <h3 style={{ color: 'wheat' }}>References: </h3><p> {reportData.reportReferences}</p>
+                        {/* <h3 style={{ color: 'wheat' }}>Tags: </h3>{reportData.reportTags.map(i => <h6><li className="reportTags">{i}</li></h6>)} */}
+                        
+                        <div className='buttonsReports'>
+                        <button className='deleteReport btn btn-danger my-3'
+                        onClick={() => {
+                        this.deleteReport(reportData._id);
+                            }}
+                        >Delete</button><br/>
+                        </div>
+
+
+
+
+
+                    {/* <strong>3D printing</strong>, a term often used synonymously with additive manufacturing, is a process of creating objects from three-dimensional digital information. In most cases, 3D printing is, in fact, additive manufacturing, a process in which objects are built by adding material layer by layer. This process has several advantages over traditional manufacturing methods such as injection moulding or subtractive manufacturing relevant to medicine and surgery including the possibility of making uniquely customised objects for patients, rapidly prototyping objects, and often easier creation of complex and/or hollow objects.</p>
     
                         <p>3D printing has been used in anatomical models for surgical planning, surgical tools, splints, implantable medical devices, prostheses, and even pharmaceutical drugs. 3D printed objects have some distinct features even compared to three-dimensional virtual reconstructions in terms of surgical planning 4, allowing surgeons to not only see but touch models (created based on the specific patient's imaging studies), of the areas on which they plan to operate. </p>
     
@@ -66,16 +95,16 @@ export default class Report extends React.Component {
                             <li>knowledge of how materials are affected by sterilisation is necessary when printing surgical guides or other materials for the actual surgery</li>
                             <li>moulage models can be made by printing air around structures as the mould</li>
                         </ul> */}
-    
-                        
-                    </div>
-                    
-                    <hr style={{ height: '5px', size: "10", color: 'red' }} />
-                </React.Fragment>)
-                })
-            )
-    
-        }
+
+
+                        </div>
+
+                        <hr style={{ height: '5px', size: "10", color: 'red' }} />
+                    </React.Fragment>)
+            })
+        )
+
+    }
 
     render() {
         return (
@@ -85,12 +114,12 @@ export default class Report extends React.Component {
                 <div class="container-lg">
                     <div class="p-5 mb-4 bg-dark text-white rounded-3">
                         <h1>Introduction to Reports</h1>
-                        <p class="lead">Reports are a collaborative effort to provide a single canonical page on all topics relevant to the practice of radiology. As such, reports are written and edited by contributing members over a period of time. A group of editors oversee accuracy, consulting with expert advisers, and constantly reviewing additions.<a href="https://www.tutorialrepublic.com" target="_blank" class="text-white">tutorialrepublic.com</a> </p>
+                        <p class="lead">Reports are a collaborative effort to provide a single canonical page on all topics relevant to the practice of radiology. As such, reports are written and edited by contributing members over a period of time. A group of editors oversee accuracy, consulting with expert advisers, and constantly reviewing additions. </p>
 
                     </div>
                     {this.renderContent()}
                 </div>
-                
+
             </React.Fragment>)
     }
 
