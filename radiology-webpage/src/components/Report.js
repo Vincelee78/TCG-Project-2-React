@@ -70,7 +70,7 @@ export default class Report extends React.Component {
                         <div class='p-5 mb-4 bg-dark text-white rounded-3'>
                             <OverlayTrigger className='reviews' placement="top" overlay={this.renderTooltip()}>
 
-                                <span className='rating me-2'>
+                                <span className='rating me-2' id='ratingReport'>
 
                                     <input type='radio' value='5' name='rating' id='rating-5' />
                                     <label for='rating-5' title='5 stars'>

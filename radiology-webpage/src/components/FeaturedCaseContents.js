@@ -10,6 +10,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import SuccessAddReport from "../components/ReportAddedSuccess";
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Modal';
+
 
 
 
@@ -41,6 +44,8 @@ export default class CarouselComponent extends React.Component {
         modifiedsignSymptomsTitle: '',
         modifiedimages: '',
         modifiedradiologistId: '',
+        show: false,
+        setsShow: false,
 
 
     }
@@ -128,6 +133,21 @@ export default class CarouselComponent extends React.Component {
         date = date.slice(4, 15)
         return date
     }
+
+
+    handleClose = () => {
+        this.setState({
+            show: false
+        })
+    }
+
+
+    handleShow = () => {
+        this.setState({
+            show: true
+        })
+    }
+
 
     handleSelect = (key) => {
         if (key === '1') {
@@ -223,18 +243,6 @@ export default class CarouselComponent extends React.Component {
         // console.log(cloned)
 
 
-
-        // update the array with setState
-        // this.setState({
-        //     // data: cloned,
-        //     userBeingEdited: 0,
-        //     // active:'modifiedCase'
-        // });
-
-        //  axios.put(this.url + 'featuredCase/' + this.state.userBeingEdited , modifiedcaseclone)
-        //  .then(res => {
-        //     console.log(res.config.data)
-
         this.setState({
             data: cloned,
             userBeingEdited: 0,
@@ -242,27 +250,6 @@ export default class CarouselComponent extends React.Component {
         })
 
 
-        // .catch(err => console.log(err));
-
-        //  res.json(response);
-        // {this.modifiedFeaturedCase()}
-
-        // axios.post(this.url + 'featuredCase', {
-        //     signsSymptomsTitle: this.state.signsSymptomsTitle,
-        //     bodySystems: this.state.bodySystems,
-        //     patientID:this.state.patientID,
-        //     gender:this.state.gender,
-        //     dob: this.state.dob,
-        //     clinicalHistory:this.state.clinicalHistory,
-        //     images:this.state.images,
-        //     modality:this.state.modality,
-        //     publishedDate:this.state.publishedDate,
-        //     caseDiscussion:this.state.caseDiscussion,
-        //     radiologistId:this.state.radiologistId,
-        //     scientificReferences:this.state.scientificReferences
-        // })
-
-        // })
     }
 
 
@@ -344,16 +331,6 @@ export default class CarouselComponent extends React.Component {
                             <input name="MRI" type="radio" value={this.state.modifiedmodality} onChange={this.updateanswer} checked={this.state.modifiedmodality === 'MRI'} /><label>MRI</label>
                         </li>
                     </ul>
-                    {/* <input */}
-                    {/* // type="text"
-                        // value={this.state.modifiedmodality}
-                        // onChange={(evt) => { */}
-                    {/* //     this.setState({ */}
-                    {/* //         modifiedmodality: evt.target.value
-                        //     });
-                        // }}
-                        // name="modifiedmodality" */}
-                    {/* /> */}
 
                     <h6>Published Date:</h6>
                     <input
@@ -417,16 +394,6 @@ export default class CarouselComponent extends React.Component {
 
                         <input type="checkbox" name="modifiedbodysystem" value="Skeletal" onChange={this.updateitems} checked={this.state.modifiedbodySystem.includes('Skeletal')} /><label>Skeletal</label>
 
-                        {/* <input
-                        type="text"
-                        value={this.state.modifiedbodySystem}
-                        onChange={(evt) => {
-                            this.setState({
-                                modifiedbodySystem: evt.target.value
-                            });
-                        }}
-                        name="modifiedbodysystem" */}
-                        {/* /> */}
                     </div>
                     <br />
 
@@ -594,7 +561,23 @@ export default class CarouselComponent extends React.Component {
                                                             <h5 style={{ color: 'rgb(0, 175, 185)' }}>Case Discussion: </h5>
                                                             <p>{patientsData.caseDiscussion}</p>
 
-                                                            <h5 style={{ color: 'rgb(0, 175, 185)' }}>Radiologist ID: </h5><a style={{display:'inline', textDecoration:'none'}} href='RadiologistInfo.js'>{patientsData.radiologistId}</a>
+                                                            <h5 style={{ color: 'rgb(0, 175, 185)' }}>Radiologist ID: </h5><p style={{cursor:'pointer', color:'blue'}} variant="primary" onClick={this.handleShow} >{patientsData.radiologistId}</p>
+                                                            <Modal show={this.state.show} onHide={this.handleClose}>
+                                                                <Modal.Header closeButton>
+                                                                    <Modal.Title>Radiologist-{patientsData.radiologistId} Info:</Modal.Title>
+                                                                </Modal.Header>
+                                                                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                                                                <Modal.Footer>
+                                                                    <Button variant="secondary" onClick={this.handleClose}>
+                                                                        Close
+                                                                    </Button>
+                                                                    <Button variant="primary" onClick={this.handleClose}>
+                                                                        Save Changes
+                                                                    </Button>
+                                                                </Modal.Footer>
+                                                            </Modal>
+
+
                                                             <h5 style={{ color: 'rgb(0, 175, 185)' }}>Body Systems:</h5>
                                                             <ul>
                                                                 {patientsData.bodySystems.map(i => <li key={i._id}>{i}</li>)}
@@ -625,7 +608,7 @@ export default class CarouselComponent extends React.Component {
                                 </Tabs>
                                 {this.renderContent()}
                             </React.Fragment>
-                        </React.Fragment>
+                        </React.Fragment >
 
 
                     )

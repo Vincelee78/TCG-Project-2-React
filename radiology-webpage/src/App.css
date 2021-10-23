@@ -420,7 +420,7 @@ margin-right:20px;
     /* justify-content: center !important; */
     gap: 0 5px !important;
     }
-    
+
   .title {
     margin-top: 50px;
     position: absolute;
@@ -503,6 +503,10 @@ margin-right:20px;
   font-size: 2.5em;
   color:rgb(177, 167, 166);
   padding:0 5px;
+}
+
+#ratingReport{
+  float: right;
 }
 
 .rating input{
