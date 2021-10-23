@@ -29,7 +29,7 @@ export default class AllCasesContent extends React.Component {
         modifiedradiologistId: '',
     }
 
-    url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us18.gitpod.io/"
+    url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us17.gitpod.io/"
 
     renderTooltip = () => (
         <Tooltip >Favourite this case</Tooltip>
@@ -91,6 +91,12 @@ export default class AllCasesContent extends React.Component {
         }
     }
 
+    getDate() {
+        let date = new Date()
+        date = String(date)
+        date = date.slice(4, 15)
+        return date
+    }
 
     handleSelect = (key) => {
         if (key === '1') {
@@ -148,7 +154,7 @@ export default class AllCasesContent extends React.Component {
             modifieddob: patientsData.dob,
             modifiedclinicalHistory: patientsData.clinicalHistory,
             modifiedmodality: patientsData.modality,
-            modifiedpublishedDate: patientsData.publishedDate,
+            modifiedpublishedDate: this.getDate(),
             modifiedcaseDiscussion: patientsData.caseDiscussion,
             modifiedbodySystem: patientsData.bodySystems,
             modifiedscienticReferences: patientsData.scientificReferences,
@@ -285,10 +291,10 @@ export default class AllCasesContent extends React.Component {
                     </ul>
 
 
-                    <h6>Published Date:</h6>
+                    <h6>Revised Date:</h6>
                     <input
                         type="text"
-                        value={this.state.modifiedpublishedDate}
+                        value={this.getDate()}
                         onChange={(evt) => {
                             this.setState({
                                 modifiedpublishedDate: evt.target.value
@@ -448,7 +454,7 @@ export default class AllCasesContent extends React.Component {
                                             <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Modality: </h5>{patientsData.modality}</p>
                                             <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Case Discussion:</h5> {patientsData.caseDiscussion}</p>
                                             <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist ID:</h5> {patientsData.radiologistId}</p>
-                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Published Date:</h5> {patientsData.publishedDate}</p>
+                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Published Date (revised):</h5> {patientsData.publishedDate}</p>
                                             <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Scientific References:</h5> {patientsData.scientificReferences}</p>
                                         </div>
                                         <div className="card-footer" style={{ textAlign: 'center' }}>

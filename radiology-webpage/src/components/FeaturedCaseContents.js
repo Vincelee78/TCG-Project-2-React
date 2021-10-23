@@ -17,7 +17,7 @@ import Tooltip from "react-bootstrap/Tooltip";
 
 export default class CarouselComponent extends React.Component {
 
-    url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us18.gitpod.io/"
+    url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us17.gitpod.io/"
 
     state = {
         'active': 'featuredCase',
@@ -197,7 +197,7 @@ export default class CarouselComponent extends React.Component {
             caseDiscussion: this.state.modifiedcaseDiscussion,
             bodySystems: this.state.modifiedbodySystem,
             scientificReferences: this.state.modifiedscienticReferences,
-            publishedDate: this.state.modifiedpublishedDate,
+            publishedDate: this.getDate(),
             images: this.state.modifiedimages,
             radiologistId: this.state.modifiedradiologistId
 
@@ -355,7 +355,7 @@ export default class CarouselComponent extends React.Component {
                     <h6>Published Date:</h6>
                     <input
                         type="text"
-                        value={this.state.modifiedpublishedDate}
+                        value={this.getDate()}
                         onChange={(evt) => {
                             this.setState({
                                 modifiedpublishedDate: evt.target.value
@@ -586,7 +586,7 @@ export default class CarouselComponent extends React.Component {
                                                         <img id='caseImgUrl' alt='' src={patientsData.images} />
                                                         <div id='contents' style={{ paddingTop: '20px' }}>
                                                             <h5 style={{ color: 'rgb(0, 175, 185)' }}>Imaging Modality:</h5> <p>{patientsData.modality}</p>
-                                                            <h5 style={{ color: 'rgb(0, 175, 185)' }}>Published Date:</h5> <p>{this.getDate()}</p>
+                                                            <h5 style={{ color: 'rgb(0, 175, 185)' }}>Published Date:</h5> <p>{patientsData.publishedDate}</p>
 
                                                             <h5 style={{ color: 'rgb(0, 175, 185)' }}>Case Discussion: </h5>
                                                             <p>{patientsData.caseDiscussion}</p>
