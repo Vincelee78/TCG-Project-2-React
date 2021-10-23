@@ -366,11 +366,6 @@ margin-right:20px;
   padding-bottom: 30px;
 }
 
-  .buttonsAllCases {
-  flex-direction: row !important;
-  /* justify-content: center !important; */
-  gap: 0 5px !important;
-  }
 
 /* featured case inner content css */
 .card {
@@ -420,6 +415,12 @@ margin-right:20px;
     padding: 10px 10px !important;
   }
 
+  .buttonsAllCases {
+    flex-direction: row !important;
+    /* justify-content: center !important; */
+    gap: 0 5px !important;
+    }
+    
   .title {
     margin-top: 50px;
     position: absolute;
