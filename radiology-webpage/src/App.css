@@ -366,6 +366,12 @@ margin-right:20px;
   padding-bottom: 30px;
 }
 
+  .buttonsAllCases {
+  flex-direction: row !important;
+  /* justify-content: center !important; */
+  gap: 0 5px !important;
+  }
+
 /* featured case inner content css */
 .card {
   background-color: rgb(202, 233, 255) !important;
@@ -392,13 +398,14 @@ margin-right:20px;
 
   .card-all-cases {
       flex-direction: column;
-      /* justify-content: center; */
+      
       align-items: center;
   }
 
   .card-group-all-cases{
       text-align:center;
   }
+
   .navbar-nav > li > a {
     
     background-color: rgb(44, 125, 160);
@@ -409,6 +416,9 @@ margin-right:20px;
     padding: 30px 10px !important;
   }
  
+  #infowords{
+    padding: 10px 10px !important;
+  }
 
   .title {
     margin-top: 50px;
@@ -421,9 +431,9 @@ margin-right:20px;
     width: 100vw;
   }
 
-.title3{
+  .title3{
     width:100vw;
-}
+  }
 
   #pagename {
     font-size: 20px;
@@ -450,7 +460,22 @@ margin-right:20px;
     padding:0 !important;
     text-align: center !important
   }
+
+  .rating{
+    display: inline !important;
+    font-size: 1em !important; 
+    margin-right:5px !important;
+    padding:0 !important
+  }
+
+  h5{
+  font-size: 15px !important;
+  }
+
 }
+/* end of mobile css */
+
+
 /* css for background colour of reports section */
 .title4{
   background-color: rgb(202, 233, 255);
@@ -474,7 +499,7 @@ margin-right:20px;
 
 .rating{
   display: inline-block;
-  font-size: 2em;
+  font-size: 2.5em;
   color:rgb(177, 167, 166);
   padding:0 5px;
 }
