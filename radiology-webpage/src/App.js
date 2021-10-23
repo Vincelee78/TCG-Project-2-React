@@ -9,6 +9,7 @@ import axios from 'axios';
 import Accordion from 'react-bootstrap/Accordion'
 import Carousel from 'react-bootstrap/Carousel'
 import Report from './components/Report';
+import RadiologistInfo from './components/RadiologistInfo';
 
 
 
@@ -63,7 +64,7 @@ export default class App extends React.Component {
 
   setActiveRadiologist = () => {
     this.setState({
-      'active': 'radiologistInfo'
+      'active': 'RadiologistInfo'
     })
   }
 
@@ -73,6 +74,9 @@ export default class App extends React.Component {
 
   }if (this.state.active === 'Reports'){
       return <Report />
+  }
+    if (this.state.active === 'RadiologistInfo'){
+    return <RadiologistInfo />
   }
 }
 
@@ -137,6 +141,7 @@ export default class App extends React.Component {
         </div>
         <div id="infowords"> Online Resource for radiologists, radiology trainees and students</div>
         {this.state.active === 'Reports' ? <div className='title4'><Report /></div> : null}
+        {this.state.active === 'RadiologistInfo' ? <div className='title5'><RadiologistInfo /></div> : null}
         <div className="App">
           {/* <Navbar setActiveAllCases={this.setActiveAllCasesProp} setActiveArticles={this.setActiveArticles1} /> */}
           <Accordion defaultActiveKey="0">
@@ -192,7 +197,7 @@ export default class App extends React.Component {
             {/* <button onClick={this.renderInfo()}>a</button>{this.renderinfo2()} */}
 
             <div className='innerwrapper'>
-              {(this.state.active !== 'AllCasesContent' && this.state.active !== 'Articles' && this.state.active !== 'Reports') && <p className="title" id="title1"><FeaturedCaseContents />{this.renderError()}</p>}
+              {(this.state.active !== 'AllCasesContent' && this.state.active !== 'Articles' && this.state.active !== 'Reports' && this.state.active !== 'RadiologistInfo') && <p className="title" id="title1"><FeaturedCaseContents />{this.renderError()}</p>}
               <div className='wrapper2'>
                 {this.state.active === 'AllCasesContent' ? <div className='title3'><AllCasesContent /> </div> : null} {this.state.active === 'Articles' ? <div className='title3'> <ErrorMessage /></div> : null}
               </div>

@@ -31,6 +31,9 @@ export default class CarouselComponent extends React.Component {
         data: [
 
         ],
+
+        radiologistdata: [],
+
         userBeingEdited: 0,
         modifiedpatientId: '',
         modifiedGender: '',
@@ -46,6 +49,11 @@ export default class CarouselComponent extends React.Component {
         modifiedradiologistId: '',
         show: false,
         setsShow: false,
+        radiologistId: '',
+        radiologistName: '',
+        radiologistSpeciality: '',
+        radiologistmedicalInstitution: '',
+        radiologistEmail: '',
 
 
     }
@@ -56,6 +64,7 @@ export default class CarouselComponent extends React.Component {
 
     componentDidMount() {
         this.fetchData();
+        this.retrieveRadiologistInfo();
 
     }
 
@@ -143,8 +152,17 @@ export default class CarouselComponent extends React.Component {
 
 
     handleShow = () => {
-        this.setState({
-            show: true
+        this.state.radiologistdata.map(data => {
+
+            this.setState({
+                show: true,
+                radiologistId: data.radiologistId,
+                radiologistName: data.radiologistName,
+                radiologistSpeciality: data.speciality,
+                radiologistmedicalInstitution: data.medicalInstitution,
+                radiologistEmail: data.email,
+
+            })
         })
     }
 
@@ -177,6 +195,53 @@ export default class CarouselComponent extends React.Component {
     afterAddNewReport = () => {
         this.setActive('successAddReport')
     }
+
+    retrieveRadiologistInfo = async () => {
+
+        let response = await axios.get(this.url + 'radiologistData/')
+
+        this.setState({
+            radiologistdata: response.data,
+
+        })
+
+    }
+
+    // renderRadiologistInfo = () => {
+    //     return (
+    //             this.state.radiologistdata.map(data1=>{
+    //         <React.Fragment>
+    //             <Modal show={this.state.show} onHide={this.handleClose}>
+    //                 <Modal.Header closeButton>
+    //                     <Modal.Title>Radiologist-{data1.radiologistId} Info:</Modal.Title>
+    //                 </Modal.Header>
+    //                 <Modal.Body>
+    //                     <div>
+    //                         <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Patient ID:</h5>{data1.radiologistId}</p>
+    //                         <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Patient's gender:</h5> {data1.radiologistName}</p>
+    //                         <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Patient's date of birth</h5> {data1.speciality}</p>
+    //                         <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Clinical History:</h5> {data1.medicalInstitution}</p>
+    //                         <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Modality: </h5>{data1.email}</p>
+    //                     </div>
+    //                 </Modal.Body>
+
+    //                 <Modal.Footer>
+    //                     <Button variant="secondary" onClick={this.handleClose}>
+    //                         Close
+    //                     </Button>
+    //                     <Button variant="primary" onClick={this.handleClose}>
+    //                         Save Changes
+    //                     </Button>
+    //                 </Modal.Footer>
+    //             </Modal>
+
+
+
+    //         </React.Fragment>
+    //             })
+    //     )
+    // }
+
 
     beginEdit = (patientsData) => {
         this.setState({
@@ -366,7 +431,7 @@ export default class CarouselComponent extends React.Component {
                                 modifiedradiologistId: evt.target.value
                             });
                         }}
-                        name="modifiedbodysystem"
+                        name="modifiedbodysystem" disabled
                     />
 
                     <br /><br />
@@ -423,7 +488,6 @@ export default class CarouselComponent extends React.Component {
 
     render() {
         return (
-
 
             this.state.data.map(patientsData => {
                 if (patientsData._id === this.state.userBeingEdited) {
@@ -517,6 +581,7 @@ export default class CarouselComponent extends React.Component {
                                                     <div className="card-title">
                                                         <div className='reviewFlex'>
                                                             <h5 style={{ color: 'rgb(0, 175, 185)' }}>Case presentation:</h5>
+
                                                             <OverlayTrigger className='reviews' placement="top" overlay={this.renderTooltip()}>
 
                                                                 <span className='rating'>
@@ -545,8 +610,11 @@ export default class CarouselComponent extends React.Component {
                                                                 </span>
                                                             </OverlayTrigger>
                                                         </div>
+                                                        {/* <h5 style={{ color: 'rgb(0, 175, 185)' }}>Case presentation:</h5> */}
+                                                        <p>{patientsData.signsSymptomsTitle}</p>
 
-                                                        <p>{patientsData.signsSymptomsTitle}</p></div>
+                                                    </div>
+
                                                     <h5 style={{ color: 'rgb(0, 175, 185)' }}>Patient ID:</h5> <p>{patientsData.patientID}</p>
                                                     <h5 style={{ color: 'rgb(0, 175, 185)' }}>Gender: </h5> <p>{patientsData.gender}</p>
                                                     <h5 style={{ color: 'rgb(0, 175, 185)' }}>Date of birth:</h5> <p>{patientsData.dob}</p>
@@ -561,12 +629,25 @@ export default class CarouselComponent extends React.Component {
                                                             <h5 style={{ color: 'rgb(0, 175, 185)' }}>Case Discussion: </h5>
                                                             <p>{patientsData.caseDiscussion}</p>
 
-                                                            <h5 style={{ color: 'rgb(0, 175, 185)' }}>Radiologist ID: </h5><p style={{cursor:'pointer', color:'blue'}} variant="primary" onClick={this.handleShow} >{patientsData.radiologistId}</p>
+                                                            <h5 style={{ color: 'rgb(0, 175, 185)' }}>Radiologist ID: </h5><p style={{ cursor: 'pointer', color: 'blue' }} variant="primary" onClick={this.handleShow} >{patientsData.radiologistId}</p>
                                                             <Modal show={this.state.show} onHide={this.handleClose}>
                                                                 <Modal.Header closeButton>
-                                                                    <Modal.Title>Radiologist-{patientsData.radiologistId} Info:</Modal.Title>
+                                                                    <Modal.Title>Radiologist-{patientsData.radiologistId}:</Modal.Title>
                                                                 </Modal.Header>
-                                                                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                                                                <Modal.Body>
+                                                                    
+                                                                        <div>
+                                                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's ID:</h5>{this.state.radiologistId}</p>
+                                                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Name:</h5> {this.state.radiologistName}</p>
+                                                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Speciality:</h5> {this.state.radiologistSpeciality}</p>
+                                                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Medical Institution:</h5> {this.state.radiologistmedicalInstitution}</p>
+                                                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Email: </h5>{this.state.radiologistEmail}</p>
+                                                                        </div>
+
+                                                                    
+
+                                                                </Modal.Body>
+
                                                                 <Modal.Footer>
                                                                     <Button variant="secondary" onClick={this.handleClose}>
                                                                         Close
@@ -614,6 +695,7 @@ export default class CarouselComponent extends React.Component {
                     )
 
                 }
+                // })
             })
 
         )
