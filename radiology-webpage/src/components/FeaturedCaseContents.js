@@ -610,7 +610,7 @@ export default class CarouselComponent extends React.Component {
                                                                 </span>
                                                             </OverlayTrigger>
                                                         </div>
-                                                        {/* <h5 style={{ color: 'rgb(0, 175, 185)' }}>Case presentation:</h5> */}
+                                                        
                                                         <p>{patientsData.signsSymptomsTitle}</p>
 
                                                     </div>
@@ -635,16 +635,16 @@ export default class CarouselComponent extends React.Component {
                                                                     <Modal.Title>Radiologist-{patientsData.radiologistId}:</Modal.Title>
                                                                 </Modal.Header>
                                                                 <Modal.Body>
-                                                                    
-                                                                        <div>
-                                                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's ID:</h5>{this.state.radiologistId}</p>
-                                                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Name:</h5> {this.state.radiologistName}</p>
-                                                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Speciality:</h5> {this.state.radiologistSpeciality}</p>
-                                                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Medical Institution:</h5> {this.state.radiologistmedicalInstitution}</p>
-                                                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Email: </h5>{this.state.radiologistEmail}</p>
-                                                                        </div>
 
-                                                                    
+                                                                    <div>
+                                                                        <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's ID:</h5>{this.state.radiologistId}</p>
+                                                                        <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Name:</h5> {this.state.radiologistName}</p>
+                                                                        <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Speciality:</h5> {this.state.radiologistSpeciality}</p>
+                                                                        <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Medical Institution:</h5> {this.state.radiologistmedicalInstitution}</p>
+                                                                        <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Email: </h5>{this.state.radiologistEmail}</p>
+                                                                    </div>
+
+
 
                                                                 </Modal.Body>
 

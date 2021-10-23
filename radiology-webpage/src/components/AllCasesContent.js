@@ -5,12 +5,15 @@ import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Modal';
 
 
 export default class AllCasesContent extends React.Component {
     state = {
         'active': 'AllCasesContent',
         key: '1',
+        open:false,
         'data': [
 
         ],
@@ -27,6 +30,13 @@ export default class AllCasesContent extends React.Component {
         modifiedsignSymptomsTitle: '',
         modifiedimages: '',
         modifiedradiologistId: '',
+        show: false,
+        setsShow: false,
+        radiologistId: '',
+        radiologistName: '',
+        radiologistSpeciality: '',
+        radiologistmedicalInstitution: '',
+        radiologistEmail: '',
     }
 
     url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us17.gitpod.io/"
@@ -37,6 +47,7 @@ export default class AllCasesContent extends React.Component {
 
     componentDidMount() {
         this.fetchData();
+        this.retrieveRadiologistInfo();
     }
 
     fetchData = async () => {
@@ -98,6 +109,29 @@ export default class AllCasesContent extends React.Component {
         return date
     }
 
+    handleClose = () => {
+        this.setState({
+            show: false
+        })
+    }
+
+
+    handleShow = () => {
+        this.state.radiologistdata.map(data => {
+
+            this.setState({
+                show: true,
+                radiologistId: data.radiologistId,
+                radiologistName: data.radiologistName,
+                radiologistSpeciality: data.speciality,
+                radiologistmedicalInstitution: data.medicalInstitution,
+                radiologistEmail: data.email,
+
+            })
+        })
+    }
+
+
     handleSelect = (key) => {
         if (key === '1') {
             this.setState({
@@ -123,6 +157,16 @@ export default class AllCasesContent extends React.Component {
         this.setActive('AllCasesContent')
     }
 
+    retrieveRadiologistInfo = async () => {
+
+        let response = await axios.get(this.url + 'allradiologistData/')
+
+        this.setState({
+            radiologistdata: response.data,
+
+        })
+
+    }
 
     deleteCase = async (caseId) => {
         console.log(this.state.data)
@@ -412,11 +456,11 @@ export default class AllCasesContent extends React.Component {
                                             </button>
 
                                         </div>
-                                        
-                                        <div className='displayReviews'>
-                                        <img src={patientsData.images} className="card-img-top" alt="..." />
 
-                                        <OverlayTrigger className='reviewsAllCasesBtn' placement="bottom" overlay={this.renderTooltip()}>
+                                        <div className='displayReviews'>
+                                            <img src={patientsData.images} className="card-img-top" alt="..." />
+
+                                            <OverlayTrigger className='reviewsAllCasesBtn' placement="bottom" overlay={this.renderTooltip()}>
 
                                                 <p className='rating' >
 
@@ -443,7 +487,7 @@ export default class AllCasesContent extends React.Component {
 
                                                 </p>
                                             </OverlayTrigger>
-                                            </div>
+                                        </div>
                                         <div className="card-body-all-images">
                                             <h5 style={{ color: 'rgb(56, 54, 154)' }}>Case presentation: </h5>
                                             <h6>{patientsData.signsSymptomsTitle}</h6>
@@ -453,7 +497,30 @@ export default class AllCasesContent extends React.Component {
                                             <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Clinical History:</h5> {patientsData.clinicalHistory}</p>
                                             <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Modality: </h5>{patientsData.modality}</p>
                                             <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Case Discussion:</h5> {patientsData.caseDiscussion}</p>
-                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist ID:</h5> {patientsData.radiologistId}</p>
+                                            <h5 style={{ color: 'rgb(56, 54, 154)'}} className="card-text">Radiologist ID:</h5><p style={{ cursor: 'pointer', color: 'blue' }} variant="primary" onClick={this.handleShow}> {patientsData.radiologistId}</p>
+                                            <Modal show={this.state.show} onHide={this.handleClose}>
+                                                <Modal.Header closeButton>
+                                                    <Modal.Title>Radiologist-{this.state.radiologistId}:</Modal.Title>
+                                                </Modal.Header>
+                                                <Modal.Body>
+                                                    <div>
+                                                        <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's ID:</h5>{this.state.radiologistId}</p>
+                                                        <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Name:</h5> {this.state.radiologistName}</p>
+                                                        <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Speciality:</h5> {this.state.radiologistSpeciality}</p>
+                                                        <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Medical Institution:</h5> {this.state.radiologistmedicalInstitution}</p>
+                                                        <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Email: </h5>{this.state.radiologistEmail}</p>
+                                                    </div>
+                                                </Modal.Body>
+                                                <Modal.Footer>
+                                                    <Button variant="secondary" onClick={this.handleClose}>
+                                                        Close
+                                                    </Button>
+                                                    <Button variant="primary" onClick={this.handleClose}>
+                                                        Save Changes
+                                                    </Button>
+                                                </Modal.Footer>
+                                            </Modal>
+
                                             <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Published Date (revised):</h5> {patientsData.publishedDate}</p>
                                             <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Scientific References:</h5> {patientsData.scientificReferences}</p>
                                         </div>
@@ -463,8 +530,8 @@ export default class AllCasesContent extends React.Component {
 
                                             {patientsData.bodySystems.map(i => <h5><span className="iconsAllCases">{i}</span></h5>)}
 
-        
-                                            
+
+
                                         </div>
                                     </div>
                                 </div>
