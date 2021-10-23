@@ -27,7 +27,7 @@ export default class App extends React.Component {
 
   componentDidMount() {
     this.fetchData();
-    const script = document.createElement("script"); script.async = true; script.src = "https://some-scripturl.js";
+    // const script = document.createElement("script"); script.async = true; script.src = "https://some-scripturl.js";
   }
 
   fetchData = async () => {
@@ -58,6 +58,12 @@ export default class App extends React.Component {
   setActiveAllCases = () => {
     this.setState({
       'active': 'AllCasesContent'
+    })
+  }
+
+  setActiveRadiologist = () => {
+    this.setState({
+      'active': 'radiologistInfo'
     })
   }
 
@@ -103,7 +109,7 @@ export default class App extends React.Component {
                   </li>
               
                   <li class="nav-item">
-                    <a class="nav-link" href="#" onClick={this.setActiveQuiz}>COURSES</a>
+                    <a class="nav-link" href="#" onClick={this.setActiveRadiologist}>RADIOLOGIST INFORMATION</a>
                   </li>
                 </ul>
                 {/* <form class="d-flex">

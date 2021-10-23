@@ -9,6 +9,7 @@ import AddReport from "../components/AddReport";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
+import SuccessAddReport from "../components/ReportAddedSuccess";
 
 
 
@@ -75,6 +76,8 @@ export default class CarouselComponent extends React.Component {
 
         if (this.state.active === 'successAddMessage') {
             return <SuccessAddMessage />
+        } if (this.state.active === 'successAddReport') {
+            return <SuccessAddReport />
         } if (this.state.active === 'addnew') {
             return <AddNew onAfterAddPatient={this.afterAddNewPatient} />
         } if (this.state.active === 'addReport') {
@@ -152,7 +155,7 @@ export default class CarouselComponent extends React.Component {
     }
 
     afterAddNewReport = () => {
-        this.setActive('successAddMessage')
+        this.setActive('successAddReport')
     }
 
     beginEdit = (patientsData) => {
@@ -546,34 +549,34 @@ export default class CarouselComponent extends React.Component {
                                                 <div className="card-body" >
                                                     <div className="card-title">
                                                         <div className='reviewFlex'>
-                                                        <h5 style={{ color: 'rgb(0, 175, 185)' }}>Case presentation:</h5>
-                                                        <OverlayTrigger className='reviews' placement="top" overlay={this.renderTooltip()}>
+                                                            <h5 style={{ color: 'rgb(0, 175, 185)' }}>Case presentation:</h5>
+                                                            <OverlayTrigger className='reviews' placement="top" overlay={this.renderTooltip()}>
 
-                                                            <span className='rating'>
+                                                                <span className='rating'>
 
-                                                                <input type='radio' value='5' name='rating' id='rating-5' />
-                                                                <label for='rating-5' title='5 stars'>
-                                                                    <i class="fas fa-heart"></i>
-                                                                </label>
-                                                                <input type='radio' value='4' name='rating' id='rating-4' />
-                                                                <label for='rating-4' title='4 stars'>
-                                                                    <i class="fas fa-heart"></i>
-                                                                </label>
-                                                                <input type='radio' value='3' name='rating' id='rating-3' />
-                                                                <label for='rating-3' title='3 stars'>
-                                                                    <i class="fas fa-heart"></i>
-                                                                </label>
-                                                                <input type='radio' value='2' name='rating' id='rating-2' />
-                                                                <label for='rating-2' title='2 stars'>
-                                                                    <i class="fas fa-heart"></i>
-                                                                </label>
-                                                                <input type='radio' value='1' name='rating' id='rating-1' />
-                                                                <label for='rating-1' title='1 stars'>
-                                                                    <i class="fas fa-heart"></i>
-                                                                </label>
+                                                                    <input type='radio' value='5' name='rating' id='rating-5' />
+                                                                    <label for='rating-5' title='5 stars'>
+                                                                        <i class="fas fa-heart"></i>
+                                                                    </label>
+                                                                    <input type='radio' value='4' name='rating' id='rating-4' />
+                                                                    <label for='rating-4' title='4 stars'>
+                                                                        <i class="fas fa-heart"></i>
+                                                                    </label>
+                                                                    <input type='radio' value='3' name='rating' id='rating-3' />
+                                                                    <label for='rating-3' title='3 stars'>
+                                                                        <i class="fas fa-heart"></i>
+                                                                    </label>
+                                                                    <input type='radio' value='2' name='rating' id='rating-2' />
+                                                                    <label for='rating-2' title='2 stars'>
+                                                                        <i class="fas fa-heart"></i>
+                                                                    </label>
+                                                                    <input type='radio' value='1' name='rating' id='rating-1' />
+                                                                    <label for='rating-1' title='1 stars'>
+                                                                        <i class="fas fa-heart"></i>
+                                                                    </label>
 
-                                                            </span>
-                                                        </OverlayTrigger>
+                                                                </span>
+                                                            </OverlayTrigger>
                                                         </div>
 
                                                         <p>{patientsData.signsSymptomsTitle}</p></div>
@@ -591,7 +594,7 @@ export default class CarouselComponent extends React.Component {
                                                             <h5 style={{ color: 'rgb(0, 175, 185)' }}>Case Discussion: </h5>
                                                             <p>{patientsData.caseDiscussion}</p>
 
-                                                            <h5 style={{ color: 'rgb(0, 175, 185)' }}>Radiologist ID: </h5><p>{patientsData.radiologistId}</p>
+                                                            <h5 style={{ color: 'rgb(0, 175, 185)' }}>Radiologist ID: </h5><a style={{display:'inline', textDecoration:'none'}} href='RadiologistInfo.js'>{patientsData.radiologistId}</a>
                                                             <h5 style={{ color: 'rgb(0, 175, 185)' }}>Body Systems:</h5>
                                                             <ul>
                                                                 {patientsData.bodySystems.map(i => <li key={i._id}>{i}</li>)}
