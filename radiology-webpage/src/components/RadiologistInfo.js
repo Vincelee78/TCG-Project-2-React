@@ -38,25 +38,27 @@ export default class RadiologistInfo extends React.Component {
     render() {
         return (
             <React.Fragment>
+                <div className='table'>
                 <Table bordered variant="dark">
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Radiologist's ID</th>
-                            <th>Radiologist's Name</th>
-                            <th>Radiologist's Speciality</th>
-                            <th>Radiologist's Medical Institution</th>
-                            <th>Radiologist's Email</th>
+                            
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Speciality</th>
+        
+                            <th>Institution</th>
+                            <th>Email</th>
                         </tr>
                     </thead>
                     <tbody>
                         {this.state.data.map((rowData, index) => (
                             <tr>
-                                <th scope="row">{index + 1}</th>
+                                
                                 <td>{rowData.radiologistId}</td>
                                 <td>{rowData.radiologistName}</td>
                                 <td>{rowData.speciality}</td>
-                                <td style={{textAlign:'center'}}>{rowData.medicalInstitution}</td>
+                                <td>{rowData.medicalInstitution}</td>
                                 <td>{rowData.email}</td>
                             </tr>
 
@@ -64,7 +66,7 @@ export default class RadiologistInfo extends React.Component {
 
                     </tbody>
                 </Table>
-
+                </div>
             </React.Fragment>
 
 
