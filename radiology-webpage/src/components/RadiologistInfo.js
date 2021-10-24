@@ -52,7 +52,7 @@ export default class RadiologistInfo extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.data.map((rowData, index) => (
+                        {this.state.data.map((rowData) => (
                             <tr>
                                 
                                 <td>{rowData.radiologistId}</td>

@@ -67,7 +67,7 @@ export default class Report extends React.Component {
             this.state.data.map(reportData => {
                 return (
                     <React.Fragment>
-                        <div class='p-5 mb-4 bg-dark text-white rounded-3'>
+                        <div class='p-5 bg-dark text-white rounded-3'>
                             <OverlayTrigger className='reviews' placement="top" overlay={this.renderTooltip()}>
 
                                 <span className='rating me-2' id='ratingReport'>
@@ -134,7 +134,7 @@ export default class Report extends React.Component {
                 </div>
 
             </React.Fragment>)
-    }
+        }
 
 
 

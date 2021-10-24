@@ -198,7 +198,7 @@ export default class CarouselComponent extends React.Component {
 
     retrieveRadiologistInfo = async () => {
 
-        let response = await axios.get(this.url + 'radiologistData/')
+        let response = await axios.get(this.url + 'radiologistDataFeatured/')
 
         this.setState({
             radiologistdata: response.data,

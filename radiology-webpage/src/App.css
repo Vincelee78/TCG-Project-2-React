@@ -186,6 +186,20 @@ margin-right:20px;
   color: white;
 }
 
+.about{
+  
+  background-color: rgb(44, 125, 160);
+}
+
+.title6{
+background-color: rgb(1, 58, 99);
+
+}
+
+.containerAbout{
+  background-color: rgb(1, 58, 99);
+}
+
 .title {
   /* text-decoration: none;
    font-size: 30px;
@@ -214,7 +228,7 @@ margin-right:20px;
 }
 
 .errorMessageImg {
-  width: 140vh;
+  width: 100vh;
 }
 
 .wrapper2 {
@@ -287,9 +301,13 @@ margin-right:20px;
   padding-left: 30px;
 }
 
-/* .checkbox{
-    padding-right:20px;
-} */
+/* images in About section */
+.images>img{
+width: 500px;
+height: auto;
+
+
+}
 
 /* padding between form contents in add case*/
 .card-body {
@@ -372,7 +390,9 @@ margin-right:20px;
   background-color: rgb(202, 233, 255) !important;
 }
 
-
+.title5{
+  background-color: #0f0f0a;
+}
 
 /* ipad */
 /* 768 to 375 */

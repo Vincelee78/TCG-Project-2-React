@@ -13,7 +13,7 @@ export default class AllCasesContent extends React.Component {
     state = {
         'active': 'AllCasesContent',
         key: '1',
-        open:false,
+        open: false,
         'data': [
 
         ],
@@ -428,7 +428,7 @@ export default class AllCasesContent extends React.Component {
     render() {
         return (
 
-
+            
             this.state.data.map(patientsData => {
                 if (patientsData._id === this.state.userBeingEdited) {
                     return (
@@ -438,9 +438,12 @@ export default class AllCasesContent extends React.Component {
                     )
                 } else {
                     return <React.Fragment>
+
+                    
+
                         <Tabs activeKey={this.state.key} className="mb-3" id="controlled-tab-example" onSelect={(k) => this.handleSelect(k)} >
                             <Tab eventKey='1' title="All Cases" >
-
+                                
 
                                 <div className="card-group-all-cases">
                                     <div className="card-all-cases">
@@ -497,7 +500,7 @@ export default class AllCasesContent extends React.Component {
                                             <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Clinical History:</h5> {patientsData.clinicalHistory}</p>
                                             <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Modality: </h5>{patientsData.modality}</p>
                                             <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Case Discussion:</h5> {patientsData.caseDiscussion}</p>
-                                            <h5 style={{ color: 'rgb(56, 54, 154)'}} className="card-text">Radiologist ID:</h5><p style={{ cursor: 'pointer', color: 'blue' }} variant="primary" onClick={this.handleShow}> {patientsData.radiologistId}</p>
+                                            <h5 style={{ color: 'rgb(56, 54, 154)' }} className="card-text">Radiologist ID:</h5><p style={{ cursor: 'pointer', color: 'blue' }} variant="primary" onClick={this.handleShow}> {patientsData.radiologistId}</p>
                                             <Modal show={this.state.show} onHide={this.handleClose}>
                                                 <Modal.Header closeButton>
                                                     <Modal.Title>Radiologist-{this.state.radiologistId}:</Modal.Title>
