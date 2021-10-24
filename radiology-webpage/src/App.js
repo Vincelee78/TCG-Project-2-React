@@ -90,11 +90,11 @@ export default class App extends React.Component {
     }
   }
 
-  renderError() {
-    if (this.state.active === 'errorMessage') {
-      return <ErrorMessage />
-    }
-  }
+  // renderError() {
+  //   if (this.state.active === 'errorMessage') {
+  //     return <ErrorMessage />
+  //   }
+  // }
 
 
 
@@ -168,7 +168,7 @@ export default class App extends React.Component {
                     <Carousel.Item interval={3000}>
                       <img
                         className="d-block w-100"
-                        src="https://www.carestream.com/blog/wp-content/uploads/2020/01/future_of_diag_imaging_fb_1_2020_en.jpg"
+                        src="https://www.elsevier.com/__data/assets/image/0012/1022133/Radiology-at-a-Crossroads_Five-converging-trends-reshaping-the-need-for-diagnostic-decision-support.JPG"
                         alt="First slide"
                       />
                       <Carousel.Caption>
@@ -189,7 +189,7 @@ export default class App extends React.Component {
                     <Carousel.Item interval={3000}>
                       <img
                         className="d-block w-100"
-                        src="https://www.elsevier.com/__data/assets/image/0012/1022133/Radiology-at-a-Crossroads_Five-converging-trends-reshaping-the-need-for-diagnostic-decision-support.JPG"
+                        src="https://www.carestream.com/blog/wp-content/uploads/2020/01/future_of_diag_imaging_fb_1_2020_en.jpg"
                         alt="Third slide"
                       />
 
@@ -219,7 +219,7 @@ export default class App extends React.Component {
             </div> */}
 
             <div className='innerwrapper'>
-              {(this.state.active !== 'AllCasesContent' && this.state.active !== 'Reports' && this.state.active !== 'RadiologistInfo' && this.state.active !== 'About') && <p className="title" id="title1"><FeaturedCaseContents />{this.renderError()}</p>}
+              {(this.state.active !== 'AllCasesContent' && this.state.active !== 'Reports' && this.state.active !== 'RadiologistInfo' && this.state.active !== 'About') && <p className="title" id="title1"><FeaturedCaseContents /></p>}
               <div className='wrapper2'>
                 {this.state.active === 'AllCasesContent' ? <div className='title3'><AllCasesContent /> </div> : null} {this.state.active === 'errorMessage' ? <div className='title3'> <ErrorMessage /></div> : null}
               </div>

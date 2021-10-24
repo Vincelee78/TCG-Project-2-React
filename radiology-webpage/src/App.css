@@ -224,11 +224,11 @@ background-color: rgb(1, 58, 99);
   border-radius: 20px;
   border: 10px;
   padding: 20px 10px;
-  width: 150vh;
+  width: 85vw;
 }
 
 .errorMessageImg {
-  width: 100vh;
+  width: 80vw;
 }
 
 .wrapper2 {
@@ -396,7 +396,7 @@ height: auto;
 
 /* ipad */
 /* 768 to 375 */
-@media screen and (max-width: 768px) {
+@media only screen and (min-width:0px) and (max-width: 768px) {
   #caseImgUrl {
     flex-shrink: 100;
     -webkit-flex-shrink: 0;
@@ -437,7 +437,6 @@ height: auto;
 
   .buttonsAllCases {
     flex-direction: row !important;
-    /* justify-content: center !important; */
     gap: 0 5px !important;
     }
 
@@ -453,7 +452,7 @@ height: auto;
   }
 
   .title3{
-    width:100vw;
+    width:100vw !important;
   }
 
   .title5{
@@ -506,6 +505,16 @@ height: auto;
   font-size: 15px !important;
   }
 
+  .images>img{
+    display: none;
+    /* align-items: center; */
+    /* width: 30% !important;
+    height: auto !important;
+    background-size: cover !important;
+    background-position: center !important; */
+  }
+  
+  
 }
 /* end of mobile css */
 

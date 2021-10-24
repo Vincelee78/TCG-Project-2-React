@@ -43,15 +43,15 @@ export default class About extends React.Component {
                     <h4 class=" mx-5 pt-2" style={{ color: 'wheat' }}>I have worked in healthcare in the past couple of years in Australia after my studies there. I spent 13 years in Australia since finishing my final year of high school there. My background is in radiography and medicine. I also have some experience in 3D printing in Siemens Singapore after coming back recently.
                         I am now in the midst of a mid-career transition to information technology.
                     </h4>
-                    <div className='images p-4 d-flex justify-content-around'>
+                    <div className='images p-4 d-flex justify-content-around img1'>
                     <img src={usyd}/>
                     <img src={spouse}/>
                     </div>
-                    <div className='images p-4 d-flex justify-content-around'>
+                    <div className='images p-4 d-flex justify-content-around img2'>
                     <img src={work}/>
                     <img src={project}/>
                     </div>
-                    <div className='images p-4 d-flex justify-content-around'>
+                    <div className='images p-4 d-flex justify-content-around img3'>
                     <img src={kneeimplant}/>
                     <img src={spinalimplant}/>
                     </div>
@@ -61,11 +61,10 @@ export default class About extends React.Component {
                 <div class='footer'>
                 <div class='background'>
                     <h4 class=" mx-5 display-6" style={{ color: 'gold' }}>Support MedRadiology</h4>
-                    <h4 class=" mx-5 pt-2" style={{ color: 'wheat' }}>A Radiopaedia.org Supporter is someone who values what we are trying to accomplish, and is willing to help with small periodic financial contributions to help build: </h4>
+                    <h4 class=" mx-5 pt-2" style={{ color: 'wheat' }}>A MedRadiology supporter is someone who values what I am trying to accomplish, and is willing to help with small periodic financial contributions to help build: </h4>
                         <ul class=" mx-5 pt-2" style={{ color: 'wheat' }}>
                             <li>innovative educational features</li>
-                            <li>enhanced medical information in the radiology reference section</li>
-                            <li>enhanced teaching facilities such as new presentation and quiz features</li>
+                            <li>enhanced medical information in the radiology reports section</li>
                             <li>continuous improvement of the website</li>
                             <li>accessibility of radiology information to medical professionals in developing countries</li>
                         </ul>
