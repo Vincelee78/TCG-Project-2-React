@@ -303,8 +303,8 @@ background-color: rgb(1, 58, 99);
 
 /* images in About section */
 .images>img{
-width: 500px;
-height: auto;
+width: auto;
+height: 500px;
 
 
 }

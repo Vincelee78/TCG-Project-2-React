@@ -44,15 +44,11 @@ export default class About extends React.Component {
                         I am now in the midst of a mid-career transition to information technology.
                     </h4>
                     <div className='images p-4 d-flex justify-content-around img1'>
-                    <img src={usyd}/>
+                    <img src={work}/>
                     <img src={spouse}/>
                     </div>
                     <div className='images p-4 d-flex justify-content-around img2'>
-                    <img src={work}/>
                     <img src={project}/>
-                    </div>
-                    <div className='images p-4 d-flex justify-content-around img3'>
-                    <img src={kneeimplant}/>
                     <img src={spinalimplant}/>
                     </div>
 
