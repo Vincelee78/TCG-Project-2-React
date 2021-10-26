@@ -60,7 +60,7 @@ nav > div > div > ul > li {
   text-decoration: none;
   cursor: pointer;
   color: white;
-  padding: 30px 60px !important;
+  padding: 30px 30px !important;
 }
 
 #navbarSupportedContent {
@@ -68,9 +68,9 @@ nav > div > div > ul > li {
   padding:0 !important
 }
 
-/* #navbar {
-    padding:0
-} */
+.searchbtn{
+  margin-right: 20px;
+}
 
 .navbar-nav li a:hover {
   display: block;
@@ -514,7 +514,13 @@ height: 500px;
     background-position: center !important; */
   }
   
+  .searchbtn{
+    margin-right:5px !important;
+    padding-right:15px 
+  }
+
   
+
 }
 /* end of mobile css */
 
