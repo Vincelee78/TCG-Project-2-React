@@ -11,6 +11,10 @@ import Carousel from 'react-bootstrap/Carousel'
 import Report from './components/Report';
 import RadiologistInfo from './components/RadiologistInfo';
 import About from './components/About';
+import Tooltip from "react-bootstrap/Tooltip";
+import Search from './components/Search';
+
+
 
 
 
@@ -19,17 +23,22 @@ import About from './components/About';
 export default class App extends React.Component {
   state = {
     'active': 'home',
+    search: '',
 
     data: [
 
     ],
+    dataSearch: [],
   }
 
   url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us17.gitpod.io/"
 
+  renderTooltip = () => (
+    <Tooltip >Favourite this case</Tooltip>
+  );
+
   componentDidMount() {
     this.fetchData();
-    // const script = document.createElement("script"); script.async = true; script.src = "https://some-scripturl.js";
   }
 
   fetchData = async () => {
@@ -68,25 +77,55 @@ export default class App extends React.Component {
     })
   }
 
-    setActiveAbout = () => {
-      this.setState({
-        'active': 'About'
-     })
-   }
+  setActiveAbout = () => {
+    this.setState({
+      'active': 'About'
+    })
+  }
 
+  setActiveSearch = async () => {
+    try {
+      await axios.get(this.url + "searchCases/", {
+        params: {
+          search: this.state.search
+        }
+      })
+        .then((res) => {
+          this.setState({
+            dataSearch: res.data
+          })
+        })
+
+
+    } catch (e) {
+      this.setState({
+        active: 'errorMessage'
+      })
+
+    }
+  }
+
+  onChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
 
   renderAllCases = () => {
     if (this.state.active === 'About') {
       return <About />
-    
-    }if (this.state.active === 'AllCasesContent') {
+
+    } if (this.state.active === 'AllCasesContent') {
       return <AllCasesContent />
 
     } if (this.state.active === 'Reports') {
       return <Report />
-    }
-    if (this.state.active === 'RadiologistInfo') {
+
+    } if (this.state.active === 'RadiologistInfo') {
       return <RadiologistInfo />
+
+    } if (this.state.active === 'Search') {
+      return <Search />
     }
   }
 
@@ -100,6 +139,7 @@ export default class App extends React.Component {
 
   render() {
     return (
+      // this.state.data.map(patientsData => {
       <React.Fragment>
         <div id="nav">
 
@@ -115,7 +155,7 @@ export default class App extends React.Component {
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 main-nav">
-                <li class="nav-item">
+                  <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#" onClick={this.setActiveAbout}>ABOUT</a>
                   </li>
                   <li class="nav-item">
@@ -129,10 +169,10 @@ export default class App extends React.Component {
                     <a class="nav-link" href="#" onClick={this.setActiveRadiologist}>RADIOLOGIST INFORMATION</a>
                   </li>
                 </ul>
-                {/* <form class="d-flex">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-                </form> */}
+                <div class="d-flex">
+                  <input class="form-control" type="search" placeholder="Search case" name="search" onChange={this.onChange}></input>
+                  <button class='searchbtn rounded-3' onClick={this.setActiveSearch}><i class="fas fa-search"></i></button>
+                </div>
               </div>
             </div>
           </nav>
@@ -206,22 +246,12 @@ export default class App extends React.Component {
 
 
 
-
           <div className="wrapper">
-            {/* <button onClick={this.renderInfo()}>a</button>{this.renderinfo2()} */}
-            
-            {/* <div class="m-4 p-4 bg-dark text-white rounded-3 about">
-              <h1 class="display-4">Hello, world!</h1>
-              <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-              <hr class="my-4" />
-              <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-              <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-            </div> */}
-
             <div className='innerwrapper'>
               {(this.state.active !== 'AllCasesContent' && this.state.active !== 'Reports' && this.state.active !== 'RadiologistInfo' && this.state.active !== 'About') && <p className="title" id="title1"><FeaturedCaseContents /></p>}
               <div className='wrapper2'>
                 {this.state.active === 'AllCasesContent' ? <div className='title3'><AllCasesContent /> </div> : null} {this.state.active === 'errorMessage' ? <div className='title3'> <ErrorMessage /></div> : null}
+
               </div>
             </div>
             <div className='fixed-bg bg-1'>
@@ -231,18 +261,11 @@ export default class App extends React.Component {
             <div className="fixed-bg bg-3"><span className="title2" ></span></div>
 
           </div>
-          {/* {<script>let mainNav = document.getElementById("js-menu");
-      let navBar = document.getElementById("navbar");
-      let navBarToggle = document.querySelector("#js-navbar-toggle");
 
-      navBarToggle.addEventListener('click', function() {
-      mainNav.classList.toggle("active"),
-      navBar.classList.toggle("expanded")
-})</script>
-} */}
         </div>
 
       </React.Fragment >
+      // })
     );
   }
 }

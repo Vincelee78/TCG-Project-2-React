@@ -38,21 +38,21 @@ export default class About extends React.Component {
                     </div>
                 </div>
 
-                <div class='background'>
+                {/* <div class='background'>
                     <h4 class=" mx-5 display-6" style={{ color: 'gold' }}>Background</h4>
                     <h4 class=" mx-5 pt-2" style={{ color: 'wheat' }}>I have worked in healthcare in the past couple of years in Australia after my studies there. I spent 13 years in Australia since finishing my final year of high school there. My background is in radiography and medicine. I also have some experience in 3D printing in Siemens Singapore after coming back recently.
                         I am now in the midst of a mid-career transition to information technology.
-                    </h4>
-                    <div className='images p-4 d-flex justify-content-around img1'>
+                    </h4> */}
+                    {/* <div className='images p-4 d-flex justify-content-around img1'>
                     <img src={work}/>
                     <img src={spouse}/>
                     </div>
                     <div className='images p-4 d-flex justify-content-around img2'>
                     <img src={project}/>
                     <img src={spinalimplant}/>
-                    </div>
+                    </div> */}
 
-                </div>
+                {/* </div> */}
 
                 <div class='footer'>
                 <div class='background'>

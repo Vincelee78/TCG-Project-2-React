@@ -4,9 +4,11 @@ import ErrorMessage from '../components/Errormessage';
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Overlay from 'react-bootstrap/Overlay';
 import Tooltip from "react-bootstrap/Tooltip";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Modal';
+
 
 
 export default class AllCasesContent extends React.Component {
@@ -428,7 +430,7 @@ export default class AllCasesContent extends React.Component {
     render() {
         return (
 
-            
+
             this.state.data.map(patientsData => {
                 if (patientsData._id === this.state.userBeingEdited) {
                     return (
@@ -439,11 +441,11 @@ export default class AllCasesContent extends React.Component {
                 } else {
                     return <React.Fragment>
 
-                    
+
 
                         <Tabs activeKey={this.state.key} className="mb-3" id="controlled-tab-example" onSelect={(k) => this.handleSelect(k)} >
                             <Tab eventKey='1' title="All Cases" >
-                                
+
 
                                 <div className="card-group-all-cases">
                                     <div className="card-all-cases">
@@ -544,7 +546,7 @@ export default class AllCasesContent extends React.Component {
 
                             </Tab >
                             <Tab eventKey='2' title="">
-
+                                
                             </Tab>
 
 

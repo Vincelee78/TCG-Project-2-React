@@ -12,6 +12,7 @@ import Tooltip from "react-bootstrap/Tooltip";
 import SuccessAddReport from "../components/ReportAddedSuccess";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Modal';
+import Search from "./Search";
 
 
 
@@ -31,6 +32,7 @@ export default class CarouselComponent extends React.Component {
         data: [
 
         ],
+        
 
         radiologistdata: [],
 
@@ -96,6 +98,8 @@ export default class CarouselComponent extends React.Component {
             return <AddNew onAfterAddPatient={this.afterAddNewPatient} />
         } if (this.state.active === 'addReport') {
             return <AddReport onAfterAddReport={this.afterAddNewReport} />
+        } if (this.state.active === 'Search') {
+            return <Search />
         }
     }
 
@@ -185,9 +189,13 @@ export default class CarouselComponent extends React.Component {
                 key: key,
                 active: 'addnew'
             })
+        } else if (key === '4') {
+            this.setState({
+                key: key,
+                active: 'Search'
+            })
         }
     }
-
     afterAddNewPatient = () => {
         this.setActive('successAddMessage')
     }
@@ -610,7 +618,7 @@ export default class CarouselComponent extends React.Component {
                                                                 </span>
                                                             </OverlayTrigger>
                                                         </div>
-                                                        
+
                                                         <p>{patientsData.signsSymptomsTitle}</p>
 
                                                     </div>
@@ -684,6 +692,13 @@ export default class CarouselComponent extends React.Component {
 
                                     <Tab eventKey='3' title="Add Case" >
 
+                                    </Tab>
+
+                                    <Tab eventKey='4' title="Search all Cases" >
+                                        {/* <div class="d-flex">
+                                            <input class="form-control" type="search" placeholder="Search case" name="search" onChange={this.onChange}></input>
+                                            <button class='searchbtn rounded-3' onClick={this.setActiveSearch}><i class="fas fa-search"></i></button>
+                                        </div> */}
                                     </Tab>
 
                                 </Tabs>
