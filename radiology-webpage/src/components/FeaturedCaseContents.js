@@ -407,7 +407,7 @@ export default class CarouselComponent extends React.Component {
                         </li>
                     </ul>
 
-                    <h6>Published Date:</h6>
+                    <h6>Published Date (Revised):</h6>
                     <input
                         type="text"
                         value={this.getDate()}

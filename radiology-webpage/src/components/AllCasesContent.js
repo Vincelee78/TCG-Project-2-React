@@ -22,7 +22,7 @@ export default class AllCasesContent extends React.Component {
         userBeingEdited: 0,
         modifiedpatientId: '',
         modifiedGender: '',
-        modifieddob: '',
+        modifieddob: null,
         modifiedclinicalHistory: '',
         modifiedmodality: '',
         modifiedcaseDiscussion: '',
@@ -40,7 +40,7 @@ export default class AllCasesContent extends React.Component {
         radiologistmedicalInstitution: '',
         radiologistEmail: '',
         filters: '',
-        
+
     }
 
     url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us18.gitpod.io/"
@@ -144,18 +144,10 @@ export default class AllCasesContent extends React.Component {
                 active: 'AllCasesContent'
             })
 
-        } else if (key === '2') {
-            this.setState({
-                key: key,
-                active: 'AllCasesContent'
-            })
+            this.fetchData();
 
-        } else if (key === '3') {
-            this.setState({
-                key: key,
-                active: '#'
-            })
         }
+
     }
 
     afterAddNewPatient = () => {
@@ -197,7 +189,7 @@ export default class AllCasesContent extends React.Component {
 
     }
 
-    ModalityFilter= async (evt) => {
+    ModalityFilter = async (evt) => {
         let response = await axios.get(this.url + "modalityUltrasound/")
 
 
@@ -275,7 +267,7 @@ export default class AllCasesContent extends React.Component {
             patientID: this.state.modifiedpatientId,
             signsSymptomsTitle: this.state.modifiedsignSymptomsTitle,
             gender: this.state.modifiedGender,
-            dob: this.state.modifieddob,
+            dob: new Date(this.state.modifieddob),
             clinicalHistory: this.state.modifiedclinicalHistory,
             modality: this.state.modifiedmodality,
             caseDiscussion: this.state.modifiedcaseDiscussion,
@@ -561,7 +553,15 @@ export default class AllCasesContent extends React.Component {
                                         <div className="card-body-all-images">
                                             <h5 style={{ color: 'rgb(56, 54, 154)' }}>Case presentation: </h5>
                                             <h6>{patientsData.signsSymptomsTitle}</h6>
-                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Patient ID:</h5>{patientsData.patientID}</p>
+                                            
+                                            {/* Conditional rendering to display Patient ID if it only has a value/ Removed Patient ID during the search filtering using radio buttons*/}
+                                            
+                                            {
+                                                patientsData.patientID ?
+                                                    <React.Fragment>
+                                                        <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Patient ID:</h5>{patientsData.patientID}</p>
+                                                    </React.Fragment> : ""
+                                            }
                                             <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Patient's gender:</h5> {patientsData.gender}</p>
                                             <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Patient's date of birth</h5> {patientsData.dob}</p>
                                             <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Clinical History:</h5> {patientsData.clinicalHistory}</p>
