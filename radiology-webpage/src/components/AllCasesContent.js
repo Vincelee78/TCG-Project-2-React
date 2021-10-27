@@ -8,6 +8,7 @@ import Overlay from 'react-bootstrap/Overlay';
 import Tooltip from "react-bootstrap/Tooltip";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Modal';
+import { format } from 'date-fns';
 
 
 
@@ -40,6 +41,8 @@ export default class AllCasesContent extends React.Component {
         radiologistmedicalInstitution: '',
         radiologistEmail: '',
         filters: '',
+        radiologistdata: [],
+        radiologistIdBeingMatched:'',
 
     }
 
@@ -120,19 +123,24 @@ export default class AllCasesContent extends React.Component {
     }
 
 
-    handleShow = () => {
+    handleShow = (patientsData) => {
         this.state.radiologistdata.map(data => {
 
-            this.setState({
-                show: true,
-                radiologistId: data.radiologistId,
-                radiologistName: data.radiologistName,
-                radiologistSpeciality: data.speciality,
-                radiologistmedicalInstitution: data.medicalInstitution,
-                radiologistEmail: data.email,
+                if (patientsData.radiologistId === data._id) {
+                    this.setState({
+                        show: true,
+                        radiologistIdBeingMatched: patientsData.radiologistId,
+                        radiologistId: data.radiologistId,
+                        radiologistName: data.radiologistName,
+                        radiologistSpeciality: data.speciality,
+                        radiologistmedicalInstitution: data.medicalInstitution,
+                        radiologistEmail: data.email,
 
+                    })
+
+                }
             })
-        })
+        
     }
 
 
@@ -218,7 +226,7 @@ export default class AllCasesContent extends React.Component {
         console.log(this.state.data)
         console.log('Id', caseId)
         await axios.delete(this.url + "patientsDataAllCases/" + caseId)
-        
+
         // let modifiedCase= [...this.state.data]
         // 1. find the index of the task
         let data_index = this.state.data.findIndex((c) => c._id === caseId);
@@ -233,7 +241,7 @@ export default class AllCasesContent extends React.Component {
         this.setState({
             data: modifiedCase
         });
-        
+
     };
 
     beginEdit = (patientsData) => {
@@ -267,7 +275,7 @@ export default class AllCasesContent extends React.Component {
             patientID: this.state.modifiedpatientId,
             signsSymptomsTitle: this.state.modifiedsignSymptomsTitle,
             gender: this.state.modifiedGender,
-            dob: new Date(this.state.modifieddob),
+            dob: format(new Date(this.state.modifieddob), 'yyyy-MM-dd'),
             clinicalHistory: this.state.modifiedclinicalHistory,
             modality: this.state.modifiedmodality,
             caseDiscussion: this.state.modifiedcaseDiscussion,
@@ -471,6 +479,35 @@ export default class AllCasesContent extends React.Component {
         );
     }
 
+    displayModal = () => {
+        this.state.data.map(patientsData => {
+            if (this.state.radiologistId === patientsData.radiologistId) {
+                return (<Modal show={this.state.show} onHide={this.handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Radiologist-{this.state.radiologistId}:</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <div>
+                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's ID:</h5>{this.state.radiologistId}</p>
+                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Name:</h5> {this.state.radiologistName}</p>
+                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Speciality:</h5> {this.state.radiologistSpeciality}</p>
+                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Medical Institution:</h5> {this.state.radiologistmedicalInstitution}</p>
+                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Email: </h5>{this.state.radiologistEmail}</p>
+                        </div>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={this.handleClose}>
+                            Close
+                        </Button>
+                        <Button variant="primary" onClick={this.handleClose}>
+                            Save Changes
+                        </Button>
+                    </Modal.Footer>
+                </Modal>)
+            }
+        })
+    }
+
     render() {
         return (
 
@@ -553,9 +590,9 @@ export default class AllCasesContent extends React.Component {
                                         <div className="card-body-all-images">
                                             <h5 style={{ color: 'rgb(56, 54, 154)' }}>Case presentation: </h5>
                                             <h6>{patientsData.signsSymptomsTitle}</h6>
-                                            
+
                                             {/* Conditional rendering to display Patient ID if it only has a value/ Removed Patient ID during the search filtering using radio buttons*/}
-                                            
+
                                             {
                                                 patientsData.patientID ?
                                                     <React.Fragment>
@@ -563,64 +600,66 @@ export default class AllCasesContent extends React.Component {
                                                     </React.Fragment> : ""
                                             }
                                             <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Patient's gender:</h5> {patientsData.gender}</p>
-                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Patient's date of birth</h5> {patientsData.dob}</p>
+                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Patient's date of birth</h5> {format(new Date(patientsData.dob), 'yyyy-MM-dd')}</p>
                                             <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Clinical History:</h5> {patientsData.clinicalHistory}</p>
                                             <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Modality: </h5>{patientsData.modality}</p>
                                             <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Case Discussion:</h5> {patientsData.caseDiscussion}</p>
-                                            <h5 style={{ color: 'rgb(56, 54, 154)' }} className="card-text">Radiologist ID:</h5><p style={{ cursor: 'pointer', color: 'blue' }} variant="primary" onClick={this.handleShow}> {patientsData.radiologistId}</p>
-                                            <Modal show={this.state.show} onHide={this.handleClose}>
-                                                <Modal.Header closeButton>
-                                                    <Modal.Title>Radiologist-{this.state.radiologistId}:</Modal.Title>
-                                                </Modal.Header>
-                                                <Modal.Body>
-                                                    <div>
-                                                        <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's ID:</h5>{this.state.radiologistId}</p>
-                                                        <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Name:</h5> {this.state.radiologistName}</p>
-                                                        <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Speciality:</h5> {this.state.radiologistSpeciality}</p>
-                                                        <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Medical Institution:</h5> {this.state.radiologistmedicalInstitution}</p>
-                                                        <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Email: </h5>{this.state.radiologistEmail}</p>
-                                                    </div>
-                                                </Modal.Body>
-                                                <Modal.Footer>
-                                                    <Button variant="secondary" onClick={this.handleClose}>
-                                                        Close
-                                                    </Button>
-                                                    <Button variant="primary" onClick={this.handleClose}>
-                                                        Save Changes
-                                                    </Button>
-                                                </Modal.Footer>
-                                            </Modal>
-
-                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Published Date (revised):</h5> {patientsData.publishedDate}</p>
-                                            <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Scientific References:</h5> {patientsData.scientificReferences}</p>
-                                        </div>
-                                        <div className="card-footer" style={{ textAlign: 'center' }}>
-
-                                            <span><button className='btn btn-secondary'>{patientsData.modality}</button></span>
-
-                                            {patientsData.bodySystems.map(i => <h5><span className="iconsAllCases">{i}</span></h5>)}
-
-
-
-                                        </div>
+                                            <h5 style={{ color: 'rgb(56, 54, 154)' }} className="card-text">Radiologist ID:</h5><p style={{ cursor: 'pointer', color: 'blue' }} variant="primary" onClick={() => {
+                                                this.handleShow(patientsData)}}> { patientsData.radiologistId }</p>
+                                        if (patientsData.radiologistId === this.state.radiologistIdBeingMatched) {
+                                        <Modal show={this.state.show} onHide={this.handleClose}>
+                                            <Modal.Header closeButton>
+                                                <Modal.Title>Radiologist-{this.state.radiologistId}:</Modal.Title>
+                                            </Modal.Header>
+                                            <Modal.Body>
+                                                <div>
+                                                    <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's ID:</h5>{this.state.radiologistId}</p>
+                                                    <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Name:</h5> {this.state.radiologistName}</p>
+                                                    <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Speciality:</h5> {this.state.radiologistSpeciality}</p>
+                                                    <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Medical Institution:</h5> {this.state.radiologistmedicalInstitution}</p>
+                                                    <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Email: </h5>{this.state.radiologistEmail}</p>
+                                                </div>
+                                            </Modal.Body>
+                                            <Modal.Footer>
+                                                <Button variant="secondary" onClick={this.handleClose}>
+                                                    Close
+                                                </Button>
+                                                <Button variant="primary" onClick={this.handleClose}>
+                                                    Save Changes
+                                                </Button>
+                                            </Modal.Footer>
+                                        </Modal>
+                                        }
+                                        <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Published Date (revised):</h5> {patientsData.publishedDate}</p>
+                                        <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Scientific References:</h5> {patientsData.scientificReferences}</p>
                                     </div>
+                                    <div className="card-footer" style={{ textAlign: 'center' }}>
+
+                                        <span><button className='btn btn-secondary'>{patientsData.modality}</button></span>
+
+                                        {patientsData.bodySystems.map(i => <h5><span className="iconsAllCases">{i}</span></h5>)}
 
 
+
+                                    </div>
                                 </div>
-                                <hr style={{ height: '5px', size: "10", color: 'red' }} />
 
 
-                            </Tab >
-                            <Tab eventKey='2' title="">
-
-                            </Tab>
+                            </div>
+                            <hr style={{ height: '5px', size: "10", color: 'red' }} />
 
 
-                            <Tab eventKey='3' title="" >
+                        </Tab >
+                        <Tab eventKey='2' title="">
 
-                            </Tab>
+                        </Tab>
 
-                        </Tabs >
+
+                        <Tab eventKey='3' title="" >
+
+                        </Tab>
+
+                    </Tabs >
 
 
                     </React.Fragment >
