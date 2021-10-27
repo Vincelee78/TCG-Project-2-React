@@ -39,9 +39,11 @@ export default class AllCasesContent extends React.Component {
         radiologistSpeciality: '',
         radiologistmedicalInstitution: '',
         radiologistEmail: '',
+        filters: '',
+        
     }
 
-    url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us17.gitpod.io/"
+    url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us18.gitpod.io/"
 
     renderTooltip = () => (
         <Tooltip >Favourite this case</Tooltip>
@@ -134,6 +136,7 @@ export default class AllCasesContent extends React.Component {
     }
 
 
+
     handleSelect = (key) => {
         if (key === '1') {
             this.setState({
@@ -169,6 +172,55 @@ export default class AllCasesContent extends React.Component {
         })
 
     }
+
+    filterAgeMore60 = async (evt) => {
+        let response = await axios.get(this.url + "filterAgeMore60/")
+
+
+
+        this.setState({
+            filters: evt.target.value,
+            data: response.data
+        })
+
+    }
+
+    filterAgeLess21 = async (evt) => {
+        let response = await axios.get(this.url + "filterAgeLess21/")
+
+
+
+        this.setState({
+            filters: evt.target.value,
+            data: response.data
+        })
+
+    }
+
+    ModalityFilter= async (evt) => {
+        let response = await axios.get(this.url + "modalityUltrasound/")
+
+
+
+        this.setState({
+            filters: evt.target.value,
+            data: response.data
+        })
+
+    }
+
+    systemsFilter = async (evt) => {
+        let response = await axios.get(this.url + "cardioEndocrineSystem/")
+
+
+
+        this.setState({
+            filters: evt.target.value,
+            data: response.data
+        })
+
+    }
+
 
     deleteCase = async (caseId) => {
         console.log(this.state.data)
@@ -441,7 +493,20 @@ export default class AllCasesContent extends React.Component {
                 } else {
                     return <React.Fragment>
 
+                        <div>
+                            <label className="form-label">Filter cases by:</label>
+                            <ul>
 
+                                <p><input name="filterAgeLess21" type="radio" value="21Lesser" onChange={this.filterAgeLess21} checked={this.state.filters === '21Lesser'} /><label>&nbsp;Patients younger than 21</label></p>
+
+                                <p><input name="filterAgeMore60" type="radio" value="60Older" onChange={this.filterAgeMore60} checked={this.state.filters === '60Older'} /><label>&nbsp;Patients older than 60</label></p>
+
+                                <p><input name="modalityUltrasound" type="radio" value="ultrasound" onChange={this.ModalityFilter} checked={this.state.filters === 'ultrasound'} /><label>&nbsp;Ultrasound cases</label></p>
+
+                                <p><input name="systemsCardioEndocrine" type="radio" value="cardioEndocrine" onChange={this.systemsFilter} checked={this.state.filters === 'cardioEndocrine'} /><label>&nbsp;Cardiovascular/Endocrine Systems</label></p>
+
+                            </ul>
+                        </div>
 
                         <Tabs activeKey={this.state.key} className="mb-3" id="controlled-tab-example" onSelect={(k) => this.handleSelect(k)} >
                             <Tab eventKey='1' title="All Cases" >
@@ -539,14 +604,15 @@ export default class AllCasesContent extends React.Component {
 
                                         </div>
                                     </div>
+
+
                                 </div>
                                 <hr style={{ height: '5px', size: "10", color: 'red' }} />
-                                {/* </header> */}
-                                {/* )} */}
+
 
                             </Tab >
                             <Tab eventKey='2' title="">
-                                
+
                             </Tab>
 
 
@@ -555,7 +621,7 @@ export default class AllCasesContent extends React.Component {
                             </Tab>
 
                         </Tabs >
-                        {/* {this.renderContent()} */}
+
 
                     </React.Fragment >
 

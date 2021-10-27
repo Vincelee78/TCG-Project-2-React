@@ -23,15 +23,14 @@ import Search from './components/Search';
 export default class App extends React.Component {
   state = {
     'active': 'home',
-    search: '',
 
     data: [
 
     ],
-    dataSearch: [],
+    
   }
 
-  url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us17.gitpod.io/"
+  url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us18.gitpod.io/"
 
   renderTooltip = () => (
     <Tooltip >Favourite this case</Tooltip>
@@ -129,17 +128,11 @@ export default class App extends React.Component {
     }
   }
 
-  // renderError() {
-  //   if (this.state.active === 'errorMessage') {
-  //     return <ErrorMessage />
-  //   }
-  // }
-
 
 
   render() {
     return (
-      // this.state.data.map(patientsData => {
+      
       <React.Fragment>
         <div id="nav">
 
@@ -169,10 +162,7 @@ export default class App extends React.Component {
                     <a class="nav-link" href="#" onClick={this.setActiveRadiologist}>RADIOLOGIST INFORMATION</a>
                   </li>
                 </ul>
-                <div class="d-flex">
-                  <input class="form-control" type="search" placeholder="Search case" name="search" onChange={this.onChange}></input>
-                  <button class='searchbtn rounded-3' onClick={this.setActiveSearch}><i class="fas fa-search"></i></button>
-                </div>
+              
               </div>
             </div>
           </nav>
@@ -265,7 +255,7 @@ export default class App extends React.Component {
         </div>
 
       </React.Fragment >
-      // })
+      
     );
   }
 }

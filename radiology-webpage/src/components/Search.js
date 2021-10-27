@@ -15,52 +15,52 @@ export default class Search extends React.Component {
         dataSearch: [],
     }
 
-    url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us17.gitpod.io/"
+    url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us18.gitpod.io/"
 
     // componentDidMount() {
     //     this.fetchData();
     // }
     renderTooltip = () => (
         <Tooltip >Favourite this case</Tooltip>
-      );
+    );
 
     setActiveSearch = async () => {
         try {
-          await axios.get(this.url + "searchCases/", {
-            params: {
-              search: this.state.search
-            }
-          })
-            .then((res) => {
-              this.setState({
-                dataSearch: res.data
-              })
+            await axios.get(this.url + "searchCases/", {
+                params: {
+                    search: this.state.search
+                }
             })
-    
-    
+                .then((res) => {
+                    this.setState({
+                        dataSearch: res.data
+                    })
+                })
+
+
         } catch (e) {
-          this.setState({
-            active: 'errorMessage'
-          })
-    
+            this.setState({
+                active: 'errorMessage'
+            })
+
         }
-      }
+    }
 
-      onChange = (e) => {
+    onChange = (e) => {
         this.setState({
-          [e.target.name]: e.target.value
+            [e.target.name]: e.target.value
         })
-      }
-    
-      
+    }
 
- display=() =>{
-     return( this.state.dataSearch.map(patientsData=>{
-         
-   
-      return   <React.Fragment>
-            
 
+
+    display = () => {
+        return (this.state.dataSearch.map(patientsData => {
+
+
+            return <React.Fragment>
+
+                <h1 style={{ color: 'rgb(202, 103, 2)' }}>Search Results: {this.state.search}</h1>
                 <div className="container fluid" key={patientsData._id}>
                     <div className="card">
                         <div className="card-body" >
@@ -102,7 +102,14 @@ export default class Search extends React.Component {
                             </div>
 
                             <h5 style={{ color: 'rgb(0, 175, 185)' }}>Patient ID:</h5> <p>{patientsData.patientID}</p>
-                            <h5 style={{ color: 'rgb(0, 175, 185)' }}>Gender: </h5> <p>{patientsData.gender}</p>
+                            {
+                                patientsData.gender ?
+                                    <React.Fragment>
+                                        <h5 style={{ color: 'rgb(0, 175, 185)' }}>Gender: </h5> <p>{patientsData.gender}</p>
+
+                                    </React.Fragment>
+                                    : ""
+                            }
                             <h5 style={{ color: 'rgb(0, 175, 185)' }}>Date of birth:</h5> <p>{patientsData.dob}</p>
                             <h5 style={{ color: 'rgb(0, 175, 185)' }}>Clinical History: </h5>
                             <p>{patientsData.clinicalHistory}</p>
@@ -157,20 +164,20 @@ export default class Search extends React.Component {
 
                     </div>
                 </div>
-        </React.Fragment>
-     }))
-    
-}
+            </React.Fragment>
+        }))
+
+    }
 
     render() {
         return (
-<React.Fragment>
-<div class="d-flex">
-                <input class="form-control" type="search" placeholder="Search case" name="search" onChange={this.onChange}></input>
-                <button class='searchbtn rounded-3' onClick={this.setActiveSearch}><i class="fas fa-search"></i></button>
-            </div>
-            {this.display()}
-</React.Fragment>
+            <React.Fragment>
+                <div class="d-flex">
+                    <input class="form-control" type="search" placeholder="Search case" name="search" onChange={this.onChange}></input>
+                    <button class='searchbtn rounded-3' onClick={this.setActiveSearch}><i class="fas fa-search"></i></button>
+                </div>
+                {this.display()}
+            </React.Fragment>
         )
     }
 }

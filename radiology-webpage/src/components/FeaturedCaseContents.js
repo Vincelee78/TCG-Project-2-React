@@ -13,6 +13,7 @@ import SuccessAddReport from "../components/ReportAddedSuccess";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Modal';
 import Search from "./Search";
+import ErrorMessage from "../components/Errormessage";
 
 
 
@@ -22,7 +23,7 @@ import Search from "./Search";
 
 export default class CarouselComponent extends React.Component {
 
-    url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us17.gitpod.io/"
+    url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us18.gitpod.io/"
 
     state = {
         'active': 'featuredCase',
@@ -32,7 +33,7 @@ export default class CarouselComponent extends React.Component {
         data: [
 
         ],
-        
+
 
         radiologistdata: [],
 
@@ -100,6 +101,8 @@ export default class CarouselComponent extends React.Component {
             return <AddReport onAfterAddReport={this.afterAddNewReport} />
         } if (this.state.active === 'Search') {
             return <Search />
+        } if (this.state.active === 'errorMessage') {
+            return <ErrorMessage />
         }
     }
 
@@ -694,11 +697,8 @@ export default class CarouselComponent extends React.Component {
 
                                     </Tab>
 
-                                    <Tab eventKey='4' title="Search all Cases" >
-                                        {/* <div class="d-flex">
-                                            <input class="form-control" type="search" placeholder="Search case" name="search" onChange={this.onChange}></input>
-                                            <button class='searchbtn rounded-3' onClick={this.setActiveSearch}><i class="fas fa-search"></i></button>
-                                        </div> */}
+                                    <Tab eventKey='4' title="Search Cases" >
+                                        
                                     </Tab>
 
                                 </Tabs>

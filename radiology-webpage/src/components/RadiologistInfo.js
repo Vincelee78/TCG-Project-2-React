@@ -12,7 +12,7 @@ export default class RadiologistInfo extends React.Component {
 
     }
 
-    url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us17.gitpod.io/"
+    url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us18.gitpod.io/"
 
     componentDidMount() {
         this.fetchData();
