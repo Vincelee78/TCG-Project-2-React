@@ -485,7 +485,7 @@ export default class CarouselComponent extends React.Component {
                     ></textarea> <br />
 
 
-                    <button onClick={() => {
+                    <button className='btn btn-success' onClick={() => {
                         this.updateCase(a);
                     }}> Confirm </button>
 
