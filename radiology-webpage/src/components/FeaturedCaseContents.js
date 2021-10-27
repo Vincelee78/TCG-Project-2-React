@@ -316,7 +316,6 @@ export default class CarouselComponent extends React.Component {
             ...this.state.data.slice(indexToModify + 1)
         ];
 
-        // console.log(cloned)
 
 
         this.setState({

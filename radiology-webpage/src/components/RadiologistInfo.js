@@ -20,7 +20,7 @@ export default class RadiologistInfo extends React.Component {
 
     fetchData = async () => {
         try {
-            let response = await axios.get(this.url + "radiologistData")
+            let response = await axios.get(this.url + "allradiologistData")
 
             this.setState({
                 data: response.data

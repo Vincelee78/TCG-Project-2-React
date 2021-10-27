@@ -196,7 +196,7 @@ export default class AddNew extends React.Component {
     }
 
     addPatient = async () => {
-        await axios.post(this.url + 'patientsData', {
+        await axios.post(this.url + 'createNewCase', {
             signsSymptomsTitle: this.state.signsSymptomsTitle,
             bodySystems: this.state.bodySystems,
             patientID: this.state.patientID,

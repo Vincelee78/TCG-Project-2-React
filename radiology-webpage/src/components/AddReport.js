@@ -104,7 +104,7 @@ export default class AddReport extends React.Component {
     }
 
     addReport = async () => {
-        await axios.post(this.url + 'report1', {
+        await axios.post(this.url + 'createReport', {
             reportId: this.state.reportId,
             reportTitle: this.state.reportTitle,
             reportContent: this.state.reportContent,

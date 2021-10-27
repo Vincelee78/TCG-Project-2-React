@@ -56,7 +56,7 @@ export default class AllCasesContent extends React.Component {
 
     fetchData = async () => {
         try {
-            let response = await axios.get(this.url + "patientsData1")
+            let response = await axios.get(this.url + "patientsDataAllCases")
 
             this.setState({
                 data: response.data
@@ -164,7 +164,7 @@ export default class AllCasesContent extends React.Component {
 
     retrieveRadiologistInfo = async () => {
 
-        let response = await axios.get(this.url + 'allradiologistData/')
+        let response = await axios.get(this.url + 'allRadiologistDataforAllCases/')
 
         this.setState({
             radiologistdata: response.data,
@@ -225,7 +225,7 @@ export default class AllCasesContent extends React.Component {
     deleteCase = async (caseId) => {
         console.log(this.state.data)
         console.log('Id', caseId)
-        await axios.delete(this.url + "patientsData1/" + caseId)
+        await axios.delete(this.url + "patientsDataAllCases/" + caseId)
         //    console.log(response)
         // let modifiedCase= [...this.state.data]
         // 1. find the index of the task
@@ -268,7 +268,7 @@ export default class AllCasesContent extends React.Component {
         // modifiedUser is the cloned original array
         let modifiedCase = this.state.data.slice();
         modifiedCase._id = this.state.userBeingEdited;
-        await axios.put(this.url + 'patientsData1/' + modifiedCase._id, {
+        await axios.put(this.url + 'updateEditedPatientCase/' + modifiedCase._id, {
 
 
             // make changes to the clone
@@ -287,7 +287,7 @@ export default class AllCasesContent extends React.Component {
 
         })
 
-        let response = await axios.get(this.url + 'patientsData1/' + modifiedCase._id)
+        let response = await axios.get(this.url + 'retrieveEditedPatientCase/' + modifiedCase._id)
         let modifiedCases = response.data
 
         let indexToModify = this.state.data.findIndex(
