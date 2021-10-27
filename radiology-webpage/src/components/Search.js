@@ -17,9 +17,7 @@ export default class Search extends React.Component {
 
     url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us18.gitpod.io/"
 
-    // componentDidMount() {
-    //     this.fetchData();
-    // }
+    
     renderTooltip = () => (
         <Tooltip >Favourite this case</Tooltip>
     );

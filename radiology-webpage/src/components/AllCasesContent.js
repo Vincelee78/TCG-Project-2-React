@@ -218,7 +218,7 @@ export default class AllCasesContent extends React.Component {
         console.log(this.state.data)
         console.log('Id', caseId)
         await axios.delete(this.url + "patientsDataAllCases/" + caseId)
-        //    console.log(response)
+        
         // let modifiedCase= [...this.state.data]
         // 1. find the index of the task
         let data_index = this.state.data.findIndex((c) => c._id === caseId);
@@ -233,7 +233,7 @@ export default class AllCasesContent extends React.Component {
         this.setState({
             data: modifiedCase
         });
-        //   console.log(modifiedCase)
+        
     };
 
     beginEdit = (patientsData) => {

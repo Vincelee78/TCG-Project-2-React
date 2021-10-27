@@ -509,11 +509,7 @@ height: 500px;
 
   .images>img{
     display: none;
-    /* align-items: center; */
-    /* width: 30% !important;
-    height: auto !important;
-    background-size: cover !important;
-    background-position: center !important; */
+    
   }
   
   .searchbtn{
