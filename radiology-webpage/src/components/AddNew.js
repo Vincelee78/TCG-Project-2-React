@@ -122,7 +122,7 @@ export default class AddNew extends React.Component {
 
                     <p><input name="X-ray" type="radio" value="X-ray" onChange={this.updateanswer} checked={this.state.modality === 'X-ray'} /><label>&nbsp;X-ray</label></p>
 
-                    <p><input name="ComputedTomography" type="radio" value="ComputedTomography" onChange={this.updateanswer} checked={this.state.modality === 'ComputedTomography'} /><label>&nbsp;Computed Tomography</label></p>
+                    <p><input name="Computed Tomography" type="radio" value="Computed Tomography" onChange={this.updateanswer} checked={this.state.modality === 'Computed Tomography'} /><label>&nbsp;Computed Tomography</label></p>
 
                     <p><input name="Ultrasound" type="radio" value="Ultrasound" onChange={this.updateanswer} checked={this.state.modality === 'Ultrasound'} /><label>&nbsp;Ultrasound</label></p>
 
