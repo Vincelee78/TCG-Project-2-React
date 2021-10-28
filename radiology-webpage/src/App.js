@@ -30,31 +30,31 @@ export default class App extends React.Component {
     
   }
 
-  url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us18.gitpod.io/"
+  // url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us18.gitpod.io/"
 
   renderTooltip = () => (
     <Tooltip >Favourite this case</Tooltip>
   );
 
-  componentDidMount() {
-    this.fetchData();
-  }
+  // componentDidMount() {
+  //   this.fetchData();
+  // }
 
-  fetchData = async () => {
-    try {
-      let response = await axios.get(this.url + "featuredCase")
-      this.setState({
-        data: response.data
-      })
+  // fetchData = async () => {
+  //   try {
+  //     let response = await axios.get(this.url + "featuredCase")
+  //     this.setState({
+  //       data: response.data
+  //     })
 
-    } catch (e) {
-      this.setState({
-        active: 'errorMessage'
-      })
+  //   } catch (e) {
+  //     this.setState({
+  //       active: 'errorMessage'
+  //     })
 
-    }
+  //   }
 
-  }
+  // }
 
 
   setActiveReports = () => {
