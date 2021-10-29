@@ -26,7 +26,7 @@ export default class About extends React.Component {
                         <div class='footer' style={{ color: 'wheat' }}>
                             <h5>MedRadiology is an open-edit educational radiology resource that has been primarily compiled by radiologists and radiology trainees from across the world. Our mission is to create the best radiology reference, and to make it available for free, forever.</h5>
                             <h5>My wish is it to become one of the most important medical resources for millions of individuals from around the world, particularly those from low and middle-income regions who do not have access to traditional pay-wall resources. </h5>
-                            <a class="btn btn-primary btn-lg mt-3" href="#" role="button">Find out more</a>
+                            
                         </div>
                     </div>
                 </div>

@@ -9,6 +9,11 @@ export default class AddReport extends React.Component {
         'reportContent': '',
         'reportReferences': '',
         'reportTags': [],
+        textValid: false,
+        tagsValid: false,
+        submitDisabled: true,
+
+
 
     }
 
@@ -18,10 +23,22 @@ export default class AddReport extends React.Component {
     updateFormField = (evt) => {
         this.setState({
             [evt.target.name]: evt.target.value
+        }, () => {
+
+            let textValid = this.state.reportId.length >= 1 && this.state.reportTitle.length >= 1
+                && this.state.reportContent.length >= 1 && this.state.reportReferences.length >= 1 ? true : false;
+
+            let submitValid = this.state.tagsValid && textValid
+            this.setState({
+                textValid: textValid,
+                submitDisabled: !submitValid
+            })
+
         })
     }
 
     updateitems = (evt) => {
+
         if (this.state.reportTags.includes(evt.target.value)) {
             let clone = this.state.reportTags.slice();
             let index = this.state.reportTags.indexOf(evt.target.value)
@@ -30,7 +47,7 @@ export default class AddReport extends React.Component {
             this.setState({
                 reportTags: clone
             })
-            console.log(clone)
+
 
         } else {
 
@@ -42,6 +59,14 @@ export default class AddReport extends React.Component {
 
             this.setState({
                 reportTags: clone
+            }, () => {
+                let tagsValid=this.state.reportTags.includes(this.getDate()) && this.state.reportTags.includes('Refer to peer reviewed articles above for integrity of report')? true : false;
+                let submitValid = this.state.textValid && tagsValid
+                this.setState({
+                    tagsValid: tagsValid,
+                    submitDisabled: !submitValid
+                })
+
             })
         }
     }
@@ -51,6 +76,23 @@ export default class AddReport extends React.Component {
         date = String(date)
         date = date.slice(4, 15)
         return date
+    }
+
+    error1 = () => {
+        if (this.state.reportId.length >= 1 && this.state.reportTitle.length >= 1
+            && this.state.reportContent.length >= 1 && this.state.reportReferences.length >= 1
+        ) {
+            return true;
+        } else {
+            return 'Please check that you have input a value in all fields'
+        }
+    }
+    error2 = () => {
+        if (this.state.reportTags.includes(this.getDate()) && this.state.reportTags.includes('Refer to peer reviewed articles above for integrity of report')) {
+            return true;
+        } else {
+            return 'Please ensure both checkboxes are checked'
+        }
     }
 
     render() {
@@ -90,16 +132,17 @@ export default class AddReport extends React.Component {
 
             <div>
                 <label className="form-label">Tags:</label>
+                <span className="error"> {this.error2()}</span>
                 <div className="form-label checkbox">
                     <p><input type="checkbox" name="reportTags" value={this.getDate()} onChange={this.updateitems} checked={this.state.reportTags.includes(this.getDate())} /><label>&nbsp;Published Date(Current Date)</label></p>
 
-                    <p><input type="checkbox" name="reportTags" value="Refer to peer reviewed articles above for integrity of report" onChange={this.updateitems} checked={this.state.reportTags.includes('Refer to scientific references above for integrity of report')} /><label>&nbsp;I have included References</label></p>
+                    <p><input type="checkbox" name="reportTags" value="Refer to peer reviewed articles above for integrity of report" onChange={this.updateitems} checked={this.state.reportTags.includes('Refer to peer reviewed articles above for integrity of report')} /><label>&nbsp;I have included References</label></p>
 
                 </div>
             </div>
 
-
-            <button onClick={this.addReport} className="my-3 btn btn-primary btn-sm">Create Report</button>
+            <button onClick={this.addReport} className="my-3 btn btn-primary btn-sm" disabled={this.state.submitDisabled}>Create Report</button>
+            <span className="error"> {this.error1()}</span>
         </React.Fragment>
     }
 
@@ -109,7 +152,7 @@ export default class AddReport extends React.Component {
             reportTitle: this.state.reportTitle,
             reportContent: this.state.reportContent,
             reportReferences: this.state.reportReferences,
-            reportTags:this.state.reportTags,
+            reportTags: this.state.reportTags,
 
         })
 

@@ -7,9 +7,11 @@ import SuccessAddMessage from '../components/CaseAddedSuccess';
 import Accordion from 'react-bootstrap/Accordion';
 import AddReport from "../components/AddReport";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import AddRadiologist from "../components/AddRadiologistdata";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import SuccessAddReport from "../components/ReportAddedSuccess";
+import SuccessAddRadiologist from "../components/RadiologistAddedSuccess";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Modal';
 import Search from "./Search";
@@ -95,10 +97,14 @@ export default class CarouselComponent extends React.Component {
             return <SuccessAddMessage />
         } if (this.state.active === 'successAddReport') {
             return <SuccessAddReport />
+        } if (this.state.active === 'successAddRadiologist') {
+            return <SuccessAddRadiologist />
         } if (this.state.active === 'addnew') {
             return <AddNew onAfterAddPatient={this.afterAddNewPatient} />
         } if (this.state.active === 'addReport') {
             return <AddReport onAfterAddReport={this.afterAddNewReport} />
+        } if (this.state.active === 'addRadiologist') {
+            return <AddRadiologist onAfterAddRadiologist={this.afterAddNewRadiologist} />
         } if (this.state.active === 'Search') {
             return <Search />
         } if (this.state.active === 'errorMessage') {
@@ -195,6 +201,12 @@ export default class CarouselComponent extends React.Component {
         } else if (key === '4') {
             this.setState({
                 key: key,
+                active: 'addRadiologist'
+            })
+
+        } else if (key === '5') {
+            this.setState({
+                key: key,
                 active: 'Search'
             })
         }
@@ -205,6 +217,10 @@ export default class CarouselComponent extends React.Component {
 
     afterAddNewReport = () => {
         this.setActive('successAddReport')
+    }
+
+    afterAddNewRadiologist= () => {
+        this.setActive('successAddRadiologist')
     }
 
     retrieveRadiologistInfo = async () => {
@@ -696,8 +712,12 @@ export default class CarouselComponent extends React.Component {
 
                                     </Tab>
 
-                                    <Tab eventKey='4' title="Search Cases" >
-                                        
+                                    <Tab eventKey='4' title="Add Radiologist" >
+
+                                    </Tab>
+
+                                    <Tab eventKey='5' title="Search Cases" >
+
                                     </Tab>
 
                                 </Tabs>

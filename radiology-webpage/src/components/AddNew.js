@@ -15,46 +15,78 @@ export default class AddNew extends React.Component {
         'caseDiscussion': '',
         'radiologistId': '',
         'bodySystems': [],
-        'scientificReferences': ''
+        'scientificReferences': '',
+        textValid:false,
+        modalityValid:false,
+        bodySystemsValid:false,
+        submitDisabled: true,
+
 
     }
 
     updateanswer = (evt) => {
+
         this.setState({
-            modality: evt.target.value
+            modality: evt.target.value,
+        }, () => {
+        
+        let modalityValid = this.state.modality.length>=1 ? true : false;
+        let submitValid = this.state.bodySystemsValid && this.state.textValid 
+        && modalityValid 
+
+        this.setState({
+            modalityValid:modalityValid,
+            submitDisabled: !submitValid
         })
+    })
     }
 
     updateFormField = (evt) => {
         this.setState({
-            [evt.target.name]: evt.target.value
+            [evt.target.name]: evt.target.value,
+        }, () => {
+
+        let textValid = (this.state.signsSymptomsTitle.length >= 1 && this.state.patientID.length >= 1
+        && this.state.gender.length >= 1 && this.state.dob.length >= 1
+        && this.state.clinicalHistory.length >= 1 && this.state.images.length >= 1
+        && this.state.scientificReferences.length >= 1 && this.state.caseDiscussion.length >= 1
+        && this.state.radiologistId.length >= 1) ? true : false; 
+        let submitValid = this.state.bodySystemsValid && this.state.modalityValid 
+        && textValid 
+        this.setState({
+            textValid: textValid,
+            submitDisabled: !submitValid
         })
+    })
     }
 
 
 
     updateitems = (evt) => {
+        let clone;
         if (this.state.bodySystems.includes(evt.target.value)) {
-            let clone = this.state.bodySystems.slice();
+             clone = this.state.bodySystems.slice();
             let index = this.state.bodySystems.indexOf(evt.target.value)
-            clone.splice(index, 1);
-
-            this.setState({
-                bodySystems: clone
-            })
+            clone.splice(index, 1);  
 
         } else {
+             clone = this.state.bodySystems.slice();
+            clone.push(evt.target.value);       
+        } 
 
-            let clone = this.state.bodySystems.slice();
+        this.setState({
+            bodySystems: clone
 
+        },() => {
 
-            clone.push(evt.target.value);
-
-
-            this.setState({
-                bodySystems: clone
-            })
-        }
+        let bodySystemsValid=this.state.bodySystems.length>=1 ? true : false;
+        let submitValid = this.state.textValid && this.state.modalityValid 
+        && bodySystemsValid
+        this.setState({
+            bodySystemsValid: bodySystemsValid, 
+            submitDisabled: !submitValid
+          }) 
+        })
     }
 
     getDate() {
@@ -64,11 +96,40 @@ export default class AddNew extends React.Component {
         return date
     }
 
+    error1 = () => {
+        if (this.state.signsSymptomsTitle.length >= 1 && this.state.patientID.length >= 1
+            && this.state.gender.length >= 1 && this.state.dob.length >= 1
+            && this.state.clinicalHistory.length >= 1 && this.state.images.length >= 1
+            && this.state.scientificReferences.length >= 1 && this.state.caseDiscussion.length >= 1
+            && this.state.radiologistId.length >= 1) {
+            return true;
+        } else {
+            return 'Please check that you have input a value in all fields'
+        }
+    }
+
+    error2 = () => {
+        if (this.state.modality.length >= 1) {
+            return true;
+        } else {
+            return 'Please select a modality'
+        }
+    }
+
+    error3 = () => {
+        if (this.state.bodySystems.length >= 1) {
+            return true;
+        } else {
+            return 'Please check body systems involved'
+        }
+    }
+
     url = "https://expressvwxl777.herokuapp.com/"
 
     render() {
         return <React.Fragment>
             <div>
+                
                 <label className="form-label">Case presentation:</label>
                 <input type="text"
                     name="signsSymptomsTitle"
@@ -77,6 +138,7 @@ export default class AddNew extends React.Component {
                     className="form-control" />
             </div>
             <div>
+                
                 <label className="form-label">Patient ID:</label>
                 <input type="text"
                     name="patientID"
@@ -85,6 +147,7 @@ export default class AddNew extends React.Component {
                     className="form-control" />
             </div>
             <div>
+                
                 <label className="form-label">Patient's gender:</label>
                 <input type="text"
                     name="gender"
@@ -93,7 +156,8 @@ export default class AddNew extends React.Component {
                     className="form-control" />
             </div>
             <div>
-                <label className="form-label">Patient's date of birth:</label>
+                
+                <label className="form-label">Patient's date of birth (please enter in YYYY-MM-DD format):</label>
                 <input type="text"
                     name="dob"
                     value={this.state.dob}
@@ -101,6 +165,7 @@ export default class AddNew extends React.Component {
                     className="form-control" />
             </div>
             <div>
+                
                 <label className="form-label">Clinical History:</label>
                 <input type="text"
                     name="clinicalHistory"
@@ -109,6 +174,7 @@ export default class AddNew extends React.Component {
                     className="form-control" />
             </div>
             <div>
+                
                 <label className="form-label">Please place patient's diagnostic images using photobucket URL here:</label>
                 <input type="text"
                     name="images"
@@ -118,6 +184,7 @@ export default class AddNew extends React.Component {
             </div>
             <div>
                 <label className="form-label">Imaging modality:</label>
+                <span className="error"> {this.error2()}</span>
                 <ul>
 
                     <p><input name="X-ray" type="radio" value="X-ray" onChange={this.updateanswer} checked={this.state.modality === 'X-ray'} /><label>&nbsp;X-ray</label></p>
@@ -129,7 +196,9 @@ export default class AddNew extends React.Component {
                     <p><input name="MRI" type="radio" value="MRI" onChange={this.updateanswer} checked={this.state.modality === 'MRI'} /><label>&nbsp;MRI</label></p>
 
                 </ul>
+
             </div>
+
             <div>
                 <label className="form-label">Published Date:</label>
                 <input type="text"
@@ -138,6 +207,7 @@ export default class AddNew extends React.Component {
                     onChange={this.updateFormField}
                     className="form-control" />
             </div>
+
             <div>
                 <label className="form-label">Case Discussion:</label>
                 <textarea rows="10" cols="30"
@@ -146,6 +216,7 @@ export default class AddNew extends React.Component {
                     onChange={this.updateFormField}
                     className="form-control"></textarea>
             </div>
+
             <div>
                 <label className="form-label">Please enter your Radiologist ID:</label>
                 <input type="text"
@@ -156,6 +227,7 @@ export default class AddNew extends React.Component {
             </div>
             <div>
                 <label className="form-label">Body Systems Involved:</label>
+                <span className="error"> {this.error3()}</span>
                 <div className="form-label checkbox">
                     <p><input type="checkbox" name="bodySystems" value="Cardiovascular" onChange={this.updateitems} checked={this.state.bodySystems.includes('Cardiovascular')} /><label>&nbsp;Cardiovascular</label></p>
 
@@ -180,6 +252,7 @@ export default class AddNew extends React.Component {
                     <p><input type="checkbox" name="bodySystems" value="Skeletal" onChange={this.updateitems} checked={this.state.bodySystems.includes('Skeletal')} /><label>&nbsp;Skeletal</label></p>
 
                 </div>
+
             </div>
 
             <div>
@@ -189,9 +262,11 @@ export default class AddNew extends React.Component {
                     value={this.state.scientificReferences}
                     onChange={this.updateFormField}
                     className="form-control" />
+                    
             </div>
 
-            <button onClick={this.addPatient} className="my-3 btn btn-primary btn-sm">Add</button>
+            <button onClick={this.addPatient} className="my-3 btn btn-primary btn-sm" disabled={this.state.submitDisabled}>Add</button>
+            <span className="error"> {this.error1()}</span>
         </React.Fragment>
     }
 

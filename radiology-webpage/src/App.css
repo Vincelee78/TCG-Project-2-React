@@ -185,6 +185,15 @@ margin-right:20px;
   justify-content: center;
 }
 
+.innerbox{
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px;
+  width: 1000px;
+  text-align: center;
+}
+
 .fixed-bg {
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -395,6 +404,9 @@ height: 500px;
   padding-bottom: 30px;
 }
 
+.error {
+  color: red;
+}
 
 /* featured case inner content css */
 .card {
