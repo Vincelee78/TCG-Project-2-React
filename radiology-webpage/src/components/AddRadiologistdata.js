@@ -9,6 +9,9 @@ export default class AddRadiologist extends React.Component {
         'speciality': '',
         'medicalInstitution': '',
         'email': '',
+        textValid: false,
+        specialityValid: false,
+        submitDisabled: true,
 
     }
 
@@ -18,14 +21,62 @@ export default class AddRadiologist extends React.Component {
     updateFormField = (evt) => {
         this.setState({
             [evt.target.name]: evt.target.value
+        }, () => {
+            let textValid = (this.state.radiologistId.length >= 1
+                && this.state.radiologistName.length >= 1
+                && this.state.medicalInstitution.length >= 1
+                && this.state.email.length >= 1 && this.state.email.includes('@')) ? true : false;
+            let submitValid = this.state.specialityValid && textValid
+            this.setState({
+                textValid: textValid,
+                submitDisabled: !submitValid
+            })
         })
     }
+
 
     updateanswer = (evt) => {
         this.setState({
             speciality: evt.target.value
+        }, () => {
+            let specialityValid = this.state.speciality.length >= 1 ? true : false;
+            let submitValid = this.state.textValid && specialityValid
+
+            this.setState({
+                specialityValid: specialityValid,
+                submitDisabled: !submitValid
+            })
+
         })
     }
+
+    error1 = () => {
+        if (this.state.radiologistId.length >= 1
+            && this.state.radiologistName.length >= 1
+            && this.state.medicalInstitution.length >= 1
+            && this.state.email.length >= 1 ) {
+            return true;
+        } else {
+            return 'Please check that you have input a value in all fields'
+        }
+    }
+
+    error2 = () => {
+        if (this.state.speciality.length >= 1) {
+            return true;
+        } else {
+            return 'Please select a speciality'
+        }
+    }
+
+    error3 = () => {
+        if (this.state.email.includes('@')) {
+            return true;
+        } else {
+            return 'Email address must contain an @ character'
+        }
+    }
+
 
     render() {
         return <React.Fragment>
@@ -47,6 +98,7 @@ export default class AddRadiologist extends React.Component {
             </div>
             <div>
                 <label className="form-label">Speciality:</label>
+                <span className="error"> {this.error2()}</span>
                 <ul>
 
                     <p><input name="Diagnostic radiology" type="radio" value="Diagnostic radiology" onChange={this.updateanswer} checked={this.state.speciality === 'Diagnostic radiology'} /><label>&nbsp;Diagnostic Radiology</label></p>
@@ -68,6 +120,7 @@ export default class AddRadiologist extends React.Component {
 
             <div>
                 <label className="form-label">Email:</label>
+                <span className="error"> {this.error3()}</span>
                 <input type="text"
                     name="email"
                     value={this.state.email}
@@ -76,7 +129,8 @@ export default class AddRadiologist extends React.Component {
             </div>
 
 
-            <button onClick={this.AddRadiologist} className="my-3 btn btn-primary btn-sm">Add new radiologist</button>
+            <button onClick={this.AddRadiologist} className="my-3 btn btn-primary btn-sm" disabled={this.state.submitDisabled}>Add new radiologist</button>
+            <span className="error"> {this.error1()}</span>
         </React.Fragment>
     }
 
