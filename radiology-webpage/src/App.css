@@ -89,6 +89,11 @@ nav > div > div > ul > li {
   color: white;
 }
 
+.navbar-light .navbar-toggler-icon {
+  
+  background-image: url(https://previews.123rf.com/images/fokaspokas/fokaspokas1809/fokaspokas180900164/108564673-hamburger-menu-web-icon-white-icon-with-shadow-on-transparent-background.jpg) !important;
+}
+
 /* end of nav bar collapse */
 
 .accordion-item {
@@ -126,6 +131,11 @@ nav > div > div > ul > li {
   color: white !important;
   padding: 0;
   margin: 0;
+}
+
+.accordion-button::after {
+  
+  background-image: url(https://thumbnail.imgbin.com/21/9/7/imgbin-chevron-corporation-computer-icons-paper-down-arrow-zsjsUFtqHLkphdGeCb1rYSBxa_t.jpg) !important;
 }
 
 .carousel-control-next-icon,
@@ -167,9 +177,8 @@ margin-right:20px;
   display:flex;
   flex-direction: column;
   margin-bottom: 20px;
-  
-  
   }
+  
 
 .innerwrapper {
   display: flex;

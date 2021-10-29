@@ -137,7 +137,7 @@ export default class App extends React.Component {
         <div id="nav">
 
           <img src={logo} alt={logo} id="logo" />
-          <a style={{ fontFamily: 'Stencil Std, fantasy', textDecoration: 'none' }} id="pagename" href='App.js'>MedRadiology</a>
+          <a style={{ fontFamily: 'Impact, fantasy', textDecoration: 'none' }} id="pagename" href='App.js'>MedRadiology</a>
 
 
           <nav class="navbar navbar-expand-lg navbar-light">
