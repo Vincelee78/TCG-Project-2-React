@@ -2,13 +2,13 @@
 To create an open-edit educational radiology resource that has been primarily compiled by radiologists and radiology trainees from across the world.
 
 ## Summary/User objectives:
-It is to provide medical resources for millions of individuals from around the world and to make it available for free, particularly those from low and middle-income regions who do not have access to traditional pay-wall resources.
+To provide medical resources for millions of individuals from around the world and make it available for free, particularly those from low and middle-income regions who do not have access to traditional pay-wall resources.
 
 ## My goal/motivation for creating this project:
 By sharing our collective experience through interesting patient cases, we can make a real difference in how people are imaged and diagnosed. It will allow accessibility of radiology information to medical professionals in developing countries.
 
 ## Context: 
-I realised many medical professsionals in low and middle-income regions who do not have access to traditional pay-wall resources have limited exposure to medical resources and by creating this open-edit educational radiology resource, it will allow accessibility of radiology information to medical professionals from all around the world, particularly to these regions.
+I realised many medical professsionals in low and middle-income regions who do not have access to traditional pay-wall resources have limited exposure to medical resources. By creating this open-edit educational radiology resource, it will allow accessibility of radiology information to medical professionals from all around the world, particularly to these regions.
 
 ## Demo: 
 A live website server can be found on the [Netlify server](https://elastic-curran-38a9bb.netlify.app/App.js)
