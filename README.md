@@ -117,9 +117,12 @@ Based on the user's needs and objectives, these are the guidelines for the featu
 #### (i) Mobile Responsiveness
 - The test results can be found [here](https://search.google.com/test/mobile-friendly/result?id=GmhCwFfV7jG6u6Ot9ygTTQ). 
 - Test results were done on 3 mobile devices
-1. [Iphone SE 2020](https://drive.google.com/file/d/1uvnKRK0U9Mm15a5ZPn83R8LfCtMNGMn2/view?usp=sharing)
-2. [Iphone7](https://drive.google.com/file/d/1fj5Tdu3Pkv3ovIwFAJPnVWCnTdWg2ow1/view?usp=sharing)
-3. [Oppo R17 pro](https://drive.google.com/file/d/1u6HLpeHFTTer1080yVeVCeD_cBut1yIH/view?usp=sharing)
+1a. [Iphone SE 2020](https://drive.google.com/file/d/1B06e0L3hfUrrEeajgfzpnTTRQsVkN9NI/view?usp=sharing)
+1b. [Iphone SE 2020](https://drive.google.com/file/d/1jlnrQgIrxTtGkpZ26uqcvULjYThx2won/view?usp=sharing)
+2a. [Iphone7](https://drive.google.com/file/d/17JSsa8ndR0jqm9YPSC4i6wlzV6iq9ueP/view?usp=sharing)
+2b. [Iphone7](https://drive.google.com/file/d/1i-CZn-8A3UUucZ7DTT-Ph3HM76dxyXoy/view?usp=sharing)
+3a. [Oppo R17 pro](https://drive.google.com/file/d/1lqkfbubAylYw5RjCdXd7EkBEhw-S28CS/view?usp=sharing)
+3b. [Oppo R17 pro](https://drive.google.com/file/d/1tOywxp3MgakxsQFZ-tI2SM-UOcrHR4CN/view?usp=sharing)
 - The web application is mobile responsive.
 
 ### 6. Credits and Acknowledgement
