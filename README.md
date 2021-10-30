@@ -121,18 +121,16 @@ Based on the user's needs and objectives, these are the guidelines for the featu
 - The web application is mobile responsive.
 
 ### 6. Credits and Acknowledgement
-- Credits to https://data.gov.sg/ for the geojson files used to locate hawkers and hotels.
-- Credits to  https://developer.foursquare.com/, https://nominatim.org/ for data on eateries, hotels and geocoding for taxi coordinates.
+- Credits to https://radiopaedia.org/encyclopaedia/cases/all for the radiological images and radiology data.
 - Credits to 
-1. [Singapore Tourism Board](https://www.visitsingapore.com/)
-2. https://www.thepoortraveler.net/2019/05/singapore-itinerary-things-to-do/
-3. https://www.kids-world-travel-guide.com/singapore-attractions.html
-4. https://www.iconfinder.com/icons/3138775/attractions_gardens_gardens_by_the_bay_landmarks_park_singapore_travel_icon 
-5. [Gardens by the Bay](https://www.gardensbythebay.com.sg/)
-6. https://www.clipartmax.com/middle/m2i8H7K9N4b1d3b1_singapore-merlion-clip-art-singapore-merlion-clipart/
-7. [Marina Bay Sands](https://www.marinabaysands.com/)
-8. https://thenounproject.com/term/singapore/668086/
-9. [Universal Studios Singapore](https://www.rwsentosa.com/en/attractions/universal-studios-singapore/explore)
-10. https://seeklogo.com/vector-logo/258502/universal-studios-singapore
-11. http://getdrawings.com/get-icon#map-pin-icon-png-67.png
+1. https://previews.123rf.com/images/fokaspokas/fokaspokas1809/fokaspokas180900164/108564673-hamburger-menu-web-icon-white-icon-with-shadow-on-transparent-background.jpg
+2. https://thumbnail.imgbin.com/21/9/7/imgbin-chevron-corporation-computer-icons-paper-down-arrow-zsjsUFtqHLkphdGeCb1rYSBxa_t.jpg
+3. https://filmdaily.co/wp-content/uploads/2021/06/rad-01.jpg
+4. https://i0.wp.com/swdic.com/wp-content/uploads/2020/08/Brain-MRI-min.jpg?fit=1973%2C963&ssl=1
+5. https://image.shutterstock.com/image-photo/brain-ct-scan-head-computed-260nw-1390517843.jpg
+6. https://www.philips.com/c-dam/b2bhc/master/Specialties/radiology/ivp-page/media-asset-IVP-radiology-workflows-700.jpg
+7. [Elsevier](https://www.elsevier.com/__data/assets/image/0012/1022133/Radiology-at-a-Crossroads_Five-converging-trends-reshaping-the-need-for-diagnostic-decision-support.JPG)
+8. https://d1hj7uubji8r0c.cloudfront.net/sites/radiology/files/styles/max_width_full/public/images/2020-02/pcir_cover_photos_hi_res_resize.jpg?itok=VHDBxu-X
+9. https://www.carestream.com/blog/wp-content/uploads/2020/01/future_of_diag_imaging_fb_1_2020_en.jpg
+10. https://flyclipart.com/radiology-clipart-radiology-clipart-211360
 for their images, icons and logos
