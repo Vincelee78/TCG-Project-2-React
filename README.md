@@ -25,33 +25,33 @@ A live website server can be found on the [Netlify server](https://elastic-curra
 #### (i) Project Scope
 The project skeleton and structure (wireframes) can be found [here](https://docs.google.com/presentation/d/1r3uRtZ84-57iqgLmMAJV3P0vj6UffkV1/edit?usp=sharing&ouid=100349503230330665538&rtpof=true&sd=true)
 #### (ii) Design
-The bootstrap plugin was used for the react component of the website (with custom tweaking) as it allows for better visual design of buttons, an information tab and also an easy grid layout.
+The bootstrap plugin was used for the react component of the website (with custom tweaking) as it allows for better visual design of buttons and also an easy grid layout.
 
-The landing page of the website comprises of a navbar and a carousel component which adds a visual representation of the radiology branch in medicine. The website has a blue background as it typically associated with credibility, trust, knowledge, power, professionalism, cleanliness, calm and focus. Because all of these qualities are valued in the medical community, blue is the ideal choice for medical related designs. 
+The landing page of the website comprises of a navbar and a carousel component( A visual representation of the radiology branch in medicine) using vanilla bootstrap. The website has a blue background as blue is typically associated with credibility, trust, knowledge, professionalism, cleanliness, calm and focus. Because all of these qualities are valued in the medical community, blue is the ideal choice for medical related designs. 
 
-The tabs in the Navbar have large fonts and get highlited to a darker colour when it is being hovered over which is easy to read and navigate.
+The tabs in the Navbar have large fonts and are highlighted in a darker colour when it is being hovered over for easy reading.
 
-The colour palette consist of a blue add button which colour is universally associated with the medical field. The edit button is green as it is visually pleasing and not too glaring. The delete button is red in colour which indicates danger as deleting a case is permanent and it will removed permanently.
+The colour palette consist of a blue add button as blue is universally associated with the medical field. The edit button is green as it is visually pleasing. The delete button is red in colour which indicates danger and caution in which deleting a case is permanent and it will removed permanently.
 
-The font colours are bright if they are against a dark background and dark if they are against a light background for easy reading.
+The font colours are bright if they are against a dark background and dark if they are against a light background for easier reading.
 
-The links to the radiologist data are highlighted blue as it directs attention to the user to notice it.
+The radiologist ID links are highlighted blue as it directs attention to the user to notice it.
 
 The layout of the webpage is not overly complex and easy to use. Custom markers such as the heart ratings were created to allow the user to favourite a case or report and to enhance the visual experience of users.
 
 Font size is relatively large and easy to read. 
 
-For a better user experience for mobile devices, I repositioned the tabs so it fills up the whole width of the mobile device and the radiograph image will occupy the whole width of the screen so the user can visualise it with its full width.
+For a better user experience for mobile devices, I repositioned the tabs so it fills up the whole width of the mobile device so that the radiograph image will occupy the whole width of the screen for easier visualisation of the image.
 
 
 ### 2. Features/ Use Cases
 Based on the user's needs and objectives, these are the guidelines for the features that were implemented.
 | User Stories| Features|
 | ------ | ------ |
-| User wants to add a new radiology case| When in the landing page, user can see the featured case. On the base nav, user can click on the 'Add Case' in the 3rd tab of the base nav to add a new case. User has to fill in all fields before he/she can add a new case (form validation). |
-| User wants to add a new report| on the base nav, user can click on the 'Create New Report' in the 2nd tab of the base nav. User has to fill in all fields before he/she can add a new report (form validation). |
-| User(radiologist) wants to add his own details | on the base nav, user(radiologist) can click on the 'Add Radiologist' in the 4th tab of the base nav. User has to fill in all fields before he/she can add his own details (form validation). |
-| User wants to search for cases based on keywords| on the base nav, user can click on the 'Search Cases' in the 5th tab of the base nav. User can enter keywords and the database will search in the 'Signs and Symptoms' section or the 'Case Discussion' section or 'Modality' section in each case and display all the case results based on the keywords. |
+| User wants to add a new radiology case| When in the landing page, user can see the featured case. On the nav tab under the featured case, user can click on the 'Add Case' in the 3rd tab of the base nav to add a new case. User has to fill in all fields before he/she can add a new case (form validation). |
+| User wants to add a new report| On the the nav tab under the featured case, user can click on the 'Create New Report' in the 2nd tab of the base nav. User has to fill in all fields before he/she can add a new report (form validation). |
+| User(radiologist) wants to add his own details | On the the nav tab under the featured case, user(radiologist) can click on the 'Add Radiologist' in the 4th tab of the base nav. User has to fill in all fields before he/she can add his own details (form validation). |
+| User wants to search for cases based on keywords| On the the nav tab under the featured case, user can click on the 'Search Cases' in the 5th tab of the base nav. User can enter keywords and the database will search in the 'Signs and Symptoms' section or the 'Case Discussion' section or 'Modality' section in each case and display all the case results based on the keywords. |
 | User wants to edit the featured case| User can scroll down to the bottom of the featured case and click on the 'edit case' green button. All the fields will already be filled up based on the original case fields. User can click in any of the fields to edit the case. The radiologist ID cannot be edited as the case belongs to the radiologist who uploaded it. The published date (revised) will be automatically set to the current date. |
 | User wants to know about the aim and objectives of the website | User can click on the About section in the Nav top on the top right of the screen in the landing page. |
 | User wants to see all reports that have been uploaded | User can click on the About section in the Nav top on the top right of the screen in the landing page. |
