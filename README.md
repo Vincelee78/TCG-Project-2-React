@@ -83,7 +83,7 @@ Based on the user's needs and objectives, these are the guidelines for the featu
 * [React Bootstrap](https://react-bootstrap.github.io/)
 <br> This project uses React Bootstrap for added features such as the Nav tabs and allow the displaying of the data in each individual tab by tweaking the handleSelect code in the original code. I also used it for the Modal box, Accordion display,  Overlay display and the Tooltip display for the User favourite rating feature.
 * [date-fns](https://date-fns.org/)
-* <br> This project uses date-fns toolset to change the datetime format in mongoDB to a more readable date format in react.
+<br> This project uses date-fns toolset to change the datetime format in mongoDB to a more readable date format in react.
 * [Axios 0.21.1](https://www.npmjs.com/package/axios/v/0.21.1) 
 <br> This project uses the axios plugin for Promise based HTTP client for the browser and make requests to an API, return data from the API.
 * [MongoDB](https://www.mongodb.com/)
