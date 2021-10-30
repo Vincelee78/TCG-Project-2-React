@@ -56,7 +56,7 @@ Based on the user's needs and objectives, these are the guidelines for the featu
 | User wants to know about the aim and objectives of the website | User can click on the About section in the Navbar on the top right of the screen in the landing page. |
 | User wants to see all reports that have been uploaded | User can click on the reports section in the Navbar on the top right of the screen in the landing page. |
 | User wants to delete reports that have been uploaded | User can click on the red delete button on the bottom of each report in the report section. |
-| User wants to see all cases that have been uploaded | User can click on the All Cases section in the Nav top on the top right of the screen in the landing page. |
+| User wants to see all cases that have been uploaded | User can click on the All Cases section in the Navbar on the top right of the screen in the landing page. |
 | User wants to filter cases based on criteria | User can click on 'Patients younger than 21' radio button or any of the other 3 radio buttons in the top of the base nav tab in the all cases section to filter the cases accordingly to the criteria. |
 | User wants to edit the cases that have been uploaded | User can click on the green edit button on the left of each case in the all cases section. |
 | User wants to delete the cases that have been uploaded | User can click on the red delete button on the left of each case in the all cases section. |
