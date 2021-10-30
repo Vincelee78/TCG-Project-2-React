@@ -84,11 +84,13 @@ Based on the user's needs and objectives, these are the guidelines for the featu
 <br> This project uses React Bootstrap for added features such as the Nav tabs and allow the displaying of the data in each individual tab by tweaking the handleSelect code in the original code. I also used it for the Modal box, Accordion display,  Overlay display and the Tooltip display for the User favourite rating feature.
 * [date-fns](https://date-fns.org/)
 <br> This project uses date-fns toolset to change the datetime format in mongoDB to a more readable date format in react.
+* [FontAwesome 5.15.4](https://fontawesome.com/v5/changelog/latest)
+<br> This project uses FontAwesome to add custom icons such as the heart icons for the ratings feature of the website.
 * [Axios 0.21.1](https://www.npmjs.com/package/axios/v/0.21.1) 
 <br> This project uses the axios plugin for Promise based HTTP client for the browser and make requests to an API, return data from the API.
 * [MongoDB](https://www.mongodb.com/)
 <br> This project uses MongoDB to store documents in the collections which the user has uploaded in React. 
-* [ExpressJS 4.17.1]
+* [ExpressJS 4.17.1](https://expressjs.com/)
 <br> This project uses ExpressJS to provide methods to specify what function is called for a particular HTTP verb ( GET , POST , PUT , DELETE) and URL pattern ("Route"), and to retrieve data from MongoDB and send them to React or vice versa.
 
 ### 5. Testing
