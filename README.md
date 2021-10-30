@@ -25,7 +25,7 @@ A live website server can be found on the [Netlify server](https://elastic-curra
 #### (i) Project Scope
 The project skeleton and structure (wireframes) can be found [here](https://docs.google.com/presentation/d/1r3uRtZ84-57iqgLmMAJV3P0vj6UffkV1/edit?usp=sharing&ouid=100349503230330665538&rtpof=true&sd=true)
 #### (ii) Design
-The bootstrap plugin was used in for the react component of the website (with custome tweaking) as it allows for better visual design of buttons, an information tab and also an easy grid layout.
+The bootstrap plugin was used for the react component of the website (with custom tweaking) as it allows for better visual design of buttons, an information tab and also an easy grid layout.
 
 The landing page of the website comprises of a navbar and a carousel component which adds a visual representation of the radiology branch in medicine. The website has a blue background as it typically associated with credibility, trust, knowledge, power, professionalism, cleanliness, calm and focus. Because all of these qualities are valued in the medical community, blue is the ideal choice for medical related designs. 
 
