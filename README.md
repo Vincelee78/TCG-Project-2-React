@@ -60,7 +60,7 @@ Based on the user's needs and objectives, these are the guidelines for the featu
 | User wants to filter cases based on criteria | User can click on 'Patients younger than 21' radio button or any of the other 3 radio buttons in the top of the navtab in the all cases page to filter the cases accordingly to the criteria. |
 | User wants to edit the cases that have been uploaded | User can click on the green edit button on the left of each case in the all cases section. |
 | User wants to delete the cases that have been uploaded | User can click on the red delete button on the left of each case in the all cases section. |
-| User wants to check the radiologist details of each case | User can click on the blue coloured font under the radiologist ID in each case in the all cases section. A modal box will appear displaying the radiologist details of the current case. |
+| User wants to check the radiologist details of each case | User can click on the blue coloured highlighted font under the radiologist ID in each case in the all cases section. A modal box will appear displaying the radiologist details of the current case. |
 | User wants to favourite a case or a report | User can click red hearts and give it a rating on the right of each report or the featured case. For the all cases section, the hearts rating is on the bottom of the radiological image. |
 | User wants see all the radiologists details | User can click on the Radiologist Information section in the Nav top on the top right of the screen in the landing page. |
 
