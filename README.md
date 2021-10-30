@@ -109,8 +109,8 @@ Based on the user's needs and objectives, these are the guidelines for the featu
 | 13 | In the all cases page, user can filter the cases by the criteria by clicking on the radio buttons on the top of the Nav Tab. The results will be filtered accordingly | Pass |
 | 14 | In the all cases page, user can edit or delete the cases by clicking on the respective buttons. The case will be updated or deleted accordingly | Pass  |
 | 15 | In the all cases page, user can click on heart icons under the radiological image of each case to give a rating for the case | Pass  |
-| 15 | In the all cases page, user can click on the radiologist ID field value (highlighted blue) in each case to bring up a modal box to show the radiologist details for the case | Pass |
-| 15 | In the all cases page, user can click on the 'Radiologist Information' bar in the NavBar to show a new page which displays all radiologists details in a table | Pass |
+| 16 | In the all cases page, user can click on the radiologist ID field value (highlighted blue) in each case to bring up a modal box to show the radiologist details for the case | Pass |
+| 17 | In the all cases page, user can click on the 'Radiologist Information' bar in the NavBar to show a new page which displays all radiologists details in a table | Pass |
 
 #### (i) Mobile Responsiveness
 - The test results can be found [here](https://search.google.com/test/mobile-friendly/result?id=GmhCwFfV7jG6u6Ot9ygTTQ). 
