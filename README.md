@@ -112,7 +112,8 @@ Based on the user's needs and objectives, these are the guidelines for the featu
 | 14 | In the all cases page, clicking on the green edit button on the left of each case image will display a box with the fields(pre-filled) to be edited. Clicking on the confirm button next will update that case fields. Clicking on the red delete button above the edit button will delete that case | Pass  |
 | 15 | In the all cases page, clicking on heart icons under the radiological image of each case will highlight the heart icons accordingly. Clicking on 4 hearts will favourite the case as 4 stars. | Pass  |
 | 16 | In the all cases page, clicking on the radiologist ID field value (highlighted blue) in the first case(MRI. prostate cancer) will bring up a modal box show the radiologist R02, Dr John Wong and his details | Pass |
-| 17 | From the all cases page, clickingk on the 'Radiologist Information' bar in the NavBar will show a new page which displays 4 radiologist details that were already in the database  | Pass |
+| 17 | From the all cases page, clicking on the 'Radiologist Information' bar in the NavBar will show a new page which displays 4 radiologist details that were already in the database  | Pass |
+| 18 | After testing the add, edit and delete buttons for the reports, featured case, all cases, radiologist information and all the functions above, I checked the express server terminal in my express/mongoDB gitpod to see whether there are any errors. There were no errors in my express server terminal  | Pass |
 
 
 #### (i) Mobile Responsiveness
