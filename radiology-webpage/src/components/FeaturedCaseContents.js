@@ -27,6 +27,8 @@ export default class CarouselComponent extends React.Component {
     key: "1",
     // Set modal window display closed as default for radiologist ID
     open: false,
+    // Set modal window display closed as default for patient ID
+    openpatient:false,
     // Data for featured case
     data: [],
 
@@ -34,6 +36,8 @@ export default class CarouselComponent extends React.Component {
     radiologistdata: [],
     // edit box closed as default
     userBeingEdited: 0,
+    // patient info data
+    patientInfo: [],
     modifiedpatientId: "",
     modifiedGender: "",
     // Date field has be null as empty
@@ -52,11 +56,21 @@ export default class CarouselComponent extends React.Component {
     show: false,
     setsShow: false,
 
+    // Set modal window display closed as default for patient ID
+    showpatient:false,
+    setsShowpatient:false,
+
     radiologistId: "",
     radiologistName: "",
     radiologistSpeciality: "",
     radiologistmedicalInstitution: "",
     radiologistEmail: "",
+    // patient's info 
+    patientName: "",
+    gender: "",
+    dob: "",
+    phone: "",
+    email: "",
   };
 
   // Tooltip for display of words in the background for ratings
@@ -66,6 +80,7 @@ export default class CarouselComponent extends React.Component {
   componentDidMount() {
     this.fetchData();
     this.retrieveRadiologistInfo();
+    this.retrievepatientInfo();
   }
 
   //  Fetch featured case data, if not display error
@@ -168,6 +183,12 @@ export default class CarouselComponent extends React.Component {
     });
   };
 
+  handleClosePatient = () => {
+    this.setState({
+      showpatient: false,
+    });
+  };
+
   // function to map the radiologist details and display in modal window
   handleShow = () => {
     this.state.radiologistdata.map((data) => {
@@ -178,6 +199,19 @@ export default class CarouselComponent extends React.Component {
         radiologistSpeciality: data.speciality,
         radiologistmedicalInstitution: data.medicalInstitution,
         radiologistEmail: data.email,
+      });
+    });
+  };
+
+  handleShowPatientInfo = () => {
+    this.state.patientInfo.map((data) => {
+      this.setState({
+        showpatient: true,
+        patientName: data.patientName,
+        gender: data.gender,
+        dob: data.dob,
+        phone: data.phone,
+        email: data.email,
       });
     });
   };
@@ -232,6 +266,14 @@ export default class CarouselComponent extends React.Component {
 
     this.setState({
       radiologistdata: response.data,
+    });
+  };
+
+  retrievepatientInfo = async () => {
+    let response = await axios.get(this.url + "patientInfoFeatured/");
+
+    this.setState({
+      patientInfo: response.data,
     });
   };
 
@@ -777,7 +819,70 @@ export default class CarouselComponent extends React.Component {
                         <h5 style={{ color: "rgb(0, 175, 185)" }}>
                           Patient ID:
                         </h5>
-                        <p>{patientsData.patientID}</p>
+                        <p style={{ cursor: "pointer", color: "blue" }}
+                          variant="primary"
+                          onClick={this.handleShowPatientInfo}> {patientsData.patientID}</p>
+
+                        <Modal
+                          show={this.state.showpatient}
+                          onHide={this.handleClosePatient}
+                        >
+                          <Modal.Header closeButton>
+                            <Modal.Title>
+                              Patient ID-{patientsData.patientID}:
+                            </Modal.Title>
+                          </Modal.Header>
+                          <Modal.Body>
+                            <div>
+                              <p className="card-text">
+                                <h5 style={{ color: "rgb(56, 54, 154)" }}>
+                                  Patient Name:
+                                </h5>
+                                {this.state.patientName}
+                              </p>
+                              <p className="card-text">
+                                <h5 style={{ color: "rgb(56, 54, 154)" }}>
+                                  Patient's gender:
+                                </h5>
+                                {this.state.gender}
+                              </p>
+                              <p className="card-text">
+                                <h5 style={{ color: "rgb(56, 54, 154)" }}>
+                                  Patient's date of birth:
+                                </h5>
+                                {this.state.dob}
+                              </p>
+                              <p className="card-text">
+                                <h5 style={{ color: "rgb(56, 54, 154)" }}>
+                                  Patient's phone number:
+                                </h5>
+                                {this.state.phone}
+                              </p>
+                              <p className="card-text">
+                                <h5 style={{ color: "rgb(56, 54, 154)" }}>
+                                  Patient's Email:
+                                </h5>
+                                {this.state.email}
+                              </p>
+                            </div>
+                          </Modal.Body>
+
+                          <Modal.Footer>
+                            <Button
+                              variant="secondary"
+                              onClick={this.handleClosePatient}
+                            >
+                              Close
+                            </Button>
+                            <Button
+                              variant="primary"
+                              onClick={this.handleClosePatient}
+                            >
+                              Save Changes
+                            </Button>
+                          </Modal.Footer>
+                        </Modal>
+
                         <h5 style={{ color: "rgb(0, 175, 185)" }}>
                           Gender:
                         </h5>
@@ -919,7 +1024,7 @@ export default class CarouselComponent extends React.Component {
                                  for conditional rendering*/}
               {this.renderContent()}
             </React.Fragment>
-          </React.Fragment>
+          </React.Fragment >
         );
       }
     });
