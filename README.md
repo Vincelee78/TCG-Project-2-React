@@ -11,7 +11,7 @@ By sharing our collective experience through interesting patient cases, we can m
 I realised many medical professsionals in low and middle-income regions who do not have access to traditional pay-wall resources have limited exposure to medical resources. By creating this open-edit educational radiology resource, it will allow accessibility of radiology information to medical professionals from all around the world, particularly to these regions.
 
 ## Demo: 
-A live website server can be found on the [Netlify server](https://elastic-curran-38a9bb.netlify.app/App.js)
+A live website server can be found on the [Netlify server](https://project2-medradiology-vincent.netlify.app/App.js)
 
 ## Index:
 1. UX/UI
@@ -115,7 +115,7 @@ Based on the user's needs and objectives, these are the guidelines for the featu
 | 17 | In the all cases page, user can click on the 'Radiologist Information' bar in the NavBar to show a new page which displays all radiologists details in a table | Pass |
 
 #### (i) Mobile Responsiveness
-- The test results can be found [here](https://search.google.com/test/mobile-friendly/result?id=GmhCwFfV7jG6u6Ot9ygTTQ). 
+- The test results can be found [here](https://search.google.com/test/mobile-friendly/result?id=84WEjVlEU9HRktwiAVtipg). 
 - Test results were done on 3 mobile devices
 1. [Iphone SE 2020](https://drive.google.com/file/d/1B06e0L3hfUrrEeajgfzpnTTRQsVkN9NI/view?usp=sharing)
 2. [Iphone SE 2020](https://drive.google.com/file/d/1jlnrQgIrxTtGkpZ26uqcvULjYThx2won/view?usp=sharing)
