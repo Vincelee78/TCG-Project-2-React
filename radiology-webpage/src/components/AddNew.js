@@ -11,7 +11,7 @@ export default class AddNew extends React.Component {
         'clinicalHistory': '',
         'images': '',
         'modality': '',
-        'publishedDate': '',
+        'publishedDate': this.getDate(),
         'caseDiscussion': '',
         'radiologistId': '',
         'bodySystems': [],
@@ -100,6 +100,7 @@ export default class AddNew extends React.Component {
           }) 
         })
     }
+
 
     // change the current date to month DD YYYY format
     getDate() {
@@ -225,8 +226,7 @@ export default class AddNew extends React.Component {
                     name="publishedDate"
                     // the published date will be set to current date when adding a new case
                     value={this.getDate()}
-                    onChange={this.updateFormField}
-                    className="form-control" />
+                    className="form-control" disabled/>
             </div>
 
             <div>
