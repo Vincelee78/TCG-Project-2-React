@@ -65,10 +65,10 @@ nav > div > div > ul > li {
 
 #navbarSupportedContent {
   background-color: rgb(44, 125, 160) !important;
-  padding:0 !important
+  padding: 0 !important;
 }
 
-.searchbtn{
+.searchbtn {
   margin-right: 20px;
 }
 
@@ -77,8 +77,6 @@ nav > div > div > ul > li {
   background-color: rgb(56, 54, 154);
   /* padding:0 5px !important */
 }
-
-
 
 /* css of the tail bar of the Navbar */
 #infowords {
@@ -90,7 +88,6 @@ nav > div > div > ul > li {
 }
 
 .navbar-light .navbar-toggler-icon {
-  
   background-image: url(https://previews.123rf.com/images/fokaspokas/fokaspokas1809/fokaspokas180900164/108564673-hamburger-menu-web-icon-white-icon-with-shadow-on-transparent-background.jpg) !important;
 }
 
@@ -134,7 +131,6 @@ nav > div > div > ul > li {
 }
 
 .accordion-button::after {
-  
   background-image: url(https://thumbnail.imgbin.com/21/9/7/imgbin-chevron-corporation-computer-icons-paper-down-arrow-zsjsUFtqHLkphdGeCb1rYSBxa_t.jpg) !important;
 }
 
@@ -153,39 +149,37 @@ nav > div > div > ul > li {
   position: relative;
 }
 
-.editButtonAllCases{
+.editButtonAllCases {
   margin-right: 10px;
-  
-  
-  width:80px
+
+  width: 80px;
 }
 
-.deletebtn{
-  width:80px
+.deletebtn {
+  width: 80px;
 }
 
-.deleteReport{
-  margin: 0 !important
+.deleteReport {
+  margin: 0 !important;
 }
 
-.reviewsAllCasesBtn{
-margin-right:20px;
+.reviewsAllCasesBtn {
+  margin-right: 20px;
 }
 
 /* css of delete and edit buttons div of all cases content */
-.buttonsAllCases{
-  display:flex;
+.buttonsAllCases {
+  display: flex;
   flex-direction: column;
   margin-bottom: 20px;
-  }
-  
+}
 
 .innerwrapper {
   display: flex;
   justify-content: center;
 }
 
-.innerbox{
+.innerbox {
   border: 1px solid black;
   padding: 20px;
   border-radius: 10px;
@@ -204,26 +198,19 @@ margin-right:20px;
   color: white;
 }
 
-.about{
-  
+.about {
   background-color: rgb(44, 125, 160);
 }
 
-.title6{
-background-color: rgb(1, 58, 99);
-
+.title6 {
+  background-color: rgb(1, 58, 99);
 }
 
-.containerAbout{
+.containerAbout {
   background-color: rgb(1, 58, 99);
 }
 
 .title {
-  /* text-decoration: none;
-   font-size: 30px;
-   color: rgb(0, 180, 216); */
-  /* margin-left:150px; */
-  /* text-align: center; */
   margin-top: 50px;
   position: absolute;
   background-color: lightskyblue;
@@ -236,15 +223,12 @@ background-color: rgb(1, 58, 99);
 
 .title3 {
   margin-top: 50px;
-  /* position: absolute;  */
   background-color: lightskyblue;
   opacity: 0.96;
   border-radius: 20px;
   border: 10px;
   padding: 20px 10px;
   width: 85vw;
-
-  
 }
 
 .errorMessageImg {
@@ -262,7 +246,7 @@ background-color: rgb(1, 58, 99);
 .d-block {
   width: 100% !important;
   height: 600px !important;
-  background-size: cover !important
+  background-size: cover !important;
 }
 
 .scroll-bg {
@@ -313,8 +297,6 @@ background-color: rgb(1, 58, 99);
   height: auto !important;
   max-width: 40vw !important;
   background-size: "cover";
-  /* width: auto !important;
-    height: auto !important  */
 }
 
 #contents {
@@ -322,26 +304,21 @@ background-color: rgb(1, 58, 99);
 }
 
 /* images in About section */
-.images>img{
-width: auto;
-height: 500px;
-
-
+.images > img {
+  width: auto;
+  height: 500px;
 }
 
 /* padding between form contents in add case*/
 .card-body {
   padding-bottom: 20px;
 }
-/* co */
-/* .containerAllCases{
-    margin-left: 50px;
-} */
 
 /* padding between the navtab in all cases and the contents */
 .card-group-all-cases {
   padding: 0;
 }
+
 /* flex the all cases cards */
 .card-all-cases {
   display: flex;
@@ -355,17 +332,18 @@ height: 500px;
   padding-right: 20px;
 }
 
-.displayReviews{
+.displayReviews {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 /* dimensions of card title in All cases section*/
 .card-body-all-images {
   width: 60%;
 }
 
-/* css of width of car footer */
+/* css of width of card footer */
 .card-footer {
   width: 300px !important;
 }
@@ -387,7 +365,6 @@ height: 500px;
   background: rgba(255, 0, 0, 0.63);
   border: 1px solid rgba(250, 0, 0, 0.753);
   color: white;
-  
 }
 
 /* Navtab css when editing featured case  */
@@ -413,13 +390,13 @@ height: 500px;
   background-color: rgb(202, 233, 255) !important;
 }
 
-.title5{
+.title5 {
   background-color: #0f0f0a;
 }
 
-/* ipad */
-/* 768 to 375 */
-@media only screen and (min-width:0px) and (max-width: 768px) {
+/* mobile responsive */
+/* 0 to 768px */
+@media only screen and (min-width: 0px) and (max-width: 768px) {
   #caseImgUrl {
     flex-shrink: 100;
     -webkit-flex-shrink: 0;
@@ -430,22 +407,21 @@ height: 500px;
   }
 
   .card-img-top {
-    max-width:100vw !important;
+    max-width: 100vw !important;
     height: auto !important;
   }
 
   .card-all-cases {
-      flex-direction: column;
-      
-      align-items: center;
+    flex-direction: column;
+
+    align-items: center;
   }
 
-  .card-group-all-cases{
-      text-align:center;
+  .card-group-all-cases {
+    text-align: center;
   }
 
   .navbar-nav > li > a {
-    
     background-color: rgb(44, 125, 160);
     font-family: Georgia, "Times New Roman", Times, serif;
     text-decoration: none;
@@ -453,15 +429,15 @@ height: 500px;
     color: white;
     padding: 30px 10px !important;
   }
- 
-  #infowords{
+
+  #infowords {
     padding: 10px 10px !important;
   }
 
   .buttonsAllCases {
     flex-direction: row !important;
     gap: 0 5px !important;
-    }
+  }
 
   .title {
     margin-top: 50px;
@@ -474,22 +450,17 @@ height: 500px;
     width: 100vw;
   }
 
-  .title3{
-    width:100vw !important;
-  }
-
-  .title5{
-    
+  .title3 {
     width: 100vw !important;
-    
-
-  }
-  .table{
-    font-size:8px;
-    
   }
 
-  
+  .title5 {
+    width: 100vw !important;
+  }
+
+  .table {
+    font-size: 8px;
+  }
 
   #pagename {
     font-size: 20px;
@@ -512,96 +483,87 @@ height: 500px;
     background-position: center !important;
   }
 
-  nav-link{
-    padding:0 !important;
-    text-align: center !important
+  nav-link {
+    padding: 0 !important;
+    text-align: center !important;
   }
 
-  .rating{
+  .rating {
     display: inline !important;
-    font-size: 1em !important; 
-    margin-right:5px !important;
-    padding:0 !important
+    font-size: 1em !important;
+    margin-right: 5px !important;
+    padding: 0 !important;
   }
 
-  h5{
-  font-size: 15px !important;
+  h5 {
+    font-size: 15px !important;
   }
 
-  .images>img{
+  .images > img {
     display: none;
-    
-  }
-  
-  .searchbtn{
-    margin-right:5px !important;
-    padding-right:15px 
   }
 
-  
-
+  .searchbtn {
+    margin-right: 5px !important;
+    padding-right: 15px;
+  }
 }
 /* end of mobile css */
 
-
 /* css for background colour of reports section */
-.title4{
+.title4 {
   background-color: rgb(202, 233, 255);
   padding-top: 20px;
 }
 
 /* css for background colour of reports section */
-.container-lg{
+.container-lg {
   background-color: rgb(202, 233, 255);
-  
 }
 
-.fa{
+/* css for heart icons ratings from font awesome */
+.fa {
   color: black;
-  padding: 4em
+  padding: 4em;
 }
 
-/* .fa-heart:hover {
-  background: rgba(250, 0, 0, 0.753);
-} */
-
-.rating{
+.rating {
   display: inline-block;
   font-size: 2.5em;
-  color:rgb(177, 167, 166);
-  padding:0 5px;
+  color: rgb(177, 167, 166);
+  padding: 0 5px;
 }
 
-#ratingReport{
+#ratingReport {
   float: right;
 }
 
-.rating input{
-  display:none;
-
+.rating input {
+  display: none;
 }
 
-.rating label{
+.rating label {
   transition: all 0.2s;
   margin: 0;
   float: right;
 }
 
-.rating> input:checked ~label,
-.rating:not(:checked)> label:hover,
-.rating:not(:checked)> label:hover~label{
-  color:rgba(250, 0, 0, 0.753)
+.rating > input:checked ~ label,
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: rgba(250, 0, 0, 0.753);
 }
 
-.rating> input:checked + label:hover,
-.rating> input:checked~label:hover,
-.rating> label:hover~input:checked~label,
-.rating> input:checked ~label:hover~label{
-
-  color:rgba( 255, 77, 109)
+.rating > input:checked + label:hover,
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label,
+.rating > input:checked ~ label:hover ~ label {
+  color: rgba(255, 77, 109);
 }
 
-.reviewFlex{
+/* flex the heart icons in ratings in featured contents and for the search
+/* results */
+.reviewFlex {
   display: flex;
   justify-content: space-between;
 }
