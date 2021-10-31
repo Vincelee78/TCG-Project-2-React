@@ -96,23 +96,24 @@ Based on the user's needs and objectives, these are the guidelines for the featu
 ### 5. Testing
 | Test Case Number| Test Case Description| Results|
 | ------ | ------ | ------ |
-| 1 | On the landing page, user should see a Carousel feature with a featured case. User can click on the collapsible accordion for info on the featured case. | Pass |
-| 2 | On the landing page, user can click on the green edit button to edit the featured case | Pass |
-| 3 | On the landing page, user can click on the radiologist ID field value (highlighted blue) in the featured case to bring up a modal box to show the radiologist details for the case | Pass |
-| 4 | On the landing page, user can click on 2nd tab of the NavTab 'Create New Report' and fill in the fields to add a new report. The new report will be shown as the last report in the report page in the Navbar | Pass |
-| 5 | On the landing page, user can click on 3rd tab of the NavTab 'Add Case' and fill in the fields to add a new case. The new case will be shown as the last case in the All Cases page in the Navbar | Pass |
-| 6 | On the landing page, user can click on 4th tab of the NavTab 'Add Radiologist' and fill in the fields to add their radiologist details. The new radiologist details will be shown as the last row in the table radiologist information page in the Navbar | Pass |
-| 7 | On the landing page, user can click on 5th tab of the NavTab 'Search Cases' and enter keywords to search for cases with those keywords. The results will be displayed in the same tab in the 'Search Cases' tab | Pass |
-| 8 | On the landing page, user can click on the 'About' bar in the NavBar to show a new page which displays background information and the aims and objectives of the website | Pass |
-| 9 | On the landing page, user can click on the 'Reports' bar in the NavBar to show a new page which displays all reports  | Pass |
-| 10 | In the reports page, user can click on heart icons to give a rating for each report | Pass |
-| 11 | In the reports page, user can click on the red delete button on the bottom of each report to delete the report | Pass |
-| 12 | From the reports page, user can click on the 'All Cases' bar in the NavBar to show a new page which displays all cases. Clicking on the accordion just above the Carousel will collapse the Carousel to allow better navigation of all the cases  | Pass |
-| 13 | In the all cases page, user can filter the cases by the criteria by clicking on the radio buttons on the top of the Nav Tab. The results will be filtered accordingly | Pass |
-| 14 | In the all cases page, user can edit or delete the cases by clicking on the respective buttons. The case will be updated or deleted accordingly | Pass  |
-| 15 | In the all cases page, user can click on heart icons under the radiological image of each case to give a rating for the case | Pass  |
-| 16 | In the all cases page, user can click on the radiologist ID field value (highlighted blue) in each case to bring up a modal box to show the radiologist details for the case | Pass |
-| 17 | In the all cases page, user can click on the 'Radiologist Information' bar in the NavBar to show a new page which displays all radiologists details in a table | Pass |
+| 1 | On the landing page, user should see a Carousel feature with a featured case. Clicking on the accordion 'Information on Featured Case' will collapse it. Clicking on the other accordions will pan out an information box explaining information based on the title on the accordion  | Pass |
+| 2 | On the landing page, clicking  on the green edit case button will open a box containing all the fields(which have been pre-filled) to be edited. Clicking on the 'confirm' button will update the featured case accordingly to the fields that were filled up | Pass |
+| 3 | On the landing page, clicking on the radiologist ID field value (highlighted blue) in the featured case will bring up a modal box to show the radiologist details for the case | Pass |
+| 4 | On the landing page, clicking on 2nd tab of the NavTab 'Create New Report' will render a form to be filled up. Filling up all the form fields will enable the create report button to be active. Clicking on the create report button next will will show a successful message and add a new report to the report page.  The new report will be shown as the last report in the report page in the report page | Pass |
+| 5 | On the landing page, clicking on 3rd tab of the NavTab 'Add Case' will render a form to be filled up. Filling up all the form fields will enable the Add button to be active. Clicking on the add button next will show a successful message and add a new case to the all cases page. The new case will be shown as the last case in the All Cases page in the Navbar | Pass |
+| 6 | On the landing page, clicking on 4th tab of the NavTab 'Add Radiologist' will render a form to be filled up. Filling up all the form fields will enable the Add new radiologist button to be active. Clicking on the add new radiologist button next will show a successful message and add a radiologist to the radiologist information page.The new radiologist details will be shown as the last row in the table in the radiologist information page in the Navbar | Pass |
+| 7 | On the landing page, clicking on 5th tab of the NavTab 'Search Cases' will show a text box will a search icon. Entering the keyword fracture will display 2 cases. The first case is a CT with 2 sternal body fractures and the 2nd case is an ultrasound case with left chest wall trauma and pneumothorax diagnosis | Pass |
+| 8 | From the landing page, clicking on the 'About' bar in the NavBar to show a new page which displays background information and the aims and objectives of the website | Pass |
+| 9 | From the About page, clicking on the 'Reports' bar in the NavBar will show a new page which displays 2 reports that were already in the database  | Pass |
+| 10 | In the reports page, clicking on heart icons will allow the hearts to be highlighted for a rating | Pass |
+| 11 | In the reports page, clicking on the red delete button on the bottom of each report will delete the report | Pass |
+| 12 | From the reports page, clicking on the 'All Cases' bar in the NavBar to show a new page which displays 5 cases that were already in the database. Clicking on the accordion just above the Carousel will collapse the Carousel feature to allow better scrolling to the cases below | Pass |
+| 13 | In the all cases page, clicking on the radio button at the top 'Patients younger than 21' will filter the cases by the criteria and show 1 case which diagnosis is a bullet in the rectum X-ray. Clicking on the other radio buttons will filter to the criteria accordingly | Pass |
+| 14 | In the all cases page, clicking on the green edit button on the left of each case image will display a box with the fields(pre-filled) to be edited. Clicking on the confirm button next will update that case fields. Clicking on the red delete button above the edit button will delete that case | Pass  |
+| 15 | In the all cases page, clicking on heart icons under the radiological image of each case will highlight the heart icons accordingly. Clicking on 4 hearts will favourite the case as 4 stars. | Pass  |
+| 16 | In the all cases page, clicking on the radiologist ID field value (highlighted blue) in the first case(MRI. prostate cancer) will bring up a modal box show the radiologist R02, Dr John Wong and his details | Pass |
+| 17 | From the all cases page, clickingk on the 'Radiologist Information' bar in the NavBar will show a new page which displays 4 radiologist details that were already in the database  | Pass |
+
 
 #### (i) Mobile Responsiveness
 - The test results can be found [here](https://search.google.com/test/mobile-friendly/result?id=84WEjVlEU9HRktwiAVtipg). 
