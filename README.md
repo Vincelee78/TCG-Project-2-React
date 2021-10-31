@@ -27,7 +27,7 @@ The project skeleton and structure (wireframes) can be found [here](https://docs
 #### (ii) Design
 The bootstrap plugin was used for the react component of the website (with custom tweaking) as it allows for better visual design of buttons and also an easy grid layout.
 
-The landing page of the website comprises of a navbar and a carousel component( A visual representation of the radiology branch in medicine) using vanilla bootstrap. The website has a blue background as blue is typically associated with credibility, trust, knowledge, professionalism, cleanliness, calm and focus. Because all of these qualities are valued in the medical community, blue is the ideal choice for medical related designs. 
+The landing page of the website comprises of a navbar, a carousel component( A visual representation of the radiology branch in medicine) using vanilla bootstrap and a Navtab using React bootstrap (with custom tweaking). The website has a blue background as blue is typically associated with credibility, trust, knowledge, professionalism, cleanliness, calm and focus. Because all of these qualities are valued in the medical community, blue is the ideal choice for medical related designs. 
 
 The tabs in the Navbar have large fonts and are highlighted in a darker colour when it is being hovered over for easy reading.
 
