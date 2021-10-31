@@ -11,8 +11,7 @@ import Carousel from 'react-bootstrap/Carousel'
 import Report from './components/Report';
 import RadiologistInfo from './components/RadiologistInfo';
 import About from './components/About';
-import Tooltip from "react-bootstrap/Tooltip";
-import Search from './components/Search';
+
 
 
 
@@ -27,36 +26,36 @@ export default class App extends React.Component {
     data: [
 
     ],
-    
+
   }
 
-  // url = "https://5000-maroon-anglerfish-ugo6rg5n.ws-us18.gitpod.io/"
-
-  renderTooltip = () => (
-    <Tooltip >Favourite this case</Tooltip>
-  );
-
-  // componentDidMount() {
-  //   this.fetchData();
-  // }
-
-  // fetchData = async () => {
-  //   try {
-  //     let response = await axios.get(this.url + "featuredCase")
-  //     this.setState({
-  //       data: response.data
-  //     })
-
-  //   } catch (e) {
-  //     this.setState({
-  //       active: 'errorMessage'
-  //     })
-
-  //   }
-
-  // }
+  // Base url
+  url = "https://expressvwxl777.herokuapp.com/"
 
 
+  // Fetch data once the page loads
+  componentDidMount() {
+    this.fetchData();
+  }
+
+  // Fetch featured case data for error validation
+  fetchData = async () => {
+    try {
+      let response = await axios.get(this.url + "featuredCase")
+      this.setState({
+        data: response.data
+      })
+
+    } catch (e) {
+      this.setState({
+        active: 'errorMessage'
+      })
+
+    }
+
+  }
+
+  // set active states to display each respective page
   setActiveReports = () => {
     this.setState({
       'active': 'Reports'
@@ -82,34 +81,8 @@ export default class App extends React.Component {
     })
   }
 
-  setActiveSearch = async () => {
-    try {
-      await axios.get(this.url + "searchCases/", {
-        params: {
-          search: this.state.search
-        }
-      })
-        .then((res) => {
-          this.setState({
-            dataSearch: res.data
-          })
-        })
 
-
-    } catch (e) {
-      this.setState({
-        active: 'errorMessage'
-      })
-
-    }
-  }
-
-  onChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value
-    })
-  }
-
+  // Render each respective page in the NavBar after the state is set
   renderAllCases = () => {
     if (this.state.active === 'About') {
       return <About />
@@ -122,9 +95,6 @@ export default class App extends React.Component {
 
     } if (this.state.active === 'RadiologistInfo') {
       return <RadiologistInfo />
-
-    } if (this.state.active === 'Search') {
-      return <Search />
     }
   }
 
@@ -132,20 +102,19 @@ export default class App extends React.Component {
 
   render() {
     return (
-      
-      <React.Fragment>
-        <div id="nav">
 
+      <React.Fragment>
+        {/* Logo and Title of website */}
+        <div id="nav">
           <img src={logo} alt={logo} id="logo" />
           <a style={{ fontFamily: 'Impact, fantasy', textDecoration: 'none' }} id="pagename" href='App.js'>MedRadiology</a>
-
-
+          {/* Navbar bootstrap */}
           <nav class="navbar navbar-expand-lg navbar-light">
             <div class="row d-flex flex-row">
-
               <button class="navbar-toggler d-flex justify-content-end p-4 ml-auto d-sm-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
+              {/* Navbar pages */}
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 main-nav">
                   <li class="nav-item">
@@ -162,37 +131,27 @@ export default class App extends React.Component {
                     <a class="nav-link" href="#" onClick={this.setActiveRadiologist}>RADIOLOGIST INFORMATION</a>
                   </li>
                 </ul>
-              
+
               </div>
             </div>
           </nav>
 
-          {/* <nav className="navbar" id="navbar">
-            <span className="navbar-toggle" id="js-navbar-toggle">
-              <i className="fa fa-bars"></i>
-            </span>
-            <ul className="main-nav" id="js-menu">
-              <li><span onClick={this.setActiveArticles} className="navlink">REPORTS </span></li>
-              <li><span onClick={this.setActiveAllCases} className="navlink">ALL CASES </span></li>
-              <li><span className="navlink" id="navbarDropdown" data-bs-toggle="dropdown">COURSES</span></li>
-              <li><span onClick={this.setActiveAbout} className="navlink">ABOUT</span></li>
-
-            </ul>
-          </nav> */}
-
-          {/* {this.renderAllCases()} */}
         </div>
         <div id="infowords"> Online Resource for radiologists, radiology trainees and students</div>
+        
+        {/* Conditional rendering of components in each page */}
         {this.state.active === 'Reports' ? <div className='title4'><Report /></div> : null}
         {this.state.active === 'RadiologistInfo' ? <div className='title5'><RadiologistInfo /></div> : null}
         {this.state.active === 'About' ? <div className='title6'><About /></div> : null}
-
+        
+        {/* Collapsible Accordion for Carousel */}
         <div className="App">
           <Accordion defaultActiveKey="0">
             <Accordion.Item eventKey="0">
               <Accordion.Header></Accordion.Header>
               <Accordion.Body>
 
+                {/* Carousel */}
                 <div className='carouselTitle'>
                   <Carousel fade>
                     <Carousel.Item interval={3000}>
@@ -235,9 +194,11 @@ export default class App extends React.Component {
           </Accordion>
 
 
-
+          {/* sss design for fixed background image scrolling */}
           <div className="wrapper">
             <div className='innerwrapper'>
+
+              {/* Conditional rendering of components in the Navtabs */}
               {(this.state.active !== 'AllCasesContent' && this.state.active !== 'Reports' && this.state.active !== 'RadiologistInfo' && this.state.active !== 'About') && <p className="title" id="title1"><FeaturedCaseContents /></p>}
               <div className='wrapper2'>
                 {this.state.active === 'AllCasesContent' ? <div className='title3'><AllCasesContent /> </div> : null} {this.state.active === 'errorMessage' ? <div className='title3'> <ErrorMessage /></div> : null}
@@ -255,9 +216,8 @@ export default class App extends React.Component {
         </div>
 
       </React.Fragment >
-      
+
     );
   }
 }
-
 

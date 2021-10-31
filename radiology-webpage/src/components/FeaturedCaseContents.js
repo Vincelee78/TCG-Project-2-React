@@ -25,20 +25,23 @@ import ErrorMessage from "../components/Errormessage";
 
 export default class CarouselComponent extends React.Component {
 
+    // Base URL
     url = "https://expressvwxl777.herokuapp.com/"
 
     state = {
         'active': 'featuredCase',
+        // set default key as 1 for handleselect function
         key: '1',
+        // Set modal window display closed as default for radiologist ID
         open: false,
-
+        // Data for featured case
         data: [
 
         ],
 
-
+        // radiologist info data details for featured case radiologist ID
         radiologistdata: [],
-
+        // edit box as closed as default
         userBeingEdited: 0,
         modifiedpatientId: '',
         modifiedGender: '',
@@ -52,27 +55,30 @@ export default class CarouselComponent extends React.Component {
         modifiedsignSymptomsTitle: '',
         modifiedimages: '',
         modifiedradiologistId: '',
+        // Set modal window display closed as default for radiologist ID
         show: false,
         setsShow: false,
+
         radiologistId: '',
         radiologistName: '',
         radiologistSpeciality: '',
         radiologistmedicalInstitution: '',
         radiologistEmail: '',
-
-
     }
 
+    // Tooltip for display of words in the background for ratings
     renderTooltip = () => (
         <Tooltip >Favourite this case</Tooltip>
     );
 
+    // Fetch data once the page loads
     componentDidMount() {
         this.fetchData();
         this.retrieveRadiologistInfo();
 
     }
 
+    //  Fetch featured case data
     fetchData = async () => {
         try {
             let response = await axios.get(this.url + "featuredCase")
@@ -90,7 +96,7 @@ export default class CarouselComponent extends React.Component {
     }
 
 
-
+    // Conditional rendering for different components
     renderContent() {
 
         if (this.state.active === 'successAddMessage') {
@@ -112,21 +118,26 @@ export default class CarouselComponent extends React.Component {
         }
     }
 
-
+    // Set active states for each page
     setActive(nextPage) {
         this.setState({
             'active': nextPage
         })
     }
 
+    // Set the modified modality to user input value during edit
     updateanswer = (evt) => {
         this.setState({
             modifiedmodality: evt.target.value
         })
     }
 
+    // Set the modifiedbodySystems to user input value(checkboxes) during edit
     updateitems = (evt) => {
+        // Check if the current checked checkboxes values include the target checkbox just changed
         if (this.state.modifiedbodySystem.includes(evt.target.value)) {
+            // if the target checkbox's value does not exist in the array of currently checked 
+            // values, it means we are checking the checkbox, so we add the value to the array
             let clone = this.state.modifiedbodySystem.slice();
             let index = this.state.modifiedbodySystem.indexOf(evt.target.value)
             clone.splice(index, 1);
@@ -135,6 +146,8 @@ export default class CarouselComponent extends React.Component {
                 modifiedbodySystem: clone
             })
 
+            // if the value is already in the array, means we are unchecking
+            // we are pushing the current value of the checkbox to the cloned array
         } else {
 
             let clone = this.state.modifiedbodySystem.slice();
@@ -149,6 +162,7 @@ export default class CarouselComponent extends React.Component {
         }
     }
 
+    // change the current date to month DD YYYY format
     getDate() {
         let date = new Date()
         date = String(date)
@@ -156,14 +170,14 @@ export default class CarouselComponent extends React.Component {
         return date
     }
 
-
+    // close the modal window function
     handleClose = () => {
         this.setState({
             show: false
         })
     }
 
-
+    // function to map the radiologist details and display in modal window
     handleShow = () => {
         this.state.radiologistdata.map(data => {
 
@@ -179,7 +193,7 @@ export default class CarouselComponent extends React.Component {
         })
     }
 
-
+    // Set the active states to display content accordingly in the Navtab
     handleSelect = (key) => {
         if (key === '1') {
             this.setState({
@@ -211,6 +225,8 @@ export default class CarouselComponent extends React.Component {
             })
         }
     }
+
+    // Display messages after the add function is called
     afterAddNewPatient = () => {
         this.setActive('successAddMessage')
     }
@@ -219,10 +235,12 @@ export default class CarouselComponent extends React.Component {
         this.setActive('successAddReport')
     }
 
-    afterAddNewRadiologist= () => {
+    afterAddNewRadiologist = () => {
         this.setActive('successAddRadiologist')
     }
 
+    // Retrieve the radiologist details from the server API to 
+    // display in the hightlighted radiologist ID field value
     retrieveRadiologistInfo = async () => {
 
         let response = await axios.get(this.url + 'radiologistDataFeatured/')
@@ -234,42 +252,7 @@ export default class CarouselComponent extends React.Component {
 
     }
 
-    // renderRadiologistInfo = () => {
-    //     return (
-    //             this.state.radiologistdata.map(data1=>{
-    //         <React.Fragment>
-    //             <Modal show={this.state.show} onHide={this.handleClose}>
-    //                 <Modal.Header closeButton>
-    //                     <Modal.Title>Radiologist-{data1.radiologistId} Info:</Modal.Title>
-    //                 </Modal.Header>
-    //                 <Modal.Body>
-    //                     <div>
-    //                         <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Patient ID:</h5>{data1.radiologistId}</p>
-    //                         <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Patient's gender:</h5> {data1.radiologistName}</p>
-    //                         <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Patient's date of birth</h5> {data1.speciality}</p>
-    //                         <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Clinical History:</h5> {data1.medicalInstitution}</p>
-    //                         <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Modality: </h5>{data1.email}</p>
-    //                     </div>
-    //                 </Modal.Body>
-
-    //                 <Modal.Footer>
-    //                     <Button variant="secondary" onClick={this.handleClose}>
-    //                         Close
-    //                     </Button>
-    //                     <Button variant="primary" onClick={this.handleClose}>
-    //                         Save Changes
-    //                     </Button>
-    //                 </Modal.Footer>
-    //             </Modal>
-
-
-
-    //         </React.Fragment>
-    //             })
-    //     )
-    // }
-
-
+    // Set the respective fields to the user's target input when editing
     beginEdit = (patientsData) => {
         this.setState({
             userBeingEdited: patientsData._id,
@@ -289,20 +272,14 @@ export default class CarouselComponent extends React.Component {
     };
 
     async updateCase() {
-        // clone the original task
-        // let currentUser = this.state.users.filter((a) => a._id === user._id)[0];
-        // modifiedUser is the cloned original array
+        // clone the original case
+        // modifiedCase is the cloned original array
         let modifiedCase = this.state.data.slice();
+        // find the case that is being modified
         modifiedCase._id = this.state.userBeingEdited;
+        // send the the modified fields to the server API for the fields to be replaced
         await axios.put(this.url + 'featuredCase/' + modifiedCase._id, {
-            // let modifiedUser = { ...user1 };
 
-            // make changes to the clone
-            // modified task we have changed
-            // modifiedUser._id is the orginal clone id
-            // modifiedUser.name is the orginal clone name
-            // this.state.modifiedUsername refer to begin edit(user) function, user.name
-            // _id: this.state.userBeingEdited,
             patientID: this.state.modifiedpatientId,
             signsSymptomsTitle: this.state.modifiedsignSymptomsTitle,
             gender: this.state.modifiedGender,
@@ -317,15 +294,15 @@ export default class CarouselComponent extends React.Component {
             radiologistId: this.state.modifiedradiologistId
 
         })
-
+        // get the new replaced fields from the server API to be displayed
         let response = await axios.get(this.url + 'featuredCase/' + modifiedCase._id)
         let modifiedCases = response.data
-
+        // find the index of the array that is modified
         let indexToModify = this.state.data.findIndex(
             (u) => u._id === modifiedCase._id
         );
-        // clone the task array and insert the cloned task into the cloned array
 
+        // clone the case array and insert the cloned case into the cloned array
         let cloned = [
             ...this.state.data.slice(0, indexToModify),
             modifiedCases,
@@ -333,7 +310,7 @@ export default class CarouselComponent extends React.Component {
         ];
 
 
-
+        // set the active state to the updated data to be displayed
         this.setState({
             data: cloned,
             userBeingEdited: 0,
@@ -343,7 +320,8 @@ export default class CarouselComponent extends React.Component {
 
     }
 
-
+    // display the fields to be edited with their original values in the case
+    // that is edited
     renderEditDisplay = (a) => {
         return (
 
@@ -500,9 +478,9 @@ export default class CarouselComponent extends React.Component {
                         name="modifiedscientificReferences"
                     ></textarea> <br />
 
-
+                    {/* button to call the function to update case */}
                     <button className='btn btn-success' onClick={() => {
-                        this.updateCase(a);
+                        this.updateCase();
                     }}> Confirm </button>
 
                 </div>
@@ -512,20 +490,25 @@ export default class CarouselComponent extends React.Component {
         );
     };
 
+    // display the featured case contents
     render() {
         return (
 
             this.state.data.map(patientsData => {
+                // find the id of the case that is to be edited and display
+                // the case fields
                 if (patientsData._id === this.state.userBeingEdited) {
                     return (
                         <React.Fragment key={patientsData._id}>
                             <div className="box">{this.renderEditDisplay()}</div>
                         </React.Fragment>
                     )
+                    // If the case is not being edited, display the case normally
                 } else {
                     return (
                         <React.Fragment>
                             <p style={{ color: 'brown', marginTop: '10px', fontSize: '30px' }}>Featured Case: COVID-19 positive patient</p>
+                            {/* collapsible accordion component from React bootstrap */}
                             <Accordion defaultActiveKey="0" className='infoTab' flush>
                                 <Accordion.Item eventKey="0">
                                     <Accordion.Header>Information on Featured Case</Accordion.Header>
@@ -595,11 +578,9 @@ export default class CarouselComponent extends React.Component {
                             </Accordion>
 
                             <React.Fragment key={patientsData._id}>
-
+                                {/* Navtabs to display different content in each tab */}
                                 <Tabs activeKey={this.state.key} className="mb-3" id="controlled-tab-example" onSelect={(k) => this.handleSelect(k)} >
                                     <Tab eventKey='1' title="Featured Case" >
-
-
 
                                         <div className="container fluid" key={patientsData._id}>
                                             <div className="card">
@@ -607,11 +588,10 @@ export default class CarouselComponent extends React.Component {
                                                     <div className="card-title">
                                                         <div className='reviewFlex'>
                                                             <h5 style={{ color: 'rgb(0, 175, 185)' }}>Case presentation:</h5>
-
+                                                            {/* Tooltip to display the background words for the ratings feature*/}
                                                             <OverlayTrigger className='reviews' placement="top" overlay={this.renderTooltip()}>
-
+                                                                {/* Heart icon ratings feature */}
                                                                 <span className='rating'>
-
                                                                     <input type='radio' value='5' name='rating' id='rating-5' />
                                                                     <label for='rating-5' title='5 stars'>
                                                                         <i class="fas fa-heart"></i>
@@ -646,6 +626,7 @@ export default class CarouselComponent extends React.Component {
                                                     <h5 style={{ color: 'rgb(0, 175, 185)' }}>Date of birth:</h5> <p>{patientsData.dob}</p>
                                                     <h5 style={{ color: 'rgb(0, 175, 185)' }}>Clinical History: </h5>
                                                     <p>{patientsData.clinicalHistory}</p>
+                                                    {/* Flex the image and contents below it*/}
                                                     <div id='flexContainer'>
                                                         <img id='caseImgUrl' alt='' src={patientsData.images} />
                                                         <div id='contents' style={{ paddingTop: '20px' }}>
@@ -656,6 +637,7 @@ export default class CarouselComponent extends React.Component {
                                                             <p>{patientsData.caseDiscussion}</p>
 
                                                             <h5 style={{ color: 'rgb(0, 175, 185)' }}>Radiologist ID: </h5><p style={{ cursor: 'pointer', color: 'blue' }} variant="primary" onClick={this.handleShow} >{patientsData.radiologistId}</p>
+                                                            {/* Display a modal window to show the radiologist details */}
                                                             <Modal show={this.state.show} onHide={this.handleClose}>
                                                                 <Modal.Header closeButton>
                                                                     <Modal.Title>Radiologist-{patientsData.radiologistId}:</Modal.Title>
@@ -669,8 +651,6 @@ export default class CarouselComponent extends React.Component {
                                                                         <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Medical Institution:</h5> {this.state.radiologistmedicalInstitution}</p>
                                                                         <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Email: </h5>{this.state.radiologistEmail}</p>
                                                                     </div>
-
-
 
                                                                 </Modal.Body>
 
@@ -703,10 +683,11 @@ export default class CarouselComponent extends React.Component {
 
                                         </div>
                                     </Tab>
+                                    {/* Each other tabs will call the onclick handleSelect function 
+                                    in the Radiologist ID field under h5 tab above to display their contents */}
                                     <Tab eventKey='2' title="Create New Report">
 
                                     </Tab>
-
 
                                     <Tab eventKey='3' title="Add Case" >
 
@@ -721,18 +702,15 @@ export default class CarouselComponent extends React.Component {
                                     </Tab>
 
                                 </Tabs>
+                                {/* set the active state to a different component
+                                 for conditional rendering*/}
                                 {this.renderContent()}
                             </React.Fragment>
                         </React.Fragment >
 
-
                     )
-
                 }
-                // })
             })
-
         )
     }
-
 }
