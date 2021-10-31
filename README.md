@@ -24,6 +24,8 @@ A live website server can be found on the [Netlify server](https://project2-medr
 ### 1.UX/UI 
 #### (i) Project Scope
 The project skeleton and structure (wireframes) can be found [here](https://docs.google.com/presentation/d/1r3uRtZ84-57iqgLmMAJV3P0vj6UffkV1/edit?usp=sharing&ouid=100349503230330665538&rtpof=true&sd=true)
+The ER diagram for MongoDB can be found [here](https://drive.google.com/file/d/1UAasih-Tu2FG_81jp1HLjaNxV_vnCzOi/view?usp=sharing)
+
 #### (ii) Design
 The bootstrap plugin was used for the react component of the website (with custom tweaking) as it allows for better visual design of buttons and also an easy grid layout.
 
