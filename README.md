@@ -129,6 +129,7 @@ Based on the user's needs and objectives, these are the guidelines for the featu
 
 ### 6. Credits and Acknowledgement
 - Credits to https://radiopaedia.org/encyclopaedia/cases/all for the radiological images and radiology data.
+- Credits to https://www.maxester.com/blog/2019/02/27/simple-5-star-rating-with-csshover/ for the template code for the heart ratings(with my own custom tweaking).
 - Credits to 
 1. [Elsevier](https://www.elsevier.com/__data/assets/image/0012/1022133/Radiology-at-a-Crossroads_Five-converging-trends-reshaping-the-need-for-diagnostic-decision-support.JPG)
 2. https://previews.123rf.com/images/fokaspokas/fokaspokas1809/fokaspokas180900164/108564673-hamburger-menu-web-icon-white-icon-with-shadow-on-transparent-background.jpg
