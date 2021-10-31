@@ -97,8 +97,7 @@ export default class App extends React.Component {
       return <RadiologistInfo />
     }
   }
-
-
+  
 
   render() {
     return (

@@ -4,7 +4,7 @@ export default class ErrorMessage extends React.Component{
     state = {
         active: 'errorMessage',
     }
-
+    // display error message and image when data is unable to be retrieved from server API
     render() {
         
         return <React.Fragment>

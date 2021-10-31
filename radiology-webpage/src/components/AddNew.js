@@ -16,14 +16,19 @@ export default class AddNew extends React.Component {
         'radiologistId': '',
         'bodySystems': [],
         'scientificReferences': '',
+        // default values if text fields are not filled up
         textValid:false,
+        // default value if modality radio field is not checked 
         modalityValid:false,
+        // default value if body systems checkbox is not checked
         bodySystemsValid:false,
+        // add button is disabled at default
         submitDisabled: true,
 
 
     }
-
+    // Set the modality to user input value
+    // and set the modality to valid if one radio button is checked
     updateanswer = (evt) => {
 
         this.setState({
@@ -41,6 +46,9 @@ export default class AddNew extends React.Component {
     })
     }
 
+    // Set all the text fields to user input value
+    // and set the text to valid if there is at least a character 
+    // in all text fields
     updateFormField = (evt) => {
         this.setState({
             [evt.target.name]: evt.target.value,
@@ -61,7 +69,11 @@ export default class AddNew extends React.Component {
     }
 
 
-
+    // Set the bodySystems to user input value(checkboxes)
+    // And set the bodysystems field valid if there is at
+    // least one checkbox being checked
+    // If the text, modality and bodysystems fields are valid,
+    // the add button will be enabled
     updateitems = (evt) => {
         let clone;
         if (this.state.bodySystems.includes(evt.target.value)) {
@@ -89,6 +101,7 @@ export default class AddNew extends React.Component {
         })
     }
 
+    // change the current date to month DD YYYY format
     getDate() {
         let date = new Date()
         date = String(date)
@@ -96,6 +109,8 @@ export default class AddNew extends React.Component {
         return date
     }
 
+    // Set the error message if all the text fields are not filled up with
+    // at least 1 character
     error1 = () => {
         if (this.state.signsSymptomsTitle.length >= 1 && this.state.patientID.length >= 1
             && this.state.gender.length >= 1 && this.state.dob.length >= 1
@@ -108,6 +123,7 @@ export default class AddNew extends React.Component {
         }
     }
 
+    // Set the error message if the modality radio button is not checked
     error2 = () => {
         if (this.state.modality.length >= 1) {
             return true;
@@ -116,6 +132,7 @@ export default class AddNew extends React.Component {
         }
     }
 
+    // Set the error message if there is no bodysystems checkboxes being checked
     error3 = () => {
         if (this.state.bodySystems.length >= 1) {
             return true;
@@ -124,8 +141,10 @@ export default class AddNew extends React.Component {
         }
     }
 
+    // base url
     url = "https://expressvwxl777.herokuapp.com/"
 
+    // display add case form
     render() {
         return <React.Fragment>
             <div>
@@ -184,6 +203,7 @@ export default class AddNew extends React.Component {
             </div>
             <div>
                 <label className="form-label">Imaging modality:</label>
+                {/* set the error message for modality radio button */}
                 <span className="error"> {this.error2()}</span>
                 <ul>
 
@@ -203,6 +223,7 @@ export default class AddNew extends React.Component {
                 <label className="form-label">Published Date:</label>
                 <input type="text"
                     name="publishedDate"
+                    // the published date will be set to current date when adding a new case
                     value={this.getDate()}
                     onChange={this.updateFormField}
                     className="form-control" />
@@ -227,6 +248,7 @@ export default class AddNew extends React.Component {
             </div>
             <div>
                 <label className="form-label">Body Systems Involved:</label>
+                {/* set the error message for checkboxes */}
                 <span className="error"> {this.error3()}</span>
                 <div className="form-label checkbox">
                     <p><input type="checkbox" name="bodySystems" value="Cardiovascular" onChange={this.updateitems} checked={this.state.bodySystems.includes('Cardiovascular')} /><label>&nbsp;Cardiovascular</label></p>
@@ -266,10 +288,12 @@ export default class AddNew extends React.Component {
             </div>
 
             <button onClick={this.addPatient} className="my-3 btn btn-primary btn-sm" disabled={this.state.submitDisabled}>Add</button>
+            {/* set the error message for text input */}
             <span className="error"> {this.error1()}</span>
         </React.Fragment>
     }
 
+    // post the data to the server API after filling up the form fields for add
     addPatient = async () => {
         await axios.post(this.url + 'createNewCase', {
             signsSymptomsTitle: this.state.signsSymptomsTitle,

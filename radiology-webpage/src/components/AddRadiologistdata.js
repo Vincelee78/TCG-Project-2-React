@@ -9,15 +9,20 @@ export default class AddRadiologist extends React.Component {
         'speciality': '',
         'medicalInstitution': '',
         'email': '',
+        // default values if text fields are not filled up
         textValid: false,
+        // default value if speciality radio field is not checked 
         specialityValid: false,
+        // add button is disabled at default
         submitDisabled: true,
 
     }
-
+    // Base url
     url = "https://expressvwxl777.herokuapp.com/"
 
-
+    // Set all the text fields to user input value
+    // and set the text to valid if there is at least a character 
+    // in all text fields
     updateFormField = (evt) => {
         this.setState({
             [evt.target.name]: evt.target.value
@@ -34,7 +39,8 @@ export default class AddRadiologist extends React.Component {
         })
     }
 
-
+    // Set the speciality to user input value
+    // and set the speciality to valid if one radio button is checked
     updateanswer = (evt) => {
         this.setState({
             speciality: evt.target.value
@@ -49,7 +55,8 @@ export default class AddRadiologist extends React.Component {
 
         })
     }
-
+    // Set the error message if all the text fields are not filled up with
+    // at least 1 character
     error1 = () => {
         if (this.state.radiologistId.length >= 1
             && this.state.radiologistName.length >= 1
@@ -61,6 +68,7 @@ export default class AddRadiologist extends React.Component {
         }
     }
 
+    // Set the error message if the speciality radio button is not checked
     error2 = () => {
         if (this.state.speciality.length >= 1) {
             return true;
@@ -69,6 +77,7 @@ export default class AddRadiologist extends React.Component {
         }
     }
 
+    // Set the error message if the email field does not have @ character
     error3 = () => {
         if (this.state.email.includes('@')) {
             return true;
@@ -77,7 +86,7 @@ export default class AddRadiologist extends React.Component {
         }
     }
 
-
+    // display add radiologist form
     render() {
         return <React.Fragment>
             <div>
@@ -134,6 +143,7 @@ export default class AddRadiologist extends React.Component {
         </React.Fragment>
     }
 
+    // post the data to the server API after filling up the form fields for add
     AddRadiologist = async () => {
         await axios.post(this.url + 'AddRadiologist', {
             radiologistId: this.state.radiologistId,
@@ -144,6 +154,8 @@ export default class AddRadiologist extends React.Component {
 
         })
 
+        // in a class-based component, to access the
+        // props, we use `this.props`
         this.props.onAfterAddRadiologist()
     }
 

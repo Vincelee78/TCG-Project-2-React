@@ -13,48 +13,64 @@ import { format } from 'date-fns';
 export default class AllCasesContent extends React.Component {
     state = {
         'active': 'AllCasesContent',
+        // set default key as 1 for handleselect function
         key: '1',
+        // Set modal window display closed as default for radiologist ID
         open: false,
+        // Data for all cases       
         'data': [
 
         ],
+        // edit box closed as default
         userBeingEdited: 0,
         modifiedpatientId: '',
         modifiedGender: '',
+        // Date field has be null as empty
         modifieddob: null,
         modifiedclinicalHistory: '',
         modifiedmodality: '',
         modifiedcaseDiscussion: '',
+        // Body Systems is an array checkboxes
         modifiedbodySystem: [],
         modifiedscienticReferences: '',
         modifiedpublishedDate: '',
         modifiedsignSymptomsTitle: '',
         modifiedimages: '',
         modifiedradiologistId: '',
+        // Set modal window display closed as default for radiologist ID
         show: false,
         setsShow: false,
+
         radiologistId: '',
         radiologistName: '',
         radiologistSpeciality: '',
         radiologistmedicalInstitution: '',
         radiologistEmail: '',
+        // To set the filters value to each radio value
+        // in the filtering feature
         filters: '',
+        // radiologist info data details for cases radiologist ID
         radiologistdata: [],
+        // To match the respective case radiologist Id 
+        // with the radiologists info data Id
         radiologistIdBeingMatched: '',
 
     }
-
+    // Base URL
     url = "https://expressvwxl777.herokuapp.com/"
 
+    // Tooltip for display of words in the background for ratings
     renderTooltip = () => (
         <Tooltip >Favourite this case</Tooltip>
     );
 
+    // Fetch data once the page loads
     componentDidMount() {
         this.fetchData();
         this.retrieveRadiologistInfo();
     }
 
+    //  Fetch all cases data
     fetchData = async () => {
         try {
             let response = await axios.get(this.url + "patientsDataAllCases")
@@ -71,20 +87,26 @@ export default class AllCasesContent extends React.Component {
         }
     }
 
+    // Set active states for each page
     setActive(nextPage) {
         this.setState({
             'active': nextPage
         })
     }
 
+    // Set the modified modality to user input value during edit
     updateanswer = (evt) => {
         this.setState({
             modifiedmodality: evt.target.value
         })
     }
 
+    // Set the modifiedbodySystems to user input value(checkboxes) during edit
     updateitems = (evt) => {
+        // Check if the current checked checkboxes values include the target checkbox just changed
         if (this.state.modifiedbodySystem.includes(evt.target.value)) {
+            // Check if the current checked checkboxes values include the target checkbox just changed
+            // values, it means we are checking the checkbox, so we add the value to the array
             let clone = this.state.modifiedbodySystem.slice();
             let index = this.state.modifiedbodySystem.indexOf(evt.target.value)
             clone.splice(index, 1);
@@ -93,6 +115,8 @@ export default class AllCasesContent extends React.Component {
                 modifiedbodySystem: clone
             })
 
+            // if the value is already in the array, means we are unchecking
+            // we are pushing the current value of the checkbox to the cloned array
         } else {
 
             let clone = this.state.modifiedbodySystem.slice();
@@ -107,6 +131,7 @@ export default class AllCasesContent extends React.Component {
         }
     }
 
+    // change the current date to month DD YYYY format
     getDate() {
         let date = new Date()
         date = String(date)
@@ -114,13 +139,14 @@ export default class AllCasesContent extends React.Component {
         return date
     }
 
+    // close the modal window function
     handleClose = () => {
         this.setState({
             show: false
         })
     }
 
-
+    // function to map the radiologist details and display in modal window
     handleShow = (patientsData) => {
         this.state.radiologistdata.map(data => {
 
@@ -142,7 +168,7 @@ export default class AllCasesContent extends React.Component {
     }
 
 
-
+    // Set the active state to display all cases content accordingly in the Navtab
     handleSelect = (key) => {
         if (key === '1') {
             this.setState({
@@ -151,15 +177,11 @@ export default class AllCasesContent extends React.Component {
             })
 
             this.fetchData();
-
         }
-
     }
 
-    afterAddNewPatient = () => {
-        this.setActive('AllCasesContent')
-    }
-
+    // Retrieve the radiologist details from the server API to 
+    // display in the hightlighted radiologist ID field value
     retrieveRadiologistInfo = async () => {
 
         let response = await axios.get(this.url + 'allRadiologistDataforAllCases/')
@@ -171,11 +193,13 @@ export default class AllCasesContent extends React.Component {
 
     }
 
+    // Retrieve the filtered data from the server API
     filterAgeMore60 = async (evt) => {
         let response = await axios.get(this.url + "filterAgeMore60/")
 
 
-
+        // Set the all cases data to the filtered data
+        // according to the radio button checked
         this.setState({
             filters: evt.target.value,
             data: response.data
@@ -221,27 +245,27 @@ export default class AllCasesContent extends React.Component {
 
 
     deleteCase = async (caseId) => {
-        console.log(this.state.data)
-        console.log('Id', caseId)
+        // retrieve the case to be deleted from server API
         await axios.delete(this.url + "patientsDataAllCases/" + caseId)
 
-        // let modifiedCase= [...this.state.data]
-        // 1. find the index of the task
+
+        // 1. find the index of the case to be deleted
         let data_index = this.state.data.findIndex((c) => c._id === caseId);
-        console.log(data_index)
-        // 2. make a copy of the array, but skip over the task that we want to delete
+
+        // 2. make a copy of the array, but skip over the case that we want to delete
         let modifiedCase = [
             ...this.state.data.slice(0, data_index),
             ...this.state.data.slice(data_index + 1)
         ];
 
-
+        // 3. Update the array of all cases after the case is deleted
         this.setState({
             data: modifiedCase
         });
 
     };
 
+    // Set the respective fields to the user's target input when editing
     beginEdit = (patientsData) => {
         this.setState({
             userBeingEdited: patientsData._id,
@@ -261,15 +285,14 @@ export default class AllCasesContent extends React.Component {
     };
 
     async updateCase() {
-        // clone the original task
-        // let currentUser = this.state.users.filter((a) => a._id === user._id)[0];
-        // modifiedUser is the cloned original array
+        // clone the original case
+        // modifiedCase is the cloned original array
         let modifiedCase = this.state.data.slice();
+        // find the case that is being modified
         modifiedCase._id = this.state.userBeingEdited;
+        // send the the modified fields to the server API for the fields to be replaced
         await axios.put(this.url + 'updateEditedPatientCase/' + modifiedCase._id, {
 
-
-            // make changes to the clone
             patientID: this.state.modifiedpatientId,
             signsSymptomsTitle: this.state.modifiedsignSymptomsTitle,
             gender: this.state.modifiedGender,
@@ -284,29 +307,34 @@ export default class AllCasesContent extends React.Component {
             radiologistId: this.state.modifiedradiologistId
 
         })
-
+        // get the new replaced fields from the server API to be displayed
         let response = await axios.get(this.url + 'retrieveEditedPatientCase/' + modifiedCase._id)
         let modifiedCases = response.data
 
+        // find the index of the array that is modified
         let indexToModify = this.state.data.findIndex(
             (u) => u._id === modifiedCase._id
         );
-        // clone the task array and insert the cloned task into the cloned array
 
+        // clone the case array and insert the cloned case into the cloned array
         let cloned = [
             ...this.state.data.slice(0, indexToModify),
             modifiedCases,
             ...this.state.data.slice(indexToModify + 1)
         ];
 
+        // set the active state to the updated data to be displayed
         this.setState({
             data: cloned,
+            // close the edit box
             userBeingEdited: 0,
             active: 'AllCasesContent'
         })
 
     }
 
+    // display the fields to be edited with their original values in the case
+    // that is edited
     renderEditDisplay = (a) => {
         return (
 
@@ -386,7 +414,7 @@ export default class AllCasesContent extends React.Component {
                         </li>
                     </ul>
 
-
+                    {/* Set the revised published date to the current date in the edit field */}
                     <h6>Revised Date:</h6>
                     <input
                         type="text"
@@ -465,7 +493,7 @@ export default class AllCasesContent extends React.Component {
                         name="modifiedscientificReferences"
                     ></textarea> <br />
 
-
+                    {/* button to call the function to update case */}
                     <button className='btn btn-success' onClick={() => {
                         this.updateCase(a);
                     }}> Confirm </button>
@@ -477,6 +505,7 @@ export default class AllCasesContent extends React.Component {
         );
     }
 
+    // Modal window contents for radiologist data in the radiologist ID field in case
     displayModal = () => {
         this.state.data.map(patientsData => {
             if (this.state.radiologistId === patientsData.radiologistId) {
@@ -506,17 +535,20 @@ export default class AllCasesContent extends React.Component {
         })
     }
 
+    // display the featured case contents
     render() {
         return (
 
-
             this.state.data.map(patientsData => {
+                // find the id of the case that is to be edited and display
+                // the case fields
                 if (patientsData._id === this.state.userBeingEdited) {
                     return (
                         <React.Fragment key={patientsData._id}>
                             <div className="box">{this.renderEditDisplay()}</div>
                         </React.Fragment>
                     )
+                    // If the case is not being edited, display the case normally
                 } else {
                     return <React.Fragment>
 
@@ -535,18 +567,20 @@ export default class AllCasesContent extends React.Component {
                             </ul>
                         </div>
 
+                        {/* Navtabs to display different content in each tab */}
                         <Tabs activeKey={this.state.key} className="mb-3" id="controlled-tab-example" onSelect={(k) => this.handleSelect(k)} >
                             <Tab eventKey='1' title="All Cases" >
-
 
                                 <div className="card-group-all-cases">
                                     <div className="card-all-cases">
                                         <div className='buttonsAllCases'>
+                                            {/* Delete case */}
                                             <button className='deletebtn btn btn-danger'
                                                 onClick={() => {
                                                     this.deleteCase(patientsData._id);
                                                 }}
                                             >Delete</button><br />
+                                            {/* Edit case */}
                                             <button className='editButtonAllCases btn btn-success' onClick={() => {
                                                 this.beginEdit(patientsData);
                                             }}> Edit
@@ -556,9 +590,9 @@ export default class AllCasesContent extends React.Component {
 
                                         <div className='displayReviews'>
                                             <img src={patientsData.images} className="card-img-top" alt="..." />
-
+                                            {/* Tooltip to display the background words for the ratings feature*/}
                                             <OverlayTrigger className='reviewsAllCasesBtn' placement="bottom" overlay={this.renderTooltip()}>
-
+                                                {/* Heart icon ratings feature */}
                                                 <p className='rating' >
 
                                                     <input type='radio' value='5' name='rating' id='rating-5' />
@@ -589,14 +623,14 @@ export default class AllCasesContent extends React.Component {
                                             <h5 style={{ color: 'rgb(56, 54, 154)' }}>Case presentation: </h5>
                                             <h6>{patientsData.signsSymptomsTitle}</h6>
 
-                                            {/* Conditional rendering to display Patient ID if it only has a value/ Removed Patient ID during the search filtering using radio buttons*/}
-
+                                            {/* Conditional rendering to display Patient ID if it only has a value/ Remove Patient ID field during the search filtering if there is no value from server projection criteria*/}
                                             {
                                                 patientsData.patientID ?
                                                     <React.Fragment>
                                                         <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Patient ID:</h5>{patientsData.patientID}</p>
                                                     </React.Fragment> : ""
                                             }
+
                                             <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Patient's gender:</h5> {patientsData.gender}</p>
                                             <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Patient's date of birth</h5> {format(new Date(patientsData.dob), 'yyyy-MM-dd')}</p>
                                             <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Clinical History:</h5> {patientsData.clinicalHistory}</p>
@@ -605,7 +639,7 @@ export default class AllCasesContent extends React.Component {
                                             <h5 style={{ color: 'rgb(56, 54, 154)' }} className="card-text">Radiologist ID:</h5><p style={{ cursor: 'pointer', color: 'blue' }} variant="primary" onClick={() => {
                                                 this.handleShow(patientsData)
                                             }}> {patientsData.radiologistId}</p>
-
+                                            {/* Display a modal window to show the radiologist details */}
                                             <Modal show={this.state.show} onHide={this.handleClose}>
                                                 <Modal.Header closeButton>
                                                     <Modal.Title>Radiologist-{this.state.radiologistId}:</Modal.Title>
@@ -639,27 +673,17 @@ export default class AllCasesContent extends React.Component {
                                             {patientsData.bodySystems.map(i => <h5><span className="iconsAllCases">{i}</span></h5>)}
 
 
-
                                         </div>
                                     </div>
 
 
                                 </div>
+                                {/* Create a line between each case */}
                                 <hr style={{ height: '5px', size: "10", color: 'red' }} />
 
 
                             </Tab >
-                            <Tab eventKey='2' title="">
-
-                            </Tab>
-
-
-                            <Tab eventKey='3' title="" >
-
-                            </Tab>
-
                         </Tabs >
-
 
                     </React.Fragment >
 

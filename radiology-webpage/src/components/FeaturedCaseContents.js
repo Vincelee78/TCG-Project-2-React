@@ -41,14 +41,16 @@ export default class CarouselComponent extends React.Component {
 
         // radiologist info data details for featured case radiologist ID
         radiologistdata: [],
-        // edit box as closed as default
+        // edit box closed as default
         userBeingEdited: 0,
         modifiedpatientId: '',
         modifiedGender: '',
-        modifieddob: '',
+        // Date field has be null as empty
+        modifieddob: null,
         modifiedclinicalHistory: '',
         modifiedmodality: '',
         modifiedcaseDiscussion: '',
+        // Body Systems is an array checkboxes
         modifiedbodySystem: [],
         modifiedscienticReferences: '',
         modifiedpublishedDate: '',
@@ -78,7 +80,7 @@ export default class CarouselComponent extends React.Component {
 
     }
 
-    //  Fetch featured case data
+    //  Fetch featured case data, if not display error
     fetchData = async () => {
         try {
             let response = await axios.get(this.url + "featuredCase")
@@ -313,6 +315,7 @@ export default class CarouselComponent extends React.Component {
         // set the active state to the updated data to be displayed
         this.setState({
             data: cloned,
+            // close the edit box
             userBeingEdited: 0,
             active: 'featuredCase'
         })
@@ -400,7 +403,8 @@ export default class CarouselComponent extends React.Component {
                             <input name="MRI" type="radio" value={this.state.modifiedmodality} onChange={this.updateanswer} checked={this.state.modifiedmodality === 'MRI'} /><label>MRI</label>
                         </li>
                     </ul>
-
+                    
+                    {/* Set the revised published date to the current date in the edit field */}
                     <h6>Published Date (Revised):</h6>
                     <input
                         type="text"
@@ -592,6 +596,7 @@ export default class CarouselComponent extends React.Component {
                                                             <OverlayTrigger className='reviews' placement="top" overlay={this.renderTooltip()}>
                                                                 {/* Heart icon ratings feature */}
                                                                 <span className='rating'>
+                                                                    
                                                                     <input type='radio' value='5' name='rating' id='rating-5' />
                                                                     <label for='rating-5' title='5 stars'>
                                                                         <i class="fas fa-heart"></i>
@@ -683,7 +688,7 @@ export default class CarouselComponent extends React.Component {
 
                                         </div>
                                     </Tab>
-                                    {/* Each other tabs will call the onclick handleSelect function 
+                                    {/* Each tab will call the onclick handleSelect function 
                                     in the Radiologist ID field under h5 tab above to display their contents */}
                                     <Tab eventKey='2' title="Create New Report">
 

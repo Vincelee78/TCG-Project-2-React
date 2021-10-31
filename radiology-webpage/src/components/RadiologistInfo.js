@@ -11,13 +11,15 @@ export default class RadiologistInfo extends React.Component {
         ],
 
     }
-
+    // Base url
     url = "https://expressvwxl777.herokuapp.com/"
 
+    // Fetch radiologist data once the radiologist information page loads
     componentDidMount() {
         this.fetchData();
     }
 
+     // Fetch radiologist info data, if not display error
     fetchData = async () => {
         try {
             let response = await axios.get(this.url + "allradiologistData")
@@ -34,7 +36,7 @@ export default class RadiologistInfo extends React.Component {
         }
 
     }
-
+    // display radiologist details in table format
     render() {
         return (
             <React.Fragment>

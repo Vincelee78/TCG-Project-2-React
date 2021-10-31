@@ -6,7 +6,7 @@ export default class SuccessAddRadiologist extends React.Component{
     state = {
         active: 'successAddRadiologist',
     }
-
+    // display message and image when radiologist data is added successfully
     render() {
         return <React.Fragment>
             <div style={{textAlign:'center'}}>

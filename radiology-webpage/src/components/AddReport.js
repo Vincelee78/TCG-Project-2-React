@@ -9,17 +9,21 @@ export default class AddReport extends React.Component {
         'reportContent': '',
         'reportReferences': '',
         'reportTags': [],
+        // default values if text fields are not filled up
         textValid: false,
+        // default value if tags checkbox is not checked
         tagsValid: false,
+        // add button is disabled at default
         submitDisabled: true,
-
-
 
     }
 
+    // base url
     url = "https://expressvwxl777.herokuapp.com/"
 
-
+    // Set all the text fields to user input value
+    // and set the text to valid if there is at least a character 
+    // in all text fields
     updateFormField = (evt) => {
         this.setState({
             [evt.target.name]: evt.target.value
@@ -37,6 +41,11 @@ export default class AddReport extends React.Component {
         })
     }
 
+    // Set the tags to user input value(checkboxes)
+    // And set the tags field valid if there is at
+    // least one checkbox being checked
+    // If the text, modality and bodysystems fields are valid,
+    // the add button will be enabled
     updateitems = (evt) => {
 
         if (this.state.reportTags.includes(evt.target.value)) {
@@ -71,6 +80,7 @@ export default class AddReport extends React.Component {
         }
     }
 
+    // change the current date to month DD YYYY format
     getDate() {
         let date = new Date()
         date = String(date)
@@ -78,6 +88,8 @@ export default class AddReport extends React.Component {
         return date
     }
 
+    // Set the error message if all the text fields are not filled up with
+    // at least 1 character
     error1 = () => {
         if (this.state.reportId.length >= 1 && this.state.reportTitle.length >= 1
             && this.state.reportContent.length >= 1 && this.state.reportReferences.length >= 1
@@ -87,6 +99,8 @@ export default class AddReport extends React.Component {
             return 'Please check that you have input a value in all fields'
         }
     }
+
+    // Set the error message if there both tags checkboxes are not checked
     error2 = () => {
         if (this.state.reportTags.includes(this.getDate()) && this.state.reportTags.includes('Refer to peer reviewed articles above for integrity of report')) {
             return true;
@@ -95,6 +109,7 @@ export default class AddReport extends React.Component {
         }
     }
 
+    // display add report form
     render() {
         return <React.Fragment>
             <div>
@@ -146,6 +161,7 @@ export default class AddReport extends React.Component {
         </React.Fragment>
     }
 
+    // post the data to the server API after filling up the form fields for add report
     addReport = async () => {
         await axios.post(this.url + 'createReport', {
             reportId: this.state.reportId,

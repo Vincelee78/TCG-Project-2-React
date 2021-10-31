@@ -59,7 +59,7 @@ export default class Report extends React.Component {
         this.setState({
             data: modifiedReport
         });
-        //   console.log(modifiedCase)
+        
     };
 
     renderContent = () => {

@@ -1,9 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Tabs from 'react-bootstrap/Tabs';
-import Tab from 'react-bootstrap/Tab';
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Overlay from 'react-bootstrap/Overlay';
 import Tooltip from "react-bootstrap/Tooltip";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Modal';
@@ -11,31 +8,37 @@ import Button from 'react-bootstrap/Modal';
 export default class Search extends React.Component {
     state = {
         'active': 'Search',
+        // default empty string for search input value
         search: '',
+        // default empty data for search data
         dataSearch: [],
     }
 
+    // Base url
     url = "https://expressvwxl777.herokuapp.com/"
 
-    
+    // Tooltip for display of words in the background for ratings
     renderTooltip = () => (
         <Tooltip >Favourite this case</Tooltip>
     );
 
+    // Retreive case data from server API using user search input value
     setActiveSearch = async () => {
         try {
             await axios.get(this.url + "searchCases/", {
+                // parameter for user search input value
                 params: {
                     search: this.state.search
                 }
             })
+            // then set the search data with the data being retrieved from the server API using user search input
                 .then((res) => {
                     this.setState({
                         dataSearch: res.data
                     })
                 })
 
-
+        // error message when unable to get data
         } catch (e) {
             this.setState({
                 active: 'errorMessage'
@@ -43,7 +46,7 @@ export default class Search extends React.Component {
 
         }
     }
-
+    // set the active search value to the user search input value
     onChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -51,7 +54,7 @@ export default class Search extends React.Component {
     }
 
 
-
+    // display the cases accordingly to the user search input 
     display = () => {
         return (this.state.dataSearch.map(patientsData => {
 
@@ -65,9 +68,9 @@ export default class Search extends React.Component {
                             <div className="card-title">
                                 <div className='reviewFlex'>
                                     <h5 style={{ color: 'rgb(0, 175, 185)' }}>Case presentation:</h5>
-
+                                    {/* Tooltip to display the background words for the ratings feature*/}
                                     <OverlayTrigger className='reviews' placement="top" overlay={this.renderTooltip()}>
-
+                                        {/* Heart icon ratings feature */}
                                         <span className='rating'>
 
                                             <input type='radio' value='5' name='rating' id='rating-5' />
@@ -100,6 +103,7 @@ export default class Search extends React.Component {
                             </div>
 
                             <h5 style={{ color: 'rgb(0, 175, 185)' }}>Patient ID:</h5> <p>{patientsData.patientID}</p>
+                            {/* Conditional rendering to display patient gender if it only has a value/ Remove patient gender field if there is no value from server projection criteria*/}
                             {
                                 patientsData.gender ?
                                     <React.Fragment>
@@ -135,8 +139,6 @@ export default class Search extends React.Component {
                                                 <p className="card-text"><h5 style={{ color: 'rgb(56, 54, 154)' }}>Radiologist's Email: </h5>{this.state.radiologistEmail}</p>
                                             </div>
 
-
-
                                         </Modal.Body>
 
                                         <Modal.Footer>
@@ -166,7 +168,8 @@ export default class Search extends React.Component {
         }))
 
     }
-
+    // display this search bar as default until user enters search value and onclick will call
+    // the active search function and display the search results
     render() {
         return (
             <React.Fragment>

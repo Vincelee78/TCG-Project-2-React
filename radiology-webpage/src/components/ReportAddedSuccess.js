@@ -7,6 +7,7 @@ export default class SuccessAddReport extends React.Component{
         active: 'successAddReport',
     }
 
+    // display message and image when new report added successfully
     render() {
         return <React.Fragment>
             <div style={{textAlign:'center'}}>

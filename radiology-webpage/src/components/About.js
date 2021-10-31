@@ -7,8 +7,6 @@ import spinalimplant from '../images/3d-spinal-implant.jpg';
 
 
 
-
-
 export default class About extends React.Component {
 
 
@@ -41,6 +39,7 @@ export default class About extends React.Component {
                     <h4 class=" mx-5 pt-2" style={{ color: 'wheat' }}>I have worked in healthcare in the past couple of years in Australia after my studies there. I spent 13 years in Australia since finishing my final year of high school there. My background is in radiography and medicine. I also have some experience in 3D printing in Siemens Singapore after coming back recently.
                         I am now in the midst of a mid-career transition to information technology.
                     </h4>
+                    {/* display the images flexed 2 in a row */}
                     <div className='images p-4 d-flex justify-content-around img1'>
                         <img src={work} />
                         <img src={spouse} />

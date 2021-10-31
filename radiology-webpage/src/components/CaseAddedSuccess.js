@@ -6,7 +6,7 @@ export default class SuccessAddMessage extends React.Component{
     state = {
         active: 'successAddMessage',
     }
-
+    // display message and image when case added successfully
     render() {
         return <React.Fragment>
             <div style={{textAlign:'center'}}>
