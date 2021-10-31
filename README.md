@@ -27,7 +27,7 @@ The project skeleton and structure (wireframes) can be found [here](https://docs
 #### (ii) Design
 The bootstrap plugin was used for the react component of the website (with custom tweaking) as it allows for better visual design of buttons and also an easy grid layout.
 
-The landing page of the website comprises of a navbar and a carousel component( A visual representation of the radiology branch in medicine) using vanilla bootstrap. The website has a blue background as blue is typically associated with credibility, trust, knowledge, professionalism, cleanliness, calm and focus. Because all of these qualities are valued in the medical community, blue is the ideal choice for medical related designs. 
+The landing page of the website comprises of a navbar, a carousel component( A visual representation of the radiology branch in medicine) using vanilla bootstrap and a Navtab using React bootstrap (with custom tweaking). The website has a blue background as blue is typically associated with credibility, trust, knowledge, professionalism, cleanliness, calm and focus. Because all of these qualities are valued in the medical community, blue is the ideal choice for medical related designs. 
 
 The tabs in the Navbar have large fonts and are highlighted in a darker colour when it is being hovered over for easy reading.
 
@@ -48,9 +48,9 @@ For a better user experience for mobile devices, I repositioned the tabs so it f
 Based on the user's needs and objectives, these are the guidelines for the features that were implemented.
 | User Stories| Features|
 | ------ | ------ |
-| User wants to add a new radiology case| When in the landing page, user can see the featured case. On the nav tab under the featured case, user can click on the 'Add Case' in the 3rd tab of the base nav to add a new case. User has to fill in all fields before he/she can add a new case (form validation). |
-| User wants to add a new report| On the the nav tab under the featured case, user can click on the 'Create New Report' in the 2nd tab of the base nav. User has to fill in all fields before he/she can add a new report (form validation). |
-| User(radiologist) wants to add his own details | On the the nav tab under the featured case, user(radiologist) can click on the 'Add Radiologist' in the 4th tab of the base nav. User has to fill in all fields before he/she can add his own details (form validation). |
+| User wants to add a new radiology case| When in the landing page, user should scroll down and the featured case will be below the Carousel feature. In the nav tab under the featured case, user can click on the 'Add Case' in the 3rd tab on top of the Navtab to add a new case. User has to fill in all fields before he/she can add a new case (form validation). |
+| User wants to add a new report| On the the nav tab under the featured case, user can click on the 'Create New Report' in the 2nd tab of the nav tab. User has to fill in all fields before he/she can add a new report (form validation). |
+| User (radiologist) wants to add his own details | On the the nav tab under the featured case, user (radiologist) can click on the 'Add Radiologist' in the 4th tab of the nav tab. User has to fill in all fields before he/she can add his own details (form validation). |
 | User wants to search for cases based on keywords| On the the nav tab under the featured case, user can click on the 'Search Cases' in the 5th tab of the base nav. User can enter keywords and the database will search in the 'Signs and Symptoms' section or the 'Case Discussion' section or 'Modality' section in each case and display all the case results based on the keywords. |
 | User wants to edit the featured case| User can scroll down to the bottom of the featured case and click on the 'edit case' green button. All the fields will already be filled up based on the original case fields. User can click in any of the fields to edit the case. The radiologist ID cannot be edited as the case belongs to the radiologist who uploaded it. The published date (revised) will be automatically set to the current date. |
 | User wants to know about the aim and objectives of the website | User can click on the About section in the Navbar on the top right of the screen in the landing page. |
@@ -83,7 +83,7 @@ Based on the user's needs and objectives, these are the guidelines for the featu
 * [React Bootstrap](https://react-bootstrap.github.io/)
 <br> This project uses React Bootstrap for added features such as the Nav tabs and allow the displaying of the data in each individual tab by tweaking the handleSelect code in the original code. I also used it for the Modal box, Accordion display,  Overlay display and the Tooltip display for the User favourite rating feature.
 * [date-fns](https://date-fns.org/)
-<br> This project uses date-fns toolset to change the datetime format in mongoDB to a more readable date format in react.
+<br> This project uses date-fns toolset to change the datetime format in mongoDB to a more readable date format in React.
 * [FontAwesome 5.15.4](https://fontawesome.com/v5/changelog/latest)
 <br> This project uses FontAwesome to add custom icons such as the heart icons for the ratings feature of the website.
 * [Axios 0.21.1](https://www.npmjs.com/package/axios/v/0.21.1) 
@@ -91,28 +91,30 @@ Based on the user's needs and objectives, these are the guidelines for the featu
 * [MongoDB](https://www.mongodb.com/)
 <br> This project uses MongoDB to store documents in the collections which the user has uploaded in React. 
 * [ExpressJS 4.17.1](https://expressjs.com/)
-<br> This project uses ExpressJS to provide methods to specify what function is called for a particular HTTP verb ( GET , POST , PUT , DELETE) and URL pattern ("Route"), and to retrieve data from MongoDB and send them to React or vice versa.
+<br> This project uses ExpressJS to provide methods to specify what function is called for a particular HTTP verb ( GET , POST , PUT , DELETE) and URL pattern and to retrieve data from MongoDB and send them to React or vice versa.
 
 ### 5. Testing
 | Test Case Number| Test Case Description| Results|
 | ------ | ------ | ------ |
-| 1 | On the landing page, user should see a Carousel feature with a featured case. User can click on the collapsible accordion for info on the featured case. | Pass |
-| 2 | On the landing page, user can click on the green edit button to edit the featured case | Pass |
-| 3 | On the landing page, user can click on the radiologist ID field value (highlighted blue) in the featured case to bring up a modal box to show the radiologist details for the case | Pass |
-| 4 | On the landing page, user can click on 2nd tab of the NavTab 'Create New Report' and fill in the fields to add a new report. The new report will be shown as the last report in the report page in the Navbar | Pass |
-| 5 | On the landing page, user can click on 3rd tab of the NavTab 'Add Case' and fill in the fields to add a new case. The new case will be shown as the last case in the All Cases page in the Navbar | Pass |
-| 6 | On the landing page, user can click on 4th tab of the NavTab 'Add Radiologist' and fill in the fields to add their radiologist details. The new radiologist details will be shown as the last row in the table radiologist information page in the Navbar | Pass |
-| 7 | On the landing page, user can click on 5th tab of the NavTab 'Search Cases' and enter keywords to search for cases with those keywords. The results will be displayed in the same tab in the 'Search Cases' tab | Pass |
-| 8 | On the landing page, user can click on the 'About' bar in the NavBar to show a new page which displays background information and the aims and objectives of the website | Pass |
-| 9 | On the landing page, user can click on the 'Reports' bar in the NavBar to show a new page which displays all reports  | Pass |
-| 10 | In the reports page, user can click on heart icons to give a rating for each report | Pass |
-| 11 | In the reports page, user can click on the red delete button on the bottom of each report to delete the report | Pass |
-| 12 | From the reports page, user can click on the 'All Cases' bar in the NavBar to show a new page which displays all cases. Clicking on the accordion just above the Carousel will collapse the Carousel to allow better navigation of all the cases  | Pass |
-| 13 | In the all cases page, user can filter the cases by the criteria by clicking on the radio buttons on the top of the Nav Tab. The results will be filtered accordingly | Pass |
-| 14 | In the all cases page, user can edit or delete the cases by clicking on the respective buttons. The case will be updated or deleted accordingly | Pass  |
-| 15 | In the all cases page, user can click on heart icons under the radiological image of each case to give a rating for the case | Pass  |
-| 16 | In the all cases page, user can click on the radiologist ID field value (highlighted blue) in each case to bring up a modal box to show the radiologist details for the case | Pass |
-| 17 | In the all cases page, user can click on the 'Radiologist Information' bar in the NavBar to show a new page which displays all radiologists details in a table | Pass |
+| 1 | On the landing page, you should see a Carousel feature with a featured case below it. Clicking on the accordion 'Information on Featured Case' will collapse it. Clicking on the other accordions will pan out an information box explaining information based on the title on the accordion  | Pass |
+| 2 | On the landing page, clicking on the green edit case button under the featured case will open a box containing all the fields(which have been pre-filled) to be edited. Clicking on the 'confirm' button will update the featured case accordingly to the fields that were filled up | Pass |
+| 3 | On the landing page, clicking on the radiologist ID field value (highlighted blue) in the featured case will bring up a modal box to show the radiologist details R03, Dr Rachael Ang and her details | Pass |
+| 4 | On the landing page, clicking on 2nd tab of the NavTab 'Create New Report' will render a form to be filled up. Filling up all the form fields will enable the create report button to be active. Clicking on the create report button next will will show a successful message and add a new report to the report page.  The new report will be shown as the last report in the report page of the Navbar | Pass |
+| 5 | On the landing page, clicking on 3rd tab of the NavTab 'Add Case' will render a form to be filled up. Filling up all the form fields will enable the Add button to be active. Clicking on the add button next will show a successful message and add a new case to the all cases page. The new case will be shown as the last case in the All Cases page of the Navbar | Pass |
+| 6 | On the landing page, clicking on 4th tab of the NavTab 'Add Radiologist' will render a form to be filled up. Filling up all the form fields will enable the Add new radiologist button to be active. Clicking on the add new radiologist button next will show a successful message and add a radiologist to the radiologist information page.The new radiologist details will be shown as the last row in the table in the radiologist information page of the Navbar | Pass |
+| 7 | On the landing page, clicking on 5th tab of the NavTab 'Search Cases' will show a text box will a search icon. Entering the keyword 'fracture' will display 2 cases. The first case is a CT with 2 sternal body fractures and the 2nd case is an ultrasound case with left chest wall trauma and pneumothorax diagnosis | Pass |
+| 8 | From the landing page, clicking on the 'About' bar in the NavBar will show a new page which displays background information and the aims and objectives of the website | Pass |
+| 9 | From the About page, clicking on the 'Reports' bar in the NavBar will show a new page which displays 2 reports that were already in the database  | Pass |
+| 10 | In the reports page, clicking on heart icons will allow the hearts to be highlighted for a rating | Pass |
+| 11 | In the reports page, clicking on the red delete button on the bottom of each report will delete the report | Pass |
+| 12 | From the reports page, clicking on the 'All Cases' bar in the NavBar will show a new page which displays 5 cases that were already in the database. Clicking on the accordion just above the Carousel will collapse the Carousel feature to allow better scrolling to the cases below | Pass |
+| 13 | In the all cases page, clicking on the radio button at the top 'Patients younger than 21' will filter the cases by the criteria and show 1 case which diagnosis is a bullet in the rectum X-ray. Clicking on the other radio buttons will filter to the criteria accordingly | Pass |
+| 14 | In the all cases page, clicking on the green edit button on the left of each case image will display a box with the fields(pre-filled) to be edited. Clicking on the confirm button next will update that case fields. Clicking on the red delete button above the edit button will delete that case | Pass  |
+| 15 | In the all cases page, clicking on heart icons under the radiological image of each case will highlight the heart icons accordingly. Clicking on 4 hearts will favourite the case as 4 stars | Pass  |
+| 16 | In the all cases page, clicking on the radiologist ID field value (highlighted blue) in the first case(MRI, prostate cancer) will bring up a modal box showing the radiologist R02, Dr John Wong and his details | Pass |
+| 17 | From the all cases page, clicking on the 'Radiologist Information' bar in the NavBar will show a new page which displays 4 radiologist details that were already in the database  | Pass |
+| 18 | After testing the add, edit and delete buttons for the reports, featured case, all cases, radiologist information and all the functions above, I checked the express server terminal in my express/mongoDB gitpod to see whether there are any errors. There were no errors in my express server terminal  | Pass |
+
 
 #### (i) Mobile Responsiveness
 - The test results can be found [here](https://search.google.com/test/mobile-friendly/result?id=84WEjVlEU9HRktwiAVtipg). 
