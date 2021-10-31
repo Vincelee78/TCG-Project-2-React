@@ -548,6 +548,7 @@ nav > div > div > ul > li {
   float: right;
 }
 
+/* heart icons ratings css */
 .rating > input:checked ~ label,
 .rating:not(:checked) > label:hover,
 .rating:not(:checked) > label:hover ~ label {
