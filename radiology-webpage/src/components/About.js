@@ -67,12 +67,12 @@ export default class About extends React.Component {
                     </h4>
                     {/* display the images flexed 2 in a row */}
                     <div className="images p-4 d-flex justify-content-around img1">
-                        <img src={work} />
-                        <img src={spouse} />
+                        <img src={work} alt=""/>
+                        <img src={spouse} alt=""/>
                     </div>
                     <div className="images p-4 d-flex justify-content-around img2">
-                        <img src={project} />
-                        <img src={spinalimplant} />
+                        <img src={project} alt=""/>
+                        <img src={spinalimplant} alt=""/>
                     </div>
                 </div>
 
