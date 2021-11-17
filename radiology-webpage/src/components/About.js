@@ -16,7 +16,7 @@ export default class About extends React.Component {
                         <h4 class=" my-4" style={{ color: "gold" }}>
                             <b>MedRadiology’s mission</b> is to create the best radiology
                             reference the world has ever seen and to make it available
-                            <b>for free, for ever, for all.</b>
+                            <b> for free, for ever, for all.</b>
                         </h4>
                         <hr class="my-4" />
                         <div class="footer" style={{ color: "wheat" }}>
