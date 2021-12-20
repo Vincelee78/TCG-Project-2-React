@@ -10,7 +10,8 @@ By sharing our collective experience through interesting patient cases, we can m
 ## Context: 
 I realised many medical professsionals in low and middle-income regions who do not have access to traditional pay-wall resources have limited exposure to medical resources. By creating this open-edit educational radiology resource, it will allow accessibility of radiology information to medical professionals from all around the world, particularly to these regions.
 
-## Demo: 
+## Screenshot of website and deployment: 
+![MedRadiology](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639976817/project_2_landing_page_2_i6zgti.jpg "MedRadiology")
 A live website server can be found on the [Netlify server](https://project2-medradiology-vincent.netlify.app/App.js)
 
 ## Index:
