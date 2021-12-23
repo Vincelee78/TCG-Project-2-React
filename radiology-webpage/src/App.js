@@ -30,7 +30,7 @@ export default class App extends React.Component {
   }
 
   // Base url
-  url = "https://expressvwxl777.herokuapp.com/"
+  // url = "https://expressvwxl777.herokuapp.com/"
 
 
   // Fetch data once the page loads
@@ -200,7 +200,7 @@ export default class App extends React.Component {
               {/* Conditional rendering of components in the Navtabs */}
               {(this.state.active !== 'AllCasesContent' && this.state.active !== 'Reports' && this.state.active !== 'RadiologistInfo' && this.state.active !== 'About') && <p className="title" id="title1"><FeaturedCaseContents /></p>}
               <div className='wrapper2'>
-                {this.state.active === 'AllCasesContent' ? <div className='title3'><AllCasesContent /> </div> : null} {this.state.active === 'errorMessage' ? <div className='title3'> <ErrorMessage /></div> : null}
+                {this.state.active === 'AllCasesContent' ? <div className='title3'><AllCasesContent /> </div> : null} {this.state.active === 'errorMessage' ? <div className='title3'> <ErrorMessage errorTextColour="text-danger" errorFontSize="display-6"/></div> : null}
 
               </div>
             </div>

@@ -201,7 +201,7 @@ export default class AddReport extends React.Component {
 
                 <button
                     onClick={this.addReport}
-                    className="my-3 btn btn-primary btn-sm"
+                    className={`my-3 btn btn-sm ${this.state.submitDisabled? 'btn-secondary': 'btn-success'}`} 
                     disabled={this.state.submitDisabled}
                 >
                     Create Report
