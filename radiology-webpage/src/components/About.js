@@ -66,13 +66,25 @@ export default class About extends React.Component {
                         midst of a mid-career transition to information technology.
                     </h4>
                     {/* display the images flexed 2 in a row */}
-                    <div className="images p-4 d-flex justify-content-around img1">
-                        <img src={work} alt=""/>
-                        <img src={spouse} alt=""/>
+                    <div className="images p-4 d-flex flex-column align-items-center">
+                        <img src={work} alt="" width="500px" height="400px" />
+                        <div class='d-flex flex-column text-white'>
+                            <p>(My fellow radiographers and healthcare staff in Australia)</p>
+                        </div>
+                        <img src={spouse} alt="" width="500px" height="500px" />
+                        <div class='d-flex flex-column text-white'>
+                            <span>(Me and my wife)</span>
+                        </div>
                     </div>
-                    <div className="images p-4 d-flex justify-content-around img2">
-                        <img src={project} alt=""/>
-                        <img src={spinalimplant} alt=""/>
+                    <div className="images p-4 d-flex flex-column align-items-center">
+                        <img src={project} alt="" width="500px" height="500px" />
+                        <div class='d-flex flex-column text-white'>
+                            <p>(Project collaboration with A*star as a trainee with Siemens)</p>
+                        </div>
+                        <img src={spinalimplant} alt="" width="500px" height="500px" />
+                        <div class='d-flex flex-column text-white'>
+                            <span>(Completed spinal implant 3D-printed prototype)</span>
+                        </div>
                     </div>
                 </div>
 

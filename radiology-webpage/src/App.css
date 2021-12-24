@@ -303,11 +303,6 @@ nav > div > div > ul > li {
   padding-left: 30px;
 }
 
-/* images in About section */
-.images > img {
-  width: auto;
-  height: 500px;
-}
 
 /* padding between form contents in add case*/
 .card-body {

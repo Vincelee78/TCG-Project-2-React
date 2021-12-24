@@ -30,7 +30,7 @@ export default class App extends React.Component {
   }
 
   // Base url
-  // url = "https://expressvwxl777.herokuapp.com/"
+  url = "https://expressvwxl777.herokuapp.com/"
 
 
   // Fetch data once the page loads
@@ -115,9 +115,9 @@ export default class App extends React.Component {
               </button>
               {/* Navbar pages */}
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 main-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#" onClick={this.setActiveAbout}>ABOUT</a>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 main-nav ">
+                  <li class="nav-item ">
+                    <a class="nav-link active rounded-3" aria-current="page" href="#" onClick={this.setActiveAbout}>ABOUT</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#" onClick={this.setActiveReports}>REPORTS</a>
@@ -126,8 +126,8 @@ export default class App extends React.Component {
                     <a class="nav-link" href="#" onClick={this.setActiveAllCases}>ALL CASES</a>
                   </li>
 
-                  <li class="nav-item">
-                    <a class="nav-link" href="#" onClick={this.setActiveRadiologist}>RADIOLOGIST INFORMATION</a>
+                  <li class="nav-item ">
+                    <a class="nav-link rounded-3" href="#" onClick={this.setActiveRadiologist}>RADIOLOGIST INFORMATION</a>
                   </li>
                 </ul>
 
