@@ -8,11 +8,11 @@ export default class ErrorMessage extends React.Component {
     render() {
 
         return <React.Fragment>
-            {/* <div className={this.props.errorTextColour ? this.props.errorTextColour : ""}
+            <div className={this.props.errorTextColour ? this.props.errorTextColour : ""}
                 style={{ textAlign: 'center' }}>
                 <h1 className={this.props.errorFontSize ? this.props.errorFontSize:""} >Error: Server is down. Please contact admin</h1>
                 <img className='errorMessageImg' src='https://i.imgur.com/mrVreye.gif' alt='' />
-            </div> */}
+            </div>
         </React.Fragment>
 
     }
