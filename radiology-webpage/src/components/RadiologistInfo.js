@@ -9,7 +9,7 @@ export default class RadiologistInfo extends React.Component {
         data: [],
     };
     // Base url
-    url = "https://expressvwxl777.herokuapp.com/";
+    url = "https://project2-6t3i.onrender.com/";
 
     // Fetch radiologist data once the radiologist information page loads
     componentDidMount() {

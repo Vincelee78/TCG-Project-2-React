@@ -155,7 +155,7 @@ export default class AddNew extends React.Component {
     };
 
     // base url
-    url = "https://expressvwxl777.herokuapp.com/";
+    url = "https://project2-6t3i.onrender.com/";
 
     // display add case form
     render() {

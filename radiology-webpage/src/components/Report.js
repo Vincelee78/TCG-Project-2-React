@@ -9,7 +9,7 @@ export default class Report extends React.Component {
         active: "Reports",
         data: [],
     };
-    url = "https://expressvwxl777.herokuapp.com/";
+    url = "https://project2-6t3i.onrender.com/";
 
     componentDidMount() {
         this.fetchData();

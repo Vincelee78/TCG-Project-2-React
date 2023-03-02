@@ -52,7 +52,7 @@ export default class AllCasesContent extends React.Component {
         radiologistIdBeingMatched: "",
     };
     // Base URL
-    url = "https://expressvwxl777.herokuapp.com/";
+    url = "https://project2-6t3i.onrender.com/";
 
     // Tooltip for display of words in the background for ratings
     renderTooltip = () => <Tooltip>Favourite this case</Tooltip>;

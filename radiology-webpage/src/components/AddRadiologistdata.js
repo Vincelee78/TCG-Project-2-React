@@ -16,7 +16,7 @@ export default class AddRadiologist extends React.Component {
         submitDisabled: true,
     };
     // Base url
-    url = "https://expressvwxl777.herokuapp.com/";
+    url = "https://project2-6t3i.onrender.com/";
 
     // Set all the text fields to user input value
     // and set the text to valid if there is at least a character

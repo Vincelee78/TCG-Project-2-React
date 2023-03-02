@@ -30,7 +30,7 @@ export default class App extends React.Component {
   }
 
   // Base url
-  url = "https://expressvwxl777.herokuapp.com/"
+  url = "https://project2-6t3i.onrender.com"
 
 
   // Fetch data once the page loads

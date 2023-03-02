@@ -19,7 +19,7 @@ import ErrorMessage from "../components/Errormessage";
 
 export default class CarouselComponent extends React.Component {
   // Base URL
-  url = "https://expressvwxl777.herokuapp.com/";
+  url = "https://project2-6t3i.onrender.com/";
 
   state = {
     active: "featuredCase",
