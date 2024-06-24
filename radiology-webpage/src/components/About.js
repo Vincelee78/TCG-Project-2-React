@@ -71,10 +71,10 @@ export default class About extends React.Component {
                         <div class='d-flex flex-column text-white'>
                             <p>(My fellow radiographers and healthcare staff in Australia)</p>
                         </div>
-                        <img src={spouse} alt="" width="500px" height="500px" />
-                        <div class='d-flex flex-column text-white'>
-                            <span>(Me and my wife)</span>
-                        </div>
+                        // <img src={spouse} alt="" width="500px" height="500px" />
+                        // <div class='d-flex flex-column text-white'>
+                        //     <span>(Me and my wife)</span>
+                        // </div>
                     </div>
                     <div className="images p-4 d-flex flex-column align-items-center">
                         <img src={project} alt="" width="500px" height="500px" />
