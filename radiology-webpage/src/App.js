@@ -156,7 +156,7 @@ export default class App extends React.Component {
                     <Carousel.Item interval={3000}>
                       <img
                         className="d-block w-100"
-                        src="https://www.elsevier.com/__data/assets/image/0012/1022133/Radiology-at-a-Crossroads_Five-converging-trends-reshaping-the-need-for-diagnostic-decision-support.JPG"
+                        src="https://cdn-prod.medicalnewstoday.com/content/images/articles/327/327331/a-radiologist-busy-looking-at-some-x-rays.jpg"
                         alt="First slide"
                       />
                       <Carousel.Caption>
