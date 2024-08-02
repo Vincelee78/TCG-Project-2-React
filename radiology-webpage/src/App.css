@@ -60,7 +60,7 @@ nav > div > div > ul > li {
   text-decoration: none;
   cursor: pointer;
   color: white;
-  padding: 30px 60px !important;
+  padding: 30px 20px !important; 
 }
 
 #navbarSupportedContent {

@@ -105,7 +105,7 @@ export default class App extends React.Component {
       <React.Fragment>
         {/* Logo and Title of website */}
         <div id="nav">
-          <img src={logo} alt={logo} id="logo" />
+          <img src={logo} alt={logo} id="logo"  />
           <a style={{ fontFamily: 'Impact, fantasy', textDecoration: 'none' }} id="pagename" href='App.js'>MedRadiology</a>
           {/* Navbar bootstrap */}
           <nav class="navbar navbar-expand-lg navbar-light">
@@ -151,7 +151,7 @@ export default class App extends React.Component {
               <Accordion.Body>
 
                 {/* Carousel */}
-                <div className='carouselTitle'>
+                {/* <div className='carouselTitle'>
                   <Carousel fade>
                     <Carousel.Item interval={3000}>
                       <img
@@ -186,7 +186,7 @@ export default class App extends React.Component {
                       </Carousel.Caption>
                     </Carousel.Item>
                   </Carousel>
-                </div>
+                </div> */}
 
               </Accordion.Body>
             </Accordion.Item>
