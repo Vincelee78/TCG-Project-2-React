@@ -12,7 +12,7 @@ I realised many medical professsionals in low and middle-income regions who do n
 
 ## Screenshot of website and deployment: 
 ![MedRadiology](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639976817/project_2_landing_page_2_i6zgti.jpg "MedRadiology")
-A live website server can be found on the [Netlify server](https://project2-medradiology-vincent.netlify.app/App.js)
+A live website server can be found on the [Netlify server](https://med-radiology-vincent.netlify.app/)
 
 ## Index:
 1. UX/UI
